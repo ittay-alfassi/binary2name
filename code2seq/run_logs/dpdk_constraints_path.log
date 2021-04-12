@@ -1,0 +1,523 @@
+703
+200
+/home/abdallahy/miniconda3/envs/cs236781-hw/lib/python3.7/site-packages/tensorflow/python/framework/dtypes.py:526: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint8 = np.dtype([("qint8", np.int8, 1)])
+/home/abdallahy/miniconda3/envs/cs236781-hw/lib/python3.7/site-packages/tensorflow/python/framework/dtypes.py:527: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint8 = np.dtype([("quint8", np.uint8, 1)])
+/home/abdallahy/miniconda3/envs/cs236781-hw/lib/python3.7/site-packages/tensorflow/python/framework/dtypes.py:528: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint16 = np.dtype([("qint16", np.int16, 1)])
+/home/abdallahy/miniconda3/envs/cs236781-hw/lib/python3.7/site-packages/tensorflow/python/framework/dtypes.py:529: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint16 = np.dtype([("quint16", np.uint16, 1)])
+/home/abdallahy/miniconda3/envs/cs236781-hw/lib/python3.7/site-packages/tensorflow/python/framework/dtypes.py:530: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint32 = np.dtype([("qint32", np.int32, 1)])
+/home/abdallahy/miniconda3/envs/cs236781-hw/lib/python3.7/site-packages/tensorflow/python/framework/dtypes.py:535: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  np_resource = np.dtype([("resource", np.ubyte, 1)])
+Namespace(data_path='data/dpdk_constraints_final/dpdk_constraints_final', debug=False, load_path='models/dpdk_constraints_final/model_iter39', max_path_len=703, predict=False, release=False, save_path_prefix='models/dpdk_constraints_final/model', seed=239, test_path='data/dpdk_constraints_final/dpdk_constraints_final.val.c2s', vocab_max=200)
+2020-10-16 22:49:56.052770: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-10-16 22:49:56.086909: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2100005000 Hz
+2020-10-16 22:49:56.092469: I tensorflow/compiler/xla/service/service.cc:150] XLA service 0x5608f427f080 executing computations on platform Host. Devices:
+2020-10-16 22:49:56.092507: I tensorflow/compiler/xla/service/service.cc:158]   StreamExecutor device (0): <undefined>, <undefined>
+Loading dictionaries from: models/dpdk_constraints_final/model_iter39
+Done loading dictionaries
+Created model
+Starting training
+
+WARNING: The TensorFlow contrib module will not be included in TensorFlow 2.0.
+For more information, please see:
+  * https://github.com/tensorflow/community/blob/master/rfcs/20180907-contrib-sunset.md
+  * https://github.com/tensorflow/addons
+If you depend on functionality not listed there, please file an issue.
+
+WARNING:tensorflow:From /home/abdallahy/Security_Project/sec_binary2name/binary2name/code2seq/reader.py:101: to_int64 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.cast instead.
+WARNING:tensorflow:From /home/abdallahy/Security_Project/sec_binary2name/binary2name/code2seq/reader.py:161: to_float (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.cast instead.
+WARNING:tensorflow:From /home/abdallahy/miniconda3/envs/cs236781-hw/lib/python3.7/site-packages/tensorflow/python/data/ops/dataset_ops.py:1419: colocate_with (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Colocations handled automatically by placer.
+WARNING:tensorflow:From /home/abdallahy/Security_Project/sec_binary2name/binary2name/code2seq/model.py:483: LSTMCell.__init__ (from tensorflow.python.ops.rnn_cell_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+This class is equivalent as tf.keras.layers.LSTMCell, and will be replaced by that in Tensorflow 2.0.
+WARNING:tensorflow:From /home/abdallahy/Security_Project/sec_binary2name/binary2name/code2seq/model.py:495: bidirectional_dynamic_rnn (from tensorflow.python.ops.rnn) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `keras.layers.Bidirectional(keras.layers.RNN(cell))`, which is equivalent to this API
+WARNING:tensorflow:From /home/abdallahy/miniconda3/envs/cs236781-hw/lib/python3.7/site-packages/tensorflow/python/ops/rnn.py:443: dynamic_rnn (from tensorflow.python.ops.rnn) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `keras.layers.RNN(cell)`, which is equivalent to this API
+WARNING:tensorflow:From /home/abdallahy/miniconda3/envs/cs236781-hw/lib/python3.7/site-packages/tensorflow/python/ops/rnn.py:626: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.cast instead.
+WARNING:tensorflow:From /home/abdallahy/miniconda3/envs/cs236781-hw/lib/python3.7/site-packages/tensorflow/python/ops/rnn_cell_impl.py:1259: calling dropout (from tensorflow.python.ops.nn_ops) with keep_prob is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `rate` instead of `keep_prob`. Rate should be set to `rate = 1 - keep_prob`.
+WARNING:tensorflow:From /home/abdallahy/Security_Project/sec_binary2name/binary2name/code2seq/model.py:542: dense (from tensorflow.python.layers.core) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.dense instead.
+WARNING:tensorflow:From /home/abdallahy/Security_Project/sec_binary2name/binary2name/code2seq/model.py:409: MultiRNNCell.__init__ (from tensorflow.python.ops.rnn_cell_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+This class is equivalent as tf.keras.layers.StackedRNNCells, and will be replaced by that in Tensorflow 2.0.
+Training batch size:			 256
+Dataset path:				 data/dpdk_constraints_final/dpdk_constraints_final
+Training file path:			 data/dpdk_constraints_final/dpdk_constraints_final.train.c2s
+Validation path:			 data/dpdk_constraints_final/dpdk_constraints_final.val.c2s
+Taking max contexts from each example:	 10
+Random path sampling:			 False
+Embedding size:				 128
+Using BiLSTMs, each of size:		 128
+Decoder size:				 320
+Decoder layers:				 1
+Max path lengths:			 703
+Max subtokens in a token:		 1
+Max target length:			 6
+Embeddings dropout keep_prob:		 0.75
+LSTM dropout keep_prob:			 0.5
+============================================
+Number of trainable params: 3748992
+Initalized variables
+WARNING:tensorflow:From /home/abdallahy/miniconda3/envs/cs236781-hw/lib/python3.7/site-packages/tensorflow/python/training/saver.py:1266: checkpoint_exists (from tensorflow.python.training.checkpoint_management) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use standard file APIs to check for files with this prefix.
+Done loading model
+Started reader...
+Average loss at batch 100: 4.204711, 	throughput: 9 samples/sec
+Average loss at batch 200: 3.328232, 	throughput: 15 samples/sec
+Average loss at batch 300: 1.928471, 	throughput: 15 samples/sec
+Average loss at batch 400: 2.758279, 	throughput: 14 samples/sec
+Average loss at batch 500: 2.592732, 	throughput: 14 samples/sec
+Average loss at batch 600: 2.753617, 	throughput: 14 samples/sec
+Average loss at batch 700: 2.700041, 	throughput: 14 samples/sec
+Average loss at batch 800: 3.147571, 	throughput: 14 samples/sec
+Average loss at batch 900: 2.623175, 	throughput: 14 samples/sec
+Average loss at batch 1000: 3.225344, 	throughput: 14 samples/sec
+Average loss at batch 1100: 3.773198, 	throughput: 14 samples/sec
+Average loss at batch 1200: 3.675456, 	throughput: 14 samples/sec
+Finished 1 epochs
+Prediction throughput: 72
+Prediction throughput: 74
+Prediction throughput: 75
+Prediction throughput: 77
+Prediction throughput: 77
+Prediction throughput: 76
+Prediction throughput: 77
+Prediction throughput: 78
+Prediction throughput: 78
+Prediction throughput: 78
+Done testing, epoch reached
+Evaluation time: 0h29m2s
+Accuracy after 40 epochs: 0.23368
+After 40 epochs: Precision: 0.47032, recall: 0.48813, F1: 0.47906
+Rouge:  {'rouge-1': {'f': 0.47217103028988544, 'p': 0.48971634745731146, 'r': 0.47508214045778385}, 'rouge-2': {'f': 0.31952689389896544, 'p': 0.323929354302412, 'r': 0.3273913556712867}, 'rouge-l': {'f': 0.4577208122003506, 'p': 0.4897016357335388, 'r': 0.4750633129541463}}
+Saved after 40 epochs in: models/dpdk_constraints_final/model_iter40
+Average loss at batch 1300: 2.882332, 	throughput: 7 samples/sec
+Average loss at batch 1400: 2.163625, 	throughput: 14 samples/sec
+Average loss at batch 1500: 1.546083, 	throughput: 15 samples/sec
+Average loss at batch 1600: 0.963893, 	throughput: 15 samples/sec
+Average loss at batch 1700: 1.415713, 	throughput: 15 samples/sec
+Average loss at batch 1800: 0.983419, 	throughput: 15 samples/sec
+Average loss at batch 1900: 1.228202, 	throughput: 15 samples/sec
+Average loss at batch 2000: 1.513151, 	throughput: 15 samples/sec
+Average loss at batch 2100: 1.324862, 	throughput: 15 samples/sec
+Average loss at batch 2200: 0.941879, 	throughput: 15 samples/sec
+Average loss at batch 2300: 1.510360, 	throughput: 15 samples/sec
+Average loss at batch 2400: 1.690022, 	throughput: 15 samples/sec
+Average loss at batch 2500: 1.730755, 	throughput: 15 samples/sec
+Finished 1 epochs
+Prediction throughput: 72
+Prediction throughput: 74
+Prediction throughput: 74
+Prediction throughput: 77
+Prediction throughput: 76
+Prediction throughput: 76
+Prediction throughput: 77
+Prediction throughput: 78
+Prediction throughput: 77
+Prediction throughput: 77
+Done testing, epoch reached
+Evaluation time: 0h29m26s
+Accuracy after 41 epochs: 0.34806
+After 41 epochs: Precision: 0.55021, recall: 0.58983, F1: 0.56933
+Rouge:  {'rouge-1': {'f': 0.5615990574912189, 'p': 0.5621541564714246, 'r': 0.578132894965369}, 'rouge-2': {'f': 0.4137615824008796, 'p': 0.40878314359237067, 'r': 0.43010754770032417}, 'rouge-l': {'f': 0.5489711244146169, 'p': 0.5621407256547821, 'r': 0.5781135336582609}}
+Saved after 41 epochs in: models/dpdk_constraints_final/model_iter41
+Average loss at batch 2600: 1.457269, 	throughput: 7 samples/sec
+Average loss at batch 2700: 1.536255, 	throughput: 14 samples/sec
+Average loss at batch 2800: 0.851875, 	throughput: 15 samples/sec
+Average loss at batch 2900: 0.763887, 	throughput: 14 samples/sec
+Average loss at batch 3000: 1.105931, 	throughput: 14 samples/sec
+Average loss at batch 3100: 0.685702, 	throughput: 8 samples/sec
+Average loss at batch 3200: 0.779338, 	throughput: 9 samples/sec
+Average loss at batch 3300: 1.245657, 	throughput: 8 samples/sec
+Average loss at batch 3400: 0.950686, 	throughput: 8 samples/sec
+Average loss at batch 3500: 0.798038, 	throughput: 8 samples/sec
+Average loss at batch 3600: 1.137248, 	throughput: 8 samples/sec
+Average loss at batch 3700: 1.478272, 	throughput: 13 samples/sec
+Average loss at batch 3800: 1.332761, 	throughput: 14 samples/sec
+Finished 1 epochs
+Prediction throughput: 71
+Prediction throughput: 73
+Prediction throughput: 73
+Prediction throughput: 75
+Prediction throughput: 75
+Prediction throughput: 70
+Prediction throughput: 62
+Prediction throughput: 58
+Prediction throughput: 53
+Prediction throughput: 50
+Done testing, epoch reached
+Evaluation time: 0h46m33s
+Accuracy after 42 epochs: 0.34980
+After 42 epochs: Precision: 0.56695, recall: 0.60071, F1: 0.58334
+Rouge:  {'rouge-1': {'f': 0.5690276494739941, 'p': 0.5681996567001829, 'r': 0.5868094445165646}, 'rouge-2': {'f': 0.41482244573869836, 'p': 0.40980812867370187, 'r': 0.4315564740024069}, 'rouge-l': {'f': 0.5563625993207871, 'p': 0.5681914654303649, 'r': 0.5868016724162043}}
+Saved after 42 epochs in: models/dpdk_constraints_final/model_iter42
+Average loss at batch 3900: 1.167658, 	throughput: 4 samples/sec
+Average loss at batch 4000: 1.236094, 	throughput: 8 samples/sec
+Average loss at batch 4100: 0.673063, 	throughput: 8 samples/sec
+Average loss at batch 4200: 0.651071, 	throughput: 8 samples/sec
+Average loss at batch 4300: 0.962512, 	throughput: 8 samples/sec
+Average loss at batch 4400: 0.655409, 	throughput: 9 samples/sec
+Average loss at batch 4500: 0.698206, 	throughput: 14 samples/sec
+Average loss at batch 4600: 1.084723, 	throughput: 14 samples/sec
+Average loss at batch 4700: 0.733775, 	throughput: 14 samples/sec
+Average loss at batch 4800: 0.764210, 	throughput: 14 samples/sec
+Average loss at batch 4900: 1.080437, 	throughput: 14 samples/sec
+Average loss at batch 5000: 1.303786, 	throughput: 14 samples/sec
+Average loss at batch 5100: 1.183810, 	throughput: 14 samples/sec
+Finished 1 epochs
+Prediction throughput: 70
+Prediction throughput: 73
+Prediction throughput: 73
+Prediction throughput: 76
+Prediction throughput: 75
+Prediction throughput: 74
+Prediction throughput: 75
+Prediction throughput: 76
+Prediction throughput: 76
+Prediction throughput: 76
+Done testing, epoch reached
+Evaluation time: 0h29m47s
+Accuracy after 43 epochs: 0.35048
+After 43 epochs: Precision: 0.57359, recall: 0.59993, F1: 0.58646
+Rouge:  {'rouge-1': {'f': 0.5730786767243716, 'p': 0.5737440343464613, 'r': 0.590138474413286}, 'rouge-2': {'f': 0.41905224408112246, 'p': 0.4143586433515691, 'r': 0.43618224722114746}, 'rouge-l': {'f': 0.5599392501947404, 'p': 0.5737370662675971, 'r': 0.5901319254669852}}
+Saved after 43 epochs in: models/dpdk_constraints_final/model_iter43
+Average loss at batch 5200: 1.006144, 	throughput: 7 samples/sec
+Average loss at batch 5300: 1.069513, 	throughput: 14 samples/sec
+Average loss at batch 5400: 0.644568, 	throughput: 14 samples/sec
+Average loss at batch 5500: 0.629729, 	throughput: 14 samples/sec
+Average loss at batch 5600: 0.811794, 	throughput: 14 samples/sec
+Average loss at batch 5700: 0.609866, 	throughput: 14 samples/sec
+Average loss at batch 5800: 0.706984, 	throughput: 14 samples/sec
+Average loss at batch 5900: 1.005204, 	throughput: 14 samples/sec
+Average loss at batch 6000: 0.628593, 	throughput: 14 samples/sec
+Average loss at batch 6100: 0.736188, 	throughput: 13 samples/sec
+Average loss at batch 6200: 1.010397, 	throughput: 14 samples/sec
+Average loss at batch 6300: 1.198631, 	throughput: 14 samples/sec
+Average loss at batch 6400: 1.088289, 	throughput: 14 samples/sec
+Finished 1 epochs
+Prediction throughput: 71
+Prediction throughput: 73
+Prediction throughput: 73
+Prediction throughput: 75
+Prediction throughput: 74
+Prediction throughput: 74
+Prediction throughput: 75
+Prediction throughput: 77
+Prediction throughput: 76
+Prediction throughput: 76
+Done testing, epoch reached
+Evaluation time: 0h29m39s
+Accuracy after 44 epochs: 0.37257
+After 44 epochs: Precision: 0.59381, recall: 0.62829, F1: 0.61056
+Rouge:  {'rouge-1': {'f': 0.5834484076998837, 'p': 0.5827746613189246, 'r': 0.6014648638648445}, 'rouge-2': {'f': 0.4350392907811124, 'p': 0.42960977412856094, 'r': 0.4530538556954224}, 'rouge-l': {'f': 0.5705199578200986, 'p': 0.5827664607250548, 'r': 0.6014583068868035}}
+Saved after 44 epochs in: models/dpdk_constraints_final/model_iter44
+Average loss at batch 6500: 0.940957, 	throughput: 7 samples/sec
+Average loss at batch 6600: 0.908300, 	throughput: 14 samples/sec
+Average loss at batch 6700: 0.600183, 	throughput: 14 samples/sec
+Average loss at batch 6800: 0.642919, 	throughput: 14 samples/sec
+Average loss at batch 6900: 0.680202, 	throughput: 14 samples/sec
+Average loss at batch 7000: 0.594042, 	throughput: 14 samples/sec
+Average loss at batch 7100: 0.739386, 	throughput: 14 samples/sec
+Average loss at batch 7200: 0.900577, 	throughput: 14 samples/sec
+Average loss at batch 7300: 0.594831, 	throughput: 14 samples/sec
+Average loss at batch 7400: 0.738500, 	throughput: 14 samples/sec
+Average loss at batch 7500: 0.955406, 	throughput: 14 samples/sec
+Average loss at batch 7600: 1.070963, 	throughput: 14 samples/sec
+Finished 1 epochs
+Prediction throughput: 71
+Prediction throughput: 73
+Prediction throughput: 73
+Prediction throughput: 76
+Prediction throughput: 75
+Prediction throughput: 74
+Prediction throughput: 75
+Prediction throughput: 76
+Prediction throughput: 76
+Prediction throughput: 76
+Done testing, epoch reached
+Evaluation time: 0h30m2s
+Accuracy after 45 epochs: 0.37276
+After 45 epochs: Precision: 0.58782, recall: 0.62874, F1: 0.60759
+Rouge:  {'rouge-1': {'f': 0.5832997253846182, 'p': 0.5854281689786055, 'r': 0.6000103145257257}, 'rouge-2': {'f': 0.4342963942475357, 'p': 0.4288690563526129, 'r': 0.45238089997861675}, 'rouge-l': {'f': 0.5694536391263717, 'p': 0.5854185094819755, 'r': 0.6000022969688482}}
+Average loss at batch 7700: 1.007560, 	throughput: 7 samples/sec
+Average loss at batch 7800: 0.893965, 	throughput: 14 samples/sec
+Average loss at batch 7900: 0.824128, 	throughput: 14 samples/sec
+Average loss at batch 8000: 0.516571, 	throughput: 14 samples/sec
+Average loss at batch 8100: 0.721533, 	throughput: 14 samples/sec
+Average loss at batch 8200: 0.544761, 	throughput: 14 samples/sec
+Average loss at batch 8300: 0.564092, 	throughput: 14 samples/sec
+Average loss at batch 8400: 0.808732, 	throughput: 14 samples/sec
+Average loss at batch 8500: 0.792886, 	throughput: 14 samples/sec
+Average loss at batch 8600: 0.530000, 	throughput: 14 samples/sec
+Average loss at batch 8700: 0.783259, 	throughput: 14 samples/sec
+Average loss at batch 8800: 0.893044, 	throughput: 14 samples/sec
+Average loss at batch 8900: 1.021996, 	throughput: 14 samples/sec
+Finished 1 epochs
+Prediction throughput: 69
+Prediction throughput: 72
+Prediction throughput: 74
+Prediction throughput: 77
+Prediction throughput: 76
+Prediction throughput: 76
+Prediction throughput: 77
+Prediction throughput: 78
+Prediction throughput: 78
+Prediction throughput: 78
+Done testing, epoch reached
+Evaluation time: 0h29m7s
+Accuracy after 46 epochs: 0.37251
+After 46 epochs: Precision: 0.58998, recall: 0.62904, F1: 0.60888
+Rouge:  {'rouge-1': {'f': 0.5843864916793823, 'p': 0.5867835042832067, 'r': 0.6006957272819756}, 'rouge-2': {'f': 0.4349419178564444, 'p': 0.42973605009067006, 'r': 0.4529799844155941}, 'rouge-l': {'f': 0.5705203664078013, 'p': 0.586774213715822, 'r': 0.600687100326547}}
+Average loss at batch 9000: 0.905522, 	throughput: 7 samples/sec
+Average loss at batch 9100: 0.953151, 	throughput: 14 samples/sec
+Average loss at batch 9200: 0.642677, 	throughput: 14 samples/sec
+Average loss at batch 9300: 0.519969, 	throughput: 14 samples/sec
+Average loss at batch 9400: 0.716526, 	throughput: 10 samples/sec
+Average loss at batch 9500: 0.483893, 	throughput: 10 samples/sec
+Average loss at batch 9600: 0.506040, 	throughput: 14 samples/sec
+Average loss at batch 9700: 0.868258, 	throughput: 15 samples/sec
+Average loss at batch 9800: 0.670533, 	throughput: 15 samples/sec
+Average loss at batch 9900: 0.520214, 	throughput: 15 samples/sec
+Average loss at batch 10000: 0.778428, 	throughput: 15 samples/sec
+Average loss at batch 10100: 0.946022, 	throughput: 15 samples/sec
+Average loss at batch 10200: 0.967536, 	throughput: 15 samples/sec
+Finished 1 epochs
+Prediction throughput: 68
+Prediction throughput: 70
+Prediction throughput: 71
+Prediction throughput: 73
+Prediction throughput: 72
+Prediction throughput: 72
+Prediction throughput: 72
+Prediction throughput: 73
+Prediction throughput: 73
+Prediction throughput: 73
+Done testing, epoch reached
+Evaluation time: 0h31m10s
+Accuracy after 47 epochs: 0.36762
+After 47 epochs: Precision: 0.58593, recall: 0.62158, F1: 0.60323
+Rouge:  {'rouge-1': {'f': 0.5766422822664535, 'p': 0.5779613091958112, 'r': 0.5928421172680951}, 'rouge-2': {'f': 0.4278445347908512, 'p': 0.42346645410427797, 'r': 0.4445017014424185}, 'rouge-l': {'f': 0.5635962288266082, 'p': 0.5779497994897005, 'r': 0.5928328640241247}}
+Average loss at batch 10300: 0.845637, 	throughput: 7 samples/sec
+Average loss at batch 10400: 0.927768, 	throughput: 16 samples/sec
+Average loss at batch 10500: 0.526632, 	throughput: 16 samples/sec
+Average loss at batch 10600: 0.492156, 	throughput: 17 samples/sec
+Average loss at batch 10700: 0.726452, 	throughput: 17 samples/sec
+Average loss at batch 10800: 0.485499, 	throughput: 15 samples/sec
+Average loss at batch 10900: 0.506220, 	throughput: 17 samples/sec
+Average loss at batch 11000: 0.828406, 	throughput: 17 samples/sec
+Average loss at batch 11100: 0.592351, 	throughput: 17 samples/sec
+Average loss at batch 11200: 0.530711, 	throughput: 17 samples/sec
+Average loss at batch 11300: 0.788064, 	throughput: 17 samples/sec
+Average loss at batch 11400: 0.968098, 	throughput: 17 samples/sec
+Average loss at batch 11500: 0.890415, 	throughput: 17 samples/sec
+Finished 1 epochs
+Prediction throughput: 74
+Prediction throughput: 77
+Prediction throughput: 77
+Prediction throughput: 79
+Prediction throughput: 78
+Prediction throughput: 78
+Prediction throughput: 79
+Prediction throughput: 80
+Prediction throughput: 79
+Prediction throughput: 79
+Done testing, epoch reached
+Evaluation time: 0h28m37s
+Accuracy after 48 epochs: 0.36574
+After 48 epochs: Precision: 0.58604, recall: 0.61558, F1: 0.60045
+Rouge:  {'rouge-1': {'f': 0.572647465287427, 'p': 0.5751194049931136, 'r': 0.5878276104425398}, 'rouge-2': {'f': 0.42404999729334997, 'p': 0.4205083681596324, 'r': 0.43922058110429674}, 'rouge-l': {'f': 0.5596623087557668, 'p': 0.5751060385010698, 'r': 0.5878165038161233}}
+Average loss at batch 11600: 0.804999, 	throughput: 8 samples/sec
+Average loss at batch 11700: 0.870744, 	throughput: 17 samples/sec
+Average loss at batch 11800: 0.494122, 	throughput: 17 samples/sec
+Average loss at batch 11900: 0.500229, 	throughput: 17 samples/sec
+Average loss at batch 12000: 0.649467, 	throughput: 17 samples/sec
+Average loss at batch 12100: 0.490994, 	throughput: 17 samples/sec
+Average loss at batch 12200: 0.552392, 	throughput: 17 samples/sec
+Average loss at batch 12300: 0.800600, 	throughput: 17 samples/sec
+Average loss at batch 12400: 0.507101, 	throughput: 17 samples/sec
+Average loss at batch 12500: 0.568564, 	throughput: 17 samples/sec
+Average loss at batch 12600: 0.774981, 	throughput: 17 samples/sec
+Average loss at batch 12700: 0.948315, 	throughput: 17 samples/sec
+Average loss at batch 12800: 0.858723, 	throughput: 17 samples/sec
+Finished 1 epochs
+Prediction throughput: 74
+Prediction throughput: 76
+Prediction throughput: 76
+Prediction throughput: 79
+Prediction throughput: 78
+Prediction throughput: 78
+Prediction throughput: 78
+Prediction throughput: 79
+Prediction throughput: 79
+Prediction throughput: 79
+Done testing, epoch reached
+Evaluation time: 0h28m50s
+Accuracy after 49 epochs: 0.36594
+After 49 epochs: Precision: 0.58662, recall: 0.61639, F1: 0.60114
+Rouge:  {'rouge-1': {'f': 0.5756637017955595, 'p': 0.5809237646629669, 'r': 0.5892784594517151}, 'rouge-2': {'f': 0.4235342041919446, 'p': 0.42024287922262904, 'r': 0.4382819361644682}, 'rouge-l': {'f': 0.561871753427948, 'p': 0.5809085540449741, 'r': 0.5892655093979171}}
+Average loss at batch 12900: 0.765946, 	throughput: 8 samples/sec
+Average loss at batch 13000: 0.764594, 	throughput: 17 samples/sec
+Average loss at batch 13100: 0.501028, 	throughput: 17 samples/sec
+Average loss at batch 13200: 0.520229, 	throughput: 17 samples/sec
+Average loss at batch 13300: 0.588706, 	throughput: 17 samples/sec
+Average loss at batch 13400: 0.492580, 	throughput: 17 samples/sec
+Average loss at batch 13500: 0.588192, 	throughput: 17 samples/sec
+Average loss at batch 13600: 0.750351, 	throughput: 17 samples/sec
+Average loss at batch 13700: 0.481137, 	throughput: 17 samples/sec
+Average loss at batch 13800: 0.586230, 	throughput: 17 samples/sec
+Average loss at batch 13900: 0.770566, 	throughput: 17 samples/sec
+Average loss at batch 14000: 0.873502, 	throughput: 17 samples/sec
+Finished 1 epochs
+Prediction throughput: 72
+Prediction throughput: 75
+Prediction throughput: 75
+Prediction throughput: 78
+Prediction throughput: 77
+Prediction throughput: 77
+Prediction throughput: 77
+Prediction throughput: 78
+Prediction throughput: 78
+Prediction throughput: 78
+Done testing, epoch reached
+Evaluation time: 0h29m10s
+Accuracy after 50 epochs: 0.36391
+After 50 epochs: Precision: 0.58313, recall: 0.61542, F1: 0.59884
+Rouge:  {'rouge-1': {'f': 0.5753180136112117, 'p': 0.5811922107867018, 'r': 0.5885340471459058}, 'rouge-2': {'f': 0.42292449085093115, 'p': 0.42026075011635833, 'r': 0.43736082055163344}, 'rouge-l': {'f': 0.5613595669912261, 'p': 0.5811806818539866, 'r': 0.5885235519624766}}
+Average loss at batch 14100: 0.839611, 	throughput: 7 samples/sec
+Average loss at batch 14200: 0.741772, 	throughput: 17 samples/sec
+Average loss at batch 14300: 0.713670, 	throughput: 17 samples/sec
+Average loss at batch 14400: 0.440042, 	throughput: 17 samples/sec
+Average loss at batch 14500: 0.595273, 	throughput: 16 samples/sec
+Average loss at batch 14600: 0.491272, 	throughput: 16 samples/sec
+Average loss at batch 14700: 0.475067, 	throughput: 16 samples/sec
+Average loss at batch 14800: 0.663100, 	throughput: 16 samples/sec
+Average loss at batch 14900: 0.690518, 	throughput: 16 samples/sec
+Average loss at batch 15000: 0.450014, 	throughput: 16 samples/sec
+Average loss at batch 15100: 0.639911, 	throughput: 16 samples/sec
+Average loss at batch 15200: 0.730559, 	throughput: 16 samples/sec
+Average loss at batch 15300: 0.863689, 	throughput: 16 samples/sec
+Finished 1 epochs
+Prediction throughput: 73
+Prediction throughput: 75
+Prediction throughput: 75
+Prediction throughput: 78
+Prediction throughput: 77
+Prediction throughput: 76
+Prediction throughput: 77
+Prediction throughput: 78
+Prediction throughput: 78
+Prediction throughput: 78
+Done testing, epoch reached
+Evaluation time: 0h29m14s
+Accuracy after 51 epochs: 0.36487
+After 51 epochs: Precision: 0.58309, recall: 0.61642, F1: 0.59929
+Rouge:  {'rouge-1': {'f': 0.5771457501171129, 'p': 0.5829098048630676, 'r': 0.5903328556088695}, 'rouge-2': {'f': 0.4242262313054944, 'p': 0.4215239232508391, 'r': 0.4386674894337235}, 'rouge-l': {'f': 0.5631997315746935, 'p': 0.5828982566394055, 'r': 0.5903223428642288}}
+Average loss at batch 15400: 0.786458, 	throughput: 7 samples/sec
+Average loss at batch 15500: 0.795952, 	throughput: 17 samples/sec
+Average loss at batch 15600: 0.590300, 	throughput: 18 samples/sec
+Average loss at batch 15700: 0.440771, 	throughput: 18 samples/sec
+Average loss at batch 15800: 0.607237, 	throughput: 18 samples/sec
+Average loss at batch 15900: 0.437893, 	throughput: 17 samples/sec
+Average loss at batch 16000: 0.448646, 	throughput: 17 samples/sec
+Average loss at batch 16100: 0.736055, 	throughput: 17 samples/sec
+Average loss at batch 16200: 0.599413, 	throughput: 17 samples/sec
+Average loss at batch 16300: 0.427124, 	throughput: 18 samples/sec
+Average loss at batch 16400: 0.668666, 	throughput: 18 samples/sec
+Average loss at batch 16500: 0.784952, 	throughput: 18 samples/sec
+Average loss at batch 16600: 0.835046, 	throughput: 18 samples/sec
+Finished 1 epochs
+Prediction throughput: 76
+Prediction throughput: 78
+Prediction throughput: 78
+Prediction throughput: 81
+Prediction throughput: 80
+Prediction throughput: 80
+Prediction throughput: 80
+Prediction throughput: 81
+Prediction throughput: 81
+Prediction throughput: 81
+Done testing, epoch reached
+Evaluation time: 0h28m5s
+Accuracy after 52 epochs: 0.36178
+After 52 epochs: Precision: 0.58376, recall: 0.61591, F1: 0.59940
+Rouge:  {'rouge-1': {'f': 0.57527707000585, 'p': 0.5808969826248708, 'r': 0.5887056550162737}, 'rouge-2': {'f': 0.42195898251495906, 'p': 0.4191493961457897, 'r': 0.4365793559545179}, 'rouge-l': {'f': 0.5613316717543616, 'p': 0.5808902267312749, 'r': 0.5887003029447239}}
+Average loss at batch 16700: 0.739844, 	throughput: 8 samples/sec
+Average loss at batch 16800: 0.816473, 	throughput: 17 samples/sec
+Average loss at batch 16900: 0.478122, 	throughput: 17 samples/sec
+Average loss at batch 17000: 0.437044, 	throughput: 17 samples/sec
+Average loss at batch 17100: 0.638146, 	throughput: 17 samples/sec
+Average loss at batch 17200: 0.427851, 	throughput: 17 samples/sec
+Average loss at batch 17300: 0.430343, 	throughput: 16 samples/sec
+Average loss at batch 17400: 0.733575, 	throughput: 16 samples/sec
+Average loss at batch 17500: 0.539106, 	throughput: 14 samples/sec
+Average loss at batch 17600: 0.450761, 	throughput: 12 samples/sec
+Average loss at batch 17700: 0.668774, 	throughput: 12 samples/sec
+Average loss at batch 17800: 0.840082, 	throughput: 12 samples/sec
+Average loss at batch 17900: 0.780861, 	throughput: 12 samples/sec
+Finished 1 epochs
+Prediction throughput: 57
+Prediction throughput: 58
+Prediction throughput: 58
+Prediction throughput: 60
+Prediction throughput: 60
+Prediction throughput: 60
+Prediction throughput: 61
+Prediction throughput: 62
+Prediction throughput: 62
+Prediction throughput: 62
+Done testing, epoch reached
+Evaluation time: 0h36m21s
+Accuracy after 53 epochs: 0.36241
+After 53 epochs: Precision: 0.58521, recall: 0.61029, F1: 0.59749
+Rouge:  {'rouge-1': {'f': 0.5707720550728189, 'p': 0.5741745404695765, 'r': 0.5852285561266162}, 'rouge-2': {'f': 0.4227161667352984, 'p': 0.4200117431443514, 'r': 0.43732809068262174}, 'rouge-l': {'f': 0.5576032100496962, 'p': 0.5741663104415207, 'r': 0.5852213614325802}}
+Average loss at batch 18000: 0.717067, 	throughput: 6 samples/sec
+Average loss at batch 18100: 0.790857, 	throughput: 12 samples/sec
+Average loss at batch 18200: 0.434069, 	throughput: 12 samples/sec
+Average loss at batch 18300: 0.448318, 	throughput: 13 samples/sec
+Average loss at batch 18400: 0.595911, 	throughput: 12 samples/sec
+Average loss at batch 18500: 0.440423, 	throughput: 12 samples/sec
+Average loss at batch 18600: 0.464118, 	throughput: 13 samples/sec
+Average loss at batch 18700: 0.699723, 	throughput: 13 samples/sec
+Average loss at batch 18800: 0.471435, 	throughput: 13 samples/sec
+Average loss at batch 18900: 0.478549, 	throughput: 13 samples/sec
+Average loss at batch 19000: 0.693982, 	throughput: 13 samples/sec
+Average loss at batch 19100: 0.831703, 	throughput: 13 samples/sec
+Average loss at batch 19200: 0.763933, 	throughput: 13 samples/sec
+Finished 1 epochs
+Prediction throughput: 60
+Prediction throughput: 62
+Prediction throughput: 62
+Prediction throughput: 65
+Prediction throughput: 64
+Prediction throughput: 63
+Prediction throughput: 64
+Prediction throughput: 64
+Prediction throughput: 64
+Prediction throughput: 64
+Done testing, epoch reached
+Evaluation time: 0h35m36s
+Accuracy after 54 epochs: 0.36417
+After 54 epochs: Precision: 0.58607, recall: 0.61412, F1: 0.59977
+Rouge:  {'rouge-1': {'f': 0.5744210735842785, 'p': 0.5782281861714981, 'r': 0.5885428852929421}, 'rouge-2': {'f': 0.4237833337115012, 'p': 0.4207564600576791, 'r': 0.4384561708693554}, 'rouge-l': {'f': 0.561134793118389, 'p': 0.5782147955410081, 'r': 0.5885301615614805}}
+Not improved for 10 epochs, stopping training
+Best scores - epoch 44: 
+Precision: 0.59381, recall: 0.62829, F1: 0.61056

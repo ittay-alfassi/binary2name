@@ -1,0 +1,209 @@
+662
+151
+/home/abdallahy/miniconda3/envs/cs236781-hw/lib/python3.7/site-packages/tensorflow/python/framework/dtypes.py:526: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint8 = np.dtype([("qint8", np.int8, 1)])
+/home/abdallahy/miniconda3/envs/cs236781-hw/lib/python3.7/site-packages/tensorflow/python/framework/dtypes.py:527: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint8 = np.dtype([("quint8", np.uint8, 1)])
+/home/abdallahy/miniconda3/envs/cs236781-hw/lib/python3.7/site-packages/tensorflow/python/framework/dtypes.py:528: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint16 = np.dtype([("qint16", np.int16, 1)])
+/home/abdallahy/miniconda3/envs/cs236781-hw/lib/python3.7/site-packages/tensorflow/python/framework/dtypes.py:529: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint16 = np.dtype([("quint16", np.uint16, 1)])
+/home/abdallahy/miniconda3/envs/cs236781-hw/lib/python3.7/site-packages/tensorflow/python/framework/dtypes.py:530: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint32 = np.dtype([("qint32", np.int32, 1)])
+/home/abdallahy/miniconda3/envs/cs236781-hw/lib/python3.7/site-packages/tensorflow/python/framework/dtypes.py:535: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  np_resource = np.dtype([("resource", np.ubyte, 1)])
+Namespace(data_path='data/coreutils_constraints_paths_final/coreutils_constraints_paths_final', debug=False, load_path=None, max_path_len=662, predict=False, release=False, save_path_prefix='models/coreutils_constraints_paths_final/model', seed=239, test_path='data/coreutils_constraints_paths_final/coreutils_constraints_paths_final.val.c2s', vocab_max=151)
+2020-09-13 10:30:26.213696: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-09-13 10:30:26.283290: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2100020000 Hz
+2020-09-13 10:30:26.286480: I tensorflow/compiler/xla/service/service.cc:150] XLA service 0x55945acbf4e0 executing computations on platform Host. Devices:
+2020-09-13 10:30:26.286509: I tensorflow/compiler/xla/service/service.cc:158]   StreamExecutor device (0): <undefined>, <undefined>
+Dictionaries loaded.
+Loaded subtoken vocab. size: 3
+Loaded target word vocab. size: 154
+Loaded nodes vocab. size: 3625
+Created model
+Starting training
+
+WARNING: The TensorFlow contrib module will not be included in TensorFlow 2.0.
+For more information, please see:
+  * https://github.com/tensorflow/community/blob/master/rfcs/20180907-contrib-sunset.md
+  * https://github.com/tensorflow/addons
+If you depend on functionality not listed there, please file an issue.
+
+WARNING:tensorflow:From /home/abdallahy/Security_Project/sec_binary2name/binary2name/code2seq/reader.py:101: to_int64 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.cast instead.
+WARNING:tensorflow:From /home/abdallahy/Security_Project/sec_binary2name/binary2name/code2seq/reader.py:161: to_float (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.cast instead.
+WARNING:tensorflow:From /home/abdallahy/miniconda3/envs/cs236781-hw/lib/python3.7/site-packages/tensorflow/python/data/ops/dataset_ops.py:1419: colocate_with (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Colocations handled automatically by placer.
+WARNING:tensorflow:From /home/abdallahy/Security_Project/sec_binary2name/binary2name/code2seq/model.py:483: LSTMCell.__init__ (from tensorflow.python.ops.rnn_cell_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+This class is equivalent as tf.keras.layers.LSTMCell, and will be replaced by that in Tensorflow 2.0.
+WARNING:tensorflow:From /home/abdallahy/Security_Project/sec_binary2name/binary2name/code2seq/model.py:495: bidirectional_dynamic_rnn (from tensorflow.python.ops.rnn) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `keras.layers.Bidirectional(keras.layers.RNN(cell))`, which is equivalent to this API
+WARNING:tensorflow:From /home/abdallahy/miniconda3/envs/cs236781-hw/lib/python3.7/site-packages/tensorflow/python/ops/rnn.py:443: dynamic_rnn (from tensorflow.python.ops.rnn) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `keras.layers.RNN(cell)`, which is equivalent to this API
+WARNING:tensorflow:From /home/abdallahy/miniconda3/envs/cs236781-hw/lib/python3.7/site-packages/tensorflow/python/ops/rnn.py:626: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.cast instead.
+WARNING:tensorflow:From /home/abdallahy/miniconda3/envs/cs236781-hw/lib/python3.7/site-packages/tensorflow/python/ops/rnn_cell_impl.py:1259: calling dropout (from tensorflow.python.ops.nn_ops) with keep_prob is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `rate` instead of `keep_prob`. Rate should be set to `rate = 1 - keep_prob`.
+WARNING:tensorflow:From /home/abdallahy/Security_Project/sec_binary2name/binary2name/code2seq/model.py:542: dense (from tensorflow.python.layers.core) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.dense instead.
+WARNING:tensorflow:From /home/abdallahy/Security_Project/sec_binary2name/binary2name/code2seq/model.py:409: MultiRNNCell.__init__ (from tensorflow.python.ops.rnn_cell_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+This class is equivalent as tf.keras.layers.StackedRNNCells, and will be replaced by that in Tensorflow 2.0.
+Training batch size:			 128
+Dataset path:				 data/coreutils_constraints_paths_final/coreutils_constraints_paths_final
+Training file path:			 data/coreutils_constraints_paths_final/coreutils_constraints_paths_final.train.c2s
+Validation path:			 data/coreutils_constraints_paths_final/coreutils_constraints_paths_final.val.c2s
+Taking max contexts from each example:	 10
+Random path sampling:			 False
+Embedding size:				 128
+Using BiLSTMs, each of size:		 128
+Decoder size:				 320
+Decoder layers:				 1
+Max path lengths:			 662
+Max subtokens in a token:		 1
+Max target length:			 6
+Embeddings dropout keep_prob:		 0.75
+LSTM dropout keep_prob:			 0.5
+============================================
+Number of trainable params: 2251904
+Initalized variables
+Started reader...
+Average loss at batch 100: 8.138965, 	throughput: 8 samples/sec
+Average loss at batch 200: 4.245477, 	throughput: 8 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h2m9s
+Accuracy after 1 epochs: 0.00000
+After 1 epochs: Precision: 0.00108, recall: 0.00111, F1: 0.00110
+Rouge:  {'rouge-1': {'f': 0.0010670864936820317, 'p': 0.0010495932826029913, 'r': 0.0011370593894865738}, 'rouge-2': {'f': 0.0, 'p': 0.0, 'r': 0.0}, 'rouge-l': {'f': 0.0010304340401418148, 'p': 0.0010495932826029913, 'r': 0.0011370593894865738}}
+Saved after 1 epochs in: models/coreutils_constraints_paths_final/model_iter1
+Average loss at batch 300: 3.321462, 	throughput: 8 samples/sec
+Average loss at batch 400: 2.810315, 	throughput: 8 samples/sec
+Average loss at batch 500: 1.500363, 	throughput: 8 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h1m24s
+Accuracy after 2 epochs: 0.00000
+After 2 epochs: Precision: 0.02798, recall: 0.02364, F1: 0.02563
+Rouge:  {'rouge-1': {'f': 0.013303594724245619, 'p': 0.014300708475465758, 'r': 0.01290125076532844}, 'rouge-2': {'f': 0.0, 'p': 0.0, 'r': 0.0}, 'rouge-l': {'f': 0.013018705251703289, 'p': 0.014300708475465758, 'r': 0.01290125076532844}}
+Saved after 2 epochs in: models/coreutils_constraints_paths_final/model_iter2
+Average loss at batch 600: 1.893745, 	throughput: 10 samples/sec
+Average loss at batch 700: 1.318505, 	throughput: 12 samples/sec
+Average loss at batch 800: 1.010362, 	throughput: 12 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h1m16s
+Accuracy after 3 epochs: 0.02257
+After 3 epochs: Precision: 0.05413, recall: 0.03891, F1: 0.04527
+Rouge:  {'rouge-1': {'f': 0.024454443069010654, 'p': 0.02484689413823272, 'r': 0.024190726159230097}, 'rouge-2': {'f': 0.016202974516092133, 'p': 0.012467191601049869, 'r': 0.023709536307961503}, 'rouge-l': {'f': 0.024343687808243027, 'p': 0.02484689413823272, 'r': 0.024190726159230097}}
+Saved after 3 epochs in: models/coreutils_constraints_paths_final/model_iter3
+Average loss at batch 900: 1.545075, 	throughput: 12 samples/sec
+Average loss at batch 1000: 0.851049, 	throughput: 13 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h1m11s
+Accuracy after 4 epochs: 0.03044
+After 4 epochs: Precision: 0.42033, recall: 0.27487, F1: 0.33238
+Rouge:  {'rouge-1': {'f': 0.33404180661287003, 'p': 0.48014519373742726, 'r': 0.26180792442928363}, 'rouge-2': {'f': 0.030307005874223754, 'p': 0.029651010233534506, 'r': 0.032274993440041984}, 'rouge-l': {'f': 0.28469051575849685, 'p': 0.48014519373742726, 'r': 0.26180792442928363}}
+Saved after 4 epochs in: models/coreutils_constraints_paths_final/model_iter4
+Average loss at batch 1100: 0.999552, 	throughput: 12 samples/sec
+Average loss at batch 1200: 0.958805, 	throughput: 13 samples/sec
+Average loss at batch 1300: 0.622337, 	throughput: 12 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h1m34s
+Accuracy after 5 epochs: 0.01050
+After 5 epochs: Precision: 0.38887, recall: 0.28966, F1: 0.33201
+Rouge:  {'rouge-1': {'f': 0.3465582063502888, 'p': 0.49457710137321936, 'r': 0.27519023878247173}, 'rouge-2': {'f': 0.018630280644187862, 'p': 0.015087903437418, 'r': 0.025715035423773288}, 'rouge-l': {'f': 0.29522684959579054, 'p': 0.49457710137321936, 'r': 0.27519023878247173}}
+Average loss at batch 1400: 0.969394, 	throughput: 10 samples/sec
+Average loss at batch 1500: 0.698849, 	throughput: 10 samples/sec
+Average loss at batch 1600: 0.499224, 	throughput: 10 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h1m28s
+Accuracy after 6 epochs: 0.00341
+After 6 epochs: Precision: 0.37681, recall: 0.28583, F1: 0.32507
+Rouge:  {'rouge-1': {'f': 0.3389411580036881, 'p': 0.4861803551123956, 'r': 0.2683241493921106}, 'rouge-2': {'f': 0.018735239966093747, 'p': 0.015350301758068749, 'r': 0.026064899851307617}, 'rouge-l': {'f': 0.2875672215478168, 'p': 0.4861803551123956, 'r': 0.2683241493921106}}
+Average loss at batch 1700: 1.278757, 	throughput: 10 samples/sec
+Average loss at batch 1800: 0.650781, 	throughput: 12 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h1m18s
+Accuracy after 7 epochs: 0.02650
+After 7 epochs: Precision: 0.19758, recall: 0.17195, F1: 0.18388
+Rouge:  {'rouge-1': {'f': 0.1601979218498051, 'p': 0.16141870025365168, 'r': 0.15971311116942186}, 'rouge-2': {'f': 0.021254263854194013, 'p': 0.020335869850432956, 'r': 0.023615848858567306}, 'rouge-l': {'f': 0.15969065192351786, 'p': 0.16141870025365168, 'r': 0.15971311116942186}}
+Average loss at batch 1900: 0.756457, 	throughput: 11 samples/sec
+Average loss at batch 2000: 0.725709, 	throughput: 11 samples/sec
+Average loss at batch 2100: 0.489832, 	throughput: 11 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h1m21s
+Accuracy after 8 epochs: 0.02808
+After 8 epochs: Precision: 0.36010, recall: 0.26755, F1: 0.30701
+Rouge:  {'rouge-1': {'f': 0.320595767034328, 'p': 0.46343916732266244, 'r': 0.24910347240444336}, 'rouge-2': {'f': 0.027735502333359557, 'p': 0.02978220939385988, 'r': 0.026895827866701652}, 'rouge-l': {'f': 0.27306079150741525, 'p': 0.46343916732266244, 'r': 0.24910347240444336}}
+Average loss at batch 2200: 0.723160, 	throughput: 11 samples/sec
+Average loss at batch 2300: 0.527441, 	throughput: 12 samples/sec
+Average loss at batch 2400: 0.385797, 	throughput: 12 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h1m19s
+Accuracy after 9 epochs: 0.02808
+After 9 epochs: Precision: 0.35505, recall: 0.28118, F1: 0.31383
+Rouge:  {'rouge-1': {'f': 0.33901487949933096, 'p': 0.49173445289950146, 'r': 0.2625513863377941}, 'rouge-2': {'f': 0.026887081104991384, 'p': 0.029519811073209133, 'r': 0.025933700690982244}, 'rouge-l': {'f': 0.28818403381512775, 'p': 0.49173445289950146, 'r': 0.2625513863377941}}
+Average loss at batch 2500: 0.726134, 	throughput: 12 samples/sec
+Average loss at batch 2600: 0.414733, 	throughput: 13 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h0m59s
+Accuracy after 10 epochs: 0.02886
+After 10 epochs: Precision: 0.25469, recall: 0.23024, F1: 0.24185
+Rouge:  {'rouge-1': {'f': 0.2278348370943899, 'p': 0.26290125076532844, 'r': 0.21013732178780725}, 'rouge-2': {'f': 0.026817108215382357, 'p': 0.02737689145456136, 'r': 0.026502230385725533}, 'rouge-l': {'f': 0.21624602838182125, 'p': 0.26290125076532844, 'r': 0.21013732178780725}}
+Average loss at batch 2700: 0.487462, 	throughput: 14 samples/sec
+Average loss at batch 2800: 0.503335, 	throughput: 14 samples/sec
+Average loss at batch 2900: 0.335836, 	throughput: 14 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h1m1s
+Accuracy after 11 epochs: 0.03044
+After 11 epochs: Precision: 0.38020, recall: 0.28639, F1: 0.32669
+Rouge:  {'rouge-1': {'f': 0.3430714325556632, 'p': 0.4956485611825418, 'r': 0.2666185603078807}, 'rouge-2': {'f': 0.02967724990210208, 'p': 0.03205632817283303, 'r': 0.028820082218140478}, 'rouge-l': {'f': 0.2922640073125745, 'p': 0.4956485611825418, 'r': 0.2666185603078807}}
+Average loss at batch 3000: 0.494462, 	throughput: 14 samples/sec
+Average loss at batch 3100: 0.382580, 	throughput: 16 samples/sec
+Average loss at batch 3200: 0.276304, 	throughput: 15 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h1m0s
+Accuracy after 12 epochs: 0.03123
+After 12 epochs: Precision: 0.37576, recall: 0.28990, F1: 0.32730
+Rouge:  {'rouge-1': {'f': 0.3448001376698292, 'p': 0.4968074870987492, 'r': 0.2687177468730867}, 'rouge-2': {'f': 0.030700603341591567, 'p': 0.03131286626432258, 'r': 0.03035073908860317}, 'rouge-l': {'f': 0.294142301909313, 'p': 0.4968074870987492, 'r': 0.2687177468730867}}
+Average loss at batch 3300: 0.505384, 	throughput: 15 samples/sec
+Average loss at batch 3400: 0.303613, 	throughput: 16 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h0m58s
+Accuracy after 13 epochs: 0.03044
+After 13 epochs: Precision: 0.37194, recall: 0.28996, F1: 0.32587
+Rouge:  {'rouge-1': {'f': 0.3447126715659566, 'p': 0.4968074870987492, 'r': 0.26869588034636577}, 'rouge-2': {'f': 0.030525671126359344, 'p': 0.031137934050555413, 'r': 0.03017580687483601}, 'rouge-l': {'f': 0.2940540348307542, 'p': 0.4968074870987492, 'r': 0.26869588034636577}}
+Average loss at batch 3500: 0.361150, 	throughput: 15 samples/sec
+Average loss at batch 3600: 0.400631, 	throughput: 16 samples/sec
+Average loss at batch 3700: 0.267845, 	throughput: 16 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h1m2s
+Accuracy after 14 epochs: 0.03595
+After 14 epochs: Precision: 0.36732, recall: 0.29250, F1: 0.32567
+Rouge:  {'rouge-1': {'f': 0.34765653079991504, 'p': 0.4985568092364208, 'r': 0.2721289250415464}, 'rouge-2': {'f': 0.03321088059735849, 'p': 0.033893116417388264, 'r': 0.03279979008134348}, 'rouge-l': {'f': 0.2973605420207536, 'p': 0.4985568092364208, 'r': 0.2721289250415464}}
+Not improved for 10 epochs, stopping training
+Best scores - epoch 4: 
+Precision: 0.42033, recall: 0.27487, F1: 0.33238

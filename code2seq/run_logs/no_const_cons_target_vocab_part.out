@@ -1,0 +1,521 @@
+/home/carolhanna/miniconda3/lib/python3.7/site-packages/tensorflow/python/framework/dtypes.py:516: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint8 = np.dtype([("qint8", np.int8, 1)])
+/home/carolhanna/miniconda3/lib/python3.7/site-packages/tensorflow/python/framework/dtypes.py:517: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint8 = np.dtype([("quint8", np.uint8, 1)])
+/home/carolhanna/miniconda3/lib/python3.7/site-packages/tensorflow/python/framework/dtypes.py:518: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint16 = np.dtype([("qint16", np.int16, 1)])
+/home/carolhanna/miniconda3/lib/python3.7/site-packages/tensorflow/python/framework/dtypes.py:519: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint16 = np.dtype([("quint16", np.uint16, 1)])
+/home/carolhanna/miniconda3/lib/python3.7/site-packages/tensorflow/python/framework/dtypes.py:520: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint32 = np.dtype([("qint32", np.int32, 1)])
+/home/carolhanna/miniconda3/lib/python3.7/site-packages/tensorflow/python/framework/dtypes.py:525: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  np_resource = np.dtype([("resource", np.ubyte, 1)])
+/home/carolhanna/miniconda3/lib/python3.7/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:541: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint8 = np.dtype([("qint8", np.int8, 1)])
+/home/carolhanna/miniconda3/lib/python3.7/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:542: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint8 = np.dtype([("quint8", np.uint8, 1)])
+/home/carolhanna/miniconda3/lib/python3.7/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:543: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint16 = np.dtype([("qint16", np.int16, 1)])
+/home/carolhanna/miniconda3/lib/python3.7/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:544: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_quint16 = np.dtype([("quint16", np.uint16, 1)])
+/home/carolhanna/miniconda3/lib/python3.7/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:545: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  _np_qint32 = np.dtype([("qint32", np.int32, 1)])
+/home/carolhanna/miniconda3/lib/python3.7/site-packages/tensorboard/compat/tensorflow_stub/dtypes.py:550: FutureWarning: Passing (type, 1) or '1type' as a synonym of type is deprecated; in a future version of numpy, it will be understood as (type, (1,)) / '(1,)type'.
+  np_resource = np.dtype([("resource", np.ubyte, 1)])
+WARNING:tensorflow:From code2seq.py:29: The name tf.set_random_seed is deprecated. Please use tf.compat.v1.set_random_seed instead.
+
+Namespace(data_path='./data/really_final_constantless/really_final_constantless', debug=False, load_path=None, predict=False, release=False, save_path_prefix='./models/really_final_constantless/model', seed=239, test_path='./data/really_final_constantless/really_final_constantless.val.c2s')
+WARNING:tensorflow:From /home/carolhanna/Security_Project/merged/binary2name/code2seq/model.py:20: The name tf.Session is deprecated. Please use tf.compat.v1.Session instead.
+
+2020-05-18 09:50:07.363221: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2020-05-18 09:50:07.400485: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2100020000 Hz
+2020-05-18 09:50:07.407341: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x55c83ad21e90 executing computations on platform Host. Devices:
+2020-05-18 09:50:07.407414: I tensorflow/compiler/xla/service/service.cc:175]   StreamExecutor device (0): <undefined>, <undefined>
+Dictionaries loaded.
+Loaded subtoken vocab. size: 3
+Loaded target word vocab. size: 33
+Loaded nodes vocab. size: 245
+Created model
+Starting training
+WARNING:tensorflow:
+The TensorFlow contrib module will not be included in TensorFlow 2.0.
+For more information, please see:
+  * https://github.com/tensorflow/community/blob/master/rfcs/20180907-contrib-sunset.md
+  * https://github.com/tensorflow/addons
+  * https://github.com/tensorflow/io (for I/O related ops)
+If you depend on functionality not listed there, please file an issue.
+
+WARNING:tensorflow:From /home/carolhanna/miniconda3/lib/python3.7/site-packages/tensorflow/python/data/util/random_seed.py:58: add_dispatch_support.<locals>.wrapper (from tensorflow.python.ops.array_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use tf.where in 2.0, which has the same broadcast rule as np.where
+WARNING:tensorflow:From /home/carolhanna/Security_Project/merged/binary2name/code2seq/reader.py:188: map_and_batch (from tensorflow.python.data.experimental.ops.batching) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.data.Dataset.map(map_func, num_parallel_calls)` followed by `tf.data.Dataset.batch(batch_size, drop_remainder)`. Static tf.data optimizations will take care of using the fused implementation.
+WARNING:tensorflow:From /home/carolhanna/Security_Project/merged/binary2name/code2seq/reader.py:92: calling string_split (from tensorflow.python.ops.ragged.ragged_string_ops) with delimiter is deprecated and will be removed in a future version.
+Instructions for updating:
+delimiter is deprecated, please use sep instead.
+WARNING:tensorflow:From /home/carolhanna/Security_Project/merged/binary2name/code2seq/reader.py:101: to_int64 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.cast` instead.
+WARNING:tensorflow:From /home/carolhanna/Security_Project/merged/binary2name/code2seq/reader.py:161: to_float (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `tf.cast` instead.
+WARNING:tensorflow:From /home/carolhanna/Security_Project/merged/binary2name/code2seq/reader.py:190: DatasetV1.make_initializable_iterator (from tensorflow.python.data.ops.dataset_ops) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use `for ... in dataset:` to iterate over a dataset. If using `tf.estimator`, return the `Dataset` object directly from your input function. As a last resort, you can use `tf.compat.v1.data.make_initializable_iterator(dataset)`.
+WARNING:tensorflow:From /home/carolhanna/Security_Project/merged/binary2name/code2seq/model.py:345: The name tf.variable_scope is deprecated. Please use tf.compat.v1.variable_scope instead.
+
+WARNING:tensorflow:From /home/carolhanna/Security_Project/merged/binary2name/code2seq/model.py:346: The name tf.get_variable is deprecated. Please use tf.compat.v1.get_variable instead.
+
+WARNING:tensorflow:From /home/carolhanna/Security_Project/merged/binary2name/code2seq/model.py:483: LSTMCell.__init__ (from tensorflow.python.ops.rnn_cell_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+This class is equivalent as tf.keras.layers.LSTMCell, and will be replaced by that in Tensorflow 2.0.
+WARNING:tensorflow:From /home/carolhanna/Security_Project/merged/binary2name/code2seq/model.py:486: The name tf.nn.rnn_cell.DropoutWrapper is deprecated. Please use tf.compat.v1.nn.rnn_cell.DropoutWrapper instead.
+
+WARNING:tensorflow:From /home/carolhanna/Security_Project/merged/binary2name/code2seq/model.py:495: bidirectional_dynamic_rnn (from tensorflow.python.ops.rnn) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `keras.layers.Bidirectional(keras.layers.RNN(cell))`, which is equivalent to this API
+WARNING:tensorflow:From /home/carolhanna/miniconda3/lib/python3.7/site-packages/tensorflow/python/ops/rnn.py:464: dynamic_rnn (from tensorflow.python.ops.rnn) is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `keras.layers.RNN(cell)`, which is equivalent to this API
+WARNING:tensorflow:From /home/carolhanna/miniconda3/lib/python3.7/site-packages/tensorflow/python/ops/init_ops.py:1251: calling VarianceScaling.__init__ (from tensorflow.python.ops.init_ops) with dtype is deprecated and will be removed in a future version.
+Instructions for updating:
+Call initializer instance with the dtype argument instead of passing it to the constructor
+WARNING:tensorflow:From /home/carolhanna/miniconda3/lib/python3.7/site-packages/tensorflow/python/ops/rnn_cell_impl.py:961: calling Zeros.__init__ (from tensorflow.python.ops.init_ops) with dtype is deprecated and will be removed in a future version.
+Instructions for updating:
+Call initializer instance with the dtype argument instead of passing it to the constructor
+WARNING:tensorflow:From /home/carolhanna/Security_Project/merged/binary2name/code2seq/model.py:539: calling dropout (from tensorflow.python.ops.nn_ops) with keep_prob is deprecated and will be removed in a future version.
+Instructions for updating:
+Please use `rate` instead of `keep_prob`. Rate should be set to `rate = 1 - keep_prob`.
+WARNING:tensorflow:From /home/carolhanna/Security_Project/merged/binary2name/code2seq/model.py:542: dense (from tensorflow.python.layers.core) is deprecated and will be removed in a future version.
+Instructions for updating:
+Use keras.layers.dense instead.
+WARNING:tensorflow:From /home/carolhanna/miniconda3/lib/python3.7/site-packages/tensorflow/python/util/deprecation.py:507: calling count_nonzero (from tensorflow.python.ops.math_ops) with axis is deprecated and will be removed in a future version.
+Instructions for updating:
+reduction_indices is deprecated, use axis instead
+WARNING:tensorflow:From /home/carolhanna/Security_Project/merged/binary2name/code2seq/model.py:409: MultiRNNCell.__init__ (from tensorflow.python.ops.rnn_cell_impl) is deprecated and will be removed in a future version.
+Instructions for updating:
+This class is equivalent as tf.keras.layers.StackedRNNCells, and will be replaced by that in Tensorflow 2.0.
+WARNING:tensorflow:From /home/carolhanna/Security_Project/merged/binary2name/code2seq/model.py:414: The name tf.nn.rnn_cell.LSTMStateTuple is deprecated. Please use tf.compat.v1.nn.rnn_cell.LSTMStateTuple instead.
+
+WARNING:tensorflow:From /home/carolhanna/Security_Project/merged/binary2name/code2seq/model.py:416: The name tf.layers.Dense is deprecated. Please use tf.compat.v1.layers.Dense instead.
+
+WARNING:tensorflow:From /home/carolhanna/Security_Project/merged/binary2name/code2seq/model.py:386: The name tf.train.exponential_decay is deprecated. Please use tf.compat.v1.train.exponential_decay instead.
+
+WARNING:tensorflow:From /home/carolhanna/Security_Project/merged/binary2name/code2seq/model.py:389: The name tf.train.MomentumOptimizer is deprecated. Please use tf.compat.v1.train.MomentumOptimizer instead.
+
+WARNING:tensorflow:From /home/carolhanna/Security_Project/merged/binary2name/code2seq/model.py:398: The name tf.train.Saver is deprecated. Please use tf.compat.v1.train.Saver instead.
+
+Training batch size:			 128
+Dataset path:				 ./data/really_final_constantless/really_final_constantless
+Training file path:			 ./data/really_final_constantless/really_final_constantless.train.c2s
+Validation path:			 ./data/really_final_constantless/really_final_constantless.val.c2s
+Taking max contexts from each example:	 10
+Random path sampling:			 False
+Embedding size:				 128
+Using BiLSTMs, each of size:		 128
+Decoder size:				 320
+Decoder layers:				 1
+Max path lengths:			 850
+Max subtokens in a token:		 1
+Max target length:			 6
+Embeddings dropout keep_prob:		 0.75
+LSTM dropout keep_prob:			 0.5
+============================================
+WARNING:tensorflow:From /home/carolhanna/Security_Project/merged/binary2name/code2seq/model.py:81: The name tf.trainable_variables is deprecated. Please use tf.compat.v1.trainable_variables instead.
+
+Number of trainable params: 1765056
+2020-05-18 09:50:20.103562: W tensorflow/compiler/jit/mark_for_compilation_pass.cc:1412] (One-time warning): Not using XLA:CPU for cluster because envvar TF_XLA_FLAGS=--tf_xla_cpu_global_jit was not set.  If you want XLA:CPU, either set that envvar, or use experimental_jit_scope to enable XLA:CPU.  To confirm that XLA is active, pass --vmodule=xla_compilation_cache=1 (as a proper command-line flag, not via TF_XLA_FLAGS) or set the envvar XLA_FLAGS=--xla_hlo_profile.
+Initalized variables
+Started reader...
+Average loss at batch 100: 7.205965, 	throughput: 13 samples/sec
+Average loss at batch 200: 6.253828, 	throughput: 16 samples/sec
+Average loss at batch 300: 6.106300, 	throughput: 16 samples/sec
+Finished 1 epochs
+2020-05-18 10:40:10.632565: W tensorflow/core/framework/allocator.cc:107] Allocation of 1114112000 exceeds 10% of system memory.
+2020-05-18 10:40:10.719409: W tensorflow/core/framework/allocator.cc:107] Allocation of 1114112000 exceeds 10% of system memory.
+2020-05-18 10:40:10.719424: W tensorflow/core/framework/allocator.cc:107] Allocation of 1114112000 exceeds 10% of system memory.
+2020-05-18 10:40:11.094602: W tensorflow/core/framework/allocator.cc:107] Allocation of 1114112000 exceeds 10% of system memory.
+2020-05-18 10:40:15.767343: W tensorflow/core/framework/allocator.cc:107] Allocation of 1114112000 exceeds 10% of system memory.
+Done testing, epoch reached
+Evaluation time: 0h5m23s
+Accuracy after 1 epochs: 0.00000
+After 1 epochs: Precision: 0.00000, recall: 0.00000, F1: 0.00000
+Rouge:  -1
+Average loss at batch 400: 5.516629, 	throughput: 11 samples/sec
+Average loss at batch 500: 4.506975, 	throughput: 16 samples/sec
+Average loss at batch 600: 4.232984, 	throughput: 17 samples/sec
+Average loss at batch 700: 4.425490, 	throughput: 16 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h5m1s
+Accuracy after 2 epochs: 0.01591
+After 2 epochs: Precision: 0.34683, recall: 0.04169, F1: 0.07444
+Rouge:  -1
+Saved after 2 epochs in: ./models/really_final_constantless/model_iter2
+Average loss at batch 800: 3.593342, 	throughput: 12 samples/sec
+Average loss at batch 900: 3.093828, 	throughput: 16 samples/sec
+Average loss at batch 1000: 3.031771, 	throughput: 16 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h5m20s
+Accuracy after 3 epochs: 0.01665
+After 3 epochs: Precision: 0.22006, recall: 0.07950, F1: 0.11680
+Rouge:  -1
+Saved after 3 epochs in: ./models/really_final_constantless/model_iter3
+Average loss at batch 1100: 2.758960, 	throughput: 12 samples/sec
+Average loss at batch 1200: 2.264255, 	throughput: 17 samples/sec
+Average loss at batch 1300: 1.830499, 	throughput: 18 samples/sec
+Average loss at batch 1400: 2.647638, 	throughput: 18 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h4m53s
+Accuracy after 4 epochs: 0.01591
+After 4 epochs: Precision: 0.16374, recall: 0.05935, F1: 0.08713
+Rouge:  -1
+Average loss at batch 1500: 2.202540, 	throughput: 12 samples/sec
+Average loss at batch 1600: 1.348745, 	throughput: 16 samples/sec
+Average loss at batch 1700: 1.379496, 	throughput: 17 samples/sec
+Average loss at batch 1800: 1.367355, 	throughput: 18 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h5m17s
+Accuracy after 5 epochs: 0.04740
+After 5 epochs: Precision: 0.26801, recall: 0.11868, F1: 0.16451
+Rouge:  -1
+Saved after 5 epochs in: ./models/really_final_constantless/model_iter5
+Average loss at batch 1900: 1.195214, 	throughput: 12 samples/sec
+Average loss at batch 2000: 0.910783, 	throughput: 18 samples/sec
+Average loss at batch 2100: 1.037845, 	throughput: 17 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h5m32s
+Accuracy after 6 epochs: 0.01679
+After 6 epochs: Precision: 0.30721, recall: 0.10659, F1: 0.15827
+Rouge:  -1
+Average loss at batch 2200: 0.958032, 	throughput: 12 samples/sec
+Average loss at batch 2300: 0.687056, 	throughput: 17 samples/sec
+Average loss at batch 2400: 0.675146, 	throughput: 16 samples/sec
+Average loss at batch 2500: 0.728254, 	throughput: 15 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h5m45s
+Accuracy after 7 epochs: 0.04889
+After 7 epochs: Precision: 0.37171, recall: 0.11840, F1: 0.17959
+Rouge:  -1
+Saved after 7 epochs in: ./models/really_final_constantless/model_iter7
+Average loss at batch 2600: 0.591154, 	throughput: 11 samples/sec
+Average loss at batch 2700: 0.400181, 	throughput: 15 samples/sec
+Average loss at batch 2800: 0.517558, 	throughput: 16 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h5m59s
+Accuracy after 8 epochs: 0.04889
+After 8 epochs: Precision: 0.35282, recall: 0.11692, F1: 0.17564
+Rouge:  -1
+Average loss at batch 2900: 0.513873, 	throughput: 11 samples/sec
+Average loss at batch 3000: 0.393183, 	throughput: 16 samples/sec
+Average loss at batch 3100: 0.336695, 	throughput: 16 samples/sec
+Average loss at batch 3200: 0.441924, 	throughput: 14 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h5m51s
+Accuracy after 9 epochs: 0.04889
+After 9 epochs: Precision: 0.38733, recall: 0.11666, F1: 0.17931
+Rouge:  -1
+Average loss at batch 3300: 0.401002, 	throughput: 11 samples/sec
+Average loss at batch 3400: 0.273100, 	throughput: 17 samples/sec
+Average loss at batch 3500: 0.345658, 	throughput: 19 samples/sec
+Average loss at batch 3600: 0.377861, 	throughput: 18 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h5m2s
+Accuracy after 10 epochs: 0.04894
+After 10 epochs: Precision: 0.35317, recall: 0.11495, F1: 0.17345
+Rouge:  -1
+Average loss at batch 3700: 0.310067, 	throughput: 13 samples/sec
+Average loss at batch 3800: 0.236038, 	throughput: 19 samples/sec
+Average loss at batch 3900: 0.328076, 	throughput: 18 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h3m43s
+Accuracy after 11 epochs: 0.04894
+After 11 epochs: Precision: 0.43562, recall: 0.11731, F1: 0.18484
+Rouge:  -1
+Saved after 11 epochs in: ./models/really_final_constantless/model_iter11
+Average loss at batch 4000: 0.332775, 	throughput: 14 samples/sec
+Average loss at batch 4100: 0.224554, 	throughput: 20 samples/sec
+Average loss at batch 4200: 0.249645, 	throughput: 20 samples/sec
+Average loss at batch 4300: 0.300365, 	throughput: 20 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h4m7s
+Accuracy after 12 epochs: 0.04894
+After 12 epochs: Precision: 0.40250, recall: 0.12598, F1: 0.19190
+Rouge:  -1
+Saved after 12 epochs in: ./models/really_final_constantless/model_iter12
+Average loss at batch 4400: 0.269813, 	throughput: 14 samples/sec
+Average loss at batch 4500: 0.189496, 	throughput: 20 samples/sec
+Average loss at batch 4600: 0.272970, 	throughput: 21 samples/sec
+Average loss at batch 4700: 0.305078, 	throughput: 20 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h4m5s
+Accuracy after 13 epochs: 0.04894
+After 13 epochs: Precision: 0.34411, recall: 0.11384, F1: 0.17108
+Rouge:  -1
+Average loss at batch 4800: 0.216508, 	throughput: 14 samples/sec
+Average loss at batch 4900: 0.185780, 	throughput: 21 samples/sec
+Average loss at batch 5000: 0.255497, 	throughput: 20 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h4m8s
+Accuracy after 14 epochs: 0.04894
+After 14 epochs: Precision: 0.35082, recall: 0.11412, F1: 0.17222
+Rouge:  -1
+Average loss at batch 5100: 0.240486, 	throughput: 14 samples/sec
+Average loss at batch 5200: 0.165662, 	throughput: 21 samples/sec
+Average loss at batch 5300: 0.209312, 	throughput: 21 samples/sec
+Average loss at batch 5400: 0.248324, 	throughput: 21 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h3m56s
+Accuracy after 15 epochs: 0.04894
+After 15 epochs: Precision: 0.34932, recall: 0.12259, F1: 0.18149
+Rouge:  -1
+Average loss at batch 5500: 0.191326, 	throughput: 15 samples/sec
+Average loss at batch 5600: 0.151256, 	throughput: 20 samples/sec
+Average loss at batch 5700: 0.218006, 	throughput: 21 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h4m5s
+Accuracy after 16 epochs: 0.04889
+After 16 epochs: Precision: 0.44197, recall: 0.11301, F1: 0.18000
+Rouge:  -1
+Average loss at batch 5800: 0.241258, 	throughput: 14 samples/sec
+Average loss at batch 5900: 0.163481, 	throughput: 19 samples/sec
+Average loss at batch 6000: 0.165188, 	throughput: 21 samples/sec
+Average loss at batch 6100: 0.213111, 	throughput: 21 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h4m13s
+Accuracy after 17 epochs: 0.04912
+After 17 epochs: Precision: 0.40216, recall: 0.12544, F1: 0.19123
+Rouge:  -1
+Average loss at batch 6200: 0.187235, 	throughput: 14 samples/sec
+Average loss at batch 6300: 0.148217, 	throughput: 21 samples/sec
+Average loss at batch 6400: 0.200454, 	throughput: 22 samples/sec
+Average loss at batch 6500: 0.202316, 	throughput: 20 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h4m4s
+Accuracy after 18 epochs: 0.04917
+After 18 epochs: Precision: 0.40653, recall: 0.12541, F1: 0.19169
+Rouge:  -1
+Average loss at batch 6600: 0.154368, 	throughput: 15 samples/sec
+Average loss at batch 6700: 0.135642, 	throughput: 22 samples/sec
+Average loss at batch 6800: 0.189478, 	throughput: 19 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h3m48s
+Accuracy after 19 epochs: 0.04912
+After 19 epochs: Precision: 0.38689, recall: 0.12472, F1: 0.18863
+Rouge:  -1
+Average loss at batch 6900: 0.181651, 	throughput: 15 samples/sec
+Average loss at batch 7000: 0.128769, 	throughput: 21 samples/sec
+Average loss at batch 7100: 0.150522, 	throughput: 19 samples/sec
+Average loss at batch 7200: 0.175513, 	throughput: 20 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h3m41s
+Accuracy after 20 epochs: 0.04912
+After 20 epochs: Precision: 0.37983, recall: 0.12945, F1: 0.19310
+Rouge:  -1
+Saved after 20 epochs in: ./models/really_final_constantless/model_iter20
+Average loss at batch 7300: 0.144259, 	throughput: 15 samples/sec
+Average loss at batch 7400: 0.112683, 	throughput: 19 samples/sec
+Average loss at batch 7500: 0.160229, 	throughput: 20 samples/sec
+Average loss at batch 7600: 0.168391, 	throughput: 22 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h3m53s
+Accuracy after 21 epochs: 0.04903
+After 21 epochs: Precision: 0.39602, recall: 0.12156, F1: 0.18602
+Rouge:  -1
+Average loss at batch 7700: 0.122204, 	throughput: 14 samples/sec
+Average loss at batch 7800: 0.122841, 	throughput: 21 samples/sec
+Average loss at batch 7900: 0.165036, 	throughput: 22 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h4m4s
+Accuracy after 22 epochs: 0.04917
+After 22 epochs: Precision: 0.36242, recall: 0.12562, F1: 0.18657
+Rouge:  -1
+Average loss at batch 8000: 0.151842, 	throughput: 15 samples/sec
+Average loss at batch 8100: 0.105891, 	throughput: 21 samples/sec
+Average loss at batch 8200: 0.150302, 	throughput: 22 samples/sec
+Average loss at batch 8300: 0.164712, 	throughput: 21 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h4m2s
+Accuracy after 23 epochs: 0.04917
+After 23 epochs: Precision: 0.35688, recall: 0.12585, F1: 0.18609
+Rouge:  -1
+2020-05-19 03:13:24.248511: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:111] Filling up shuffle buffer (this may take a while): 2331 of 10000
+2020-05-19 03:13:34.201816: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:111] Filling up shuffle buffer (this may take a while): 5391 of 10000
+2020-05-19 03:13:44.200489: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:111] Filling up shuffle buffer (this may take a while): 9150 of 10000
+2020-05-19 03:13:45.930522: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:162] Shuffle buffer filled.
+Average loss at batch 8400: 0.123936, 	throughput: 14 samples/sec
+Average loss at batch 8500: 0.106724, 	throughput: 23 samples/sec
+Average loss at batch 8600: 0.151223, 	throughput: 19 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h3m55s
+Accuracy after 24 epochs: 0.04917
+After 24 epochs: Precision: 0.41395, recall: 0.12712, F1: 0.19451
+Rouge:  -1
+Saved after 24 epochs in: ./models/really_final_constantless/model_iter24
+Average loss at batch 8700: 0.154479, 	throughput: 14 samples/sec
+Average loss at batch 8800: 0.116398, 	throughput: 22 samples/sec
+Average loss at batch 8900: 0.118521, 	throughput: 20 samples/sec
+Average loss at batch 9000: 0.148356, 	throughput: 20 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h3m28s
+Accuracy after 25 epochs: 0.04917
+After 25 epochs: Precision: 0.34700, recall: 0.12472, F1: 0.18348
+Rouge:  -1
+Average loss at batch 9100: 0.127023, 	throughput: 16 samples/sec
+Average loss at batch 9200: 0.097475, 	throughput: 20 samples/sec
+Average loss at batch 9300: 0.140403, 	throughput: 19 samples/sec
+Average loss at batch 9400: 0.138898, 	throughput: 22 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h3m46s
+Accuracy after 26 epochs: 0.04917
+After 26 epochs: Precision: 0.40421, recall: 0.12819, F1: 0.19464
+Rouge:  -1
+Saved after 26 epochs in: ./models/really_final_constantless/model_iter26
+Average loss at batch 9500: 0.105889, 	throughput: 15 samples/sec
+Average loss at batch 9600: 0.103093, 	throughput: 21 samples/sec
+Average loss at batch 9700: 0.138455, 	throughput: 22 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h4m7s
+Accuracy after 27 epochs: 0.04917
+After 27 epochs: Precision: 0.37396, recall: 0.12601, F1: 0.18850
+Rouge:  -1
+Average loss at batch 9800: 0.141454, 	throughput: 15 samples/sec
+Average loss at batch 9900: 0.095377, 	throughput: 20 samples/sec
+Average loss at batch 10000: 0.117642, 	throughput: 22 samples/sec
+Average loss at batch 10100: 0.125074, 	throughput: 19 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h4m32s
+Accuracy after 28 epochs: 0.04917
+After 28 epochs: Precision: 0.39525, recall: 0.13572, F1: 0.20206
+Rouge:  -1
+Saved after 28 epochs in: ./models/really_final_constantless/model_iter28
+Average loss at batch 10200: 0.107343, 	throughput: 14 samples/sec
+Average loss at batch 10300: 0.088405, 	throughput: 22 samples/sec
+Average loss at batch 10400: 0.132822, 	throughput: 21 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h3m47s
+Accuracy after 29 epochs: 0.04917
+After 29 epochs: Precision: 0.37434, recall: 0.13065, F1: 0.19369
+Rouge:  -1
+Average loss at batch 10500: 0.131206, 	throughput: 15 samples/sec
+Average loss at batch 10600: 0.094134, 	throughput: 22 samples/sec
+Average loss at batch 10700: 0.095203, 	throughput: 19 samples/sec
+Average loss at batch 10800: 0.120255, 	throughput: 19 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h3m39s
+Accuracy after 30 epochs: 0.04903
+After 30 epochs: Precision: 0.37904, recall: 0.12927, F1: 0.19279
+Rouge:  -1
+Average loss at batch 10900: 0.114516, 	throughput: 15 samples/sec
+Average loss at batch 11000: 0.087371, 	throughput: 19 samples/sec
+Average loss at batch 11100: 0.120230, 	throughput: 20 samples/sec
+Average loss at batch 11200: 0.121681, 	throughput: 22 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h3m55s
+Accuracy after 31 epochs: 0.04917
+After 31 epochs: Precision: 0.38256, recall: 0.13101, F1: 0.19518
+Rouge:  -1
+Average loss at batch 11300: 0.098705, 	throughput: 14 samples/sec
+Average loss at batch 11400: 0.085677, 	throughput: 20 samples/sec
+Average loss at batch 11500: 0.119778, 	throughput: 22 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h4m25s
+Accuracy after 32 epochs: 0.04917
+After 32 epochs: Precision: 0.37916, recall: 0.13070, F1: 0.19439
+Rouge:  -1
+Average loss at batch 11600: 0.121362, 	throughput: 14 samples/sec
+Average loss at batch 11700: 0.083216, 	throughput: 20 samples/sec
+Average loss at batch 11800: 0.095139, 	throughput: 22 samples/sec
+Average loss at batch 11900: 0.122417, 	throughput: 21 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h4m26s
+Accuracy after 33 epochs: 0.04917
+After 33 epochs: Precision: 0.39118, recall: 0.12865, F1: 0.19362
+Rouge:  -1
+Average loss at batch 12000: 0.104151, 	throughput: 14 samples/sec
+Average loss at batch 12100: 0.078305, 	throughput: 21 samples/sec
+Average loss at batch 12200: 0.114851, 	throughput: 20 samples/sec
+Average loss at batch 12300: 0.118925, 	throughput: 19 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h4m34s
+Accuracy after 34 epochs: 0.04917
+After 34 epochs: Precision: 0.40628, recall: 0.12842, F1: 0.19515
+Rouge:  -1
+Average loss at batch 12400: 0.086560, 	throughput: 14 samples/sec
+Average loss at batch 12500: 0.088406, 	throughput: 17 samples/sec
+Average loss at batch 12600: 0.112528, 	throughput: 17 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h5m5s
+Accuracy after 35 epochs: 0.04917
+After 35 epochs: Precision: 0.39290, recall: 0.12868, F1: 0.19386
+Rouge:  -1
+Average loss at batch 12700: 0.110019, 	throughput: 12 samples/sec
+Average loss at batch 12800: 0.078315, 	throughput: 18 samples/sec
+Average loss at batch 12900: 0.100897, 	throughput: 20 samples/sec
+Average loss at batch 13000: 0.106892, 	throughput: 20 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h5m8s
+Accuracy after 36 epochs: 0.04917
+After 36 epochs: Precision: 0.39785, recall: 0.13158, F1: 0.19775
+Rouge:  -1
+Average loss at batch 13100: 0.091496, 	throughput: 13 samples/sec
+Average loss at batch 13200: 0.076798, 	throughput: 19 samples/sec
+Average loss at batch 13300: 0.110034, 	throughput: 19 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h5m24s
+Accuracy after 37 epochs: 0.04917
+After 37 epochs: Precision: 0.39757, recall: 0.12689, F1: 0.19238
+Rouge:  -1
+2020-05-19 12:58:20.733236: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:111] Filling up shuffle buffer (this may take a while): 2591 of 10000
+2020-05-19 12:58:30.697284: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:111] Filling up shuffle buffer (this may take a while): 6018 of 10000
+2020-05-19 12:58:40.699983: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:111] Filling up shuffle buffer (this may take a while): 9273 of 10000
+2020-05-19 12:58:42.496791: I tensorflow/core/kernels/data/shuffle_dataset_op.cc:162] Shuffle buffer filled.
+Average loss at batch 13400: 0.109234, 	throughput: 12 samples/sec
+Average loss at batch 13500: 0.079074, 	throughput: 18 samples/sec
+Average loss at batch 13600: 0.084414, 	throughput: 17 samples/sec
+Average loss at batch 13700: 0.108308, 	throughput: 18 samples/sec
+Finished 1 epochs
+Done testing, epoch reached
+Evaluation time: 0h5m8s
+Accuracy after 38 epochs: 0.04917
+After 38 epochs: Precision: 0.40244, recall: 0.12964, F1: 0.19610
+Rouge:  -1
+Not improved for 10 epochs, stopping training
+Best scores - epoch 28: 
+Precision: 0.39525, recall: 0.13572, F1: 0.20206
