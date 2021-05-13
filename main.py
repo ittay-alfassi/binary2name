@@ -25,7 +25,8 @@ def time_limit_check(smgr):
         print("stopped exploration")
     return should_stop
 
-
+#analyze a specific function with angr
+#proj is the project object, cfg is the cfg-making object
 def analyze_func(proj, fun, cfg):
     print(f"started running {fun.name}")
     call_state = proj.factory.call_state(fun.addr, add_options={
@@ -49,6 +50,7 @@ def get_cfg_funcs(proj, binary, excluded):
                               proj.kb.functions.values()]))
 
 
+#format an angr block to input
 def block_to_ins(block: angr.block.Block):
     result = []
     for ins in block.capstone.insns:
@@ -131,18 +133,20 @@ def tokenize_function_name(function_name):
     return "|".join(name.split("_"))
 
 
-
+# loads the dataset from the files and start analyzing
 def generate_dataset(train_binaries, output_name, dataset_name): #keep
-    
+    # open usable function file and use it
     usable_functions_file = open("our_dataset/"+ dataset_name + "/usable_functions_names.txt", "r")
     usable_functions = [name.strip() for name in usable_functions_file]
-    output_dir = f"datasets/{output_name}"
+    output_dir = f"datasets/{output_name}" # open output dirs 
     os.makedirs(output_dir, exist_ok=True)
     analysed_funcs = get_analysed_funcs(output_dir)
     for binary in train_binaries:
         analysed_funcs = analyse_binary(analysed_funcs, binary, output_dir, usable_functions)
 
 
+# Binary name is the name of the binary file we are analyzing
+# analyzed_funcs is a list of function names in that binary
 def analyse_binary(analysed_funcs, binary_name, dataset_dir, usable_functions): #keep
     excluded = {'main', 'usage', 'exit'}.union(analysed_funcs)
     proj = angr.Project(binary_name, auto_load_libs=False)
@@ -196,6 +200,8 @@ def find_target_constants(line):
                 line = line.replace(target, replacement)
     return line
 
+# Apparently, this is the function that actually performs the transformation from ANGR to code2seq input.
+# Dear god, we need to refactor this ASAP.
 def sm_to_output(sm: angr.sim_manager.SimulationManager, output_file, func_name):
     counters = {'mem': itertools.count(), 'ret': itertools.count()}
     var_map = {}
@@ -206,8 +212,8 @@ def sm_to_output(sm: angr.sim_manager.SimulationManager, output_file, func_name)
     neg_constants_mapper = dict()
     
     proj = sm._project
-    for exec_paths in sm.stashes.values():
-        for exec_path in exec_paths:
+    for exec_paths in sm.stashes.values():  #TODO: understand what sm.stashes.values()
+        for exec_path in exec_paths:        # bbl === basic block
             blocks = [proj.factory.block(baddr) for baddr in exec_path.history.bbl_addrs]
             processsed_code = "|".join(list(filter(None, map(block_to_ins, blocks))))
             var_map, relified_consts = varify_cons(exec_path.solver.constraints, var_map=var_map, counters=counters)
