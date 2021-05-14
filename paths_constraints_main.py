@@ -15,9 +15,9 @@ bases_dict = dict()
 replacement_dict = dict()
 start_time = 0
 
-
+# REPR = representation
         
-def time_limit_check(smgr):
+def time_limit_check(simulation_manager):
     global start_time
     minutes_limit = 10
     should_stop = time.time() - start_time > (60 * minutes_limit)
@@ -25,10 +25,11 @@ def time_limit_check(smgr):
         print("stopped exploration")
     return should_stop
 
-
-def analyze_func(proj, fun, cfg):
-    print(f"started running {fun.name}")
-    call_state = proj.factory.call_state(fun.addr, add_options={
+# Analyze a specific function with angr
+# proj is the project object, cfg is the cfg-making object
+def analyze_func(proj, bin_func, cfg):
+    print(f"started running {bin_func.name}")
+    call_state = proj.factory.call_state(bin_func.addr, add_options={
         'CALLLESS': True, 'NO_SYMBOLIC_SYSCALL_RESOLUTION': True
     })
     sm = proj.factory.simulation_manager(call_state)
@@ -36,7 +37,7 @@ def analyze_func(proj, fun, cfg):
     global start_time
     start_time = time.time()
     sm.run(until=time_limit_check)
-    print(f"finished {fun.name}")
+    print(f"finished {bin_func.name}")
     return sm
 
 
@@ -66,7 +67,8 @@ def remove_consecutive_pipes(s1):
     return re.sub("(\|)+", "|", s1)
 
 
-def con_to_str(con, replace_strs=[', ', ' ', '(', ')'], max_depth=8):
+# TODO: CONSTANT OR CONSTRAINT?
+def constraint_to_str(con, replace_strs=[', ', ' ', '(', ')'], max_depth=8):
     repr = con.shallow_repr(max_depth=max_depth, details=con.MID_REPR).replace('{UNINITIALIZED}', '')
     repr=re.sub("Extract\([0-9]+\, [0-9]+\,","",repr)
     for r_str in replace_strs:
@@ -86,42 +88,43 @@ def gen_new_name(old_name):
         return re.sub("(_[0-9]+)+", '', old_name[len("unconstrained_ret_") : ])
     return old_name
 
-
-def varify_cons(cons, var_map=None, counters=None, max_depth=8):
+# TODO: CONSTANT OR CONSTRAINT?
+# OH GOD.
+def varify_constraints(constraints, variable_map=None, counters=None, max_depth=8):
     """
     abstract away constants from the constraints
     """
     #counters = {'mem': itertools.count(), 'ret': itertools.count()} if counters is None else counters
-    var_map = {} if var_map is None else var_map
-    new_cons = []
-    var_map['Extract'] = ""
+    variable_map = {} if variable_map is None else variable_map
+    new_constraints = []
+    variable_map['Extract'] = ""
 
     m = None
-    for con in cons:
-        if con.concrete:
+    for constraint in constraints:
+        if constraint.concrete:
             continue
-        for v in con.leaf_asts():
-            if v.op in { 'BVS', 'BoolS', 'FPS' }:
-                new_name = gen_new_name(v.args[0])
+        for variable in constraint.leaf_asts():
+            if variable.op in { 'BVS', 'BoolS', 'FPS' }:
+                new_name = gen_new_name(variable.args[0])
                 if re.match(r"mem", new_name):
                     if m is None :
                         m = int(new_name.split('_')[1])
                     else:
                         m = min(m,int(new_name.split('_')[1]))
-                var_map[v.cache_key] = v._rename(new_name)
-        new_cons.append(con_to_str(con.replace_dict(var_map), max_depth=max_depth))
-    final_cons = []
+                variable_map[variable.cache_key] = variable._rename(new_name)
+        new_constraints.append(constraint_to_str(constraint.replace_dict(variable_map), max_depth=max_depth))
+    final_constraints = []
     if m is not None:
-        for con in new_cons :
-            split = con.split("|")
+        for constraint in new_constraints :
+            split = constraint.split("|")
             for i,s in enumerate(split):
                 if re.match(r"mem", s):
                     new_s = 'mem_%d' % (int(s.split('_')[1]) -m)
-                    con = con.replace(s,new_s)
-            final_cons.append(con)
+                    constraint = constraint.replace(s,new_s)
+            final_constraints.append(constraint)
     else:
-        final_cons = new_cons
-    return var_map, final_cons
+        final_constraints = new_constraints
+    return variable_map, final_constraints
 
 
 
@@ -138,13 +141,13 @@ def generate_dataset(train_binaries, output_name, dataset_name): #keep
     usable_functions = [name.strip() for name in usable_functions_file]
     output_dir = f"datasets/{output_name}"
     os.makedirs(output_dir, exist_ok=True)
-    analysed_funcs = get_analysed_funcs(output_dir)
+    analyzed_funcs = get_analyzed_funcs(output_dir)
     for binary in train_binaries:
-        analysed_funcs = analyse_binary(analysed_funcs, binary, output_dir, usable_functions)
+        analyzed_funcs = analyze_binary(analyzed_funcs, binary, output_dir, usable_functions)
 
 
-def analyse_binary(analysed_funcs, binary_name, dataset_dir, usable_functions): #keep
-    excluded = {'main', 'usage', 'exit'}.union(analysed_funcs)
+def analyze_binary(analyzed_funcs, binary_name, dataset_dir, usable_functions): #keep
+    excluded = {'main', 'usage', 'exit'}.union(analyzed_funcs)
     proj = angr.Project(binary_name, auto_load_libs=False)
     cfg = proj.analyses.CFGFast()
     binary_name = os.path.basename(binary_name)
@@ -153,12 +156,12 @@ def analyse_binary(analysed_funcs, binary_name, dataset_dir, usable_functions): 
     funcs = get_cfg_funcs(proj, binary_name, excluded)
     print(f"{binary_name} have {len(funcs)} funcs")
     for test_func in funcs:
-        if (test_func.name in analysed_funcs) or (tokenize_function_name(test_func.name) not in usable_functions):
+        if (test_func.name in analyzed_funcs) or (tokenize_function_name(test_func.name) not in usable_functions):
             print(f"skipping {tokenize_function_name(test_func.name)}")
             continue
         print(f"analyzing {binary_name}/{test_func.name}")
         output = open(os.path.join(binary_dir, f"{test_func.name}"), "w")
-        analysed_funcs.add(test_func.name)
+        analyzed_funcs.add(test_func.name)
         try:
             sm: angr.sim_manager.SimulationManager = analyze_func(proj, test_func, cfg)
             sm_to_output(sm, output, test_func.name)
@@ -166,18 +169,18 @@ def analyse_binary(analysed_funcs, binary_name, dataset_dir, usable_functions): 
             logging.error(str(e))
             logging.error(f"got an error while analyzing {test_func.name}")
         output.close()
-    return analysed_funcs
+    return analyzed_funcs
 
 
 
-def get_analysed_funcs(dataset_path): #keep
+def get_analyzed_funcs(dataset_path): #keep
     binaries = os.scandir(dataset_path)
-    analysed_funcs = set()
+    analyzed_funcs = set()
     for entry in binaries:
         funcs = glob(f"{entry.path}/*")
-        analysed_funcs.update(map(lambda x: x[:-len(".pkl")] if x.endswith(".pkl") else x, map(os.path.basename, funcs)))
+        analyzed_funcs.update(map(lambda x: x[:-len(".pkl")] if x.endswith(".pkl") else x, map(os.path.basename, funcs)))
 
-    return analysed_funcs
+    return analyzed_funcs
 
 def find_target_constants(line):
     targets_mapper = dict()
@@ -198,7 +201,7 @@ def find_target_constants(line):
 
 def sm_to_output(sm: angr.sim_manager.SimulationManager, output_file, func_name):
     counters = {'mem': itertools.count(), 'ret': itertools.count()}
-    var_map = {}
+    variable_map = {}
     skipped_lines = 0
     constants_mapper = dict()
     constants_counter = itertools.count()
@@ -210,20 +213,22 @@ def sm_to_output(sm: angr.sim_manager.SimulationManager, output_file, func_name)
         for exec_path in exec_paths:
             blocks = [proj.factory.block(baddr) for baddr in exec_path.history.bbl_addrs]
             processsed_code = "|".join(list(filter(None, map(block_to_ins, blocks))))
-            var_map, relified_consts = varify_cons(exec_path.solver.constraints, var_map=var_map, counters=counters)
-            relified_consts = "|".join(relified_consts)
+            # TODO: CONSTANT OR CONSTRAINT?
+            variable_map, relified_constraints = varify_constraints(exec_path.solver.constraints, variable_map=variable_map, counters=counters)
+            # TODO: CONSTANT OR CONSTRAINT?
+            relified_constraints = "|".join(relified_constraints)
             line = f"{tokenize_function_name(func_name)} DUM,{processsed_code}" 
             line = re.sub("r[0-9]+", "reg", line)
             line = re.sub("xmm[0-9]+", "xmm", line)
             line = find_target_constants(line)
-            line += f"|CONS|{relified_consts},DUM\n"
+            line += f"|CONS|{relified_constraints},DUM\n"
             
             line = re.sub(r"0[xX][0-9a-fA-F]+", "|const|", line)
             line = re.sub(r"\|[0-9]+\|", "|const|", line)
             
             #found_constants = set(re.findall(r"0[xX][0-9a-fA-F]+", line))
                         
-            #line += f"|CONS|{relified_consts},DUM\n"
+            #line += f"|CONS|{relified_constraints},DUM\n"
             #for constant in found_constants:
             #    if constant not in constants_mapper:
             #        constants_mapper[constant] = f"const"
