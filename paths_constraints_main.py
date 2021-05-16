@@ -26,13 +26,13 @@ def time_limit_check(simulation_manager):
     return should_stop
 
 # Analyze a specific function with angr
-# proj is the project object, cfg is the cfg-making object
+# proj is the project object, cfg IS THE ACTUAL CONTROL-FLOW GRAPH
 def analyze_func(proj, bin_func, cfg):
     print(f"started running {bin_func.name}")
     call_state = proj.factory.call_state(bin_func.addr, add_options={
         'CALLLESS': True, 'NO_SYMBOLIC_SYSCALL_RESOLUTION': True
     })
-    sm = proj.factory.simulation_manager(call_state)
+    sm = proj.factory.simulation_manager(call_state)  # Creates a simulation manager, ready to start from the specific function
     sm.use_technique(angr.exploration_techniques.LoopSeer(cfg=cfg, bound=2))
     global start_time
     start_time = time.time()
@@ -149,7 +149,14 @@ def generate_dataset(train_binaries, output_name, dataset_name): #keep
 def analyze_binary(analyzed_funcs, binary_name, dataset_dir, usable_functions): #keep
     excluded = {'main', 'usage', 'exit'}.union(analyzed_funcs)
     proj = angr.Project(binary_name, auto_load_libs=False)
-    cfg = proj.analyses.CFGFast()
+    cfg = proj.analyses.CFGFast()  # cfg is the ACTUAL control-flow graph
+
+    #REMOVE THIS
+    print(cfg.graph.nodes())
+    print(cfg.graph.edges())
+    #REMOVE THIS
+
+
     binary_name = os.path.basename(binary_name)
     binary_dir = os.path.join(dataset_dir, f"{binary_name}")
     os.makedirs(binary_dir, exist_ok=True)
@@ -203,19 +210,23 @@ def sm_to_output(sm: angr.sim_manager.SimulationManager, output_file, func_name)
     counters = {'mem': itertools.count(), 'ret': itertools.count()}
     variable_map = {}
     skipped_lines = 0
-    constants_mapper = dict()
-    constants_counter = itertools.count()
-    pos_constants_mapper = dict()
-    neg_constants_mapper = dict()
+    #constants_mapper = dict()
+    #constants_counter = itertools.count()
+    #pos_constants_mapper = dict()
+    #neg_constants_mapper = dict()
     
     proj = sm._project
     for exec_paths in sm.stashes.values():
         for exec_path in exec_paths:
             blocks = [proj.factory.block(baddr) for baddr in exec_path.history.bbl_addrs]
+
+
+            if len(exec_path.history.parent.recent_constraints) > 0:
+                print('AHAHAHAHHAHAHAHAHAHHAHAHHAHAH')
+
+
             processsed_code = "|".join(list(filter(None, map(block_to_ins, blocks))))
-            # TODO: CONSTANT OR CONSTRAINT?
             variable_map, relified_constraints = varify_constraints(exec_path.solver.constraints, variable_map=variable_map, counters=counters)
-            # TODO: CONSTANT OR CONSTRAINT?
             relified_constraints = "|".join(relified_constraints)
             line = f"{tokenize_function_name(func_name)} DUM,{processsed_code}" 
             line = re.sub("r[0-9]+", "reg", line)
