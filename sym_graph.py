@@ -18,18 +18,21 @@ class Edge:
         
 
 
-class Sym_DAG:
+class SymGraph:
     def __init__(self, root: Vertex):
         self.root = root
         self.vertices = {}
         self.addVertex(root)
 
     def addVertex(self, vertex: Vertex):
-        assert(not(vertex in self.vertices.keys()))
-        self.vertices[vertex] = []
+        if (not(vertex in self.vertices.keys())):
+            self.vertices[vertex] = []
 
     def addEdge(self, edge: Edge):
-        assert(edge.source in self.vertices.keys())
-        assert(edge.dest in self.vertices.keys())
-        assert(not(edge in self.vertices[edge.source]))
-        self.vertices[edge.source].append(edge)
+        if (not(edge.source in self.vertices.keys())):
+            self.addVertex(edge.source)
+        if (not(edge.dest in self.vertices.keys())):
+            self.addVertex(edge.dest)
+            
+        if (not(edge in self.vertices[edge.source])):
+            self.vertices[edge.source].append(edge)
