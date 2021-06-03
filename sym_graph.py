@@ -26,9 +26,7 @@ class Edge:
         return (self.source == other.source and self.dest == other.dest)
 
     def __str__(self):
-        return f'{{"EDGE": ["{self.source.baddr}", "{self.dest.baddr}"],   "CONSTRAINT": "{self.constraint}"}}'
-
-        
+        return f'{{"EDGE": ["{self.source.baddr}", "{self.dest.baddr}"],   "CONSTRAINT": "{self.constraint}"}}'  
 
 
 class SymGraph:
@@ -64,4 +62,10 @@ class SymGraph:
         res += f'] }} }}'
         return res
 
-        
+    def worth_looking_at(self, number_of_edges):
+        all_edges = [item for sublist in self.vertices.values() for item in sublist]
+        counter = 0
+        for edge in all_edges:
+            if len(edge.constraint) > 0:
+                counter = counter + 1
+        return counter > number_of_edges
