@@ -200,6 +200,14 @@ def find_target_constants(line):
     return line
 
 def sm_to_output(sm: angr.sim_manager.SimulationManager, output_file, func_name):
+    #TESTING! calling our graph generation
+
+    res = sm_to_graph(sm, output_file, func_name)
+    print(res)
+
+    #TESTING! ending call
+
+
     counters = {'mem': itertools.count(), 'ret': itertools.count()}
     variable_map = {}
     skipped_lines = 0
@@ -233,7 +241,24 @@ def sm_to_output(sm: angr.sim_manager.SimulationManager, output_file, func_name)
                 skipped_lines += 1
     print(f"skipped {skipped_lines} lines")
 
+
+
+
+#--------------------- ITTAY AND ITAMAR'S CODE---------------------#
+
+def address_to_content(proj: angr.project.Project, baddr: int):
+    full_block = proj.factory.block(baddr)
+    raw_instructions = block_to_ins(full_block)
+    instructions = re.sub("r[0-9]+", "reg", raw_instructions)
+    instructions = re.sub("r[0-9]+", "reg", instructions)
+    instructions = re.sub("xmm[0-9]+", "xmm", instructions)
+    instructions = find_target_constants(instructions)
+    return instructions
+
+
+
 def sm_to_graph(sm: angr.sim_manager.SimulationManager, output_file, func_name):
+    proj = sm._project
     final_states_lists = filter(None, sm.stashes.values())
 
     #TODO: make sure you want to treat the "deadended" and "spinning" states the same way
@@ -254,15 +279,22 @@ def sm_to_graph(sm: angr.sim_manager.SimulationManager, output_file, func_name):
     for path in all_paths:
         assert(path[0][0] == initial_node[0]) # WARNING: make sure this works type-wise!
 
-    sym_graph = SymGraph(Vertex(initial_node[0]))
+    sym_graph = SymGraph(Vertex(initial_node[0], address_to_content(proj, initial_node[0])))
     #TODO: unite into graph
+
+    variable_map = {} #semi-global structure, used by varify_constraints
     for path in all_paths:
         for i in range(len(path)-1):
-            src = Vertex(path[i][0])
-            dst = Vertex(path[i+1][0])
-            edge = Edge(src, dst, path[i+1][1]) # TODO: make sure where to take the constraint from!!!!
+            src = Vertex(path[i][0], address_to_content(proj, path[i][0]))
+            dst = Vertex(path[i+1][0], address_to_content(proj, path[i+1][0]))
+            variable_map, constraint_list = varify_constraints(path[i+1][1], variable_map)
+            edge = Edge(src, dst, "|".join(constraint_list)) # TODO: make sure where to take the constraint from!!!!
             sym_graph.addEdge(edge)
+
+    return sym_graph #TODO: return the json!
     
+#--------------------- ITTAY AND ITAMAR'S CODE---------------------#
+
 
 def main():
     parser = argparse.ArgumentParser()
