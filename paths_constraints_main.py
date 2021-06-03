@@ -1,3 +1,4 @@
+from sym_graph import *
 from typing import Dict, Any
 
 import angr
@@ -14,6 +15,7 @@ from glob import glob
 bases_dict = dict()
 replacement_dict = dict()
 start_time = 0
+
 
 # REPR = representation
         
@@ -87,6 +89,7 @@ def gen_new_name(old_name):
     if re.match(r"unconstrained_ret", old_name):
         return re.sub("(_[0-9]+)+", '', old_name[len("unconstrained_ret_") : ])
     return old_name
+
 
 # TODO: CONSTANT OR CONSTRAINT?
 # OH GOD.
@@ -194,9 +197,6 @@ def find_target_constants(line):
     targets_counter = itertools.count()
     
     found_targets = set(re.findall(r"jmp\|0[xX][0-9a-fA-F]+|jnb\|0[xX][0-9a-fA-F]+|jnbe\|0[xX][0-9a-fA-F]+|jnc\|0[xX][0-9a-fA-F]+|jne\|0[xX][0-9a-fA-F]+|jng\|0[xX][0-9a-fA-F]+|jnge\|0[xX][0-9a-fA-F]+|jnl\|0[xX][0-9a-fA-F]+|jnle\|0[xX][0-9a-fA-F]+|jno\|0[xX][0-9a-fA-F]+|jnp\|0[xX][0-9a-fA-F]+|jns\|0[xX][0-9a-fA-F]+|jnz\|0[xX][0-9a-fA-F]+|jo\|0[xX][0-9a-fA-F]+|jp\|0[xX][0-9a-fA-F]+|jpe\|0[xX][0-9a-fA-F]+|jpo\|0[xX][0-9a-fA-F]+|js\|0[xX][0-9a-fA-F]+|jz\|0[xX][0-9a-fA-F]+|ja\|0[xX][0-9a-fA-F]+|jae\|0[xX][0-9a-fA-F]+|jb\|0[xX][0-9a-fA-F]+|jbe\|0[xX][0-9a-fA-F]+|jc\|0[xX][0-9a-fA-F]+|je\|0[xX][0-9a-fA-F]+|jz\|0[xX][0-9a-fA-F]+|jg\|0[xX][0-9a-fA-F]+|jge\|0[xX][0-9a-fA-F]+|jl\|0[xX][0-9a-fA-F]+|jle\|0[xX][0-9a-fA-F]+|jna\|0[xX][0-9a-fA-F]+|jnae\|0[xX][0-9a-fA-F]+|jnb\|0[xX][0-9a-fA-F]+|jnbe\|0[xX][0-9a-fA-F]+|jnc\|0[xX][0-9a-fA-F]+|jne\|0[xX][0-9a-fA-F]+|jng\|0[xX][0-9a-fA-F]+|jnge\|0[xX][0-9a-fA-F]+|jnl\|0[xX][0-9a-fA-F]+|jnle\|0[xX][0-9a-fA-F]+|jno\|0[xX][0-9a-fA-F]+|jnp\|0[xX][0-9a-fA-F]+|jns\|0[xX][0-9a-fA-F]+|jnz\|0[xX][0-9a-fA-F]+|jo\|0[xX][0-9a-fA-F]+|jp\|0[xX][0-9a-fA-F]+|jpe\|0[xX][0-9a-fA-F]+|jpo\|0[xX][0-9a-fA-F]+|js\|0[xX][0-9a-fA-F]+|jz\|0[xX][0-9a-fA-F]+ ", line))
-    #for target in found_targets:
-    #    target = re.sub("0[xX][0-9a-fA-F]+|\|", "" , target)
-    #    line = line.replace(target, "jmp")
     for target in found_targets:
         print("removing targets")
         target = re.sub("[a-z]+\|", "" , target)
@@ -207,6 +207,14 @@ def find_target_constants(line):
     return line
 
 def sm_to_output(sm: angr.sim_manager.SimulationManager, output_file, func_name):
+    #TESTING! calling our graph generation
+
+    res = sm_to_graph(sm, output_file, func_name)
+    print(res)
+
+    #TESTING! ending call
+
+
     counters = {'mem': itertools.count(), 'ret': itertools.count()}
     variable_map = {}
     skipped_lines = 0
@@ -235,29 +243,7 @@ def sm_to_output(sm: angr.sim_manager.SimulationManager, output_file, func_name)
             line += f"|CONS|{relified_constraints},DUM\n"
             
             line = re.sub(r"0[xX][0-9a-fA-F]+", "|const|", line)
-            line = re.sub(r"\|[0-9]+\|", "|const|", line)
-            
-            #found_constants = set(re.findall(r"0[xX][0-9a-fA-F]+", line))
-                        
-            #line += f"|CONS|{relified_constraints},DUM\n"
-            #for constant in found_constants:
-            #    if constant not in constants_mapper:
-            #        constants_mapper[constant] = f"const"
-            
-            #pos_constants =  set(re.findall(r"\|\+\|[0-9]+", line))
-            #neg_constants =  set(re.findall(r"\|\-\|[0-9]+", line))
-
-            #for pos_constant in pos_constants:
-            #    pos_constant = re.sub("\|\+\|", "", pos_constant)
-            #    if pos_constant  not in pos_constants_mapper:
-            #        pos_constants_mapper[pos_constant] = f"pos_const"
-            #for neg_constant in neg_constants:
-            #    neg__constant = re.sub("\|\-\|", "", neg_constant)
-            #    if neg_constant not in constants_mapper:
-            #        neg_constants_mapper[neg_constant] = f"neg_const"
-
-            #for constant, replacement in sorted(constants_mapper.items(), key=lambda x: len(x[0]), reverse=True):
-            #    line = line.replace(constant, replacement)          
+            line = re.sub(r"\|[0-9]+\|", "|const|", line)     
             
             line = remove_consecutive_pipes(line)
             if len(line) <= 3000:
@@ -265,6 +251,61 @@ def sm_to_output(sm: angr.sim_manager.SimulationManager, output_file, func_name)
             else:
                 skipped_lines += 1
     print(f"skipped {skipped_lines} lines")
+
+
+
+
+#--------------------- ITTAY AND ITAMAR'S CODE---------------------#
+
+def address_to_content(proj: angr.project.Project, baddr: int):
+    full_block = proj.factory.block(baddr)
+    raw_instructions = block_to_ins(full_block)
+    instructions = re.sub("r[0-9]+", "reg", raw_instructions)
+    instructions = re.sub("r[0-9]+", "reg", instructions)
+    instructions = re.sub("xmm[0-9]+", "xmm", instructions)
+    instructions = find_target_constants(instructions)
+    return instructions
+
+
+
+def sm_to_graph(sm: angr.sim_manager.SimulationManager, output_file, func_name):
+    proj = sm._project
+    final_states_lists = filter(None, sm.stashes.values())
+
+    #TODO: make sure you want to treat the "deadended" and "spinning" states the same way
+    final_states = [item for sublist in final_states_lists for item in sublist]
+    assert(final_states != [])
+
+    all_paths = []
+    for state in final_states:
+        state_path = []
+        current_node = state.history
+        while current_node.addr != None:
+            state_path.insert(0,(current_node.addr, current_node.recent_constraints))
+            current_node = current_node.parent
+        all_paths.append(state_path)
+
+    # find the root and assert it is equal for all
+    initial_node = all_paths[0][0]
+    for path in all_paths:
+        assert(path[0][0] == initial_node[0]) # WARNING: make sure this works type-wise!
+
+    sym_graph = SymGraph(Vertex(initial_node[0], address_to_content(proj, initial_node[0])))
+    #TODO: unite into graph
+
+    variable_map = {} #semi-global structure, used by varify_constraints
+    for path in all_paths:
+        for i in range(len(path)-1):
+            src = Vertex(path[i][0], address_to_content(proj, path[i][0]))
+            dst = Vertex(path[i+1][0], address_to_content(proj, path[i+1][0]))
+            variable_map, constraint_list = varify_constraints(path[i+1][1], variable_map)
+            edge = Edge(src, dst, "|".join(constraint_list)) # TODO: make sure where to take the constraint from!!!!
+            sym_graph.addEdge(edge)
+
+    return sym_graph #TODO: return the json!
+    
+#--------------------- ITTAY AND ITAMAR'S CODE---------------------#
+
 
 def main():
     parser = argparse.ArgumentParser()
