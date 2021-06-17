@@ -12,7 +12,7 @@ class Vertex:
         return self.baddr == other.baddr
 
     def __str__(self):
-        return f'"{self.baddr}": "{self.instructions}", CONSTRAINT: "{self.constraint}"'
+        return f'{{ "block_addr": {self.baddr}, "instructions": "{self.instructions}", "constraints": {self.constraint} }}'
 
 class Edge:
     def __init__(self, source: int, dest: int):
@@ -24,7 +24,7 @@ class Edge:
         return (self.source == other.source and self.dest == other.dest)
 
     def __str__(self):
-        return f'{{"EDGE": ["{self.source}", "{self.dest}"]"}}'
+        return f'{{ "src": {self.source}, "dst": {self.dest} }}'
 
         
 
@@ -50,21 +50,21 @@ class SymGraph: # TODO: sanity check, when graph is done, vertices.keys() length
         assert(edge.source in self.vertices.keys() and edge.source in self.edges.keys())
         assert(edge.dest in self.vertices.keys() and edge.dest in self.edges.keys())
 
-        if (edge.dest not in self.edges[edge.source]):
-            self.edges[edge.source].append(edge.dest)
+        if (edge not in self.edges[edge.source]):
+            self.edges[edge.source].append(edge)
 
     #TODO: redo the printing!
     def __str__(self):
         res = f'{{ "func_name": "{self.func_name}",'
-        res += f'"GNN_DATA": {{'
-        res += f'"nodes": {{'
-        res += ', '.join([str(v) for v in self.vertices.keys()])
+        res += f'"GNN_DATA": {{ '
+        res += f'"nodes": [ '
+        res += ', '.join([str(v) for v in list(self.vertices.values())])
 
-        res += f'}}, "edges": ['
-        all_edges = [item for sublist in self.vertices.values() for item in sublist]
+        res += f' ], "edges": [ '
+        all_edges = [item for sublist in self.edges.values() for item in sublist]
         res += ', '.join([str(e) for e in all_edges])
         
-        res += f'] }} }}'
+        res += f' ] }} }}'
         return res
 
         

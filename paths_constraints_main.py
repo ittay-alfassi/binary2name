@@ -305,6 +305,8 @@ def sm_to_graph(sm: angr.sim_manager.SimulationManager, output_file, func_name):
             sym_graph.addEdge(edge)
             prev = dst
     
+    output_file.write(sym_graph.__str__())
+    
 #--------------------- ITTAY AND ITAMAR'S CODE END---------------------#
 
 
