@@ -38,7 +38,7 @@ class SymGraph: # TODO: sanity check, when graph is done, vertices.keys() length
         self.func_name = func_name
 
     def addVertex(self, vertex: Vertex):
-        if vertex in self.vertices:
+        if vertex.baddr in self.vertices:
             vertex.constraint += self.vertices[vertex.baddr].constraint
         
         self.vertices[vertex.baddr] = vertex

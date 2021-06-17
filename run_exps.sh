@@ -3,7 +3,7 @@
 limit=0
 for i in {0..100} ; do
     echo "${i}";
-    timeout 20m python3 main.py --binary_idx=${i} --output=$1 --dataset $2  &
+    timeout 1000m python3 paths_constraints_main.py --binary_idx=${i} --output=$1 --dataset $2  &
     let limit=limit+1;
     if (( limit == 10 )); then
         echo "wating";

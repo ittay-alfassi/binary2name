@@ -59,7 +59,7 @@ def block_to_ins(block: angr.block.Block):
         operands = op_str.strip(" ").split(",")
         operands = [i.strip().replace("[","").replace("]", "") for i in operands if i != ""]
         parsed_ins = [ins.mnemonic] + list(filter(None, operands))
-        result.append("|".join(parsed_ins).replace(" ", "|") + "|\t")
+        result.append("|".join(parsed_ins).replace(" ", "|") + "|    ")
     return "|".join(result)
 
 
@@ -76,7 +76,7 @@ def constraint_to_str(con, replace_strs=[', ', ' ', '(', ')'], max_depth=8):
     for r_str in replace_strs:
         repr = repr.replace(r_str, '|')
 
-    return remove_consecutive_pipes(repr) + "\t"
+    return remove_consecutive_pipes(repr) + "    "
 
 
 def gen_new_name(old_name):
@@ -291,6 +291,7 @@ def sm_to_graph(sm: angr.sim_manager.SimulationManager, output_file, func_name):
     
     root = Vertex(initial_node[0], address_to_content(proj, initial_node[0]))
     sym_graph = SymGraph(root, func_name)
+    variable_map = {}
 
     # In each iteration, add a new constrainted vertex to the graph and connect it to the previous vertex.
     # In the SymGraph, vertex addition handles multiple constraint options and adds an OR relation.
@@ -299,15 +300,21 @@ def sm_to_graph(sm: angr.sim_manager.SimulationManager, output_file, func_name):
         prev = root
         for i in range(1, len(path)):
             variable_map, constraint_list = varify_constraints(path[i][1], variable_map)
-            dst = Vertex(path[i][0], address_to_content(proj, path[i][0]), ["|".join(constraint_list)])
+            if type(path[i][0]) == str:
+                dst = Vertex(path[i][0], "no_instructions", ["|".join(constraint_list)])
+            else:
+                dst = Vertex(path[i][0], address_to_content(proj, path[i][0]), ["|".join(constraint_list)])
             sym_graph.addVertex(dst)
             edge = Edge(prev.baddr, dst.baddr)
             sym_graph.addEdge(edge)
             prev = dst
     
     our_json = sym_graph.__str__()
+    our_json = our_json.replace("'", "\"").replace("loopSeerDum", "\"loopSeerDum\"")
+    print(our_json)
     parsed = json.loads(our_json)
-    output_file.write(json.dumps(parsed, indent="\t", sort_keys=True))
+    to_write = json.dumps(parsed, indent=4, sort_keys=True)
+    output_file.write(to_write)
     
 #--------------------- ITTAY AND ITAMAR'S CODE END---------------------#
 
