@@ -37,15 +37,9 @@ class SymGraph:
     def __init__(self, root: Vertex, func_name: str="fun"):
         self.root = root
         self.vertices = {}
+        self.edges = {}
         self.addVertex(root)
         self.func_name = func_name
-
-    def __find_vertex(self, vertex: Vertex) -> Vertex:
-        duplicates = [v for v in self.vertices.keys() if v.baddr == vertex.baddr]
-        if duplicates == []:
-            return None
-        assert(len(duplicates) == 1)
-        return duplicates[0]
 
     def addVertex(self, vertex: Vertex):
         if vertex.baddr in self.vertices.keys():
@@ -55,13 +49,11 @@ class SymGraph:
 
 #TODO: change edge def to ints!
     def addEdge(self, edge: Edge):
-        if (not(edge.source in self.vertices.keys())):
-            self.addVertex(edge.source)
-        if (not(edge.dest in self.vertices.keys())):
-            self.addVertex(edge.dest)
+        assert(edge.source in self.vertices.keys())
+        assert(edge.dest in self.vertices.keys())
 
         if (not(edge in self.vertices[edge.source])):
-            self.vertices[edge.source].append(edge)
+            self.edges[edge.source].append(edge)
 
     #TODO: redo the printing!
     def __str__(self):

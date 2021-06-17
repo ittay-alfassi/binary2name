@@ -285,21 +285,22 @@ def sm_to_graph(sm: angr.sim_manager.SimulationManager, output_file, func_name):
     for path in all_paths:
         assert(path[0][0] == initial_node[0]) # WARNING: make sure this works type-wise!
 
-    sym_graph = SymGraph(Vertex(initial_node[0], address_to_content(proj, initial_node[0])), func_name)
+    
+    root = Vertex(initial_node[0], address_to_content(proj, initial_node[0]))
+    sym_graph = SymGraph(root, func_name)
     #TODO: unite into graph
 
     variable_map = {} #semi-global structure, used by varify_constraints
     # In each iteration, add a new constrainted vertex to the graph and connect it to the previous vertex.
     # In the SymGraph, vertex addition handles multiple constraint options and adds an OR relation.
-    prev = initial_node
+    prev = root
     for path in all_paths:
         for i in range(1, len(path)):
             src = prev
             variable_map, constraint_list = varify_constraints(path[i][1], variable_map)
             dst = Vertex(path[i][0], address_to_content(proj, path[i][0], "|".join(constraint_list)))
             sym_graph.addVertex(dst)
-            #TODO: change edge def to ints!
-            edge = Edge(src, dst)
+            edge = Edge(src.baddr, dst.baddr)
             sym_graph.addEdge(edge)
 
     return sym_graph #TODO: return the json!
