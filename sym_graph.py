@@ -1,7 +1,7 @@
 
 
 class Vertex:
-    def __init__(self, baddr: int, instructions: str, constraint: str = ""):
+    def __init__(self, baddr: int, instructions: str, constraint = []):
         self.baddr = baddr
         self.instructions = instructions
         self.constraint = constraint
@@ -10,10 +10,6 @@ class Vertex:
     def __eq__(self, other):
         assert(isinstance(other, Vertex))
         return self.baddr == other.baddr
-
-    # defined for using Vertex as dict key
-    def __hash__(self):
-        return hash(self.baddr)
 
     def __str__(self):
         return f'"{self.baddr}": "{self.instructions}", CONSTRAINT: "{self.constraint}"'
@@ -33,35 +29,35 @@ class Edge:
         
 
 
-class SymGraph:
-    def __init__(self, root: Vertex, func_name: str="fun"):
+class SymGraph: # TODO: sanity check, when graph is done, vertices.keys() length is same as edges.keys()
+    def __init__(self, root: Vertex, func_name: str="unknown_function"):
         self.root = root
-        self.vertices = {}
+        self.vertices = {} # a dictionary from bbl_addr to Vertex item
+        self.edges = {} # a dictionary from bbl_addr to all bbl_addr that has an edge between them
         self.addVertex(root)
         self.func_name = func_name
 
     def __find_vertex(self, vertex: Vertex) -> Vertex:
-        duplicates = [v for v in self.vertices.keys() if v.baddr == vertex.baddr]
+        duplicates = [v for v in self.vertices.keys() if v == vertex]
         if duplicates == []:
             return None
         assert(len(duplicates) == 1)
         return duplicates[0]
 
     def addVertex(self, vertex: Vertex):
-        if vertex.baddr in self.vertices.keys():
-            vertex.constraint += (' <<OR>> ' + self.vertices[vertex.baddr].constraint)
+        if vertex in self.vertices:
+            vertex.constraint += self.vertices[vertex.baddr].constraint
         
         self.vertices[vertex.baddr] = vertex
 
-#TODO: change edge def to ints!
     def addEdge(self, edge: Edge):
-        if (not(edge.source in self.vertices.keys())):
-            self.addVertex(edge.source)
-        if (not(edge.dest in self.vertices.keys())):
-            self.addVertex(edge.dest)
+        if (edge.source not in self.edges.keys()):
+            self.edges[edge.source] = []
+        if (edge.dest not in self.edges.keys()):
+            self.edges[edge.dest] = []
 
-        if (not(edge in self.vertices[edge.source])):
-            self.vertices[edge.source].append(edge)
+        if (edge.dest not in self.edges[edge.source]):
+            self.edges[edge.source].append(edge.dest)
 
     #TODO: redo the printing!
     def __str__(self):
