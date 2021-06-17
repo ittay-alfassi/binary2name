@@ -1,7 +1,11 @@
+from os import dup
+
+
 class Vertex:
-    def __init__(self, baddr: int, instructions: str):
+    def __init__(self, baddr: int, instructions: str, constraint: str = ""):
         self.baddr = baddr
         self.instructions = instructions
+        self.constraint = constraint
     
     # we define uniqueness by address only
     def __eq__(self, other):
@@ -13,11 +17,10 @@ class Vertex:
         return hash(self.baddr)
 
     def __str__(self):
-        return f'"{self.baddr}": "{self.instructions}"'
+        return f'"{self.baddr}": "{self.instructions}", CONSTRAINT: "{self.constraint}"'
 
 class Edge:
-    def __init__(self, source: Vertex, dest: Vertex, constraint: str):
-        self.constraint = constraint
+    def __init__(self, source: int, dest: int):
         self.source = source
         self.dest = dest
 
@@ -26,7 +29,7 @@ class Edge:
         return (self.source == other.source and self.dest == other.dest)
 
     def __str__(self):
-        return f'{{"EDGE": ["{self.source.baddr}", "{self.dest.baddr}"],   "CONSTRAINT": "{self.constraint}"}}'
+        return f'{{"EDGE": ["{self.source}", "{self.dest}"]"}}'
 
         
 
@@ -38,9 +41,18 @@ class SymGraph:
         self.addVertex(root)
         self.func_name = func_name
 
+    def __find_vertex(self, vertex: Vertex) -> Vertex:
+        duplicates = [v for v in self.vertices.keys() if v.baddr == vertex.baddr]
+        if duplicates == []:
+            return None
+        assert(len(duplicates) == 1)
+        return duplicates[0]
+
     def addVertex(self, vertex: Vertex):
-        if (not(vertex in self.vertices.keys())):
-            self.vertices[vertex] = []
+        if vertex.baddr in self.vertices.keys():
+            vertex.constraint += (' <<OR>> ' + self.vertices[vertex.baddr].constraint)
+        
+        self.vertices[vertex.baddr] = vertex
 
     def addEdge(self, edge: Edge):
         if (not(edge.source in self.vertices.keys())):
@@ -51,6 +63,7 @@ class SymGraph:
         if (not(edge in self.vertices[edge.source])):
             self.vertices[edge.source].append(edge)
 
+    #TODO: redo the printing!
     def __str__(self):
         res = f'{{ "func_name": "{self.func_name}",'
         res += f'"GNN_DATA": {{'

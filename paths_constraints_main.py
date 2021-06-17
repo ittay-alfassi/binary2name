@@ -294,17 +294,22 @@ def sm_to_graph(sm: angr.sim_manager.SimulationManager, output_file, func_name):
     #TODO: unite into graph
 
     variable_map = {} #semi-global structure, used by varify_constraints
+    # In each iteration, add a new constrainted vertex to the graph and connect it to the previous vertex.
+    # In the SymGraph, vertex addition handles multiple constraint options and adds an OR relation.
+    prev = initial_node
     for path in all_paths:
-        for i in range(len(path)-1):
-            src = Vertex(path[i][0], address_to_content(proj, path[i][0]))
-            dst = Vertex(path[i+1][0], address_to_content(proj, path[i+1][0]))
-            variable_map, constraint_list = varify_constraints(path[i+1][1], variable_map)
-            edge = Edge(src, dst, "|".join(constraint_list)) # TODO: make sure where to take the constraint from!!!!
+        for i in range(1, len(path)):
+            src = prev
+            variable_map, constraint_list = varify_constraints(path[i][1], variable_map)
+            dst = Vertex(path[i][0], address_to_content(proj, path[i][0], "|".join(constraint_list)))
+            sym_graph.addVertex(dst)
+            #TODO: change edge def to ints!
+            edge = Edge(src, dst)
             sym_graph.addEdge(edge)
 
     return sym_graph #TODO: return the json!
     
-#--------------------- ITTAY AND ITAMAR'S CODE---------------------#
+#--------------------- ITTAY AND ITAMAR'S CODE END---------------------#
 
 
 def main():
