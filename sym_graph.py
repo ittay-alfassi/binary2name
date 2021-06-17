@@ -1,7 +1,7 @@
 
 
 class Vertex:
-    def __init__(self, baddr: int, instructions: str, constraint: str = ""):
+    def __init__(self, baddr: int, instructions: str, constraint: list = []):
         self.baddr = baddr
         self.instructions = instructions
         self.constraint = constraint
@@ -11,12 +11,8 @@ class Vertex:
         assert(isinstance(other, Vertex))
         return self.baddr == other.baddr
 
-    # defined for using Vertex as dict key
-    def __hash__(self):
-        return hash(self.baddr)
-
     def __str__(self):
-        return f'"{self.baddr}": "{self.instructions}", CONSTRAINT: "{self.constraint}"'
+        return f'{{ "block_addr": {self.baddr}, "instructions": "{self.instructions}", "constraints": {self.constraint} }}'
 
 class Edge:
     def __init__(self, source: int, dest: int):
@@ -28,13 +24,13 @@ class Edge:
         return (self.source == other.source and self.dest == other.dest)
 
     def __str__(self):
-        return f'{{"EDGE": ["{self.source}", "{self.dest}"]"}}'
+        return f'{{ "src": {self.source}, "dst": {self.dest} }}'
 
         
 
 
-class SymGraph:
-    def __init__(self, root: Vertex, func_name: str="fun"):
+class SymGraph: # TODO: sanity check, when graph is done, vertices.keys() length is same as edges.keys()
+    def __init__(self, root: Vertex, func_name: str="unknown_function"):
         self.root = root
         self.vertices = {}
         self.edges = {}
@@ -42,31 +38,33 @@ class SymGraph:
         self.func_name = func_name
 
     def addVertex(self, vertex: Vertex):
-        if vertex.baddr in self.vertices.keys():
-            vertex.constraint += (' <<OR>> ' + self.vertices[vertex.baddr].constraint)
+        if vertex in self.vertices:
+            vertex.constraint += self.vertices[vertex.baddr].constraint
         
         self.vertices[vertex.baddr] = vertex
 
-#TODO: change edge def to ints!
-    def addEdge(self, edge: Edge):
-        assert(edge.source in self.vertices.keys())
-        assert(edge.dest in self.vertices.keys())
+        if (vertex.baddr not in self.edges.keys()):
+            self.edges[vertex.baddr] = []
 
-        if (not(edge in self.vertices[edge.source])):
+    def addEdge(self, edge: Edge):
+        assert(edge.source in self.vertices.keys() and edge.source in self.edges.keys())
+        assert(edge.dest in self.vertices.keys() and edge.dest in self.edges.keys())
+
+        if (edge not in self.edges[edge.source]):
             self.edges[edge.source].append(edge)
 
     #TODO: redo the printing!
     def __str__(self):
         res = f'{{ "func_name": "{self.func_name}",'
-        res += f'"GNN_DATA": {{'
-        res += f'"nodes": {{'
-        res += ', '.join([str(v) for v in self.vertices.keys()])
+        res += f'"GNN_DATA": {{ '
+        res += f'"nodes": [ '
+        res += ', '.join([str(v) for v in list(self.vertices.values())])
 
-        res += f'}}, "edges": ['
-        all_edges = [item for sublist in self.vertices.values() for item in sublist]
+        res += f' ], "edges": [ '
+        all_edges = [item for sublist in self.edges.values() for item in sublist]
         res += ', '.join([str(e) for e in all_edges])
         
-        res += f'] }} }}'
+        res += f' ] }} }}'
         return res
 
         

@@ -155,8 +155,8 @@ def analyze_binary(analyzed_funcs, binary_name, dataset_dir, usable_functions): 
     cfg = proj.analyses.CFGFast()  # cfg is the ACTUAL control-flow graph
 
     #REMOVE THIS
-    print(cfg.graph.nodes())
-    print(cfg.graph.edges())
+    # print(cfg.graph.nodes())
+    # print(cfg.graph.edges())
     #REMOVE THIS
 
 
@@ -170,7 +170,7 @@ def analyze_binary(analyzed_funcs, binary_name, dataset_dir, usable_functions): 
             print(f"skipping {tokenize_function_name(test_func.name)}")
             continue
         print(f"analyzing {binary_name}/{test_func.name}")
-        output = open(os.path.join(binary_dir, f"{test_func.name}"), "w")
+        output = open(os.path.join(binary_dir, f"{test_func.name}.json"), "w")
         analyzed_funcs.add(test_func.name)
         try:
             sm: angr.sim_manager.SimulationManager = analyze_func(proj, test_func, cfg)
@@ -210,10 +210,12 @@ def sm_to_output(sm: angr.sim_manager.SimulationManager, output_file, func_name)
     #TESTING! calling our graph generation
 
     res = sm_to_graph(sm, output_file, func_name)
+    ''' finding cool examples code:
     if(len(res.vertices.keys()) > 10 and res.worth_looking_at(4)):
         print(res)
-
+    '''
     #TESTING! ending call
+    return
 
 
     counters = {'mem': itertools.count(), 'ret': itertools.count()}
@@ -269,41 +271,43 @@ def sm_to_graph(sm: angr.sim_manager.SimulationManager, output_file, func_name):
 
     #TODO: make sure you want to treat the "deadended" and "spinning" states the same way
     final_states = [item for sublist in final_states_lists for item in sublist]
-    assert(final_states != [])
-
+    assert(final_states is not []) #assert that final states list is not empty else we dont have what to work with
+    # compose all routs backtracking from final to initial
     all_paths = []
     for state in final_states:
-        state_path = []
         current_node = state.history
+        state_path = [("loopSeerDum", current_node.recent_constraints)]
         while current_node.addr != None:
-            state_path.insert(0,(current_node.addr, current_node.recent_constraints))
+            state_path.insert(0,(current_node.addr, (current_node.parent.recent_constraints if current_node.parent else [])))
             current_node = current_node.parent
         all_paths.append(state_path)
 
     # find the root and assert it is equal for all
     initial_node = all_paths[0][0]
     for path in all_paths:
-        assert(path[0][0] == initial_node[0]) # WARNING: make sure this works type-wise!
+        assert(path[0][0] == initial_node[0]) # WARNING: very redundent, only checking adress
+        assert(path[0][1] == []) # assert all root's contain no constraints as expected
 
     
     root = Vertex(initial_node[0], address_to_content(proj, initial_node[0]))
     sym_graph = SymGraph(root, func_name)
-    #TODO: unite into graph
 
-    variable_map = {} #semi-global structure, used by varify_constraints
     # In each iteration, add a new constrainted vertex to the graph and connect it to the previous vertex.
     # In the SymGraph, vertex addition handles multiple constraint options and adds an OR relation.
-    prev = root
-    for path in all_paths:
-        for i in range(1, len(path)):
-            src = prev
-            variable_map, constraint_list = varify_constraints(path[i][1], variable_map)
-            dst = Vertex(path[i][0], address_to_content(proj, path[i][0], "|".join(constraint_list)))
-            sym_graph.addVertex(dst)
-            edge = Edge(src.baddr, dst.baddr)
-            sym_graph.addEdge(edge)
 
-    return sym_graph #TODO: return the json!
+    for path in all_paths:
+        prev = root
+        for i in range(1, len(path)):
+            variable_map, constraint_list = varify_constraints(path[i][1], variable_map)
+            dst = Vertex(path[i][0], address_to_content(proj, path[i][0]), ["|".join(constraint_list)])
+            sym_graph.addVertex(dst)
+            edge = Edge(prev.baddr, dst.baddr)
+            sym_graph.addEdge(edge)
+            prev = dst
+    
+    our_json = sym_graph.__str__()
+    parsed = json.loads(our_json)
+    output_file.write(json.dumps(parsed, indent="\t", sort_keys=True))
     
 #--------------------- ITTAY AND ITAMAR'S CODE END---------------------#
 
