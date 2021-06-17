@@ -1,7 +1,7 @@
 
 
 class Vertex:
-    def __init__(self, baddr: int, instructions: str, constraint = []):
+    def __init__(self, baddr: int, instructions: str, constraint: list = []):
         self.baddr = baddr
         self.instructions = instructions
         self.constraint = constraint
