@@ -210,7 +210,8 @@ def sm_to_output(sm: angr.sim_manager.SimulationManager, output_file, func_name)
     #TESTING! calling our graph generation
 
     res = sm_to_graph(sm, output_file, func_name)
-    print(res)
+    if(len(res.vertices.keys()) > 10 and res.worth_looking_at(4)):
+        print(res)
 
     #TESTING! ending call
 
@@ -226,13 +227,7 @@ def sm_to_output(sm: angr.sim_manager.SimulationManager, output_file, func_name)
     proj = sm._project
     for exec_paths in sm.stashes.values():
         for exec_path in exec_paths:
-            blocks = [proj.factory.block(baddr) for baddr in exec_path.history.bbl_addrs]
-
-
-            if len(exec_path.history.parent.recent_constraints) > 0:
-                print('AHAHAHAHHAHAHAHAHAHHAHAHHAHAH')
-
-
+            blocks = [proj.factory.block(baddr) for baddr in exec_path.history.bbl_addrs]            
             processsed_code = "|".join(list(filter(None, map(block_to_ins, blocks))))
             variable_map, relified_constraints = varify_constraints(exec_path.solver.constraints, variable_map=variable_map, counters=counters)
             relified_constraints = "|".join(relified_constraints)
@@ -290,7 +285,7 @@ def sm_to_graph(sm: angr.sim_manager.SimulationManager, output_file, func_name):
     for path in all_paths:
         assert(path[0][0] == initial_node[0]) # WARNING: make sure this works type-wise!
 
-    sym_graph = SymGraph(Vertex(initial_node[0], address_to_content(proj, initial_node[0])))
+    sym_graph = SymGraph(Vertex(initial_node[0], address_to_content(proj, initial_node[0])), func_name)
     #TODO: unite into graph
 
     variable_map = {} #semi-global structure, used by varify_constraints

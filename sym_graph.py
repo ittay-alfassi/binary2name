@@ -1,4 +1,3 @@
-from os import dup
 
 
 class Vertex:
@@ -54,6 +53,7 @@ class SymGraph:
         
         self.vertices[vertex.baddr] = vertex
 
+#TODO: change edge def to ints!
     def addEdge(self, edge: Edge):
         if (not(edge.source in self.vertices.keys())):
             self.addVertex(edge.source)
