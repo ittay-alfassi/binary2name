@@ -38,8 +38,12 @@ class SymGraph: # TODO: sanity check, when graph is done, vertices.keys() length
         self.func_name = func_name
 
     def addVertex(self, vertex: Vertex):
+        vertex.constraint = list(filter(None, vertex.constraint))
+        
         if vertex.baddr in self.vertices:
-            vertex.constraint += self.vertices[vertex.baddr].constraint
+            for constraint in self.vertices[vertex.baddr].constraint:
+                if constraint not in vertex.constraint:
+                    vertex.constraint.append(constraint)
         
         self.vertices[vertex.baddr] = vertex
 

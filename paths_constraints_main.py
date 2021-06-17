@@ -311,7 +311,7 @@ def sm_to_graph(sm: angr.sim_manager.SimulationManager, output_file, func_name):
     
     our_json = sym_graph.__str__()
     our_json = our_json.replace("'", "\"").replace("loopSeerDum", "\"loopSeerDum\"")
-    print(our_json)
+    # print(our_json)
     parsed = json.loads(our_json)
     to_write = json.dumps(parsed, indent=4, sort_keys=True)
     output_file.write(to_write)
