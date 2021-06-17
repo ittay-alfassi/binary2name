@@ -305,7 +305,9 @@ def sm_to_graph(sm: angr.sim_manager.SimulationManager, output_file, func_name):
             sym_graph.addEdge(edge)
             prev = dst
     
-    output_file.write(sym_graph.__str__())
+    our_json = sym_graph.__str__()
+    parsed = json.loads(our_json)
+    output_file.write(json.dumps(parsed, indent="\t", sort_keys=True))
     
 #--------------------- ITTAY AND ITAMAR'S CODE END---------------------#
 
