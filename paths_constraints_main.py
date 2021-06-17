@@ -275,10 +275,10 @@ def sm_to_graph(sm: angr.sim_manager.SimulationManager, output_file, func_name):
     # compose all routs backtracking from final to initial
     all_paths = []
     for state in final_states:
-        state_path = []
         current_node = state.history
+        state_path = [("loopSeerDum", current_node.recent_constraints)]
         while current_node.addr != None:
-            state_path.insert(0,(current_node.addr, current_node.recent_constraints))
+            state_path.insert(0,(current_node.addr, (current_node.parent.recent_constraints if current_node.parent else [])))
             current_node = current_node.parent
         all_paths.append(state_path)
 
@@ -286,26 +286,24 @@ def sm_to_graph(sm: angr.sim_manager.SimulationManager, output_file, func_name):
     initial_node = all_paths[0][0]
     for path in all_paths:
         assert(path[0][0] == initial_node[0]) # WARNING: very redundent, only checking adress
+        assert(path[0][1] == []) # assert all root's contain no constraints as expected
 
-    variable_map = {} #semi-global structure, used by varify_constraints
-    sym_graph = SymGraph(Vertex(initial_node[0], address_to_content(proj, initial_node[0])), func_name)
-    #TODO: unite into graph
+    
+    root = Vertex(initial_node[0], address_to_content(proj, initial_node[0]))
+    sym_graph = SymGraph(root, func_name)
 
     # In each iteration, add a new constrainted vertex to the graph and connect it to the previous vertex.
     # In the SymGraph, vertex addition handles multiple constraint options and adds an OR relation.
+
     for path in all_paths:
-        variable_map, constraint_list = varify_constraints(path[0][1], variable_map)
-        prevV = Vertex(path[0][0], address_to_content(proj, path[0][0]), ["|".join(constraint_list)])
-        sym_graph.addVertex(prevV)
+        prev = root
         for i in range(1, len(path)):
             variable_map, constraint_list = varify_constraints(path[i][1], variable_map)
             dst = Vertex(path[i][0], address_to_content(proj, path[i][0]), ["|".join(constraint_list)])
             sym_graph.addVertex(dst)
-            edge = Edge(prevV.baddr, dst.baddr)
+            edge = Edge(prev.baddr, dst.baddr)
             sym_graph.addEdge(edge)
-            prevV = dst
-
-    output_file.write(sym_graph.__str__())
+            prev = dst
     
 #--------------------- ITTAY AND ITAMAR'S CODE END---------------------#
 

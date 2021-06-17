@@ -32,17 +32,10 @@ class Edge:
 class SymGraph: # TODO: sanity check, when graph is done, vertices.keys() length is same as edges.keys()
     def __init__(self, root: Vertex, func_name: str="unknown_function"):
         self.root = root
-        self.vertices = {} # a dictionary from bbl_addr to Vertex item
-        self.edges = {} # a dictionary from bbl_addr to all bbl_addr that has an edge between them
+        self.vertices = {}
+        self.edges = {}
         self.addVertex(root)
         self.func_name = func_name
-
-    def __find_vertex(self, vertex: Vertex) -> Vertex:
-        duplicates = [v for v in self.vertices.keys() if v == vertex]
-        if duplicates == []:
-            return None
-        assert(len(duplicates) == 1)
-        return duplicates[0]
 
     def addVertex(self, vertex: Vertex):
         if vertex in self.vertices:
@@ -50,11 +43,12 @@ class SymGraph: # TODO: sanity check, when graph is done, vertices.keys() length
         
         self.vertices[vertex.baddr] = vertex
 
+        if (vertex.baddr not in self.edges.keys()):
+            self.edges[vertex.baddr] = []
+
     def addEdge(self, edge: Edge):
-        if (edge.source not in self.edges.keys()):
-            self.edges[edge.source] = []
-        if (edge.dest not in self.edges.keys()):
-            self.edges[edge.dest] = []
+        assert(edge.source in self.vertices.keys() and edge.source in self.edges.keys())
+        assert(edge.dest in self.vertices.keys() and edge.dest in self.edges.keys())
 
         if (edge.dest not in self.edges[edge.source]):
             self.edges[edge.source].append(edge.dest)
