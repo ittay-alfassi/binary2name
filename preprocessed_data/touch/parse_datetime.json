@@ -1,0 +1,85 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4228849,
+                "src": 4228816
+            },
+            {
+                "dst": 4228860,
+                "src": 4228849
+            },
+            {
+                "dst": 4228909,
+                "src": 4228860
+            },
+            {
+                "dst": 4228870,
+                "src": 4228860
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4228909
+            },
+            {
+                "dst": 4228892,
+                "src": 4228870
+            },
+            {
+                "dst": 4228904,
+                "src": 4228892
+            },
+            {
+                "dst": 4228909,
+                "src": 4228904
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4228816,
+                "constraints": [],
+                "instructions": "push|reg|    |push|reg|    |mov|reg|rdx|    |push|reg|    |push|rbp|    |mov|reg|rdi|    |push|rbx|    |lea|rdi|rip|+|0x7ddf|    |mov|reg|rsi|    |sub|rsp|0x10|    |call|0x4026f0|    "
+            },
+            {
+                "block_addr": 4228849,
+                "constraints": [],
+                "instructions": "mov|rdi|rax|    |mov|rbp|rax|    |call|0x40b2b0|    "
+            },
+            {
+                "block_addr": 4228860,
+                "constraints": [],
+                "instructions": "mov|rbx|rax|    |xor|eax|eax|    |test|rbx|rbx|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4228909,
+                "constraints": [
+                    "<Bool|__eq__|ret|0x0|>    "
+                ],
+                "instructions": "add|rsp|0x10|    |pop|rbx|    |pop|rbp|    |pop|reg|    |pop|reg|    |pop|reg|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4228870,
+                "constraints": [
+                    "<Bool|__ne__|ret|0x0|>    "
+                ],
+                "instructions": "mov|reg|rbp|    |mov|reg|rbx|    |xor|ecx|ecx|    |mov|rdx|reg|    |mov|rsi|reg|    |mov|rdi|reg|    |call|0x406960|    "
+            },
+            {
+                "block_addr": 4228892,
+                "constraints": [],
+                "instructions": "mov|rdi|rbx|    |mov|byte|ptr|rsp|+|0xf|al|    |call|0x40b560|    "
+            },
+            {
+                "block_addr": 4228904,
+                "constraints": [],
+                "instructions": "movzx|eax|byte|ptr|rsp|+|0xf|    |add|rsp|0x10|    |pop|rbx|    |pop|rbp|    |pop|reg|    |pop|reg|    |pop|reg|    |ret|    "
+            }
+        ]
+    },
+    "func_name": "parse_datetime"
+}

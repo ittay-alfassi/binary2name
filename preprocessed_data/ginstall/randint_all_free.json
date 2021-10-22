@@ -1,0 +1,63 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4273285,
+                "src": 4273264
+            },
+            {
+                "dst": 4273293,
+                "src": 4273285
+            },
+            {
+                "dst": 4273319,
+                "src": 4273293
+            },
+            {
+                "dst": 4273327,
+                "src": 4273319
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4273327
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4273264,
+                "constraints": [],
+                "instructions": "push|reg|    |push|reg|    |push|rbp|    |push|rbx|    |mov|rbx|rdi|    |sub|rsp|8|    |mov|rdi|qword|ptr|rdi|    |call|0x413a20|    "
+            },
+            {
+                "block_addr": 4273285,
+                "constraints": [
+                    "<Bool|__eq__|reg|0xfffffffffff80000|>    "
+                ],
+                "instructions": "mov|regd|eax|    |call|0x402950|    "
+            },
+            {
+                "block_addr": 4273293,
+                "constraints": [],
+                "instructions": "mov|regd|dword|ptr|rax|    |mov|rdi|rbx|    |mov|rdx|-1|    |mov|esi|0x18|    |mov|rbp|rax|    |call|0x402f50|    "
+            },
+            {
+                "block_addr": 4273319,
+                "constraints": [
+                    "<Bool|__eq__|ret|0xffffffc000000000|>    "
+                ],
+                "instructions": "mov|rdi|rbx|    |call|0x4030d0|    "
+            },
+            {
+                "block_addr": 4273327,
+                "constraints": [],
+                "instructions": "mov|dword|ptr|rbp|regd|    |add|rsp|8|    |mov|eax|regd|    |pop|rbx|    |pop|rbp|    |pop|reg|    |pop|reg|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "randint_all_free"
+}

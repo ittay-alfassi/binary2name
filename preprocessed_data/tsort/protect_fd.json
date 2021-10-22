@@ -1,0 +1,93 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4204141,
+                "src": 4204112
+            },
+            {
+                "dst": 4204169,
+                "src": 4204141
+            },
+            {
+                "dst": 4204145,
+                "src": 4204141
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4204169
+            },
+            {
+                "dst": 4204169,
+                "src": 4204145
+            },
+            {
+                "dst": 4204151,
+                "src": 4204145
+            },
+            {
+                "dst": 4204158,
+                "src": 4204151
+            },
+            {
+                "dst": 4204163,
+                "src": 4204158
+            },
+            {
+                "dst": 4204169,
+                "src": 4204163
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4204112,
+                "constraints": [],
+                "instructions": "push|rbp|    |push|rbx|    |mov|ebp|edi|    |lea|rdi|rip|+|0x356f|    |xor|esi|esi|    |xor|eax|eax|    |sub|rsp|8|    |mov|ebx|1|    |call|0x401650|    "
+            },
+            {
+                "block_addr": 4204141,
+                "constraints": [],
+                "instructions": "cmp|ebp|eax|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4204169,
+                "constraints": [
+                    "<Bool|__eq__|ret|0xffffffffffffffff|>    ",
+                    "<Bool|__ne__|LShR|ZeroExt|32|ret|0x1f|0|>    ",
+                    "<Bool|__eq__|reg|ret|>    "
+                ],
+                "instructions": "add|rsp|8|    |mov|eax|ebx|    |pop|rbx|    |pop|rbp|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4204145,
+                "constraints": [
+                    "<Bool|__ne__|reg|ret|>    "
+                ],
+                "instructions": "xor|ebx|ebx|    |test|eax|eax|    |js|target_0|    "
+            },
+            {
+                "block_addr": 4204151,
+                "constraints": [
+                    "<Bool|__eq__|LShR|ZeroExt|32|ret|0x1f|0|>    "
+                ],
+                "instructions": "mov|edi|eax|    |call|0x401550|    "
+            },
+            {
+                "block_addr": 4204158,
+                "constraints": [],
+                "instructions": "call|0x401410|    "
+            },
+            {
+                "block_addr": 4204163,
+                "constraints": [],
+                "instructions": "mov|dword|ptr|rax|9|    |add|rsp|8|    |mov|eax|ebx|    |pop|rbx|    |pop|rbp|    |ret|    "
+            }
+        ]
+    },
+    "func_name": "protect_fd"
+}

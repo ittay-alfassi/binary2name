@@ -1,0 +1,59 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4207904,
+                "src": 4207840
+            },
+            {
+                "dst": 4208000,
+                "src": 4207904
+            },
+            {
+                "dst": 4201712,
+                "src": 4208000
+            },
+            {
+                "dst": 7340296,
+                "src": 4201712
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 7340296
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4207840,
+                "constraints": [],
+                "instructions": "push|rbp|    |push|rbx|    |mov|ebx|edi|    |sub|rsp|8|    |cmp|byte|ptr|rip|+|0x20dcf5|0|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4207904,
+                "constraints": [],
+                "instructions": "mov|rdi|qword|ptr|rip|+|0x20dbc1|    |mov|rax|qword|ptr|rdi|+|0x28|    |cmp|rax|qword|ptr|rdi|+|0x30|    |jae|target_0|    "
+            },
+            {
+                "block_addr": 4208000,
+                "constraints": [],
+                "instructions": "add|rsp|8|    |movzx|esi|bl|    |pop|rbx|    |pop|rbp|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4201712,
+                "constraints": [],
+                "instructions": "jmp|qword|ptr|rip|+|0x20f172|    "
+            },
+            {
+                "block_addr": 7340296,
+                "constraints": [],
+                "instructions": "add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "print_char"
+}

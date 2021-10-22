@@ -1,0 +1,41 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4268008,
+                "src": 4267984
+            },
+            {
+                "dst": 4268017,
+                "src": 4268008
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4268017
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4267984,
+                "constraints": [],
+                "instructions": "cmp|byte|ptr|rip|+|0x20d75a|0|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4268008,
+                "constraints": [],
+                "instructions": "sub|rsp|8|    |call|0x402c00|    "
+            },
+            {
+                "block_addr": 4268017,
+                "constraints": [],
+                "instructions": "test|eax|eax|    |mov|byte|ptr|rip|+|0x20d737|1|    |sete|al|    |mov|byte|ptr|rip|+|0x20d72d|al|    |add|rsp|8|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "can_write_any_file"
+}

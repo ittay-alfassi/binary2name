@@ -1,0 +1,43 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4215084,
+                "src": 4215072
+            },
+            {
+                "dst": 4215117,
+                "src": 4215084
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4215117
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4215072,
+                "constraints": [],
+                "instructions": "push|reg|    |push|rbp|    |push|rbx|    |mov|rbx|rdi|    |call|0x401460|    "
+            },
+            {
+                "block_addr": 4215084,
+                "constraints": [],
+                "instructions": "mov|regd|dword|ptr|rax|    |mov|rbp|rax|    |lea|rax|rip|+|0x2050a7|    |test|rbx|rbx|    |mov|esi|0x38|    |cmove|rbx|rax|    |mov|rdi|rbx|    |call|0x4062e0|    "
+            },
+            {
+                "block_addr": 4215117,
+                "constraints": [
+                    "<Bool|__eq__|ret|0xffffffff80000000|>    "
+                ],
+                "instructions": "mov|dword|ptr|rbp|regd|    |pop|rbx|    |pop|rbp|    |pop|reg|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "clone_quoting_options"
+}

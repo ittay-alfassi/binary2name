@@ -1,0 +1,138 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4237593,
+                "src": 4237584
+            },
+            {
+                "dst": 4237632,
+                "src": 4237584
+            },
+            {
+                "dst": 4237598,
+                "src": 4237593
+            },
+            {
+                "dst": 4237616,
+                "src": 4237593
+            },
+            {
+                "dst": 4237605,
+                "src": 4237598
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4237605
+            },
+            {
+                "dst": 4237644,
+                "src": 4237632
+            },
+            {
+                "dst": 4237598,
+                "src": 4237644
+            },
+            {
+                "dst": 4237652,
+                "src": 4237644
+            },
+            {
+                "dst": 4237624,
+                "src": 4237616
+            },
+            {
+                "dst": 4237629,
+                "src": 4237624
+            },
+            {
+                "dst": 4237598,
+                "src": 4237624
+            },
+            {
+                "dst": 4237605,
+                "src": 4237629
+            },
+            {
+                "dst": 4237593,
+                "src": 4237652
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4237584,
+                "constraints": [],
+                "instructions": "test|rdi|rdi|    |push|rbx|    |mov|rbx|rdi|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4237593,
+                "constraints": [
+                    "<Bool|__ne__|reg|0x0|>    "
+                ],
+                "instructions": "cmp|byte|ptr|rbx|0|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4237598,
+                "constraints": [
+                    "<Bool|__ne__|ret|ret|>    ",
+                    "<Bool|__eq__|ret|0xffffffffffffffff|>    |<Bool|__eq__|mem_0|0|>    ",
+                    "<Bool|__ne__|ret|reg|>    ",
+                    "<Bool|__eq__|ret|0x0|>    ",
+                    "<Bool|__eq__|reg|0xffffffffffffffff|>    |<Bool|__eq__|mem_0|0|>    "
+                ],
+                "instructions": "lea|rbx|rip|+|0xd771|    |mov|qword|ptr|rip|+|0x214c74|rbx|    |pop|rbx|    |ret|    "
+            },
+            {
+                "block_addr": 4237605,
+                "constraints": [],
+                "instructions": "mov|qword|ptr|rip|+|0x214c74|rbx|    |pop|rbx|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4237632,
+                "constraints": [
+                    "<Bool|__eq__|reg|0x0|>    "
+                ],
+                "instructions": "lea|rdi|rip|+|0xd751|    |call|0x402900|    "
+            },
+            {
+                "block_addr": 4237644,
+                "constraints": [],
+                "instructions": "test|rax|rax|    |mov|rbx|rax|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4237616,
+                "constraints": [
+                    "<Bool|__eq__|ret|0xffffffffffffffff|>    |<Bool|__ne__|mem_0|0|>    ",
+                    "<Bool|__eq__|reg|0xffffffffffffffff|>    |<Bool|__ne__|mem_0|0|>    "
+                ],
+                "instructions": "mov|rdi|rbx|    |call|0x40b3a0|    "
+            },
+            {
+                "block_addr": 4237624,
+                "constraints": [],
+                "instructions": "cmp|rax|rbx|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4237629,
+                "constraints": [
+                    "<Bool|__eq__|ret|ret|>    ",
+                    "<Bool|__eq__|ret|reg|>    "
+                ],
+                "instructions": "jmp|target_0|    "
+            },
+            {
+                "block_addr": 4237652,
+                "constraints": [
+                    "<Bool|__ne__|ret|0x0|>    "
+                ],
+                "instructions": "jmp|target_0|    "
+            }
+        ]
+    },
+    "func_name": "set_simple_backup_suffix"
+}

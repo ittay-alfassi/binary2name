@@ -1,0 +1,127 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4222624,
+                "src": 4222576
+            },
+            {
+                "dst": 4222641,
+                "src": 4222624
+            },
+            {
+                "dst": 4222645,
+                "src": 4222641
+            },
+            {
+                "dst": 4222656,
+                "src": 4222641
+            },
+            {
+                "dst": 4222650,
+                "src": 4222645
+            },
+            {
+                "dst": 4222589,
+                "src": 4222650
+            },
+            {
+                "dst": 4208336,
+                "src": 4222589
+            },
+            {
+                "dst": 7340688,
+                "src": 4208336
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 7340688
+            },
+            {
+                "dst": 4222666,
+                "src": 4222656
+            },
+            {
+                "dst": 4222671,
+                "src": 4222666
+            },
+            {
+                "dst": 4222589,
+                "src": 4222671
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4222576,
+                "constraints": [],
+                "instructions": "cmp|byte|ptr|rip|+|0x21a499|0|    |push|rbx|    |mov|rbx|rdi|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4222624,
+                "constraints": [],
+                "instructions": "mov|edi|1|    |mov|byte|ptr|rip|+|0x21a464|1|    |call|0x403630|    "
+            },
+            {
+                "block_addr": 4222641,
+                "constraints": [],
+                "instructions": "test|eax|eax|    |jns|target_0|    "
+            },
+            {
+                "block_addr": 4222645,
+                "constraints": [
+                    "<Bool|__ne__|LShR|ZeroExt|32|ret|0x1f|0|>    "
+                ],
+                "instructions": "call|0x406e20|    "
+            },
+            {
+                "block_addr": 4222650,
+                "constraints": [],
+                "instructions": "jmp|target_0|    "
+            },
+            {
+                "block_addr": 4222589,
+                "constraints": [],
+                "instructions": "mov|rdi|qword|ptr|rbx|+|8|    |mov|rsi|qword|ptr|rbx|    |mov|edx|1|    |pop|rbx|    |mov|rcx|qword|ptr|rip|+|0x2193f7|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4208336,
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0x8|0xffffffffffffff88|>    ",
+                    "<Bool|__eq__|__add__|reg|0x8|0xffffffffe0000008|>    "
+                ],
+                "instructions": "jmp|qword|ptr|rip|+|0x21c812|    "
+            },
+            {
+                "block_addr": 7340688,
+                "constraints": [],
+                "instructions": "add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    "<Bool|__eq__|mem_0|0xffffffffffffffff|>    ",
+                    "<Bool|__eq__|mem_0|0xfffffffffffff000|>    "
+                ],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4222656,
+                "constraints": [
+                    "<Bool|__eq__|LShR|ZeroExt|32|ret|0x1f|0|>    "
+                ],
+                "instructions": "mov|edi|1|    |call|0x406c50|    "
+            },
+            {
+                "block_addr": 4222666,
+                "constraints": [],
+                "instructions": "call|0x406e20|    "
+            },
+            {
+                "block_addr": 4222671,
+                "constraints": [],
+                "instructions": "jmp|target_0|    "
+            }
+        ]
+    },
+    "func_name": "put_indicator"
+}

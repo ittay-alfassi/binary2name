@@ -1,0 +1,87 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4219212,
+                "src": 4219120
+            },
+            {
+                "dst": 4219314,
+                "src": 4219212
+            },
+            {
+                "dst": 4219216,
+                "src": 4219212
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4219314
+            },
+            {
+                "dst": 4219311,
+                "src": 4219216
+            },
+            {
+                "dst": 4219328,
+                "src": 4219216
+            },
+            {
+                "dst": 4219314,
+                "src": 4219311
+            },
+            {
+                "dst": 4219311,
+                "src": 4219328
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4219120,
+                "constraints": [],
+                "instructions": "mov|eax|edi|    |mov|edx|0x91a2b3c5|    |push|reg|    |imul|edx|    |push|rbp|    |push|rbx|    |mov|eax|edi|    |mov|ecx|edi|    |mov|reg|rsi|    |sar|eax|0x1f|    |sar|ecx|0x1f|    |mov|ebp|edi|    |lea|ebx|rdx|+|rdi|    |and|ecx|2|    |mov|rdx|-1|    |lea|regd|rcx|+|0x2b|    |lea|rcx|rip|+|0xced8|    |mov|esi|1|    |sar|ebx|0xb|    |mov|rdi|reg|    |sub|ebx|eax|    |mov|eax|ebx|    |sar|eax|0x1f|    |mov|regd|eax|    |xor|regd|ebx|    |imul|ebx|ebx|0xe10|    |sub|regd|eax|    |xor|eax|eax|    |call|0x402b50|    "
+            },
+            {
+                "block_addr": 4219212,
+                "constraints": [],
+                "instructions": "sub|ebp|ebx|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4219314,
+                "constraints": [
+                    "<Bool|__eq__|__add__|0x6|reg|Concat|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|0x5|>    ",
+                    "<Bool|__eq__|__add__|0x3|reg|Concat|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|0x2|>    ",
+                    "<Bool|__eq__|reg|__add__|__mul__|0xe10|__rshift__|Concat|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|0xb|__mul__|0xfffff1f0|__rshift__|Concat|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|0x1f|>    "
+                ],
+                "instructions": "mov|rax|reg|    |pop|rbx|    |pop|rbp|    |pop|reg|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4219216,
+                "constraints": [
+                    "<Bool|__ne__|reg|__add__|__mul__|0xe10|__rshift__|Concat|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|__add__|<...>|<...>|0xb|__mul__|0xfffff1f0|__rshift__|Concat|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|reg|0x1f|>    "
+                ],
+                "instructions": "cdqe|    |mov|ecx|0x88888889|    |mov|regd|0xcccccccd|    |lea|rsi|reg|+|rax|    |mov|eax|ebp|    |sar|eax|0x1f|    |xor|ebp|eax|    |mov|byte|ptr|rsi|0x3a|    |sub|ebp|eax|    |mov|eax|ebp|    |mul|ecx|    |mov|eax|ebp|    |mov|ecx|edx|    |mov|edi|edx|    |mov|edx|0x1b4e81b5|    |mul|edx|    |shr|ecx|5|    |shr|edi|5|    |mov|eax|ecx|    |shr|edx|6|    |add|edx|0x30|    |mov|byte|ptr|rsi|+|1|dl|    |mul|regd|    |imul|edi|edi|0x3c|    |shr|edx|3|    |lea|eax|rdx|+|rdx*4|    |add|eax|eax|    |sub|ecx|eax|    |lea|rax|rsi|+|3|    |add|ecx|0x30|    |sub|ebp|edi|    |mov|byte|ptr|rsi|+|2|cl|    |mov|edi|ebp|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4219311,
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|Concat|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|0x3|0x2|>    |<Bool|__eq__|__add__|reg|Concat|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|0x4|0x3|>    |<Bool|__eq__|__add__|reg|Concat|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|ret|0x5|0x4|>    ",
+                    "<Bool|__eq__|__add__|reg|SignExt|32|ret|0xffffffffffffffff|>    |<Bool|__eq__|__add__|reg|SignExt|32|ret|0x1|0x0|>    |<Bool|__eq__|__add__|reg|SignExt|32|ret|0x2|0x1|>    |<Bool|__eq__|__sub__|__xor__|__add__|reg|__mul__|0xfffff1f0|__rshift__|Concat|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|0xb|__mul__|0xe10|__rshift__|Concat|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|0x1f|__rshift__|SignExt|32|__add__|<...>|__mul__|<...>|<...>|__mul__|<...>|<...>|0x1f|__rshift__|SignExt|32|__add__|reg|__mul__|0xfffff1f0|<...>|__mul__|0xe10|<...>|0x1f|__mul__|LShR|ZeroExt|32|__mul__|ZeroExt|32|<...>|0x88888889|0x5|0x3c|>    "
+                ],
+                "instructions": "mov|byte|ptr|rax|0|    |mov|rax|reg|    |pop|rbx|    |pop|rbp|    |pop|reg|    |ret|    "
+            },
+            {
+                "block_addr": 4219328,
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|SignExt|32|ret|0xffffffffffffffff|>    |<Bool|__eq__|__add__|reg|SignExt|32|ret|0x1|0x0|>    |<Bool|__eq__|__add__|reg|SignExt|32|ret|0x2|0x1|>    |<Bool|__ne__|__sub__|__xor__|__add__|reg|__mul__|0xfffff1f0|__rshift__|Concat|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|0xb|__mul__|0xe10|__rshift__|Concat|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|<...>|0x1f|__rshift__|SignExt|32|__add__|<...>|__mul__|<...>|<...>|__mul__|<...>|<...>|0x1f|__rshift__|SignExt|32|__add__|reg|__mul__|0xfffff1f0|<...>|__mul__|0xe10|<...>|0x1f|__mul__|LShR|ZeroExt|32|__mul__|ZeroExt|32|<...>|0x88888889|0x5|0x3c|>    "
+                ],
+                "instructions": "mov|eax|ebp|    |mov|byte|ptr|rsi|+|3|0x3a|    |mul|regd|    |shr|edx|3|    |lea|eax|rdx|+|0x30|    |lea|edx|rdx|+|rdx*4|    |add|edx|edx|    |mov|byte|ptr|rsi|+|4|al|    |lea|rax|rsi|+|6|    |sub|edi|edx|    |add|edi|0x30|    |mov|byte|ptr|rsi|+|5|dil|    |jmp|target_0|    "
+            }
+        ]
+    },
+    "func_name": "time_zone_str"
+}

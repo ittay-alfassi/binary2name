@@ -1,0 +1,25 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "loopSeerDum",
+                "src": 4214656
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4214656,
+                "constraints": [],
+                "instructions": "jmp|qword|ptr|rcx|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    "<Bool|__eq__|reg|0xfffffffff8000000|>    "
+                ],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "call_addfn"
+}

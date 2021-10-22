@@ -1,0 +1,32 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4222960,
+                "src": 4222928
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4222960
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4222928,
+                "constraints": [],
+                "instructions": "cmp|byte|ptr|rip|+|0x21a33b|0|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4222960,
+                "constraints": [],
+                "instructions": "ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "set_normal_color"
+}

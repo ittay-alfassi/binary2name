@@ -1,0 +1,25 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "loopSeerDum",
+                "src": 4265152
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4265152,
+                "constraints": [],
+                "instructions": "mov|dword|ptr|rcx|edx|    |xor|eax|eax|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    "<Bool|__eq__|reg|0xffffffffffffffff|>    "
+                ],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "get_permissions"
+}

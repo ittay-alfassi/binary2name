@@ -1,0 +1,25 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "loopSeerDum",
+                "src": 4254288
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4254288,
+                "constraints": [],
+                "instructions": "mov|rax|qword|ptr|rdi|+|8|    |xor|edx|edx|    |div|rsi|    |mov|rax|rdx|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0x8|0xfffffffffc000008|>    |<Bool|__ne__|reg|0x0|>    "
+                ],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "triple_hash_no_name"
+}

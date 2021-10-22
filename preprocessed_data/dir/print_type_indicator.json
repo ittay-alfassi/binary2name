@@ -1,0 +1,85 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4221242,
+                "src": 4221232
+            },
+            {
+                "dst": 4221283,
+                "src": 4221242
+            },
+            {
+                "dst": 4221248,
+                "src": 4221242
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4221283
+            },
+            {
+                "dst": 4221296,
+                "src": 4221248
+            },
+            {
+                "dst": 4221304,
+                "src": 4221296
+            },
+            {
+                "dst": 4221275,
+                "src": 4221304
+            },
+            {
+                "dst": 4221283,
+                "src": 4221275
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4221232,
+                "constraints": [],
+                "instructions": "push|rbx|    |movzx|edi|dil|    |call|0x406830|    "
+            },
+            {
+                "block_addr": 4221242,
+                "constraints": [],
+                "instructions": "test|al|al|    |mov|ebx|eax|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4221283,
+                "constraints": [
+                    "<Bool|__eq__|ret|0|>    "
+                ],
+                "instructions": "test|bl|bl|    |setne|al|    |pop|rbx|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4221248,
+                "constraints": [
+                    "<Bool|__ne__|ret|0|>    "
+                ],
+                "instructions": "mov|rdi|qword|ptr|rip|+|0x219941|    |mov|rax|qword|ptr|rdi|+|0x28|    |cmp|rax|qword|ptr|rdi|+|0x30|    |jae|target_0|    "
+            },
+            {
+                "block_addr": 4221296,
+                "constraints": [],
+                "instructions": "movzx|esi|bl|    |call|0x403490|    "
+            },
+            {
+                "block_addr": 4221304,
+                "constraints": [],
+                "instructions": "jmp|target_0|    "
+            },
+            {
+                "block_addr": 4221275,
+                "constraints": [],
+                "instructions": "add|qword|ptr|rip|+|0x21a895|1|    |test|bl|bl|    |setne|al|    |pop|rbx|    |ret|    "
+            }
+        ]
+    },
+    "func_name": "print_type_indicator"
+}

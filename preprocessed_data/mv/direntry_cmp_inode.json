@@ -1,0 +1,49 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4255512,
+                "src": 4255488
+            },
+            {
+                "dst": 4255498,
+                "src": 4255488
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4255512
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4255498
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4255488,
+                "constraints": [],
+                "instructions": "mov|rax|qword|ptr|rsi|+|8|    |cmp|qword|ptr|rdi|+|8|rax|    |jb|target_0|    "
+            },
+            {
+                "block_addr": 4255512,
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0x8|0xfffffffffffffffc|>    |<Bool|__eq__|__add__|reg|0x8|0xfffffffffffffc08|>    |<Bool|__lt__|mem_3|Concat|mem_1|mem_0|>    "
+                ],
+                "instructions": "mov|eax|0xffffffff|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4255498,
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0x8|0xfffffffffffffffc|>    |<Bool|__eq__|__add__|reg|0x8|0xfffffffffffffc08|>    |<Bool|__ge__|mem_3|Concat|mem_1|mem_0|>    "
+                ],
+                "instructions": "seta|al|    |movzx|eax|al|    |ret|    "
+            }
+        ]
+    },
+    "func_name": "direntry_cmp_inode"
+}

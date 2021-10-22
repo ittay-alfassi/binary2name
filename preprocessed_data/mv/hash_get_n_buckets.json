@@ -1,0 +1,25 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "loopSeerDum",
+                "src": 4242256
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4242256,
+                "constraints": [],
+                "instructions": "mov|rax|qword|ptr|rdi|+|0x10|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0x10|0xc000000000000000|>    "
+                ],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "hash_get_n_buckets"
+}

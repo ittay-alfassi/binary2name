@@ -1,0 +1,117 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4212715,
+                "src": 4212656
+            },
+            {
+                "dst": 4212739,
+                "src": 4212715
+            },
+            {
+                "dst": 4212720,
+                "src": 4212715
+            },
+            {
+                "dst": 4212758,
+                "src": 4212739
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4212758
+            },
+            {
+                "dst": 4212739,
+                "src": 4212720
+            },
+            {
+                "dst": 4212728,
+                "src": 4212720
+            },
+            {
+                "dst": 4212739,
+                "src": 4212728
+            },
+            {
+                "dst": 4212768,
+                "src": 4212728
+            },
+            {
+                "dst": 4212781,
+                "src": 4212768
+            },
+            {
+                "dst": 4212826,
+                "src": 4212781
+            },
+            {
+                "dst": 4212739,
+                "src": 4212826
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4212656,
+                "constraints": [],
+                "instructions": "push|reg|    |push|rbp|    |mov|rcx|rdi|    |push|rbx|    |mov|rbx|rdx|    |lea|rdx|rip|+|0xb963|    |mov|reg|rsi|    |xor|regd|regd|    |xor|regd|regd|    |sub|rsp|0x30|    |mov|esi|0x64|    |mov|rdi|rbx|    |mov|rax|qword|ptr|fs:0x28|    |mov|qword|ptr|rsp|+|0x28|rax|    |xor|eax|eax|    |call|0x40d4f0|    "
+            },
+            {
+                "block_addr": 4212715,
+                "constraints": [],
+                "instructions": "test|reg|reg|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4212739,
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0xd0|0xfffffffffc000000|>    |<Bool|__eq__|mem_0|0x0|>    ",
+                    "<Bool|SGT|ret|0x63|>    ",
+                    "<Bool|__eq__|reg|0x0|>    "
+                ],
+                "instructions": "mov|rdx|qword|ptr|rsp|+|0x28|    |xor|rdx|qword|ptr|fs:0x28|    |mov|rax|rbx|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4212758,
+                "constraints": [],
+                "instructions": "add|rsp|0x30|    |pop|rbx|    |pop|rbp|    |pop|reg|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4212720,
+                "constraints": [
+                    "<Bool|__ne__|reg|0x0|>    "
+                ],
+                "instructions": "cmp|eax|0x63|    |mov|rbp|rax|    |jg|target_0|    "
+            },
+            {
+                "block_addr": 4212728,
+                "constraints": [
+                    "<Bool|SLE|ret|0x63|>    "
+                ],
+                "instructions": "cmp|qword|ptr|reg|+|0xd0|0|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4212768,
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0xd0|0xfffffffffc000000|>    |<Bool|__ne__|mem_0|0x0|>    "
+                ],
+                "instructions": "mov|edi|dword|ptr|reg|+|0x18|    |mov|rsi|rsp|    |call|0x4041c0|    "
+            },
+            {
+                "block_addr": 4212781,
+                "constraints": [],
+                "instructions": "mov|esi|0x64|    |movsxd|rdi|ebp|    |lea|reg|rip|+|0xb902|    |sub|esi|ebp|    |mov|reg|rax|    |add|rdi|rbx|    |movsxd|rsi|esi|    |mov|rcx|-1|    |mov|edx|1|    |xor|eax|eax|    |call|0x402700|    "
+            },
+            {
+                "block_addr": 4212826,
+                "constraints": [],
+                "instructions": "jmp|target_0|    "
+            }
+        ]
+    },
+    "func_name": "debug_strfdatetime.constprop.12"
+}

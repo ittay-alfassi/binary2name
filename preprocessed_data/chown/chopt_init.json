@@ -1,0 +1,25 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "loopSeerDum",
+                "src": 4205024
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4205024,
+                "constraints": [],
+                "instructions": "mov|dword|ptr|rdi|2|    |mov|qword|ptr|rdi|+|8|0|    |mov|byte|ptr|rdi|+|0x10|1|    |mov|byte|ptr|rdi|+|4|0|    |mov|byte|ptr|rdi|+|0x11|0|    |mov|qword|ptr|rdi|+|0x18|0|    |mov|qword|ptr|rdi|+|0x20|0|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    "<Bool|__eq__|reg|0xffffffffffffffff|>    |<Bool|__eq__|__add__|reg|0x8|0x7|>    |<Bool|__eq__|__add__|reg|0x10|0xf|>    |<Bool|__eq__|__add__|reg|0x4|0x3|>    |<Bool|__eq__|__add__|reg|0x11|0x10|>    |<Bool|__eq__|__add__|reg|0x18|0x17|>    |<Bool|__eq__|__add__|reg|0x20|0x1f|>    "
+                ],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "chopt_init"
+}

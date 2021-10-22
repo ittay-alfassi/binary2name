@@ -1,0 +1,86 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4236540,
+                "src": 4236528
+            },
+            {
+                "dst": 4236601,
+                "src": 4236540
+            },
+            {
+                "dst": 4236546,
+                "src": 4236540
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4236601
+            },
+            {
+                "dst": 4236554,
+                "src": 4236546
+            },
+            {
+                "dst": 4236576,
+                "src": 4236554
+            },
+            {
+                "dst": 4236584,
+                "src": 4236576
+            },
+            {
+                "dst": 4236601,
+                "src": 4236584
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4236528,
+                "constraints": [],
+                "instructions": "push|reg|    |push|rbp|    |mov|rbp|rdi|    |push|rbx|    |call|0x40ccd0|    "
+            },
+            {
+                "block_addr": 4236540,
+                "constraints": [],
+                "instructions": "test|eax|eax|    |mov|ebx|eax|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4236601,
+                "constraints": [
+                    "<Bool|__eq__|ret|0xfffffff800000000|>    ",
+                    "<Bool|__eq__|ret|0x0|>    "
+                ],
+                "instructions": "mov|eax|ebx|    |pop|rbx|    |pop|rbp|    |pop|reg|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4236546,
+                "constraints": [
+                    "<Bool|__ne__|ret|0x0|>    "
+                ],
+                "instructions": "mov|rdi|rbp|    |call|0x40e9a0|    "
+            },
+            {
+                "block_addr": 4236554,
+                "constraints": [],
+                "instructions": "lea|rsi|rip|+|0xc0ad|    |mov|edx|5|    |xor|edi|edi|    |mov|reg|rax|    |call|0x402730|    "
+            },
+            {
+                "block_addr": 4236576,
+                "constraints": [],
+                "instructions": "mov|rbp|rax|    |call|0x4025a0|    "
+            },
+            {
+                "block_addr": 4236584,
+                "constraints": [],
+                "instructions": "mov|esi|dword|ptr|rax|    |mov|rcx|reg|    |mov|rdx|rbp|    |xor|edi|edi|    |xor|eax|eax|    |call|0x402b10|    "
+            }
+        ]
+    },
+    "func_name": "set_acl"
+}

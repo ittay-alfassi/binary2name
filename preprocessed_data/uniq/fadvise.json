@@ -1,0 +1,76 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4207216,
+                "src": 4207184
+            },
+            {
+                "dst": 4207189,
+                "src": 4207184
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4207216
+            },
+            {
+                "dst": 4207197,
+                "src": 4207189
+            },
+            {
+                "dst": 4200688,
+                "src": 4207197
+            },
+            {
+                "dst": 7340312,
+                "src": 4200688
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 7340312
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4207184,
+                "constraints": [],
+                "instructions": "test|rdi|rdi|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4207216,
+                "constraints": [
+                    "<Bool|__eq__|reg|0x0|>    "
+                ],
+                "instructions": "ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4207189,
+                "constraints": [
+                    "<Bool|__ne__|reg|0x0|>    "
+                ],
+                "instructions": "push|rbx|    |mov|ebx|esi|    |call|0x401960|    "
+            },
+            {
+                "block_addr": 4207197,
+                "constraints": [],
+                "instructions": "mov|ecx|ebx|    |xor|edx|edx|    |xor|esi|esi|    |pop|rbx|    |mov|edi|eax|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4200688,
+                "constraints": [],
+                "instructions": "jmp|qword|ptr|rip|+|0x208602|    "
+            },
+            {
+                "block_addr": 7340312,
+                "constraints": [],
+                "instructions": "add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    "
+            }
+        ]
+    },
+    "func_name": "fadvise"
+}

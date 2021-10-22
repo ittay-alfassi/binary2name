@@ -1,0 +1,139 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4220117,
+                "src": 4220096
+            },
+            {
+                "dst": 4220208,
+                "src": 4220117
+            },
+            {
+                "dst": 4220122,
+                "src": 4220117
+            },
+            {
+                "dst": 4220162,
+                "src": 4220208
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4220162
+            },
+            {
+                "dst": 4220136,
+                "src": 4220122
+            },
+            {
+                "dst": 4220144,
+                "src": 4220136
+            },
+            {
+                "dst": 4220158,
+                "src": 4220144
+            },
+            {
+                "dst": 4220162,
+                "src": 4220158
+            },
+            {
+                "dst": 4220176,
+                "src": 4220158
+            },
+            {
+                "dst": 4220193,
+                "src": 4220176
+            },
+            {
+                "dst": 4220181,
+                "src": 4220176
+            },
+            {
+                "dst": 4220162,
+                "src": 4220193
+            },
+            {
+                "dst": 4220193,
+                "src": 4220181
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4220096,
+                "constraints": [],
+                "instructions": "push|reg|    |push|reg|    |push|rbp|    |push|rbx|    |mov|rbp|rsi|    |mov|rsi|rdx|    |sub|rsp|8|    |call|0x401d30|    "
+            },
+            {
+                "block_addr": 4220117,
+                "constraints": [],
+                "instructions": "test|rax|rax|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4220208,
+                "constraints": [
+                    "<Bool|__eq__|ret|0x0|>    "
+                ],
+                "instructions": "xor|ebp|ebp|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4220162,
+                "constraints": [
+                    "<Bool|__eq__|ret|0x0|>    "
+                ],
+                "instructions": "add|rsp|8|    |mov|rax|rbp|    |pop|rbx|    |pop|rbp|    |pop|reg|    |pop|reg|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4220122,
+                "constraints": [
+                    "<Bool|__ne__|ret|0x0|>    "
+                ],
+                "instructions": "mov|rsi|rbp|    |mov|rdi|rax|    |mov|rbx|rax|    |call|0x4062e0|    "
+            },
+            {
+                "block_addr": 4220136,
+                "constraints": [],
+                "instructions": "mov|rbp|rax|    |call|0x4019b0|    "
+            },
+            {
+                "block_addr": 4220144,
+                "constraints": [],
+                "instructions": "mov|rdi|rbx|    |mov|reg|rax|    |mov|regd|dword|ptr|rax|    |call|0x407780|    "
+            },
+            {
+                "block_addr": 4220158,
+                "constraints": [
+                    "<Bool|__eq__|ret|0xe000000000000000|>    "
+                ],
+                "instructions": "test|eax|eax|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4220176,
+                "constraints": [
+                    "<Bool|__ne__|ret|0x0|>    "
+                ],
+                "instructions": "test|rbp|rbp|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4220193,
+                "constraints": [
+                    "<Bool|__eq__|ret|0x0|>    "
+                ],
+                "instructions": "mov|dword|ptr|reg|regd|    |xor|ebp|ebp|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4220181,
+                "constraints": [
+                    "<Bool|__ne__|ret|0x0|>    "
+                ],
+                "instructions": "mov|rdi|rbp|    |mov|regd|dword|ptr|reg|    |call|0x401dd0|    "
+            }
+        ]
+    },
+    "func_name": "internal_read_file"
+}

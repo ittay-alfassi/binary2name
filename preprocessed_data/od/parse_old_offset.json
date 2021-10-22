@@ -1,0 +1,135 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4206604,
+                "src": 4206528
+            },
+            {
+                "dst": 4206535,
+                "src": 4206528
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4206604
+            },
+            {
+                "dst": 4206552,
+                "src": 4206535
+            },
+            {
+                "dst": 4206607,
+                "src": 4206535
+            },
+            {
+                "dst": 4206565,
+                "src": 4206552
+            },
+            {
+                "dst": 4206575,
+                "src": 4206565
+            },
+            {
+                "dst": 4206613,
+                "src": 4206565
+            },
+            {
+                "dst": 4206595,
+                "src": 4206575
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4206595
+            },
+            {
+                "dst": 4206552,
+                "src": 4206607
+            },
+            {
+                "dst": 4206575,
+                "src": 4206613
+            },
+            {
+                "dst": 4206623,
+                "src": 4206613
+            },
+            {
+                "dst": 4206575,
+                "src": 4206623
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4206528,
+                "constraints": [],
+                "instructions": "movzx|edx|byte|ptr|rdi|    |test|dl|dl|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4206604,
+                "constraints": [
+                    "<Bool|__eq__|reg|0x2|>    |<Bool|__eq__|mem_0|0|>    "
+                ],
+                "instructions": "xor|eax|eax|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4206535,
+                "constraints": [
+                    "<Bool|__eq__|reg|0x2|>    |<Bool|__ne__|mem_0|0|>    "
+                ],
+                "instructions": "push|rbp|    |push|rbx|    |mov|rbp|rsi|    |mov|rbx|rdi|    |sub|rsp|8|    |cmp|dl|0x2b|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4206552,
+                "constraints": [
+                    "<Bool|__ne__|mem_0|43|>    "
+                ],
+                "instructions": "mov|esi|0x2e|    |mov|rdi|rbx|    |call|0x401910|    "
+            },
+            {
+                "block_addr": 4206565,
+                "constraints": [],
+                "instructions": "test|rax|rax|    |mov|edx|0xa|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4206575,
+                "constraints": [
+                    "<Bool|__ne__|mem_0|48|>    ",
+                    "<Bool|__ne__|ret|0x0|>    "
+                ],
+                "instructions": "lea|reg|rip|+|0x7cdf|    |mov|rcx|rbp|    |xor|esi|esi|    |mov|rdi|rbx|    |call|0x4083e0|    "
+            },
+            {
+                "block_addr": 4206595,
+                "constraints": [],
+                "instructions": "test|eax|eax|    |pop|rdx|    |sete|al|    |pop|rbx|    |pop|rbp|    |ret|    "
+            },
+            {
+                "block_addr": 4206607,
+                "constraints": [
+                    "<Bool|__eq__|mem_0|43|>    "
+                ],
+                "instructions": "add|rbx|1|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4206613,
+                "constraints": [
+                    "<Bool|__eq__|ret|0x0|>    "
+                ],
+                "instructions": "cmp|byte|ptr|rbx|0x30|    |mov|edx|8|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4206623,
+                "constraints": [
+                    "<Bool|__eq__|mem_0|48|>    "
+                ],
+                "instructions": "movzx|eax|byte|ptr|rbx|+|1|    |xor|edx|edx|    |and|eax|0xffffffdf|    |cmp|al|0x58|    |sete|dl|    |lea|edx|rdx*8|+|8|    |jmp|target_0|    "
+            }
+        ]
+    },
+    "func_name": "parse_old_offset"
+}

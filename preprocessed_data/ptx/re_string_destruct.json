@@ -1,0 +1,87 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4242509,
+                "src": 4242496
+            },
+            {
+                "dst": 4242518,
+                "src": 4242509
+            },
+            {
+                "dst": 4242527,
+                "src": 4242518
+            },
+            {
+                "dst": 4242536,
+                "src": 4242518
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4242527
+            },
+            {
+                "dst": 4201568,
+                "src": 4242536
+            },
+            {
+                "dst": 7340104,
+                "src": 4201568
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 7340104
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4242496,
+                "constraints": [],
+                "instructions": "push|rbx|    |mov|rbx|rdi|    |mov|rdi|qword|ptr|rdi|+|0x10|    |call|0x401c60|    "
+            },
+            {
+                "block_addr": 4242509,
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0x10|0xfffffffffffff010|>    "
+                ],
+                "instructions": "mov|rdi|qword|ptr|rbx|+|0x18|    |call|0x401c60|    "
+            },
+            {
+                "block_addr": 4242518,
+                "constraints": [],
+                "instructions": "cmp|byte|ptr|rbx|+|0x8b|0|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4242527,
+                "constraints": [
+                    "<Bool|__eq__|mem_0|0|>    "
+                ],
+                "instructions": "pop|rbx|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4242536,
+                "constraints": [
+                    "<Bool|__ne__|mem_0|0|>    "
+                ],
+                "instructions": "mov|rdi|qword|ptr|rbx|+|8|    |pop|rbx|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4201568,
+                "constraints": [],
+                "instructions": "jmp|qword|ptr|rip|+|0x21f102|    "
+            },
+            {
+                "block_addr": 7340104,
+                "constraints": [],
+                "instructions": "add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    "
+            }
+        ]
+    },
+    "func_name": "re_string_destruct"
+}

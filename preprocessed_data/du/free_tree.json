@@ -1,0 +1,32 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4267565,
+                "src": 4267552
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4267565
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4267552,
+                "constraints": [],
+                "instructions": "lea|rdi|rsi|+|0x28|    |sub|rsp|8|    |call|0x411df0|    "
+            },
+            {
+                "block_addr": 4267565,
+                "constraints": [],
+                "instructions": "xor|eax|eax|    |add|rsp|8|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "free_tree"
+}

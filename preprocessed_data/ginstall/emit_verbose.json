@@ -1,0 +1,121 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4214764,
+                "src": 4214736
+            },
+            {
+                "dst": 4214782,
+                "src": 4214764
+            },
+            {
+                "dst": 4214807,
+                "src": 4214782
+            },
+            {
+                "dst": 4214865,
+                "src": 4214807
+            },
+            {
+                "dst": 4214812,
+                "src": 4214807
+            },
+            {
+                "dst": 4214904,
+                "src": 4214865
+            },
+            {
+                "dst": 4205456,
+                "src": 4214904
+            },
+            {
+                "dst": 7340440,
+                "src": 4205456
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 7340440
+            },
+            {
+                "dst": 4214825,
+                "src": 4214812
+            },
+            {
+                "dst": 4214847,
+                "src": 4214825
+            },
+            {
+                "dst": 4214865,
+                "src": 4214847
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4214736,
+                "constraints": [],
+                "instructions": "push|reg|    |push|rbp|    |mov|reg|rdi|    |push|rbx|    |mov|edi|1|    |mov|rbx|rdx|    |mov|rdx|rsi|    |mov|esi|4|    |call|0x40f2d0|    "
+            },
+            {
+                "block_addr": 4214764,
+                "constraints": [],
+                "instructions": "xor|edi|edi|    |mov|rdx|reg|    |mov|esi|4|    |mov|rbp|rax|    |call|0x40f2d0|    "
+            },
+            {
+                "block_addr": 4214782,
+                "constraints": [],
+                "instructions": "lea|rsi|rip|+|0x12cf4|    |mov|rdx|rax|    |mov|rcx|rbp|    |xor|eax|eax|    |mov|edi|1|    |call|0x402ee0|    "
+            },
+            {
+                "block_addr": 4214807,
+                "constraints": [],
+                "instructions": "test|rbx|rbx|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4214865,
+                "constraints": [
+                    "<Bool|__eq__|reg|0x0|>    "
+                ],
+                "instructions": "mov|rdi|qword|ptr|rip|+|0x218090|    |mov|rax|qword|ptr|rdi|+|0x28|    |cmp|rax|qword|ptr|rdi|+|0x30|    |jae|target_0|    "
+            },
+            {
+                "block_addr": 4214904,
+                "constraints": [],
+                "instructions": "pop|rbx|    |pop|rbp|    |pop|reg|    |mov|esi|0xa|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4205456,
+                "constraints": [],
+                "instructions": "jmp|qword|ptr|rip|+|0x21a19a|    "
+            },
+            {
+                "block_addr": 7340440,
+                "constraints": [],
+                "instructions": "add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4214812,
+                "constraints": [
+                    "<Bool|__ne__|reg|0x0|>    "
+                ],
+                "instructions": "mov|rsi|rbx|    |mov|edi|4|    |call|0x40f3f0|    "
+            },
+            {
+                "block_addr": 4214825,
+                "constraints": [],
+                "instructions": "lea|rsi|rip|+|0x12cd2|    |mov|rbx|rax|    |mov|edx|5|    |xor|edi|edi|    |call|0x402ad0|    "
+            },
+            {
+                "block_addr": 4214847,
+                "constraints": [],
+                "instructions": "mov|rdx|rbx|    |mov|rsi|rax|    |mov|edi|1|    |xor|eax|eax|    |call|0x402ee0|    "
+            }
+        ]
+    },
+    "func_name": "emit_verbose"
+}

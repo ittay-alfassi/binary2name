@@ -1,0 +1,191 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4267338,
+                "src": 4267312
+            },
+            {
+                "dst": 4267376,
+                "src": 4267312
+            },
+            {
+                "dst": 4267344,
+                "src": 4267338
+            },
+            {
+                "dst": 4267376,
+                "src": 4267338
+            },
+            {
+                "dst": 4267355,
+                "src": 4267344
+            },
+            {
+                "dst": 4267366,
+                "src": 4267355
+            },
+            {
+                "dst": 4267359,
+                "src": 4267355
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4267366
+            },
+            {
+                "dst": 4267359,
+                "src": 4267376
+            },
+            {
+                "dst": 4267385,
+                "src": 4267376
+            },
+            {
+                "dst": 4267364,
+                "src": 4267359
+            },
+            {
+                "dst": 4267408,
+                "src": 4267359
+            },
+            {
+                "dst": 4267366,
+                "src": 4267364
+            },
+            {
+                "dst": 4267359,
+                "src": 4267385
+            },
+            {
+                "dst": 4267391,
+                "src": 4267385
+            },
+            {
+                "dst": 4267402,
+                "src": 4267391
+            },
+            {
+                "dst": 4267406,
+                "src": 4267402
+            },
+            {
+                "dst": 4267359,
+                "src": 4267402
+            },
+            {
+                "dst": 4267366,
+                "src": 4267406
+            },
+            {
+                "dst": 4267437,
+                "src": 4267408
+            },
+            {
+                "dst": 4267364,
+                "src": 4267437
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4267312,
+                "constraints": [],
+                "instructions": "push|reg|    |push|rbp|    |mov|rbp|rsi|    |push|rbx|    |mov|rax|qword|ptr|rdi|+|0x40|    |mov|rbx|rdi|    |mov|reg|qword|ptr|rdi|+|0xc0|    |cmp|rax|rsi|    |jg|target_0|    "
+            },
+            {
+                "block_addr": 4267338,
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0x40|0xffffffffffe00040|>    |<Bool|SLE|mem_0|reg|>    "
+                ],
+                "instructions": "cmp|rax|qword|ptr|rdi|+|0x58|    |jge|target_0|    "
+            },
+            {
+                "block_addr": 4267344,
+                "constraints": [
+                    "<Bool|SLT|mem_0|mem_2|>    "
+                ],
+                "instructions": "lea|esi|rbp|+|1|    |mov|rdi|rbx|    |call|0x411be0|    "
+            },
+            {
+                "block_addr": 4267355,
+                "constraints": [],
+                "instructions": "test|eax|eax|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4267366,
+                "constraints": [
+                    "<Bool|__ne__|ret|0x0|>    "
+                ],
+                "instructions": "pop|rbx|    |pop|rbp|    |pop|reg|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4267376,
+                "constraints": [
+                    "<Bool|SGE|mem_0|mem_2|>    ",
+                    "<Bool|__eq__|__add__|reg|0x40|0xffffffffffe00040|>    |<Bool|SGT|mem_0|reg|>    "
+                ],
+                "instructions": "mov|rax|qword|ptr|rbx|+|0x30|    |cmp|rax|rbp|    |jg|target_0|    "
+            },
+            {
+                "block_addr": 4267359,
+                "constraints": [
+                    "<Bool|__eq__|ret|0x0|>    ",
+                    "<Bool|SGE|mem_1|mem_0|>    ",
+                    "<Bool|SGT|mem_0|reg|>    "
+                ],
+                "instructions": "cmp|reg|rbp|    |jl|target_0|    "
+            },
+            {
+                "block_addr": 4267364,
+                "constraints": [
+                    "<Bool|SGE|mem_0|reg|>    "
+                ],
+                "instructions": "xor|eax|eax|    |pop|rbx|    |pop|rbp|    |pop|reg|    |ret|    "
+            },
+            {
+                "block_addr": 4267385,
+                "constraints": [
+                    "<Bool|SLE|mem_0|reg|>    "
+                ],
+                "instructions": "cmp|rax|qword|ptr|rbx|+|0x58|    |jge|target_0|    "
+            },
+            {
+                "block_addr": 4267391,
+                "constraints": [
+                    "<Bool|SLT|mem_1|mem_0|>    "
+                ],
+                "instructions": "lea|esi|rbp|+|1|    |mov|rdi|rbx|    |call|0x411be0|    "
+            },
+            {
+                "block_addr": 4267402,
+                "constraints": [],
+                "instructions": "test|eax|eax|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4267406,
+                "constraints": [
+                    "<Bool|__ne__|ret|0x0|>    "
+                ],
+                "instructions": "jmp|target_0|    "
+            },
+            {
+                "block_addr": 4267408,
+                "constraints": [
+                    "<Bool|SLT|mem_0|reg|>    "
+                ],
+                "instructions": "mov|rax|qword|ptr|rbx|+|0xb8|    |mov|rdx|rbp|    |xor|esi|esi|    |sub|rdx|reg|    |shl|rdx|3|    |lea|rdi|rax|+|reg*8|+|8|    |call|0x402620|    "
+            },
+            {
+                "block_addr": 4267437,
+                "constraints": [],
+                "instructions": "mov|qword|ptr|rbx|+|0xc0|rbp|    |jmp|target_0|    "
+            }
+        ]
+    },
+    "func_name": "clean_state_log_if_needed"
+}

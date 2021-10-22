@@ -1,0 +1,34 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4238548,
+                "src": 4238512
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4238548
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4238512,
+                "constraints": [],
+                "instructions": "sub|rsp|8|    |mov|reg|qword|ptr|rip|+|0x2113e5|    |lea|rdx|rip|+|0x210c9e|    |lea|rcx|rip|+|0xbbd7|    |mov|regd|4|    |call|0x413930|    "
+            },
+            {
+                "block_addr": 4238548,
+                "constraints": [],
+                "instructions": "lea|rdx|rip|+|0xbbc5|    |mov|eax|dword|ptr|rdx|+|rax*4|    |add|rsp|8|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    "<Bool|__eq__|__add__|0x4168a0|__lshift__|ret|0x2|0xfffffffffe4328a0|>    "
+                ],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "get_version.part.0"
+}

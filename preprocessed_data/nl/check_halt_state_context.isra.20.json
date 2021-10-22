@@ -1,0 +1,375 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4233947,
+                "src": 4233920
+            },
+            {
+                "dst": 4234120,
+                "src": 4233947
+            },
+            {
+                "dst": 4233956,
+                "src": 4233947
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4234120
+            },
+            {
+                "dst": 4234009,
+                "src": 4233956
+            },
+            {
+                "dst": 4234042,
+                "src": 4234009
+            },
+            {
+                "dst": 4234000,
+                "src": 4234009
+            },
+            {
+                "dst": 4234085,
+                "src": 4234042
+            },
+            {
+                "dst": 4234047,
+                "src": 4234042
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4234085
+            },
+            {
+                "dst": 4234120,
+                "src": 4234000
+            },
+            {
+                "dst": 4234009,
+                "src": 4234000
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4234000
+            },
+            {
+                "dst": 4234052,
+                "src": 4234047
+            },
+            {
+                "dst": 4234096,
+                "src": 4234047
+            },
+            {
+                "dst": 4234000,
+                "src": 4234052
+            },
+            {
+                "dst": 4234057,
+                "src": 4234052
+            },
+            {
+                "dst": 4234062,
+                "src": 4234096
+            },
+            {
+                "dst": 4234101,
+                "src": 4234096
+            },
+            {
+                "dst": 4234073,
+                "src": 4234062
+            },
+            {
+                "dst": 4234068,
+                "src": 4234062
+            },
+            {
+                "dst": 4234085,
+                "src": 4234073
+            },
+            {
+                "dst": 4234081,
+                "src": 4234073
+            },
+            {
+                "dst": 4234000,
+                "src": 4234101
+            },
+            {
+                "dst": 4234106,
+                "src": 4234101
+            },
+            {
+                "dst": 4234000,
+                "src": 4234057
+            },
+            {
+                "dst": 4234062,
+                "src": 4234057
+            },
+            {
+                "dst": 4234085,
+                "src": 4234081
+            },
+            {
+                "dst": 4234000,
+                "src": 4234081
+            },
+            {
+                "dst": 4234000,
+                "src": 4234068
+            },
+            {
+                "dst": 4234073,
+                "src": 4234068
+            },
+            {
+                "dst": 4234073,
+                "src": 4234106
+            },
+            {
+                "dst": 4234112,
+                "src": 4234106
+            },
+            {
+                "dst": 4234068,
+                "src": 4234112
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4233920,
+                "constraints": [],
+                "instructions": "push|reg|    |mov|reg|rdx|    |push|rbp|    |push|rbx|    |mov|edx|dword|ptr|rdi|+|0xa0|    |mov|rbx|rsi|    |mov|rsi|rcx|    |mov|rbp|rdi|    |call|0x4098c0|    "
+            },
+            {
+                "block_addr": 4233947,
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0xa0|0xfffffffffffffffe|>    "
+                ],
+                "instructions": "test|rbx|rbx|    |jle|target_0|    "
+            },
+            {
+                "block_addr": 4234120,
+                "constraints": [
+                    "<Bool|__eq__|reg|0x3|>    ",
+                    "<Bool|__eq__|reg|0x2|>    ",
+                    "<Bool|__eq__|reg|0x1|>    ",
+                    "<Bool|__ne__|__or__|reg|If|__eq__|reg|0x0|1|0|0|>    "
+                ],
+                "instructions": "pop|rbx|    |xor|eax|eax|    |pop|rbp|    |pop|reg|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    "<Bool|__ne__|reg|0x3|>    "
+                ],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4233956,
+                "constraints": [
+                    "<Bool|__eq__|__or__|reg|If|__eq__|reg|0x0|1|0|0|>    "
+                ],
+                "instructions": "mov|rdx|qword|ptr|rbp|+|0x98|    |mov|regd|eax|    |mov|ebp|eax|    |and|eax|1|    |mov|reg|qword|ptr|reg|    |xor|esi|esi|    |and|ebp|8|    |and|regd|2|    |mov|regd|eax|    |mov|reg|qword|ptr|rdx|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4234009,
+                "constraints": [
+                    "<Bool|__ne__|reg|0x2|>    ",
+                    "<Bool|__ne__|reg|0x1|>    ",
+                    "<Bool|__eq__|reg|0xffffffffffe00000|>    |<Bool|__eq__|mem_0|0xfffffffffffff800|>    "
+                ],
+                "instructions": "mov|rax|qword|ptr|reg|+|rsi*8|    |mov|rdx|rax|    |shl|rdx|4|    |add|rdx|reg|    |mov|ecx|dword|ptr|rdx|+|8|    |shr|ecx|8|    |mov|edi|ecx|    |and|di|0x3ff|    |cmp|byte|ptr|rdx|+|8|2|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4234042,
+                "constraints": [
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xfffffffffff80008|>    |<Bool|__eq__|mem_42|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_3|0x4|mem_0|0x8|0xc00000045be00008|>    |<Bool|__eq__|mem_19|2|>    ",
+                    "<Bool|__eq__|__add__|mem_0|0xfffffffffffffc00|>    |<Bool|__eq__|__add__|__lshift__|mem_2|0x4|mem_1|0x8|0xfffffffffbfe0008|>    |<Bool|__eq__|mem_3|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xc00000045be00008|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_3|0x4|mem_0|0x8|0xc00000045be00008|>    |<Bool|__eq__|mem_14|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xfffffff000000008|>    |<Bool|__eq__|mem_41|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_3|0x4|mem_0|0x8|0xfffffff000823098|>    |<Bool|__eq__|mem_13|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_3|0x4|mem_0|0x8|0xc00000045be00008|>    |<Bool|__eq__|mem_17|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_3|0x4|mem_0|0x8|0xc00000045be00008|>    |<Bool|__eq__|mem_11|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xfffffffffffe0008|>    |<Bool|__eq__|mem_40|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_3|0x4|mem_0|0x8|0xc00000045be00008|>    |<Bool|__eq__|mem_16|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0x7bfffff200823018|>    |<Bool|__eq__|mem_39|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xfffffffffffffc08|>    |<Bool|__eq__|mem_3|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0x7bfffff200823018|>    |<Bool|__eq__|mem_36|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xffffffe099100008|>    |<Bool|__eq__|mem_38|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xfffffffff6000008|>    |<Bool|__eq__|mem_37|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xffffffffc0000008|>    |<Bool|__eq__|mem_35|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_3|0x4|mem_0|0x8|0xc00000045be00008|>    |<Bool|__eq__|mem_6|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_3|0x4|mem_0|0x8|0xc00000045be00008|>    |<Bool|__eq__|mem_15|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xfffffffffff00008|>    |<Bool|__eq__|mem_34|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_3|0x4|mem_0|0x8|0xc00000045be00008|>    |<Bool|__eq__|mem_8|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_3|0x4|mem_0|0x8|0xc00000045be00008|>    |<Bool|__eq__|mem_12|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_3|0x4|mem_0|0x8|0xc00000045be00008|>    |<Bool|__eq__|mem_7|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xfffffffc00000008|>    |<Bool|__eq__|mem_31|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xfffffffffffe0008|>    |<Bool|__eq__|mem_33|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xfffffffff81e2008|>    |<Bool|__eq__|mem_26|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xffffffffffffe108|>    |<Bool|__eq__|mem_25|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xffffffffffffff08|>    |<Bool|__eq__|mem_29|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xffffffffffe00008|>    |<Bool|__eq__|mem_24|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xffe0000000000008|>    |<Bool|__eq__|mem_28|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_3|0x4|mem_0|0x8|0xc00000045be00008|>    |<Bool|__eq__|mem_9|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xfffffffffff00008|>    |<Bool|__eq__|mem_32|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_3|0x4|mem_0|0x8|0xc00000045be00008|>    |<Bool|__eq__|mem_4|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xfffffffffffe0b48|>    |<Bool|__eq__|mem_30|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xfffc0003848e0408|>    |<Bool|__eq__|mem_23|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xfffffffffffe0008|>    |<Bool|__eq__|mem_27|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0x12a0200011fe0408|>    |<Bool|__eq__|mem_22|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xfff8000800800008|>    |<Bool|__eq__|mem_21|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xfffffffffffffe08|>    |<Bool|__eq__|mem_18|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xfffffffffffe0008|>    |<Bool|__eq__|mem_20|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xffffffffffc00008|>    |<Bool|__eq__|mem_10|2|>    "
+                ],
+                "instructions": "test|di|di|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4234085,
+                "constraints": [
+                    "<Bool|__eq__|__and__|mem_0|128|0|>    ",
+                    "<Bool|__eq__|Concat|0|mem_0|0x0|>    ",
+                    "<Bool|__ne__|Concat|0x0|ret|0|0x0|>    "
+                ],
+                "instructions": "pop|rbx|    |pop|rbp|    |pop|reg|    |ret|    "
+            },
+            {
+                "block_addr": 4234000,
+                "constraints": [
+                    "<Bool|__eq__|Concat|0x0|ret|0|0x0|>    ",
+                    "<Bool|__eq__|ret|0|>    ",
+                    "<Bool|__ne__|__and__|mem_0|8|0|>    ",
+                    "<Bool|__ne__|ret|0|>    ",
+                    "<Bool|__eq__|__add__|mem_0|0xfffffffffffffc00|>    |<Bool|__eq__|__add__|__lshift__|mem_2|0x4|mem_1|0x8|0xfffffffffbfe0008|>    |<Bool|__ne__|mem_3|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xfffffffffff80008|>    |<Bool|__ne__|mem_42|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_3|0x4|mem_0|0x8|0xfffffff000823098|>    |<Bool|__ne__|mem_13|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xfffffff000000008|>    |<Bool|__ne__|mem_41|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xfffffffffffe0008|>    |<Bool|__ne__|mem_40|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0x7bfffff200823018|>    |<Bool|__ne__|mem_39|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xffffffe099100008|>    |<Bool|__ne__|mem_38|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xfffffffff6000008|>    |<Bool|__ne__|mem_37|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xfffffffffffffc08|>    |<Bool|__ne__|mem_3|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0x7bfffff200823018|>    |<Bool|__ne__|mem_36|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xffffffffc0000008|>    |<Bool|__ne__|mem_35|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xfffffffffff00008|>    |<Bool|__ne__|mem_34|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xfffffffffffe0008|>    |<Bool|__ne__|mem_33|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xfffffffffff00008|>    |<Bool|__ne__|mem_32|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xfffffffc00000008|>    |<Bool|__ne__|mem_31|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xfffffffffffe0b48|>    |<Bool|__ne__|mem_30|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xffffffffffffff08|>    |<Bool|__ne__|mem_29|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xffe0000000000008|>    |<Bool|__ne__|mem_28|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xfffffffffffe0008|>    |<Bool|__ne__|mem_27|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xfffffffff81e2008|>    |<Bool|__ne__|mem_26|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xffffffffffffe108|>    |<Bool|__ne__|mem_25|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xffffffffffe00008|>    |<Bool|__ne__|mem_24|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xc00000045be00008|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_3|0x4|mem_0|0x8|0xc00000045be00008|>    |<Bool|__ne__|mem_19|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xfffc0003848e0408|>    |<Bool|__ne__|mem_23|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0x12a0200011fe0408|>    |<Bool|__ne__|mem_22|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xfff8000800800008|>    |<Bool|__ne__|mem_21|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_3|0x4|mem_0|0x8|0xc00000045be00008|>    |<Bool|__ne__|mem_17|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xfffffffffffe0008|>    |<Bool|__ne__|mem_20|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_3|0x4|mem_0|0x8|0xc00000045be00008|>    |<Bool|__ne__|mem_16|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_3|0x4|mem_0|0x8|0xc00000045be00008|>    |<Bool|__ne__|mem_15|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_3|0x4|mem_0|0x8|0xc00000045be00008|>    |<Bool|__ne__|mem_14|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xfffffffffffffe08|>    |<Bool|__ne__|mem_18|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_3|0x4|mem_0|0x8|0xc00000045be00008|>    |<Bool|__ne__|mem_12|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_3|0x4|mem_0|0x8|0xc00000045be00008|>    |<Bool|__ne__|mem_11|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_3|0x4|mem_0|0x8|0xc00000045be00008|>    |<Bool|__ne__|mem_9|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_3|0x4|mem_0|0x8|0xc00000045be00008|>    |<Bool|__ne__|mem_8|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_3|0x4|mem_0|0x8|0xc00000045be00008|>    |<Bool|__ne__|mem_7|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_5|0x4|mem_0|0x8|0xffffffffffc00008|>    |<Bool|__ne__|mem_10|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_3|0x4|mem_0|0x8|0xc00000045be00008|>    |<Bool|__ne__|mem_6|2|>    ",
+                    "<Bool|__eq__|__add__|__lshift__|mem_3|0x4|mem_0|0x8|0xc00000045be00008|>    |<Bool|__ne__|mem_4|2|>    "
+                ],
+                "instructions": "add|rsi|1|    |cmp|rsi|rbx|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4234047,
+                "constraints": [
+                    "<Bool|__ne__|Concat|0|mem_0|0x0|>    "
+                ],
+                "instructions": "test|cl|4|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4234052,
+                "constraints": [
+                    "<Bool|__ne__|__and__|mem_0|4|0|>    "
+                ],
+                "instructions": "test|regd|regd|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4234096,
+                "constraints": [
+                    "<Bool|__eq__|__and__|mem_0|4|0|>    "
+                ],
+                "instructions": "and|ecx|8|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4234062,
+                "constraints": [
+                    "<Bool|__eq__|__and__|mem_0|8|0|>    "
+                ],
+                "instructions": "test|dil|0x20|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4234073,
+                "constraints": [
+                    "<Bool|__ne__|Concat|0x0|ret|0|0x0|>    ",
+                    "<Bool|__eq__|__and__|mem_0|32|0|>    "
+                ],
+                "instructions": "and|edi|0x80|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4234101,
+                "constraints": [
+                    "<Bool|__ne__|__and__|mem_0|8|0|>    "
+                ],
+                "instructions": "test|regd|regd|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4234057,
+                "constraints": [
+                    "<Bool|__ne__|ret|0|>    "
+                ],
+                "instructions": "and|ecx|8|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4234081,
+                "constraints": [
+                    "<Bool|__ne__|__and__|mem_0|128|0|>    "
+                ],
+                "instructions": "test|ebp|ebp|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4234068,
+                "constraints": [
+                    "<Bool|__ne__|__and__|mem_0|32|0|>    "
+                ],
+                "instructions": "test|regd|regd|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4234106,
+                "constraints": [
+                    "<Bool|__eq__|ret|0|>    "
+                ],
+                "instructions": "test|dil|0x20|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4234112,
+                "constraints": [
+                    "<Bool|__ne__|__and__|mem_0|32|0|>    "
+                ],
+                "instructions": "jmp|target_0|    "
+            }
+        ]
+    },
+    "func_name": "check_halt_state_context.isra.20"
+}

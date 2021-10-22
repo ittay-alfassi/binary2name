@@ -1,0 +1,111 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4203460,
+                "src": 4203424
+            },
+            {
+                "dst": 4203520,
+                "src": 4203460
+            },
+            {
+                "dst": 4203479,
+                "src": 4203460
+            },
+            {
+                "dst": 4203534,
+                "src": 4203520
+            },
+            {
+                "dst": 4203563,
+                "src": 4203534
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4203563
+            },
+            {
+                "dst": 4203496,
+                "src": 4203479
+            },
+            {
+                "dst": 4203508,
+                "src": 4203496
+            },
+            {
+                "dst": 4203496,
+                "src": 4203496
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4203496
+            },
+            {
+                "dst": 4203520,
+                "src": 4203508
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4203424,
+                "constraints": [],
+                "instructions": "push|rbp|    |push|rbx|    |mov|rbp|rsi|    |sub|rsp|0x28|    |mov|rbx|rsp|    |mov|rsi|rbx|    |mov|rax|qword|ptr|fs:0x28|    |mov|qword|ptr|rsp|+|0x18|rax|    |xor|eax|eax|    |call|0x404b40|    "
+            },
+            {
+                "block_addr": 4203460,
+                "constraints": [],
+                "instructions": "sub|rbx|rax|    |mov|reg|qword|ptr|rip|+|0x20fd2a|    |add|rbx|0x14|    |cmp|rbx|rbp|    |jae|target_0|    "
+            },
+            {
+                "block_addr": 4203520,
+                "constraints": [
+                    "<Bool|__ge__|__add__|__sub__|0x7fffffffffeffc0|ret|0x14|reg|>    "
+                ],
+                "instructions": "mov|rdi|reg|    |mov|rdx|rbx|    |mov|rsi|rax|    |call|0x4017d0|    "
+            },
+            {
+                "block_addr": 4203534,
+                "constraints": [],
+                "instructions": "mov|reg|rax|    |add|reg|rbx|    |mov|rax|qword|ptr|rsp|+|0x18|    |xor|rax|qword|ptr|fs:0x28|    |mov|qword|ptr|rip|+|0x20fccf|reg|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4203563,
+                "constraints": [],
+                "instructions": "add|rsp|0x28|    |pop|rbx|    |pop|rbp|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    "<Bool|__ne__|__add__|0xf80000000001002c|reg|ret|0x3|>    "
+                ],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4203479,
+                "constraints": [
+                    "<Bool|__lt__|__add__|__sub__|0x7fffffffffeffc0|ret|0x14|reg|>    "
+                ],
+                "instructions": "lea|rcx|rbp|+|reg|    |mov|rdx|reg|    |sub|rcx|rbx|    |nop|word|ptr|rax|+|rax|    |mov|byte|ptr|rdx|0x30|    |add|rdx|1|    |cmp|rdx|rcx|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4203496,
+                "constraints": [
+                    "<Bool|__ne__|__add__|0xf80000000001002c|reg|ret|0x2|>    ",
+                    "<Bool|__ne__|__add__|0xf80000000001002c|reg|ret|0x1|>    "
+                ],
+                "instructions": "mov|byte|ptr|rdx|0x30|    |add|rdx|1|    |cmp|rdx|rcx|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4203508,
+                "constraints": [
+                    "<Bool|__eq__|__add__|0xf80000000001002c|reg|ret|0x3|>    ",
+                    "<Bool|__eq__|__add__|0xf80000000001002c|reg|ret|0x2|>    ",
+                    "<Bool|__eq__|__add__|0xf80000000001002c|reg|ret|0x1|>    "
+                ],
+                "instructions": "sub|rbp|rbx|    |add|reg|rbp|    |nop|word|ptr|rax|+|rax|    |mov|rdi|reg|    |mov|rdx|rbx|    |mov|rsi|rax|    |call|0x4017d0|    "
+            }
+        ]
+    },
+    "func_name": "lbuf_putint"
+}

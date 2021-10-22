@@ -1,0 +1,85 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4246654,
+                "src": 4246608
+            },
+            {
+                "dst": 4246712,
+                "src": 4246654
+            },
+            {
+                "dst": 4246658,
+                "src": 4246654
+            },
+            {
+                "dst": 4246682,
+                "src": 4246712
+            },
+            {
+                "dst": 4246700,
+                "src": 4246682
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4246700
+            },
+            {
+                "dst": 4246672,
+                "src": 4246658
+            },
+            {
+                "dst": 4246682,
+                "src": 4246672
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4246608,
+                "constraints": [],
+                "instructions": "push|reg|    |push|rbp|    |mov|regd|ecx|    |push|rbx|    |mov|rbp|rdx|    |mov|edx|regd|    |sub|rsp|0x10|    |lea|rbx|rsp|+|4|    |mov|rax|qword|ptr|fs:0x28|    |mov|qword|ptr|rsp|+|8|rax|    |xor|eax|eax|    |mov|rcx|rbx|    |call|0x413600|    "
+            },
+            {
+                "block_addr": 4246654,
+                "constraints": [],
+                "instructions": "test|eax|eax|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4246712,
+                "constraints": [
+                    "<Bool|__ne__|ret|0x0|>    "
+                ],
+                "instructions": "mov|ebp|0xfffffffe|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4246682,
+                "constraints": [],
+                "instructions": "mov|rcx|qword|ptr|rsp|+|8|    |xor|rcx|qword|ptr|fs:0x28|    |mov|eax|ebp|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4246700,
+                "constraints": [],
+                "instructions": "add|rsp|0x10|    |pop|rbx|    |pop|rbp|    |pop|reg|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4246658,
+                "constraints": [
+                    "<Bool|__eq__|ret|0x0|>    "
+                ],
+                "instructions": "mov|rsi|rbp|    |mov|rdi|rbx|    |mov|edx|regd|    |call|0x413630|    "
+            },
+            {
+                "block_addr": 4246672,
+                "constraints": [],
+                "instructions": "mov|rdi|rbx|    |mov|ebp|eax|    |call|0x4135f0|    "
+            }
+        ]
+    },
+    "func_name": "qcopy_acl"
+}

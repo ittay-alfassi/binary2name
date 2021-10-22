@@ -1,0 +1,88 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4234404,
+                "src": 4234384
+            },
+            {
+                "dst": 4234426,
+                "src": 4234404
+            },
+            {
+                "dst": 4234445,
+                "src": 4234426
+            },
+            {
+                "dst": 4234474,
+                "src": 4234445
+            },
+            {
+                "dst": 4234500,
+                "src": 4234474
+            },
+            {
+                "dst": 4201872,
+                "src": 4234500
+            },
+            {
+                "dst": 7340376,
+                "src": 4201872
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 7340376
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4234384,
+                "constraints": [],
+                "instructions": "push|rbx|    |lea|rsi|rip|+|0x434a|    |mov|edx|5|    |xor|edi|edi|    |call|0x401c80|    "
+            },
+            {
+                "block_addr": 4234404,
+                "constraints": [],
+                "instructions": "lea|rdx|rip|+|0x434c|    |mov|rsi|rax|    |mov|edi|1|    |xor|eax|eax|    |call|0x401eb0|    "
+            },
+            {
+                "block_addr": 4234426,
+                "constraints": [],
+                "instructions": "lea|rsi|rip|+|0x434c|    |mov|edx|5|    |xor|edi|edi|    |call|0x401c80|    "
+            },
+            {
+                "block_addr": 4234445,
+                "constraints": [],
+                "instructions": "lea|rcx|rip|+|0x3474|    |lea|rdx|rip|+|0x229a|    |mov|rsi|rax|    |mov|edi|1|    |xor|eax|eax|    |call|0x401eb0|    "
+            },
+            {
+                "block_addr": 4234474,
+                "constraints": [],
+                "instructions": "mov|rbx|qword|ptr|rip|+|0x2073f7|    |lea|rsi|rip|+|0x4548|    |xor|edi|edi|    |mov|edx|5|    |call|0x401c80|    "
+            },
+            {
+                "block_addr": 4234500,
+                "constraints": [],
+                "instructions": "mov|rsi|rbx|    |mov|rdi|rax|    |pop|rbx|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4201872,
+                "constraints": [],
+                "instructions": "jmp|qword|ptr|rip|+|0x20f122|    "
+            },
+            {
+                "block_addr": 7340376,
+                "constraints": [],
+                "instructions": "add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    "<Bool|__eq__|__add__|ret|0xffffff8000000000|>    |<Bool|Or|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|>    |<Bool|__eq__|__sub__|If|__eq__|mem_0|0|__add__|ret|If|__eq__|mem_0|0|__add__|ret|0x1|If|__eq__|mem_0|0|__add__|ret|0x2|If|__eq__|<...>|0|__add__|ret|0x3|If|__eq__|<...>|<...>|__add__|<...>|<...>|If|<...>|<...>|<...>|ret|strlen_13164_64|>    "
+                ],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "emit_bug_reporting_address"
+}

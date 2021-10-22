@@ -1,0 +1,23 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "loopSeerDum",
+                "src": 4203808
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4203808,
+                "constraints": [],
+                "instructions": "add|edi|4|    |mov|edx|0x66666667|    |mov|eax|edi|    |sar|edi|0x1f|    |imul|edx|    |sar|edx|1|    |sub|edx|edi|    |lea|eax|rdx*8|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "base32_length_wrapper"
+}

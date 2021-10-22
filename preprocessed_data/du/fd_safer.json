@@ -1,0 +1,78 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4323106,
+                "src": 4323056
+            },
+            {
+                "dst": 4323073,
+                "src": 4323056
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4323106
+            },
+            {
+                "dst": 4323078,
+                "src": 4323073
+            },
+            {
+                "dst": 4323086,
+                "src": 4323078
+            },
+            {
+                "dst": 4323099,
+                "src": 4323086
+            },
+            {
+                "dst": 4323106,
+                "src": 4323099
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4323056,
+                "constraints": [],
+                "instructions": "push|reg|    |push|reg|    |push|rbp|    |push|rbx|    |mov|ebx|edi|    |sub|rsp|8|    |cmp|edi|2|    |ja|target_0|    "
+            },
+            {
+                "block_addr": 4323106,
+                "constraints": [
+                    "<Bool|__gt__|reg|0x2|>    "
+                ],
+                "instructions": "add|rsp|8|    |mov|eax|ebx|    |pop|rbx|    |pop|rbp|    |pop|reg|    |pop|reg|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4323073,
+                "constraints": [
+                    "<Bool|__le__|reg|0x2|>    "
+                ],
+                "instructions": "call|0x41f9b0|    "
+            },
+            {
+                "block_addr": 4323078,
+                "constraints": [],
+                "instructions": "mov|regd|eax|    |call|0x402410|    "
+            },
+            {
+                "block_addr": 4323086,
+                "constraints": [],
+                "instructions": "mov|regd|dword|ptr|rax|    |mov|rbp|rax|    |mov|edi|ebx|    |call|0x402640|    "
+            },
+            {
+                "block_addr": 4323099,
+                "constraints": [
+                    "<Bool|__eq__|ret|0xffffffe000000000|>    "
+                ],
+                "instructions": "mov|ebx|regd|    |mov|dword|ptr|rbp|regd|    |add|rsp|8|    |mov|eax|ebx|    |pop|rbx|    |pop|rbp|    |pop|reg|    |pop|reg|    |ret|    "
+            }
+        ]
+    },
+    "func_name": "fd_safer"
+}

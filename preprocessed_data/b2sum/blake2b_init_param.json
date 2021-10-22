@@ -1,0 +1,42 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4215096,
+                "src": 4215040
+            },
+            {
+                "dst": 4215096,
+                "src": 4215096
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4215096
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4215040,
+                "constraints": [],
+                "instructions": "mov|qword|ptr|rdi|+|0x40|0|    |mov|qword|ptr|rdi|+|0xf0|0|    |mov|reg|rdi|    |lea|rdi|rdi|+|0x48|    |mov|eax|regd|    |movabs|rdx|0x6a09e667f3bcc908|    |and|rdi|0xfffffffffffffff8|    |sub|eax|edi|    |lea|ecx|rax|+|0xf8|    |xor|eax|eax|    |shr|ecx|3|    |rep|stosq|qword|ptr|rdi|rax|    "
+            },
+            {
+                "block_addr": 4215096,
+                "constraints": [
+                    "<Bool|__ne__|__add__|0xffffffffffffffff|Concat|0x0|__add__|0xf8|reg|__mul__|0xffffffff|Concat|<...>|0|0x0|>    |<Bool|__eq__|__add__|0x8|Concat|__add__|0x48|reg|0|0x8|>    ",
+                    "<Bool|__ne__|Concat|0x0|__add__|0xf8|reg|__mul__|0xffffffff|Concat|__add__|<...>|<...>|0|0x0|>    |<Bool|__eq__|Concat|__add__|0x48|reg|0|0x0|>    ",
+                    "<Bool|__eq__|__add__|reg|0x40|0xffffffffffffffff|>    |<Bool|__eq__|__add__|reg|0xf0|0xaf|>    "
+                ],
+                "instructions": "rep|stosq|qword|ptr|rdi|rax|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    "<Bool|__ne__|__add__|0xfffffffffffffffe|Concat|0x0|__add__|0xf8|reg|__mul__|0xffffffff|Concat|<...>|0|0x0|>    |<Bool|__eq__|__add__|0x10|Concat|__add__|0x48|reg|0|0x10|>    "
+                ],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "blake2b_init_param"
+}

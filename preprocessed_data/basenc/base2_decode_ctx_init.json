@@ -1,0 +1,36 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4204390,
+                "src": 4204368
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4204390
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4204368,
+                "constraints": [],
+                "instructions": "push|rbx|    |mov|rbx|rdi|    |mov|qword|ptr|rdi|+|0x18|0x1400|    |mov|edi|0x1400|    |call|0x4067c0|    "
+            },
+            {
+                "block_addr": 4204390,
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0x18|0xffffffffffffffff|>    "
+                ],
+                "instructions": "mov|qword|ptr|rbx|0|    |mov|qword|ptr|rbx|+|0x10|rax|    |pop|rbx|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0x10|0xfffffffffffffff7|>    "
+                ],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "base2_decode_ctx_init"
+}

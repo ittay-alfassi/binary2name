@@ -1,0 +1,115 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4245416,
+                "src": 4245312
+            },
+            {
+                "dst": 4245318,
+                "src": 4245312
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4245416
+            },
+            {
+                "dst": 4245347,
+                "src": 4245318
+            },
+            {
+                "dst": 4245440,
+                "src": 4245347
+            },
+            {
+                "dst": 4245360,
+                "src": 4245347
+            },
+            {
+                "dst": 4245404,
+                "src": 4245440
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4245404
+            },
+            {
+                "dst": 4245404,
+                "src": 4245360
+            },
+            {
+                "dst": 4245368,
+                "src": 4245360
+            },
+            {
+                "dst": 4245404,
+                "src": 4245368
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4245312,
+                "constraints": [],
+                "instructions": "cmp|byte|ptr|rsi|+|0x30|0x10|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4245416,
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0x30|0xffffffffff000030|>    |<Bool|__eq__|mem_0|16|>    "
+                ],
+                "instructions": "mov|rax|qword|ptr|rsi|+|8|    |mov|rdx|qword|ptr|rax|+|0x18|    |mov|rax|qword|ptr|rax|+|0x38|    |mov|qword|ptr|rsi|+|0x18|rdx|    |mov|qword|ptr|rsi|+|0x38|rax|    |xor|eax|eax|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    "<Bool|__eq__|__add__|mem_0|0x18|0xfffffffffc000018|>    |<Bool|__eq__|__add__|reg|0x18|0xffffffffff000018|>    |<Bool|__eq__|__add__|reg|0x38|0xffffffffff000038|>    "
+                ],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4245318,
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0x30|0xffffffffff000030|>    |<Bool|__ne__|mem_0|16|>    "
+                ],
+                "instructions": "push|rbp|    |push|rbx|    |mov|rbx|rsi|    |mov|rbp|rdi|    |sub|rsp|8|    |mov|qword|ptr|rbx|+|0x18|rsi|    |mov|rdx|qword|ptr|rbx|+|0x30|    |mov|rsi|qword|ptr|rsi|+|0x28|    |call|0x4088b0|    "
+            },
+            {
+                "block_addr": 4245347,
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0x18|0xffffffffff000018|>    "
+                ],
+                "instructions": "cmp|rax|-1|    |mov|rdx|rax|    |mov|qword|ptr|rbx|+|0x38|rax|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4245440,
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0x38|0xffffffffff000038|>    |<Bool|__eq__|ret|0xffffffffffffffff|>    "
+                ],
+                "instructions": "mov|eax|0xc|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4245404,
+                "constraints": [
+                    "<Bool|__eq__|reg|0xfffffff800000000|>    |<Bool|__eq__|__add__|__lshift__|ret|0x4|mem_0|0x8|0x8|>    ",
+                    "<Bool|__ne__|mem_0|12|>    "
+                ],
+                "instructions": "add|rsp|8|    |pop|rbx|    |pop|rbp|    |ret|    "
+            },
+            {
+                "block_addr": 4245360,
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0x38|0xffffffffff000038|>    |<Bool|__ne__|ret|0xffffffffffffffff|>    "
+                ],
+                "instructions": "xor|eax|eax|    |cmp|byte|ptr|rbx|+|0x30|0xc|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4245368,
+                "constraints": [
+                    "<Bool|__eq__|mem_0|12|>    "
+                ],
+                "instructions": "mov|ecx|dword|ptr|rbx|+|0x28|    |shl|rdx|4|    |add|rdx|qword|ptr|rbp|    |and|ecx|0x3ff|    |shl|ecx|8|    |mov|esi|ecx|    |mov|ecx|dword|ptr|rdx|+|8|    |and|ecx|0xfffc00ff|    |or|ecx|esi|    |mov|dword|ptr|rdx|+|8|ecx|    |add|rsp|8|    |pop|rbx|    |pop|rbp|    |ret|    "
+            }
+        ]
+    },
+    "func_name": "calc_first"
+}

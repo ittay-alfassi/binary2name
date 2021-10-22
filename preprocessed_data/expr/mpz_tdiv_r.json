@@ -1,0 +1,68 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4202008,
+                "src": 4201968
+            },
+            {
+                "dst": 4201989,
+                "src": 4201968
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4202008
+            },
+            {
+                "dst": 4201997,
+                "src": 4201989
+            },
+            {
+                "dst": 4202008,
+                "src": 4201989
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4201997
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4201968,
+                "constraints": [],
+                "instructions": "mov|rax|qword|ptr|rsi|    |mov|rcx|qword|ptr|rdx|    |movabs|rdx|0x8000000000000000|    |cmp|rax|rdx|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4202008,
+                "constraints": [
+                    "<Bool|__ne__|mem_0|0xffffffffffffffff|>    ",
+                    "<Bool|__eq__|reg|0xffffffe000000000|>    |<Bool|__eq__|reg|0xfffffffffffff800|>    |<Bool|__ne__|mem_0|0x8000000000000000|>    "
+                ],
+                "instructions": "cqo|    |idiv|rcx|    |mov|qword|ptr|rdi|rdx|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    "<Bool|__ne__|mem_0|0x0|>    |<Bool|__eq__|reg|0xffffffffffffffff|>    ",
+                    "<Bool|__eq__|reg|0xffffffffffffffff|>    "
+                ],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4201989,
+                "constraints": [
+                    "<Bool|__eq__|reg|0xffffffe000000000|>    |<Bool|__eq__|reg|0xfffffffffffff800|>    |<Bool|__eq__|mem_0|0x8000000000000000|>    "
+                ],
+                "instructions": "xor|edx|edx|    |cmp|rcx|-1|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4201997,
+                "constraints": [
+                    "<Bool|__eq__|mem_0|0xffffffffffffffff|>    "
+                ],
+                "instructions": "mov|qword|ptr|rdi|rdx|    |ret|    "
+            }
+        ]
+    },
+    "func_name": "mpz_tdiv_r"
+}

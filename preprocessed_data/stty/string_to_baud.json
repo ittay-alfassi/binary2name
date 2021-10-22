@@ -1,0 +1,71 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4207760,
+                "src": 4207712
+            },
+            {
+                "dst": 4207768,
+                "src": 4207760
+            },
+            {
+                "dst": 4207772,
+                "src": 4207768
+            },
+            {
+                "dst": 4207744,
+                "src": 4207768
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4207772
+            },
+            {
+                "dst": 4207760,
+                "src": 4207744
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4207744
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4207712,
+                "constraints": [],
+                "instructions": "push|reg|    |lea|rsi|rip|+|0x824d|    |push|rbp|    |mov|reg|rdi|    |push|rbx|    |xor|ebp|ebp|    |lea|rbx|rip|+|0x20c601|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4207760,
+                "constraints": [],
+                "instructions": "mov|rdi|reg|    |call|0x402620|    "
+            },
+            {
+                "block_addr": 4207768,
+                "constraints": [],
+                "instructions": "test|eax|eax|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4207772,
+                "constraints": [
+                    "<Bool|__eq__|ret|0x0|>    "
+                ],
+                "instructions": "movsxd|rbp|ebp|    |lea|rax|rip|+|0x20c5ba|    |lea|rdx|rbp|+|rbp*2|    |pop|rbx|    |mov|eax|dword|ptr|rax|+|rdx*8|+|8|    |pop|rbp|    |pop|reg|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4207744,
+                "constraints": [
+                    "<Bool|__ne__|ret|0x0|>    "
+                ],
+                "instructions": "add|rbx|0x18|    |mov|rsi|qword|ptr|rbx|-|0x18|    |add|ebp|1|    |test|rsi|rsi|    |je|target_0|    "
+            }
+        ]
+    },
+    "func_name": "string_to_baud"
+}

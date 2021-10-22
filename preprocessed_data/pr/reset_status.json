@@ -1,0 +1,116 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4205201,
+                "src": 4205184
+            },
+            {
+                "dst": 4205232,
+                "src": 4205201
+            },
+            {
+                "dst": 4205251,
+                "src": 4205232
+            },
+            {
+                "dst": 4205237,
+                "src": 4205232
+            },
+            {
+                "dst": 4205260,
+                "src": 4205251
+            },
+            {
+                "dst": 4205265,
+                "src": 4205260
+            },
+            {
+                "dst": 4205291,
+                "src": 4205260
+            },
+            {
+                "dst": 4205274,
+                "src": 4205265
+            },
+            {
+                "dst": 4205289,
+                "src": 4205274
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4205289
+            },
+            {
+                "dst": 4205251,
+                "src": 4205237
+            },
+            {
+                "dst": 4205265,
+                "src": 4205291
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4205184,
+                "constraints": [],
+                "instructions": "mov|edx|dword|ptr|rip|+|0x20e5aa|    |mov|rdi|qword|ptr|rip|+|0x20e79b|    |test|edx|edx|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4205201,
+                "constraints": [],
+                "instructions": "sub|edx|1|    |mov|ecx|dword|ptr|rip|+|0x20e726|    |lea|rax|rdi|+|0x10|    |shl|rdx|6|    |xor|esi|esi|    |lea|rdx|rdi|+|rdx|+|0x50|    |nop|dword|ptr|rax|    |cmp|dword|ptr|rax|2|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4205232,
+                "constraints": [],
+                "instructions": "cmp|dword|ptr|rax|2|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4205251,
+                "constraints": [
+                    "<Bool|__ne__|mem_0|0x2|>    "
+                ],
+                "instructions": "add|rax|0x40|    |cmp|rax|rdx|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4205260,
+                "constraints": [],
+                "instructions": "test|sil|sil|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4205265,
+                "constraints": [],
+                "instructions": "cmp|byte|ptr|rip|+|0x20e574|0|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4205274,
+                "constraints": [],
+                "instructions": "xor|eax|eax|    |cmp|dword|ptr|rdi|+|0x10|3|    |setne|al|    |mov|dword|ptr|rip|+|0x20e6d7|eax|    |ret|    "
+            },
+            {
+                "block_addr": 4205289,
+                "constraints": [],
+                "instructions": "ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4205237,
+                "constraints": [
+                    "<Bool|__eq__|mem_0|0x2|>    "
+                ],
+                "instructions": "mov|dword|ptr|rax|0|    |add|ecx|1|    |mov|esi|1|    |add|rax|0x40|    |cmp|rax|rdx|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4205291,
+                "constraints": [],
+                "instructions": "mov|dword|ptr|rip|+|0x20e6cf|ecx|    |jmp|target_0|    "
+            }
+        ]
+    },
+    "func_name": "reset_status"
+}

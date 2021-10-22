@@ -1,0 +1,32 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4207112,
+                "src": 4206944
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4207112
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4206944,
+                "constraints": [],
+                "instructions": "mov|eax|dword|ptr|rip|+|0x218072|    |test|eax|eax|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4207112,
+                "constraints": [],
+                "instructions": "mov|dword|ptr|rip|+|0x217fc6|0|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "delete_all_files.part.0"
+}

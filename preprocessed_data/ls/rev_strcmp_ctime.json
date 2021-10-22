@@ -1,0 +1,72 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4238787,
+                "src": 4238768
+            },
+            {
+                "dst": 4238789,
+                "src": 4238787
+            },
+            {
+                "dst": 4238804,
+                "src": 4238789
+            },
+            {
+                "dst": 4208016,
+                "src": 4238804
+            },
+            {
+                "dst": 7340528,
+                "src": 4208016
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 7340528
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4238768,
+                "constraints": [],
+                "instructions": "mov|rax|qword|ptr|rdi|+|0x80|    |cmp|qword|ptr|rsi|+|0x80|rax|    |mov|rdx|rsi|    |jg|target_0|    "
+            },
+            {
+                "block_addr": 4238787,
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0x80|0x82|>    |<Bool|__eq__|__add__|reg|0x80|0x82|>    |<Bool|SLE|mem_0|mem_0|>    "
+                ],
+                "instructions": "jl|target_0|    "
+            },
+            {
+                "block_addr": 4238789,
+                "constraints": [],
+                "instructions": "mov|rax|qword|ptr|rdi|+|0x88|    |sub|eax|dword|ptr|rsi|+|0x88|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4238804,
+                "constraints": [],
+                "instructions": "mov|rsi|qword|ptr|rdi|    |mov|rdi|qword|ptr|rdx|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4208016,
+                "constraints": [],
+                "instructions": "jmp|qword|ptr|rip|+|0x21c8b2|    "
+            },
+            {
+                "block_addr": 7340528,
+                "constraints": [],
+                "instructions": "add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    "<Bool|__eq__|__add__|mem_0|0xc000000000000000|>    |<Bool|Or|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|__eq__|mem_1|0|>    |<Bool|__eq__|__sub__|If|__eq__|mem_1|0|__add__|mem_0|If|__eq__|mem_1|0|__add__|mem_0|0x1|If|__eq__|mem_1|0|__add__|mem_0|0x2|If|__eq__|<...>|0|__add__|mem_0|0x3|If|__eq__|<...>|<...>|__add__|<...>|<...>|If|<...>|<...>|<...>|mem_0|strlen_3337_64|>    |<Bool|__eq__|__sub__|If|__eq__|mem_1|0|__add__|mem_0|If|__eq__|mem_1|0|__add__|mem_0|0x1|If|__eq__|mem_1|0|__add__|mem_0|0x2|If|__eq__|<...>|0|__add__|mem_0|0x3|If|__eq__|<...>|<...>|__add__|<...>|<...>|If|<...>|<...>|<...>|mem_0|strlen_3338_64|>    |<Bool|Or|And|Or|__eq__|strlen_3337_64|strlen_3338_64|And|__ge__|strlen_3337_64|0x3b|__ge__|strlen_3338_64|0x3b|__eq__|strncmp_ret_3339_64|0x0|And|Not|Or|__eq__|strlen_3337_64|strlen_3338_64|And|__ge__|strlen_3337_64|0x3b|__ge__|strlen_3338_64|0x3b|__eq__|strncmp_ret_3339_64|0x1|And|__eq__|strlen_3337_64|0x0|__eq__|strlen_3338_64|0x0|__eq__|strncmp_ret_3339_64|0x0|>    "
+                ],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "rev_strcmp_ctime"
+}

@@ -1,0 +1,50 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4211729,
+                "src": 4211664
+            },
+            {
+                "dst": 4211769,
+                "src": 4211729
+            },
+            {
+                "dst": 4211796,
+                "src": 4211769
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4211796
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4211664,
+                "constraints": [],
+                "instructions": "mov|eax|dword|ptr|rip|+|0x204ca2|    |push|reg|    |mov|reg|qword|ptr|rip|+|0x204ca1|    |push|rbp|    |push|rbx|    |cmp|eax|1|    |jle|target_0|    "
+            },
+            {
+                "block_addr": 4211729,
+                "constraints": [],
+                "instructions": "mov|rdi|qword|ptr|reg|+|8|    |lea|rbx|rip|+|0x204d03|    |cmp|rdi|rbx|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4211769,
+                "constraints": [],
+                "instructions": "lea|rbx|rip|+|0x204c50|    |cmp|reg|rbx|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4211796,
+                "constraints": [],
+                "instructions": "pop|rbx|    |mov|dword|ptr|rip|+|0x204c19|1|    |pop|rbp|    |pop|reg|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "quotearg_free"
+}

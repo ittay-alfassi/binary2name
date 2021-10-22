@@ -1,0 +1,68 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4279088,
+                "src": 4278944
+            },
+            {
+                "dst": 4279682,
+                "src": 4279088
+            },
+            {
+                "dst": 4279699,
+                "src": 4279682
+            },
+            {
+                "dst": 4279312,
+                "src": 4279699
+            },
+            {
+                "dst": 4279334,
+                "src": 4279312
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4279334
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4278944,
+                "constraints": [],
+                "instructions": "mov|edx|3|    |xor|esi|esi|    |xor|eax|eax|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4279088,
+                "constraints": [],
+                "instructions": "push|reg|    |push|rbp|    |mov|ebp|edi|    |push|rbx|    |sub|rsp|0x50|    |mov|rax|qword|ptr|fs:0x28|    |mov|qword|ptr|rsp|+|0x18|rax|    |xor|eax|eax|    |lea|rax|rsp|+|0x70|    |test|esi|esi|    |mov|qword|ptr|rsp|+|0x30|rdx|    |mov|qword|ptr|rsp|+|0x38|rcx|    |mov|qword|ptr|rsp|+|0x40|reg|    |mov|qword|ptr|rsp|+|8|rax|    |lea|rax|rsp|+|0x20|    |mov|qword|ptr|rsp|+|0x48|reg|    |mov|dword|ptr|rsp|0x10|    |mov|qword|ptr|rsp|+|0x10|rax|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4279682,
+                "constraints": [],
+                "instructions": "mov|rax|qword|ptr|rsp|+|0x10|    |xor|esi|esi|    |mov|edx|dword|ptr|rax|+|0x10|    |xor|eax|eax|    |call|0x402670|    "
+            },
+            {
+                "block_addr": 4279699,
+                "constraints": [],
+                "instructions": "mov|ebx|eax|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4279312,
+                "constraints": [],
+                "instructions": "mov|rcx|qword|ptr|rsp|+|0x18|    |xor|rcx|qword|ptr|fs:0x28|    |mov|eax|ebx|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4279334,
+                "constraints": [],
+                "instructions": "add|rsp|0x50|    |pop|rbx|    |pop|rbp|    |pop|reg|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "dup_safer"
+}

@@ -1,0 +1,103 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4203226,
+                "src": 4203200
+            },
+            {
+                "dst": 4203273,
+                "src": 4203226
+            },
+            {
+                "dst": 4203232,
+                "src": 4203226
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4203273
+            },
+            {
+                "dst": 4203273,
+                "src": 4203232
+            },
+            {
+                "dst": 4203236,
+                "src": 4203232
+            },
+            {
+                "dst": 4203245,
+                "src": 4203236
+            },
+            {
+                "dst": 4203253,
+                "src": 4203245
+            },
+            {
+                "dst": 4203266,
+                "src": 4203253
+            },
+            {
+                "dst": 4203273,
+                "src": 4203266
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4203200,
+                "constraints": [],
+                "instructions": "push|reg|    |push|reg|    |xor|eax|eax|    |push|rbp|    |push|rbx|    |mov|ebp|edi|    |mov|rdi|rsi|    |mov|esi|edx|    |mov|edx|ecx|    |sub|rsp|8|    |call|0x401650|    "
+            },
+            {
+                "block_addr": 4203226,
+                "constraints": [],
+                "instructions": "cmp|ebp|eax|    |mov|ebx|eax|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4203273,
+                "constraints": [
+                    "<Bool|__ne__|LShR|ZeroExt|32|ret|0x1f|0|>    ",
+                    "<Bool|__eq__|reg|ret|>    "
+                ],
+                "instructions": "add|rsp|8|    |mov|eax|ebx|    |pop|rbx|    |pop|rbp|    |pop|reg|    |pop|reg|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4203232,
+                "constraints": [
+                    "<Bool|__ne__|reg|ret|>    "
+                ],
+                "instructions": "test|eax|eax|    |js|target_0|    "
+            },
+            {
+                "block_addr": 4203236,
+                "constraints": [
+                    "<Bool|__eq__|LShR|ZeroExt|32|ret|0x1f|0|>    "
+                ],
+                "instructions": "mov|esi|ebp|    |mov|edi|eax|    |call|0x401500|    "
+            },
+            {
+                "block_addr": 4203245,
+                "constraints": [],
+                "instructions": "mov|regd|eax|    |call|0x401410|    "
+            },
+            {
+                "block_addr": 4203253,
+                "constraints": [],
+                "instructions": "mov|regd|dword|ptr|rax|    |mov|rbp|rax|    |mov|edi|ebx|    |call|0x401540|    "
+            },
+            {
+                "block_addr": 4203266,
+                "constraints": [
+                    "<Bool|__eq__|ret|0xfffffffffffffff8|>    "
+                ],
+                "instructions": "mov|ebx|regd|    |mov|dword|ptr|rbp|regd|    |add|rsp|8|    |mov|eax|ebx|    |pop|rbx|    |pop|rbp|    |pop|reg|    |pop|reg|    |ret|    "
+            }
+        ]
+    },
+    "func_name": "fd_reopen"
+}

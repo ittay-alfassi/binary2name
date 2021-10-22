@@ -1,0 +1,85 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4206126,
+                "src": 4206112
+            },
+            {
+                "dst": 4206121,
+                "src": 4206112
+            },
+            {
+                "dst": 4205712,
+                "src": 4206126
+            },
+            {
+                "dst": 7340784,
+                "src": 4205712
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 7340784
+            },
+            {
+                "dst": 4205680,
+                "src": 4206121
+            },
+            {
+                "dst": 7340768,
+                "src": 4205680
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 7340768
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4206112,
+                "constraints": [],
+                "instructions": "test|edi|edi|    |mov|rax|rsi|    |mov|esi|edx|    |js|target_0|    "
+            },
+            {
+                "block_addr": 4206126,
+                "constraints": [
+                    "<Bool|__ne__|LShR|ZeroExt|32|reg|0x1f|0|>    "
+                ],
+                "instructions": "mov|rdi|rax|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4205712,
+                "constraints": [],
+                "instructions": "jmp|qword|ptr|rip|+|0x217272|    "
+            },
+            {
+                "block_addr": 7340784,
+                "constraints": [],
+                "instructions": "add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4206121,
+                "constraints": [
+                    "<Bool|__eq__|LShR|ZeroExt|32|reg|0x1f|0|>    "
+                ],
+                "instructions": "jmp|target_0|    "
+            },
+            {
+                "block_addr": 4205680,
+                "constraints": [],
+                "instructions": "jmp|qword|ptr|rip|+|0x217282|    "
+            },
+            {
+                "block_addr": 7340768,
+                "constraints": [],
+                "instructions": "add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    "
+            }
+        ]
+    },
+    "func_name": "fchmod_or_lchmod"
+}

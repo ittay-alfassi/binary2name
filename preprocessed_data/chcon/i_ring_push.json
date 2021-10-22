@@ -1,0 +1,49 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4231152,
+                "src": 4231104
+            },
+            {
+                "dst": 4231144,
+                "src": 4231104
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4231152
+            },
+            {
+                "dst": 4231152,
+                "src": 4231144
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4231104,
+                "constraints": [],
+                "instructions": "movzx|edx|byte|ptr|rdi|+|0x1c|    |mov|ecx|dword|ptr|rdi|+|0x14|    |xor|edx|1|    |movzx|edx|dl|    |add|ecx|edx|    |and|ecx|3|    |mov|eax|ecx|    |lea|reg|rdi|+|rax*4|    |mov|eax|dword|ptr|reg|    |mov|dword|ptr|reg|esi|    |mov|esi|dword|ptr|rdi|+|0x18|    |mov|dword|ptr|rdi|+|0x14|ecx|    |cmp|esi|ecx|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4231152,
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0x1c|0xffffffe00000001c|>    |<Bool|Or|__eq__|__add__|reg|__lshift__|ZeroExt|32|__and__|__add__|mem_1|<...>|0x3|0x2|0xffffffe000000000|__eq__|__add__|reg|__lshift__|ZeroExt|32|__and__|__add__|mem_1|<...>|0x3|0x2|0xffffffe00000000c|__eq__|__add__|reg|__lshift__|ZeroExt|32|__and__|__add__|mem_1|<...>|0x3|0x2|0xffffffe000000004|__eq__|__add__|reg|__lshift__|ZeroExt|32|__and__|__add__|mem_1|<...>|0x3|0x2|0xffffffe000000008|>    |<Bool|__eq__|__add__|reg|__lshift__|ZeroExt|32|__and__|__add__|mem_1|ZeroExt|56|<...>|0x3|0x2|0xffffffe00000000c|>    |<Bool|__ne__|mem_7|__and__|__add__|mem_1|ZeroExt|56|Concat|mem_0|__invert__|<...>|0x3|>    "
+                ],
+                "instructions": "mov|byte|ptr|rdi|+|0x1c|0|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4231144,
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0x1c|0xffffffe00000001c|>    |<Bool|Or|__eq__|__add__|reg|__lshift__|ZeroExt|32|__and__|__add__|mem_1|<...>|0x3|0x2|0xffffffe000000000|__eq__|__add__|reg|__lshift__|ZeroExt|32|__and__|__add__|mem_1|<...>|0x3|0x2|0xffffffe00000000c|__eq__|__add__|reg|__lshift__|ZeroExt|32|__and__|__add__|mem_1|<...>|0x3|0x2|0xffffffe000000004|__eq__|__add__|reg|__lshift__|ZeroExt|32|__and__|__add__|mem_1|<...>|0x3|0x2|0xffffffe000000008|>    |<Bool|__eq__|__add__|reg|__lshift__|ZeroExt|32|__and__|__add__|mem_1|ZeroExt|56|<...>|0x3|0x2|0xffffffe00000000c|>    |<Bool|__eq__|mem_7|__and__|__add__|mem_1|ZeroExt|56|Concat|mem_0|__invert__|<...>|0x3|>    "
+                ],
+                "instructions": "add|edx|esi|    |and|edx|3|    |mov|dword|ptr|rdi|+|0x18|edx|    |mov|byte|ptr|rdi|+|0x1c|0|    |ret|    "
+            }
+        ]
+    },
+    "func_name": "i_ring_push"
+}

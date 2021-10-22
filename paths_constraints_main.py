@@ -142,7 +142,7 @@ def generate_dataset(train_binaries, output_name, dataset_name): #keep
     
     usable_functions_file = open("our_dataset/"+ dataset_name + "/usable_functions_names.txt", "r")
     usable_functions = [name.strip() for name in usable_functions_file]
-    output_dir = f"datasets/{output_name}"
+    output_dir = f"preprocessed_data/{output_name}"
     os.makedirs(output_dir, exist_ok=True)
     analyzed_funcs = get_analyzed_funcs(output_dir)
     for binary in train_binaries:

@@ -1,0 +1,452 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4214492,
+                "src": 4214464
+            },
+            {
+                "dst": 4214497,
+                "src": 4214492
+            },
+            {
+                "dst": 4214544,
+                "src": 4214492
+            },
+            {
+                "dst": 4214512,
+                "src": 4214497
+            },
+            {
+                "dst": 4214518,
+                "src": 4214512
+            },
+            {
+                "dst": 4214544,
+                "src": 4214512
+            },
+            {
+                "dst": 4229840,
+                "src": 4214518
+            },
+            {
+                "dst": 4229875,
+                "src": 4229840
+            },
+            {
+                "dst": 4230317,
+                "src": 4229840
+            },
+            {
+                "dst": 4229897,
+                "src": 4229875
+            },
+            {
+                "dst": 4229952,
+                "src": 4229897
+            },
+            {
+                "dst": 4229905,
+                "src": 4229897
+            },
+            {
+                "dst": 4230080,
+                "src": 4229952
+            },
+            {
+                "dst": 4229961,
+                "src": 4229952
+            },
+            {
+                "dst": 4230122,
+                "src": 4230080
+            },
+            {
+                "dst": 4229987,
+                "src": 4230080
+            },
+            {
+                "dst": 4229996,
+                "src": 4230122
+            },
+            {
+                "dst": 4230010,
+                "src": 4229996
+            },
+            {
+                "dst": 4230160,
+                "src": 4229996
+            },
+            {
+                "dst": 4230025,
+                "src": 4230010
+            },
+            {
+                "dst": 4230328,
+                "src": 4230010
+            },
+            {
+                "dst": 4230352,
+                "src": 4230025
+            },
+            {
+                "dst": 4230038,
+                "src": 4230025
+            },
+            {
+                "dst": 4230362,
+                "src": 4230352
+            },
+            {
+                "dst": 4230371,
+                "src": 4230362
+            },
+            {
+                "dst": 4230046,
+                "src": 4230362
+            },
+            {
+                "dst": 4229916,
+                "src": 4230371
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4229916
+            },
+            {
+                "dst": 4229936,
+                "src": 4229916
+            },
+            {
+                "dst": 4229916,
+                "src": 4230046
+            },
+            {
+                "dst": 4230046,
+                "src": 4230038
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4229936
+            },
+            {
+                "dst": 4230169,
+                "src": 4230160
+            },
+            {
+                "dst": 4230384,
+                "src": 4230169
+            },
+            {
+                "dst": 4230191,
+                "src": 4230169
+            },
+            {
+                "dst": 4230200,
+                "src": 4230384
+            },
+            {
+                "dst": 4230416,
+                "src": 4230200
+            },
+            {
+                "dst": 4230213,
+                "src": 4230200
+            },
+            {
+                "dst": 4230222,
+                "src": 4230416
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4230222
+            },
+            {
+                "dst": 4229996,
+                "src": 4229987
+            },
+            {
+                "dst": 4230200,
+                "src": 4230191
+            },
+            {
+                "dst": 4230122,
+                "src": 4229961
+            },
+            {
+                "dst": 4229987,
+                "src": 4229961
+            },
+            {
+                "dst": 4230222,
+                "src": 4230213
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4214544
+            },
+            {
+                "dst": 4230322,
+                "src": 4230317
+            },
+            {
+                "dst": 4230328,
+                "src": 4230322
+            },
+            {
+                "dst": 4229916,
+                "src": 4230328
+            },
+            {
+                "dst": 4229916,
+                "src": 4229905
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4214464,
+                "constraints": [],
+                "instructions": "push|reg|    |mov|rax|rsi|    |push|rbp|    |lea|rsi|rdi|+|0x10|    |push|rbx|    |mov|rbx|rdi|    |mov|rdi|qword|ptr|rdi|    |mov|reg|rdx|    |mov|rdx|rax|    |call|0x404cf0|    "
+            },
+            {
+                "block_addr": 4214492,
+                "constraints": [
+                    "<Bool|__eq__|reg|0xfffffffffffffff8|>    "
+                ],
+                "instructions": "test|rax|rax|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4214497,
+                "constraints": [
+                    "<Bool|__ne__|ret|0x0|>    "
+                ],
+                "instructions": "lea|rdi|rbx|+|8|    |mov|rsi|reg|    |mov|rbp|rax|    |call|0x404db0|    "
+            },
+            {
+                "block_addr": 4214512,
+                "constraints": [],
+                "instructions": "cmp|rax|-1|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4214518,
+                "constraints": [
+                    "<Bool|__ne__|ret|0xffffffffffffffff|>    "
+                ],
+                "instructions": "pop|rbx|    |mov|rdi|rbp|    |xor|edx|edx|    |mov|rsi|rax|    |pop|rbp|    |pop|reg|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4229840,
+                "constraints": [],
+                "instructions": "push|reg|    |push|reg|    |push|rbp|    |push|rbx|    |sub|rsp|0x18|    |mov|rax|qword|ptr|fs:0x28|    |mov|qword|ptr|rsp|+|8|rax|    |xor|eax|eax|    |test|rsi|rsi|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4229875,
+                "constraints": [
+                    "<Bool|__ne__|ret|0x0|>    "
+                ],
+                "instructions": "mov|reg|rsp|    |xor|ecx|ecx|    |mov|reg|rdx|    |mov|rdx|reg|    |mov|rbx|rdi|    |mov|rbp|rsi|    |call|0x407de0|    "
+            },
+            {
+                "block_addr": 4229897,
+                "constraints": [],
+                "instructions": "test|rax|rax|    |mov|rdx|rax|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4229952,
+                "constraints": [
+                    "<Bool|__eq__|ret|0x0|>    "
+                ],
+                "instructions": "mov|rax|qword|ptr|rbx|+|0x18|    |test|rax|rax|    |js|target_0|    "
+            },
+            {
+                "block_addr": 4230080,
+                "constraints": [
+                    "<Bool|__eq__|__add__|ret|0x18|0xfffffffffe000018|>    |<Bool|__ne__|mem_0|0|>    "
+                ],
+                "instructions": "mov|rdx|rax|    |pxor|xmm|xmm|    |and|eax|1|    |shr|rdx|1|    |or|rdx|rax|    |mov|rax|qword|ptr|rbx|+|0x10|    |cvtsi2ss|xmm|rdx|    |mov|rdx|qword|ptr|rbx|+|0x28|    |test|rax|rax|    |addss|xmm|xmm|    |jns|target_0|    "
+            },
+            {
+                "block_addr": 4230122,
+                "constraints": [
+                    "<Bool|__ne__|mem_0|0|>    "
+                ],
+                "instructions": "mov|rcx|rax|    |pxor|xmm|xmm|    |shr|rcx|1|    |and|eax|1|    |or|rcx|rax|    |cvtsi2ss|xmm|rcx|    |addss|xmm|xmm|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4229996,
+                "constraints": [],
+                "instructions": "mulss|xmm|dword|ptr|rdx|+|8|    |ucomiss|xmm|xmm|    |ja|target_0|    "
+            },
+            {
+                "block_addr": 4230010,
+                "constraints": [
+                    "<Bool|__eq__|__add__|mem_3|0x8|0xffffffffe0000000|>    |<Bool|__eq__|__and__|__or__|__and__|If|fpLT|fpToFP|RM.RM_NearestTiesEven|<...>|DOUBLE|fpToFP|RM.RM_NearestTiesEven|<...>|DOUBLE|0x1|If|fpGT|<...>|<...>|0x0|If|<...>|<...>|<...>|69|LShR|__and__|ZeroExt|32|If|<...>|<...>|<...>|0x45|0x6|1|1|>    ",
+                    "<Bool|__eq__|__add__|mem_3|0x8|0xe000000000000008|>    |<Bool|__eq__|__and__|__or__|__and__|If|fpLT|fpToFP|RM.RM_NearestTiesEven|<...>|DOUBLE|fpToFP|RM.RM_NearestTiesEven|<...>|DOUBLE|0x1|If|fpGT|<...>|<...>|0x0|If|<...>|<...>|<...>|69|LShR|__and__|ZeroExt|32|If|<...>|<...>|<...>|0x45|0x6|1|1|>    ",
+                    "<Bool|__eq__|__add__|mem_3|0x8|0xffffffffff200008|>    |<Bool|__eq__|__and__|__or__|__and__|If|fpLT|fpToFP|RM.RM_NearestTiesEven|<...>|DOUBLE|fpToFP|RM.RM_NearestTiesEven|<...>|DOUBLE|0x1|If|fpGT|<...>|<...>|0x0|If|<...>|<...>|<...>|69|LShR|__and__|ZeroExt|32|If|<...>|<...>|<...>|0x45|0x6|1|1|>    "
+                ],
+                "instructions": "mov|reg|qword|ptr|rsp|    |cmp|qword|ptr|reg|0|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4230025,
+                "constraints": [
+                    "<Bool|__eq__|mem_0|0x8000000000000000|>    |<Bool|__ne__|mem_7|0x0|>    ",
+                    "<Bool|__eq__|mem_0|0x8000000000000000|>    |<Bool|__ne__|mem_5|0x0|>    ",
+                    "<Bool|__eq__|mem_0|0x8000000000000000|>    |<Bool|__ne__|mem_3|0x0|>    ",
+                    "<Bool|__eq__|mem_0|0x8000000000000000|>    |<Bool|__ne__|mem_1|0x0|>    "
+                ],
+                "instructions": "mov|rax|qword|ptr|rbx|+|0x48|    |test|rax|rax|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4230352,
+                "constraints": [
+                    "<Bool|__eq__|mem_0|0x0|>    "
+                ],
+                "instructions": "mov|edi|0x10|    |call|0x402780|    "
+            },
+            {
+                "block_addr": 4230362,
+                "constraints": [],
+                "instructions": "test|rax|rax|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4230371,
+                "constraints": [
+                    "<Bool|__eq__|ret|0x0|>    "
+                ],
+                "instructions": "mov|eax|0xffffffff|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4229916,
+                "constraints": [
+                    "<Bool|__eq__|reg|0xffffffffffffffff|>    |<Bool|__eq__|__add__|reg|0x20|0xfffffc0000000020|>    ",
+                    "<Bool|__eq__|ret|0xffffffffffffffff|>    |<Bool|__eq__|__add__|ret|0x8|0x7|>    "
+                ],
+                "instructions": "mov|rcx|qword|ptr|rsp|+|8|    |xor|rcx|qword|ptr|fs:0x28|    |jne|target_0|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    "<Bool|__ne__|__and__|__or__|__and__|If|fpLT|fpToFP|RM.RM_NearestTiesEven|<...>|DOUBLE|fpToFP|RM.RM_NearestTiesEven|<...>|DOUBLE|0x1|If|fpGT|<...>|<...>|0x0|If|<...>|<...>|<...>|69|LShR|__and__|ZeroExt|32|If|<...>|<...>|<...>|0x45|0x6|1|1|>    "
+                ],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4230046,
+                "constraints": [
+                    "<Bool|__eq__|__add__|mem_0|0x8|0xfffffffff8000000|>    ",
+                    "<Bool|__ne__|ret|0x0|>    ",
+                    "<Bool|__eq__|__add__|mem_0|0x8|0xfffffffe00000008|>    "
+                ],
+                "instructions": "mov|rdx|qword|ptr|reg|+|8|    |mov|qword|ptr|rax|rbp|    |mov|qword|ptr|rax|+|8|rdx|    |mov|qword|ptr|reg|+|8|rax|    |mov|eax|1|    |add|qword|ptr|rbx|+|0x20|1|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4230038,
+                "constraints": [
+                    "<Bool|__ne__|mem_0|0x0|>    "
+                ],
+                "instructions": "mov|rdx|qword|ptr|rax|+|8|    |mov|qword|ptr|rbx|+|0x48|rdx|    |mov|rdx|qword|ptr|reg|+|8|    |mov|qword|ptr|rax|rbp|    |mov|qword|ptr|rax|+|8|rdx|    |mov|qword|ptr|reg|+|8|rax|    |mov|eax|1|    |add|qword|ptr|rbx|+|0x20|1|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4229936,
+                "constraints": [],
+                "instructions": "add|rsp|0x18|    |pop|rbx|    |pop|rbp|    |pop|reg|    |pop|reg|    |ret|    "
+            },
+            {
+                "block_addr": 4230160,
+                "constraints": [
+                    "<Bool|__eq__|__add__|mem_3|0x8|0xffffffffe0000000|>    |<Bool|__ne__|__and__|__or__|__and__|If|fpLT|fpToFP|RM.RM_NearestTiesEven|<...>|DOUBLE|fpToFP|RM.RM_NearestTiesEven|<...>|DOUBLE|0x1|If|fpGT|<...>|<...>|0x0|If|<...>|<...>|<...>|69|LShR|__and__|ZeroExt|32|If|<...>|<...>|<...>|0x45|0x6|1|1|>    ",
+                    "<Bool|__eq__|__add__|mem_3|0x8|0xe000000000000008|>    |<Bool|__ne__|__and__|__or__|__and__|If|fpLT|fpToFP|RM.RM_NearestTiesEven|<...>|DOUBLE|fpToFP|RM.RM_NearestTiesEven|<...>|DOUBLE|0x1|If|fpGT|<...>|<...>|0x0|If|<...>|<...>|<...>|69|LShR|__and__|ZeroExt|32|If|<...>|<...>|<...>|0x45|0x6|1|1|>    ",
+                    "<Bool|__eq__|__add__|mem_3|0x8|0xffffffffff200008|>    |<Bool|__ne__|__and__|__or__|__and__|If|fpLT|fpToFP|RM.RM_NearestTiesEven|<...>|DOUBLE|fpToFP|RM.RM_NearestTiesEven|<...>|DOUBLE|0x1|If|fpGT|<...>|<...>|0x0|If|<...>|<...>|<...>|69|LShR|__and__|ZeroExt|32|If|<...>|<...>|<...>|0x45|0x6|1|1|>    "
+                ],
+                "instructions": "lea|rdi|rbx|+|0x28|    |call|0x407f00|    "
+            },
+            {
+                "block_addr": 4230169,
+                "constraints": [],
+                "instructions": "mov|rax|qword|ptr|rbx|+|0x10|    |mov|rdx|qword|ptr|rbx|+|0x28|    |test|rax|rax|    |movss|xmm|dword|ptr|rdx|+|8|    |js|target_0|    "
+            },
+            {
+                "block_addr": 4230384,
+                "constraints": [],
+                "instructions": "mov|rcx|rax|    |pxor|xmm|xmm|    |shr|rcx|1|    |and|eax|1|    |or|rcx|rax|    |cvtsi2ss|xmm|rcx|    |addss|xmm|xmm|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4230200,
+                "constraints": [],
+                "instructions": "mov|rax|qword|ptr|rbx|+|0x18|    |test|rax|rax|    |js|target_0|    "
+            },
+            {
+                "block_addr": 4230416,
+                "constraints": [],
+                "instructions": "mov|rcx|rax|    |pxor|xmm|xmm|    |shr|rcx|1|    |and|eax|1|    |or|rcx|rax|    |cvtsi2ss|xmm|rcx|    |addss|xmm|xmm|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4230222,
+                "constraints": [],
+                "instructions": "movaps|xmm|xmm|    |mulss|xmm|xmm|    |ucomiss|xmm|xmm|    |jbe|target_0|    "
+            },
+            {
+                "block_addr": 4229987,
+                "constraints": [
+                    "<Bool|__eq__|mem_0|0|>    "
+                ],
+                "instructions": "pxor|xmm|xmm|    |cvtsi2ss|xmm|rax|    |mulss|xmm|dword|ptr|rdx|+|8|    |ucomiss|xmm|xmm|    |ja|target_0|    "
+            },
+            {
+                "block_addr": 4230191,
+                "constraints": [],
+                "instructions": "pxor|xmm|xmm|    |cvtsi2ss|xmm|rax|    |mov|rax|qword|ptr|rbx|+|0x18|    |test|rax|rax|    |js|target_0|    "
+            },
+            {
+                "block_addr": 4229961,
+                "constraints": [
+                    "<Bool|__eq__|__add__|ret|0x18|0xfffffffffe000018|>    |<Bool|__eq__|mem_0|0|>    "
+                ],
+                "instructions": "pxor|xmm|xmm|    |mov|rdx|qword|ptr|rbx|+|0x28|    |cvtsi2ss|xmm|rax|    |mov|rax|qword|ptr|rbx|+|0x10|    |test|rax|rax|    |js|target_0|    "
+            },
+            {
+                "block_addr": 4230213,
+                "constraints": [],
+                "instructions": "pxor|xmm|xmm|    |cvtsi2ss|xmm|rax|    |movaps|xmm|xmm|    |mulss|xmm|xmm|    |ucomiss|xmm|xmm|    |jbe|target_0|    "
+            },
+            {
+                "block_addr": 4214544,
+                "constraints": [
+                    "<Bool|__eq__|ret|0xffffffffffffffff|>    ",
+                    "<Bool|__eq__|ret|0x0|>    "
+                ],
+                "instructions": "pop|rbx|    |mov|eax|0xffffffff|    |pop|rbp|    |pop|reg|    |ret|    "
+            },
+            {
+                "block_addr": 4230317,
+                "constraints": [
+                    "<Bool|__eq__|ret|0x0|>    "
+                ],
+                "instructions": "call|0x402400|    "
+            },
+            {
+                "block_addr": 4230322,
+                "constraints": [],
+                "instructions": "nop|word|ptr|rax|+|rax|    |mov|qword|ptr|reg|rbp|    |mov|eax|1|    |add|qword|ptr|rbx|+|0x20|1|    |add|qword|ptr|rbx|+|0x18|1|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4230328,
+                "constraints": [
+                    "<Bool|__eq__|mem_0|0x8000000000000000|>    |<Bool|__eq__|mem_7|0x0|>    ",
+                    "<Bool|__eq__|mem_0|0x8000000000000000|>    |<Bool|__eq__|mem_5|0x0|>    ",
+                    "<Bool|__eq__|mem_0|0x8000000000000000|>    |<Bool|__eq__|mem_3|0x0|>    ",
+                    "<Bool|__eq__|mem_0|0x8000000000000000|>    |<Bool|__eq__|mem_1|0x0|>    "
+                ],
+                "instructions": "mov|qword|ptr|reg|rbp|    |mov|eax|1|    |add|qword|ptr|rbx|+|0x20|1|    |add|qword|ptr|rbx|+|0x18|1|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4229905,
+                "constraints": [
+                    "<Bool|__ne__|ret|0x0|>    "
+                ],
+                "instructions": "xor|eax|eax|    |test|reg|reg|    |je|target_0|    "
+            }
+        ]
+    },
+    "func_name": "di_set_insert"
+}

@@ -1,0 +1,72 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4210176,
+                "src": 4210352
+            },
+            {
+                "dst": 4210261,
+                "src": 4210176
+            },
+            {
+                "dst": 4210266,
+                "src": 4210261
+            },
+            {
+                "dst": 4210290,
+                "src": 4210266
+            },
+            {
+                "dst": 4210306,
+                "src": 4210290
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4210306
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4210352,
+                "constraints": [],
+                "instructions": "mov|rcx|rdx|    |mov|reg|-1|    |mov|rdx|rsi|    |mov|rsi|rdi|    |xor|edi|edi|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4210176,
+                "constraints": [],
+                "instructions": "sub|rsp|0x48|    |mov|reg|rcx|    |mov|rcx|qword|ptr|rip|+|0x204442|    |movdqa|xmm|xmmword|ptr|rip|+|0x20440a|    |mov|rax|qword|ptr|fs:0x28|    |mov|qword|ptr|rsp|+|0x38|rax|    |xor|eax|eax|    |movaps|xmmword|ptr|rsp|xmm|    |test|rsi|rsi|    |mov|qword|ptr|rsp|+|0x30|rcx|    |mov|dword|ptr|rsp|0xa|    |movdqa|xmm|xmmword|ptr|rip|+|0x2043ef|    |movaps|xmmword|ptr|rsp|+|0x10|xmm|    |movdqa|xmm|xmmword|ptr|rip|+|0x2043f2|    |movaps|xmmword|ptr|rsp|+|0x20|xmm|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4210261,
+                "constraints": [
+                    "<Bool|__ne__|reg|0x0|>    "
+                ],
+                "instructions": "test|rdx|rdx|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4210266,
+                "constraints": [
+                    "<Bool|__ne__|reg|0x0|>    "
+                ],
+                "instructions": "mov|qword|ptr|rsp|+|0x28|rsi|    |mov|qword|ptr|rsp|+|0x30|rdx|    |mov|rcx|rsp|    |mov|rdx|reg|    |mov|rsi|reg|    |call|0x403600|    "
+            },
+            {
+                "block_addr": 4210290,
+                "constraints": [],
+                "instructions": "mov|rdi|qword|ptr|rsp|+|0x38|    |xor|rdi|qword|ptr|fs:0x28|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4210306,
+                "constraints": [],
+                "instructions": "add|rsp|0x48|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "quotearg_custom"
+}

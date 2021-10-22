@@ -1,0 +1,32 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4203456,
+                "src": 4203408
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4203456
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4203408,
+                "constraints": [],
+                "instructions": "lea|rdi|rip|+|0x206eb1|    |push|rbp|    |lea|rax|rip|+|0x206ea9|    |cmp|rax|rdi|    |mov|rbp|rsp|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4203456,
+                "constraints": [],
+                "instructions": "pop|rbp|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "deregister_tm_clones"
+}

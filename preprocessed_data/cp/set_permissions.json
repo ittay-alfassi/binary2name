@@ -1,0 +1,34 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4265219,
+                "src": 4265200
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4265219
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4265200,
+                "constraints": [],
+                "instructions": "sub|rsp|8|    |mov|rax|rsi|    |mov|esi|edx|    |mov|edx|dword|ptr|rdi|    |mov|rdi|rax|    |call|0x4114d0|    "
+            },
+            {
+                "block_addr": 4265219,
+                "constraints": [
+                    "<Bool|__eq__|reg|0xffffffff00000000|>    "
+                ],
+                "instructions": "test|eax|eax|    |setne|al|    |add|rsp|8|    |movzx|eax|al|    |neg|eax|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "set_permissions"
+}

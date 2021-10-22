@@ -1,0 +1,25 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "loopSeerDum",
+                "src": 4234704
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4234704,
+                "constraints": [],
+                "instructions": "movzx|eax|byte|ptr|rdi|+|0x1c|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0x1c|0xffffff000000001c|>    "
+                ],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "i_ring_empty"
+}

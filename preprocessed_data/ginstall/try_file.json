@@ -1,0 +1,45 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4206432,
+                "src": 4261616
+            },
+            {
+                "dst": 7340928,
+                "src": 4206432
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 7340928
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4261616,
+                "constraints": [],
+                "instructions": "mov|esi|dword|ptr|rsi|    |mov|edx|0x180|    |xor|eax|eax|    |and|sil|0x3c|    |or|sil|0xc2|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4206432,
+                "constraints": [
+                    "<Bool|__eq__|reg|0xc000000000000000|>    "
+                ],
+                "instructions": "jmp|qword|ptr|rip|+|0x219fb2|    "
+            },
+            {
+                "block_addr": 7340928,
+                "constraints": [],
+                "instructions": "add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0xfffffffffffe0000|>    |<Bool|Or|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|__eq__|mem_0|0|>    |<Bool|__eq__|__sub__|If|__eq__|mem_0|0|__add__|reg|If|__eq__|mem_0|0|__add__|reg|0x1|If|__eq__|mem_0|0|__add__|reg|0x2|If|__eq__|<...>|0|__add__|reg|0x3|If|__eq__|<...>|<...>|__add__|<...>|<...>|If|<...>|<...>|<...>|reg|strlen_77673_64|>    "
+                ],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "try_file"
+}

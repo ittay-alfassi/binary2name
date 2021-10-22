@@ -1,0 +1,120 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4269644,
+                "src": 4269632
+            },
+            {
+                "dst": 4269648,
+                "src": 4269632
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4269644
+            },
+            {
+                "dst": 4269693,
+                "src": 4269648
+            },
+            {
+                "dst": 4269698,
+                "src": 4269693
+            },
+            {
+                "dst": 4269664,
+                "src": 4269693
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4269698
+            },
+            {
+                "dst": 4269712,
+                "src": 4269664
+            },
+            {
+                "dst": 4269689,
+                "src": 4269664
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4269712
+            },
+            {
+                "dst": 4269693,
+                "src": 4269689
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4269689
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4269632,
+                "constraints": [],
+                "instructions": "mov|rdx|qword|ptr|rdi|+|8|    |xor|eax|eax|    |cmp|rdx|qword|ptr|rsi|+|8|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4269644,
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0x8|0xa|>    |<Bool|__eq__|__add__|reg|0x8|0xffe0000000000008|>    |<Bool|__ne__|mem_0|mem_2|>    "
+                ],
+                "instructions": "ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4269648,
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0x8|0xa|>    |<Bool|__eq__|__add__|reg|0x8|0xffe0000000000008|>    |<Bool|__eq__|mem_0|mem_2|>    "
+                ],
+                "instructions": "lea|rax|rdx|-|1|    |lea|rdx|rax*8|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4269693,
+                "constraints": [],
+                "instructions": "test|rax|rax|    |jns|target_0|    "
+            },
+            {
+                "block_addr": 4269698,
+                "constraints": [
+                    "<Bool|__ne__|__add__|0xfffffffffffffffd|mem_0|0|>    ",
+                    "<Bool|__ne__|__add__|0xfffffffffffffffe|mem_0|0|>    ",
+                    "<Bool|__ne__|__add__|0xffffffffffffffff|mem_0|0|>    "
+                ],
+                "instructions": "mov|eax|1|    |ret|    "
+            },
+            {
+                "block_addr": 4269664,
+                "constraints": [
+                    "<Bool|__eq__|__add__|0xfffffffffffffffd|mem_0|0|>    ",
+                    "<Bool|__eq__|__add__|0xfffffffffffffffe|mem_0|0|>    ",
+                    "<Bool|__eq__|__add__|0xffffffffffffffff|mem_0|0|>    "
+                ],
+                "instructions": "mov|rcx|qword|ptr|rdi|+|0x10|    |mov|reg|qword|ptr|rcx|+|rdx|    |mov|rcx|qword|ptr|rsi|+|0x10|    |mov|rcx|qword|ptr|rcx|+|rdx|    |sub|rdx|8|    |cmp|reg|rcx|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4269712,
+                "constraints": [
+                    "<Bool|__ne__|mem_0|mem_1|>    ",
+                    "<Bool|__eq__|__add__|mem_4|Concat|__add__|0x1fffffffffffffff|mem_0|0|0xfffffffffffffff8|>    |<Bool|__eq__|__add__|mem_6|Concat|__add__|0x1fffffffffffffff|mem_0|0|0xfffffffffffff3f8|>    |<Bool|__ne__|mem_5|mem_7|>    "
+                ],
+                "instructions": "xor|eax|eax|    |ret|    "
+            },
+            {
+                "block_addr": 4269689,
+                "constraints": [
+                    "<Bool|__eq__|mem_0|mem_1|>    ",
+                    "<Bool|__eq__|__add__|mem_4|Concat|__add__|0x1fffffffffffffff|mem_0|0|0xfffffffffffffff8|>    |<Bool|__eq__|__add__|mem_6|Concat|__add__|0x1fffffffffffffff|mem_0|0|0xfffffffffffff3f8|>    |<Bool|__eq__|mem_5|mem_7|>    "
+                ],
+                "instructions": "sub|rax|1|    |test|rax|rax|    |jns|target_0|    "
+            }
+        ]
+    },
+    "func_name": "re_node_set_compare.part.2"
+}

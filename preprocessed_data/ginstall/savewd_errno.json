@@ -1,0 +1,49 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4259888,
+                "src": 4259872
+            },
+            {
+                "dst": 4259879,
+                "src": 4259872
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4259888
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4259879
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4259872,
+                "constraints": [],
+                "instructions": "xor|eax|eax|    |cmp|dword|ptr|rdi|4|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4259888,
+                "constraints": [
+                    "<Bool|__eq__|reg|0xfffffffffff00000|>    |<Bool|__eq__|mem_0|0x4|>    "
+                ],
+                "instructions": "mov|eax|dword|ptr|rdi|+|4|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4259879,
+                "constraints": [
+                    "<Bool|__eq__|reg|0xfffffffffff00000|>    |<Bool|__ne__|mem_0|0x4|>    "
+                ],
+                "instructions": "ret|    "
+            }
+        ]
+    },
+    "func_name": "savewd_errno"
+}

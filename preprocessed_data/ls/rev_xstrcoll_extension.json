@@ -1,0 +1,118 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4238552,
+                "src": 4238528
+            },
+            {
+                "dst": 4238569,
+                "src": 4238552
+            },
+            {
+                "dst": 4238601,
+                "src": 4238569
+            },
+            {
+                "dst": 4238624,
+                "src": 4238601
+            },
+            {
+                "dst": 4238605,
+                "src": 4238601
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4238624
+            },
+            {
+                "dst": 4218336,
+                "src": 4238605
+            },
+            {
+                "dst": 4218353,
+                "src": 4218336
+            },
+            {
+                "dst": 4208288,
+                "src": 4218353
+            },
+            {
+                "dst": 7340664,
+                "src": 4208288
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 7340664
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4238528,
+                "constraints": [],
+                "instructions": "push|reg|    |push|rbp|    |mov|rbp|rsi|    |push|rbx|    |mov|reg|rdi|    |mov|rdi|qword|ptr|rbp|    |mov|esi|0x2e|    |call|0x4034a0|    "
+            },
+            {
+                "block_addr": 4238552,
+                "constraints": [
+                    "<Bool|__eq__|reg|0xffffffffc0000000|>    "
+                ],
+                "instructions": "mov|rdi|qword|ptr|reg|    |mov|esi|0x2e|    |mov|rbx|rax|    |call|0x4034a0|    "
+            },
+            {
+                "block_addr": 4238569,
+                "constraints": [
+                    "<Bool|__eq__|reg|0xffffffe000000000|>    "
+                ],
+                "instructions": "lea|rdx|rip|+|0xcbb1|    |test|rax|rax|    |cmove|rax|rdx|    |test|rbx|rbx|    |cmove|rbx|rdx|    |mov|rsi|rax|    |mov|rdi|rbx|    |call|0x405de0|    "
+            },
+            {
+                "block_addr": 4238601,
+                "constraints": [],
+                "instructions": "test|eax|eax|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4238624,
+                "constraints": [
+                    "<Bool|__ne__|ret|0x0|>    "
+                ],
+                "instructions": "pop|rbx|    |pop|rbp|    |pop|reg|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4238605,
+                "constraints": [
+                    "<Bool|__eq__|ret|0x0|>    "
+                ],
+                "instructions": "pop|rbx|    |mov|rsi|qword|ptr|reg|    |mov|rdi|qword|ptr|rbp|    |pop|rbp|    |pop|reg|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4218336,
+                "constraints": [],
+                "instructions": "push|rbp|    |push|rbx|    |mov|rbp|rsi|    |mov|rbx|rdi|    |sub|rsp|8|    |call|0x4032a0|    "
+            },
+            {
+                "block_addr": 4218353,
+                "constraints": [],
+                "instructions": "mov|dword|ptr|rax|0|    |add|rsp|8|    |mov|rsi|rbp|    |mov|rdi|rbx|    |pop|rbx|    |pop|rbp|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4208288,
+                "constraints": [
+                    "<Bool|__eq__|ret|0xffffffffffffffff|>    "
+                ],
+                "instructions": "jmp|qword|ptr|rip|+|0x21c82a|    "
+            },
+            {
+                "block_addr": 7340664,
+                "constraints": [],
+                "instructions": "add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    "
+            }
+        ]
+    },
+    "func_name": "rev_xstrcoll_extension"
+}

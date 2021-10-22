@@ -1,0 +1,78 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4218514,
+                "src": 4218464
+            },
+            {
+                "dst": 4218518,
+                "src": 4218514
+            },
+            {
+                "dst": 4218568,
+                "src": 4218514
+            },
+            {
+                "dst": 4218537,
+                "src": 4218518
+            },
+            {
+                "dst": 4218556,
+                "src": 4218537
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4218556
+            },
+            {
+                "dst": 4218537,
+                "src": 4218568
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4218464,
+                "constraints": [],
+                "instructions": "push|rbx|    |lea|rsi|rip|+|0x5aee|    |mov|rbx|rdi|    |mov|edi|1|    |sub|rsp|0xa0|    |mov|rdx|rsp|    |mov|rax|qword|ptr|fs:0x28|    |mov|qword|ptr|rsp|+|0x98|rax|    |xor|eax|eax|    |call|0x401a90|    "
+            },
+            {
+                "block_addr": 4218514,
+                "constraints": [],
+                "instructions": "test|eax|eax|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4218518,
+                "constraints": [
+                    "<Bool|__eq__|ret|0x0|>    "
+                ],
+                "instructions": "mov|rax|qword|ptr|rsp|+|8|    |mov|qword|ptr|rbx|rax|    |mov|rax|qword|ptr|rsp|    |mov|qword|ptr|rbx|+|8|rax|    |mov|rax|rbx|    |mov|rcx|qword|ptr|rsp|+|0x98|    |xor|rcx|qword|ptr|fs:0x28|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4218537,
+                "constraints": [
+                    "<Bool|__eq__|reg|0xffffffffffffffff|>    |<Bool|__eq__|__add__|reg|0x8|0x7|>    "
+                ],
+                "instructions": "mov|rcx|qword|ptr|rsp|+|0x98|    |xor|rcx|qword|ptr|fs:0x28|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4218556,
+                "constraints": [],
+                "instructions": "add|rsp|0xa0|    |pop|rbx|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4218568,
+                "constraints": [
+                    "<Bool|__ne__|ret|0x0|>    "
+                ],
+                "instructions": "xor|eax|eax|    |jmp|target_0|    "
+            }
+        ]
+    },
+    "func_name": "get_root_dev_ino"
+}

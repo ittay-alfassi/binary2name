@@ -1,0 +1,121 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4238960,
+                "src": 4238912
+            },
+            {
+                "dst": 4238922,
+                "src": 4238912
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4238960
+            },
+            {
+                "dst": 4238944,
+                "src": 4238922
+            },
+            {
+                "dst": 4238924,
+                "src": 4238922
+            },
+            {
+                "dst": 4238949,
+                "src": 4238944
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4238949
+            },
+            {
+                "dst": 4238949,
+                "src": 4238924
+            },
+            {
+                "dst": 4238933,
+                "src": 4238924
+            },
+            {
+                "dst": 4208016,
+                "src": 4238933
+            },
+            {
+                "dst": 7340528,
+                "src": 4208016
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 7340528
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4238912,
+                "constraints": [],
+                "instructions": "mov|rax|qword|ptr|rsi|+|0x70|    |cmp|qword|ptr|rdi|+|0x70|rax|    |jg|target_0|    "
+            },
+            {
+                "block_addr": 4238960,
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0x70|0xc000000000000030|>    |<Bool|__eq__|__add__|reg|0x70|0xfffffffffffc0000|>    |<Bool|SGT|mem_2|mem_0|>    "
+                ],
+                "instructions": "mov|eax|0xffffffff|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    "<Bool|__eq__|__add__|mem_1|0xfffffffffe000000|>    |<Bool|Or|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|__eq__|mem_2|0|>    |<Bool|__eq__|__sub__|If|__eq__|mem_2|0|__add__|mem_1|If|__eq__|mem_2|0|__add__|mem_1|0x1|If|__eq__|mem_2|0|__add__|mem_1|0x2|If|__eq__|<...>|0|__add__|mem_1|0x3|If|__eq__|<...>|<...>|__add__|<...>|<...>|If|<...>|<...>|<...>|mem_1|strlen_3366_64|>    |<Bool|__eq__|__add__|mem_0|0xffffffffffffffc0|>    |<Bool|Or|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|__eq__|mem_4|0|>    |<Bool|__eq__|__sub__|If|__eq__|mem_4|0|__add__|mem_0|If|__eq__|mem_4|0|__add__|mem_0|0x1|If|__eq__|mem_4|0|__add__|mem_0|0x2|If|__eq__|<...>|0|__add__|mem_0|0x3|If|__eq__|<...>|<...>|__add__|<...>|<...>|If|<...>|<...>|<...>|mem_0|strlen_3369_64|>    |<Bool|Or|And|Or|__eq__|strlen_3366_64|strlen_3369_64|And|__ge__|strlen_3366_64|0x3b|__ge__|strlen_3369_64|0x3b|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x0|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x1|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x2|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x3|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x4|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x5|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x6|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x7|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x8|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x9|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0xa|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0xb|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0xc|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0xd|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0xe|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0xf|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x10|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x11|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x12|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x13|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x14|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x15|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x16|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x17|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x18|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x19|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x1a|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x1b|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x1c|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x1d|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x1e|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x1f|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x20|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x21|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x22|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x23|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x24|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x25|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x26|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x27|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x28|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x29|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x2a|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x2b|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x2c|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x2d|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x2e|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x2f|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x30|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x31|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x32|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x33|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x34|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x35|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x36|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x37|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x38|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x39|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x3a|__eq__|strncmp_ret_3370_64|0x0|And|Not|And|Or|__eq__|strlen_3366_64|strlen_3369_64|And|__ge__|strlen_3366_64|0x3b|__ge__|strlen_3369_64|0x3b|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x0|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x1|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x2|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x3|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x4|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x5|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x6|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x7|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x8|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x9|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0xa|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0xb|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0xc|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0xd|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0xe|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0xf|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x10|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x11|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x12|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x13|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x14|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x15|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x16|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x17|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x18|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x19|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x1a|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x1b|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x1c|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x1d|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x1e|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x1f|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x20|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x21|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x22|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x23|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x24|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x25|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x26|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x27|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x28|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x29|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x2a|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x2b|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x2c|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x2d|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x2e|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x2f|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x30|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x31|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x32|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x33|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x34|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x35|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x36|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x37|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x38|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x39|Or|__eq__|mem_2|mem_4|__lt__|strlen_3366_64|0x3a|__eq__|strncmp_ret_3370_64|0x1|And|__eq__|strlen_3366_64|0x0|__eq__|strlen_3369_64|0x0|__eq__|strncmp_ret_3370_64|0x0|>    "
+                ],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4238922,
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0x70|0xc000000000000030|>    |<Bool|__eq__|__add__|reg|0x70|0xfffffffffffc0000|>    |<Bool|SLE|mem_2|mem_0|>    "
+                ],
+                "instructions": "jl|target_0|    "
+            },
+            {
+                "block_addr": 4238944,
+                "constraints": [
+                    "<Bool|__ne__|__xor__|__sub__|mem_2|mem_0|__and__|__xor__|mem_2|mem_0|__xor__|mem_2|__sub__|mem_2|mem_0|0|>    "
+                ],
+                "instructions": "mov|eax|1|    |ret|    "
+            },
+            {
+                "block_addr": 4238949,
+                "constraints": [
+                    "<Bool|__ne__|mem_0|mem_1|>    "
+                ],
+                "instructions": "ret|    "
+            },
+            {
+                "block_addr": 4238924,
+                "constraints": [
+                    "<Bool|__eq__|__xor__|__sub__|mem_2|mem_0|__and__|__xor__|mem_2|mem_0|__xor__|mem_2|__sub__|mem_2|mem_0|0|>    "
+                ],
+                "instructions": "mov|rax|qword|ptr|rsi|+|0x78|    |sub|eax|dword|ptr|rdi|+|0x78|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4238933,
+                "constraints": [
+                    "<Bool|__eq__|mem_0|mem_1|>    "
+                ],
+                "instructions": "mov|rsi|qword|ptr|rsi|    |mov|rdi|qword|ptr|rdi|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4208016,
+                "constraints": [],
+                "instructions": "jmp|qword|ptr|rip|+|0x21c8b2|    "
+            },
+            {
+                "block_addr": 7340528,
+                "constraints": [],
+                "instructions": "add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    "
+            }
+        ]
+    },
+    "func_name": "strcmp_mtime"
+}

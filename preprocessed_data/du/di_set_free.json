@@ -1,0 +1,70 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4214428,
+                "src": 4214416
+            },
+            {
+                "dst": 4214437,
+                "src": 4214428
+            },
+            {
+                "dst": 4214446,
+                "src": 4214437
+            },
+            {
+                "dst": 4205072,
+                "src": 4214446
+            },
+            {
+                "dst": 7340032,
+                "src": 4205072
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 7340032
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4214416,
+                "constraints": [],
+                "instructions": "push|rbx|    |mov|rbx|rdi|    |mov|rdi|qword|ptr|rdi|    |call|0x4087b0|    "
+            },
+            {
+                "block_addr": 4214428,
+                "constraints": [
+                    "<Bool|__eq__|reg|0xfffffffffffffff8|>    "
+                ],
+                "instructions": "mov|rdi|qword|ptr|rbx|+|8|    |call|0x402a10|    "
+            },
+            {
+                "block_addr": 4214437,
+                "constraints": [],
+                "instructions": "mov|rdi|qword|ptr|rbx|+|0x10|    |call|0x402a10|    "
+            },
+            {
+                "block_addr": 4214446,
+                "constraints": [],
+                "instructions": "mov|rdi|rbx|    |pop|rbx|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4205072,
+                "constraints": [],
+                "instructions": "jmp|qword|ptr|rip|+|0x2255b2|    "
+            },
+            {
+                "block_addr": 7340032,
+                "constraints": [],
+                "instructions": "add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "di_set_free"
+}

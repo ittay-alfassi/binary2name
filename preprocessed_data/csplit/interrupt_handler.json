@@ -1,0 +1,59 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4208120,
+                "src": 4208096
+            },
+            {
+                "dst": 4208129,
+                "src": 4208120
+            },
+            {
+                "dst": 4201200,
+                "src": 4208129
+            },
+            {
+                "dst": 7340112,
+                "src": 4201200
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 7340112
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4208096,
+                "constraints": [],
+                "instructions": "movzx|eax|byte|ptr|rip|+|0x217bcb|    |push|rbx|    |mov|ebx|edi|    |test|al|al|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4208120,
+                "constraints": [],
+                "instructions": "mov|edi|ebx|    |xor|esi|esi|    |call|0x401d50|    "
+            },
+            {
+                "block_addr": 4208129,
+                "constraints": [],
+                "instructions": "mov|edi|ebx|    |pop|rbx|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4201200,
+                "constraints": [],
+                "instructions": "jmp|qword|ptr|rip|+|0x2192a2|    "
+            },
+            {
+                "block_addr": 7340112,
+                "constraints": [],
+                "instructions": "add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "interrupt_handler"
+}

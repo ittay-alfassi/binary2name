@@ -1,0 +1,52 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4213981,
+                "src": 4213968
+            },
+            {
+                "dst": 4205072,
+                "src": 4213981
+            },
+            {
+                "dst": 7340032,
+                "src": 4205072
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 7340032
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4213968,
+                "constraints": [],
+                "instructions": "push|rbx|    |mov|rbx|rdi|    |mov|rdi|qword|ptr|rdi|+|8|    |call|0x4087b0|    "
+            },
+            {
+                "block_addr": 4213981,
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0x8|0xfffffed6c0000008|>    "
+                ],
+                "instructions": "mov|rdi|rbx|    |pop|rbx|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4205072,
+                "constraints": [],
+                "instructions": "jmp|qword|ptr|rip|+|0x2255b2|    "
+            },
+            {
+                "block_addr": 7340032,
+                "constraints": [],
+                "instructions": "add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "di_ent_free"
+}

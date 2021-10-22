@@ -1,0 +1,69 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4231663,
+                "src": 4231632
+            },
+            {
+                "dst": 4231673,
+                "src": 4231663
+            },
+            {
+                "dst": 4231680,
+                "src": 4231663
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4231673
+            },
+            {
+                "dst": 4231689,
+                "src": 4231680
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4231689
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4231632,
+                "constraints": [],
+                "instructions": "push|rbx|    |mov|rbx|rdi|    |mov|qword|ptr|rdi|+|8|0|    |lea|rdi|rip|+|0x1f68|    |xor|eax|eax|    |mov|esi|0x80000|    |call|0x407be0|    "
+            },
+            {
+                "block_addr": 4231663,
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0x8|0xffffffffffffffff|>    "
+                ],
+                "instructions": "mov|edx|eax|    |mov|dword|ptr|rbx|eax|    |xor|eax|eax|    |test|edx|edx|    |js|target_0|    "
+            },
+            {
+                "block_addr": 4231673,
+                "constraints": [
+                    "<Bool|__eq__|LShR|ZeroExt|32|ret|0x1f|0|>    "
+                ],
+                "instructions": "pop|rbx|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4231680,
+                "constraints": [
+                    "<Bool|__ne__|LShR|ZeroExt|32|ret|0x1f|0|>    "
+                ],
+                "instructions": "xor|esi|esi|    |xor|edi|edi|    |call|0x401a20|    "
+            },
+            {
+                "block_addr": 4231689,
+                "constraints": [],
+                "instructions": "test|rax|rax|    |mov|qword|ptr|rbx|+|8|rax|    |sete|al|    |movzx|eax|al|    |neg|eax|    |pop|rbx|    |ret|    "
+            }
+        ]
+    },
+    "func_name": "save_cwd"
+}

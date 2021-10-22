@@ -1,0 +1,73 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4233533,
+                "src": 4233488
+            },
+            {
+                "dst": 4233497,
+                "src": 4233488
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4233533
+            },
+            {
+                "dst": 4233504,
+                "src": 4233497
+            },
+            {
+                "dst": 4233533,
+                "src": 4233504
+            },
+            {
+                "dst": 4233504,
+                "src": 4233504
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4233504
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4233488,
+                "constraints": [],
+                "instructions": "movzx|ecx|byte|ptr|rdi|    |xor|edx|edx|    |test|cl|cl|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4233533,
+                "constraints": [
+                    "<Bool|__eq__|mem_0|0|>    ",
+                    "<Bool|__ne__|reg|0x0|>    |<Bool|__eq__|mem_0|0|>    ",
+                    "<Bool|__eq__|reg|0xfffffffffff00000|>    |<Bool|__eq__|mem_0|0|>    "
+                ],
+                "instructions": "mov|rax|rdx|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    "<Bool|__ne__|mem_0|0|>    "
+                ],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4233497,
+                "constraints": [
+                    "<Bool|__eq__|reg|0xfffffffffff00000|>    |<Bool|__ne__|mem_0|0|>    "
+                ],
+                "instructions": "nop|dword|ptr|rax|    |mov|rax|rdx|    |add|rdi|1|    |shl|rax|5|    |sub|rax|rdx|    |xor|edx|edx|    |add|rax|rcx|    |movzx|ecx|byte|ptr|rdi|    |div|rsi|    |test|cl|cl|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4233504,
+                "constraints": [
+                    "<Bool|__ne__|mem_0|0|>    ",
+                    "<Bool|__ne__|reg|0x0|>    |<Bool|__ne__|mem_0|0|>    "
+                ],
+                "instructions": "mov|rax|rdx|    |add|rdi|1|    |shl|rax|5|    |sub|rax|rdx|    |xor|edx|edx|    |add|rax|rcx|    |movzx|ecx|byte|ptr|rdi|    |div|rsi|    |test|cl|cl|    |jne|target_0|    "
+            }
+        ]
+    },
+    "func_name": "hash_string"
+}

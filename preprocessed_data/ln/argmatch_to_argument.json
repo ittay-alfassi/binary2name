@@ -1,0 +1,96 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4234561,
+                "src": 4234496
+            },
+            {
+                "dst": 4234512,
+                "src": 4234496
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4234561
+            },
+            {
+                "dst": 4234543,
+                "src": 4234512
+            },
+            {
+                "dst": 4234557,
+                "src": 4234543
+            },
+            {
+                "dst": 4234561,
+                "src": 4234557
+            },
+            {
+                "dst": 4234528,
+                "src": 4234557
+            },
+            {
+                "dst": 4234561,
+                "src": 4234528
+            },
+            {
+                "dst": 4234543,
+                "src": 4234528
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4234528
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4234496,
+                "constraints": [],
+                "instructions": "push|reg|    |push|reg|    |push|reg|    |push|rbp|    |push|rbx|    |mov|reg|qword|ptr|rsi|    |test|reg|reg|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4234561,
+                "constraints": [
+                    "<Bool|__eq__|mem_0|0x0|>    ",
+                    "<Bool|__eq__|ret|0x0|>    ",
+                    "<Bool|__eq__|reg|0xfffffffffffc0000|>    |<Bool|__eq__|mem_0|0x0|>    "
+                ],
+                "instructions": "pop|rbx|    |mov|rax|reg|    |pop|rbp|    |pop|reg|    |pop|reg|    |pop|reg|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    "<Bool|__ne__|mem_0|0x0|>    "
+                ],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4234512,
+                "constraints": [
+                    "<Bool|__eq__|reg|0xfffffffffffc0000|>    |<Bool|__ne__|mem_0|0x0|>    "
+                ],
+                "instructions": "mov|reg|rcx|    |mov|reg|rdi|    |mov|rbp|rdx|    |lea|rbx|rsi|+|8|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4234543,
+                "constraints": [
+                    "<Bool|__ne__|mem_0|0x0|>    "
+                ],
+                "instructions": "mov|rdx|reg|    |mov|rsi|rbp|    |mov|rdi|reg|    |call|0x402020|    "
+            },
+            {
+                "block_addr": 4234557,
+                "constraints": [],
+                "instructions": "test|eax|eax|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4234528,
+                "constraints": [
+                    "<Bool|__ne__|ret|0x0|>    "
+                ],
+                "instructions": "mov|reg|qword|ptr|rbx|    |add|rbp|reg|    |add|rbx|8|    |test|reg|reg|    |je|target_0|    "
+            }
+        ]
+    },
+    "func_name": "argmatch_to_argument"
+}

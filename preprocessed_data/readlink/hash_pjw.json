@@ -1,0 +1,82 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4220624,
+                "src": 4220576
+            },
+            {
+                "dst": 4220584,
+                "src": 4220576
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4220624
+            },
+            {
+                "dst": 4220592,
+                "src": 4220584
+            },
+            {
+                "dst": 4220611,
+                "src": 4220592
+            },
+            {
+                "dst": 4220592,
+                "src": 4220592
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4220592
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4220611
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4220576,
+                "constraints": [],
+                "instructions": "movsx|rcx|byte|ptr|rdi|    |test|cl|cl|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4220624,
+                "constraints": [
+                    "<Bool|__eq__|reg|0x1|>    |<Bool|__eq__|mem_0|0|>    "
+                ],
+                "instructions": "xor|edx|edx|    |mov|rax|rdx|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    "<Bool|__ne__|mem_0|0|>    ",
+                    "<Bool|__ne__|reg|0x0|>    "
+                ],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4220584,
+                "constraints": [
+                    "<Bool|__eq__|reg|0x1|>    |<Bool|__ne__|mem_0|0|>    "
+                ],
+                "instructions": "xor|eax|eax|    |nop|word|ptr|rax|+|rax|    |rol|rax|9|    |add|rdi|1|    |add|rax|rcx|    |movsx|rcx|byte|ptr|rdi|    |test|cl|cl|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4220592,
+                "constraints": [
+                    "<Bool|__ne__|mem_0|0|>    "
+                ],
+                "instructions": "rol|rax|9|    |add|rdi|1|    |add|rax|rcx|    |movsx|rcx|byte|ptr|rdi|    |test|cl|cl|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4220611,
+                "constraints": [
+                    "<Bool|__eq__|mem_0|0|>    "
+                ],
+                "instructions": "xor|edx|edx|    |div|rsi|    |mov|rax|rdx|    |ret|    "
+            }
+        ]
+    },
+    "func_name": "hash_pjw"
+}

@@ -1,0 +1,34 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4210656,
+                "src": 4204720
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4210656
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4204720,
+                "constraints": [],
+                "instructions": "add|rdi|4|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4210656,
+                "constraints": [],
+                "instructions": "mov|dword|ptr|rdi|0|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    "<Bool|__eq__|__add__|0x4|reg|0xffffffffffffffff|>    "
+                ],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "base64_decode_ctx_init_wrapper"
+}

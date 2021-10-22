@@ -1,0 +1,65 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4263110,
+                "src": 4263104
+            },
+            {
+                "dst": 4263120,
+                "src": 4263104
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4263110
+            },
+            {
+                "dst": 4263126,
+                "src": 4263120
+            },
+            {
+                "dst": 4263110,
+                "src": 4263120
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4263126
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4263104,
+                "constraints": [],
+                "instructions": "cmp|byte|ptr|rsi|+|0x30|0x11|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4263110,
+                "constraints": [
+                    "<Bool|__ne__|reg|mem_0|>    ",
+                    "<Bool|__eq__|__add__|reg|0x30|0xfffffffffffff830|>    |<Bool|__ne__|mem_0|17|>    "
+                ],
+                "instructions": "xor|eax|eax|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4263120,
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0x30|0xfffffffffffff830|>    |<Bool|__eq__|mem_0|17|>    "
+                ],
+                "instructions": "cmp|rdi|qword|ptr|rsi|+|0x28|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4263126,
+                "constraints": [
+                    "<Bool|__eq__|reg|mem_0|>    "
+                ],
+                "instructions": "or|byte|ptr|rsi|+|0x32|8|    |xor|eax|eax|    |ret|    "
+            }
+        ]
+    },
+    "func_name": "mark_opt_subexp"
+}

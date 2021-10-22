@@ -1,0 +1,96 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4264424,
+                "src": 4264416
+            },
+            {
+                "dst": 4273312,
+                "src": 4264424
+            },
+            {
+                "dst": 4273362,
+                "src": 4273312
+            },
+            {
+                "dst": 4273329,
+                "src": 4273312
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4273362
+            },
+            {
+                "dst": 4273334,
+                "src": 4273329
+            },
+            {
+                "dst": 4273342,
+                "src": 4273334
+            },
+            {
+                "dst": 4273355,
+                "src": 4273342
+            },
+            {
+                "dst": 4273362,
+                "src": 4273355
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4264416,
+                "constraints": [],
+                "instructions": "push|rbx|    |mov|ebx|esi|    |call|0x402d40|    "
+            },
+            {
+                "block_addr": 4264424,
+                "constraints": [],
+                "instructions": "mov|esi|ebx|    |mov|edi|eax|    |pop|rbx|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4273312,
+                "constraints": [],
+                "instructions": "push|reg|    |push|reg|    |push|rbp|    |push|rbx|    |mov|ebx|edi|    |sub|rsp|8|    |cmp|edi|2|    |ja|target_0|    "
+            },
+            {
+                "block_addr": 4273362,
+                "constraints": [
+                    "<Bool|__gt__|ret|0x2|>    "
+                ],
+                "instructions": "add|rsp|8|    |mov|eax|ebx|    |pop|rbx|    |pop|rbp|    |pop|reg|    |pop|reg|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4273329,
+                "constraints": [
+                    "<Bool|__le__|ret|0x2|>    "
+                ],
+                "instructions": "call|0x4134e0|    "
+            },
+            {
+                "block_addr": 4273334,
+                "constraints": [],
+                "instructions": "mov|regd|eax|    |call|0x402b10|    "
+            },
+            {
+                "block_addr": 4273342,
+                "constraints": [],
+                "instructions": "mov|regd|dword|ptr|rax|    |mov|rbp|rax|    |mov|edi|ebx|    |call|0x402db0|    "
+            },
+            {
+                "block_addr": 4273355,
+                "constraints": [
+                    "<Bool|__eq__|ret|0xfffffffe00000000|>    "
+                ],
+                "instructions": "mov|ebx|regd|    |mov|dword|ptr|rbp|regd|    |add|rsp|8|    |mov|eax|ebx|    |pop|rbx|    |pop|rbp|    |pop|reg|    |pop|reg|    |ret|    "
+            }
+        ]
+    },
+    "func_name": "mkostemp_safer"
+}

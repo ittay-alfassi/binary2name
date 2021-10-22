@@ -1,0 +1,61 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4224869,
+                "src": 4224864
+            },
+            {
+                "dst": 4224880,
+                "src": 4224864
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4224869
+            },
+            {
+                "dst": 4224889,
+                "src": 4224880
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4224889
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4224864,
+                "constraints": [],
+                "instructions": "cmp|edx|4|    |ja|target_0|    "
+            },
+            {
+                "block_addr": 4224869,
+                "constraints": [
+                    "<Bool|__le__|reg|0x4|>    "
+                ],
+                "instructions": "mov|word|ptr|rsi|+|0x74|dx|    |xor|eax|eax|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    "<Bool|__eq__|ret|0xffffffffffffffff|>    ",
+                    "<Bool|__eq__|__add__|reg|0x74|0xffffffffffffffff|>    "
+                ],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4224880,
+                "constraints": [
+                    "<Bool|__gt__|reg|0x4|>    "
+                ],
+                "instructions": "sub|rsp|8|    |call|0x4018a0|    "
+            },
+            {
+                "block_addr": 4224889,
+                "constraints": [],
+                "instructions": "mov|dword|ptr|rax|0x16|    |mov|eax|1|    |add|rsp|8|    |ret|    "
+            }
+        ]
+    },
+    "func_name": "rpl_fts_set"
+}

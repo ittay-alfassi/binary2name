@@ -1,0 +1,127 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4231336,
+                "src": 4231264
+            },
+            {
+                "dst": 4231277,
+                "src": 4231264
+            },
+            {
+                "dst": 4231341,
+                "src": 4231336
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4231341
+            },
+            {
+                "dst": 4231336,
+                "src": 4231277
+            },
+            {
+                "dst": 4231295,
+                "src": 4231277
+            },
+            {
+                "dst": 4231323,
+                "src": 4231295
+            },
+            {
+                "dst": 4231330,
+                "src": 4231323
+            },
+            {
+                "dst": 4231312,
+                "src": 4231323
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4231330
+            },
+            {
+                "dst": 4231341,
+                "src": 4231312
+            },
+            {
+                "dst": 4231323,
+                "src": 4231312
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4231312
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4231264,
+                "constraints": [],
+                "instructions": "mov|rcx|qword|ptr|rdi|+|0x30|    |lea|rax|rsi|+|1|    |cmp|rax|rcx|    |jge|target_0|    "
+            },
+            {
+                "block_addr": 4231336,
+                "constraints": [
+                    "<Bool|__eq__|__add__|mem_0|__lshift__|__add__|0x1|reg|0x2|0xfffffffffff81004|>    |<Bool|__ne__|mem_1|0xffffffff|>    ",
+                    "<Bool|__eq__|__add__|reg|0x30|0xfe00000000000030|>    |<Bool|SGE|__add__|reg|0x1|mem_0|>    "
+                ],
+                "instructions": "mov|eax|1|    |ret|    "
+            },
+            {
+                "block_addr": 4231341,
+                "constraints": [
+                    "<Bool|__ne__|mem_0|0xffffffff|>    "
+                ],
+                "instructions": "ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    "<Bool|__eq__|mem_0|0xffffffff|>    "
+                ],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4231277,
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0x30|0xfe00000000000030|>    |<Bool|SLT|__add__|reg|0x1|mem_0|>    "
+                ],
+                "instructions": "mov|rdx|qword|ptr|rdi|+|0x10|    |lea|rdi|rax*4|    |cmp|dword|ptr|rdx|+|rax*4|-1|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4231295,
+                "constraints": [
+                    "<Bool|__eq__|__add__|mem_0|__lshift__|__add__|0x1|reg|0x2|0xfffffffffff81004|>    |<Bool|__eq__|mem_1|0xffffffff|>    "
+                ],
+                "instructions": "sub|rcx|rsi|    |lea|rsi|rdx|+|rdi|-|4|    |mov|edx|2|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4231323,
+                "constraints": [
+                    "<Bool|__eq__|mem_0|0xffffffff|>    "
+                ],
+                "instructions": "cmp|rdx|rcx|    |mov|eax|edx|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4231330,
+                "constraints": [
+                    "<Bool|__eq__|__add__|mem_0|__mul__|0xffffffffffffffff|reg|0x4|>    ",
+                    "<Bool|__eq__|__add__|mem_0|__mul__|0xffffffffffffffff|reg|0x3|>    ",
+                    "<Bool|__eq__|__add__|mem_0|__mul__|0xffffffffffffffff|reg|0x2|>    "
+                ],
+                "instructions": "ret|    "
+            },
+            {
+                "block_addr": 4231312,
+                "constraints": [
+                    "<Bool|__ne__|__add__|mem_0|__mul__|0xffffffffffffffff|reg|0x4|>    ",
+                    "<Bool|__ne__|__add__|mem_0|__mul__|0xffffffffffffffff|reg|0x3|>    ",
+                    "<Bool|__ne__|__add__|mem_0|__mul__|0xffffffffffffffff|reg|0x2|>    "
+                ],
+                "instructions": "add|rdx|1|    |cmp|dword|ptr|rsi|+|rdx*4|-|4|-1|    |jne|target_0|    "
+            }
+        ]
+    },
+    "func_name": "re_string_char_size_at.part.0"
+}

@@ -1,0 +1,59 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4216537,
+                "src": 4216528
+            },
+            {
+                "dst": 4216562,
+                "src": 4216537
+            },
+            {
+                "dst": 4216555,
+                "src": 4216537
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4216562
+            },
+            {
+                "dst": 4216562,
+                "src": 4216555
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4216528,
+                "constraints": [],
+                "instructions": "push|rbx|    |mov|rbx|rdi|    |call|0x4025a0|    "
+            },
+            {
+                "block_addr": 4216537,
+                "constraints": [],
+                "instructions": "mov|edx|dword|ptr|rax|    |cmp|edx|1|    |sete|al|    |cmp|edx|0x16|    |sete|dl|    |or|al|dl|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4216562,
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0x1a|0xffffffffc000001a|>    ",
+                    "<Bool|__eq__|ret|0xffffff8000000000|>    |<Bool|__eq__|__or__|ZeroExt|7|If|__eq__|mem_0|0x1|1|0|ZeroExt|7|If|__eq__|mem_0|0x16|1|0|0|>    "
+                ],
+                "instructions": "pop|rbx|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4216555,
+                "constraints": [
+                    "<Bool|__eq__|ret|0xffffff8000000000|>    |<Bool|__ne__|__or__|ZeroExt|7|If|__eq__|mem_0|0x1|1|0|ZeroExt|7|If|__eq__|mem_0|0x16|1|0|0|>    "
+                ],
+                "instructions": "movzx|eax|byte|ptr|rbx|+|0x1a|    |xor|eax|1|    |pop|rbx|    |ret|    "
+            }
+        ]
+    },
+    "func_name": "chown_failure_ok"
+}

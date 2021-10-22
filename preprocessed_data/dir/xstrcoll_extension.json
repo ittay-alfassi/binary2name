@@ -1,0 +1,118 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4238439,
+                "src": 4238416
+            },
+            {
+                "dst": 4238456,
+                "src": 4238439
+            },
+            {
+                "dst": 4238488,
+                "src": 4238456
+            },
+            {
+                "dst": 4238512,
+                "src": 4238488
+            },
+            {
+                "dst": 4238492,
+                "src": 4238488
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4238512
+            },
+            {
+                "dst": 4218336,
+                "src": 4238492
+            },
+            {
+                "dst": 4218353,
+                "src": 4218336
+            },
+            {
+                "dst": 4208288,
+                "src": 4218353
+            },
+            {
+                "dst": 7340664,
+                "src": 4208288
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 7340664
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4238416,
+                "constraints": [],
+                "instructions": "push|reg|    |push|rbp|    |mov|rbp|rdi|    |push|rbx|    |mov|rdi|qword|ptr|rdi|    |mov|reg|rsi|    |mov|esi|0x2e|    |call|0x4034a0|    "
+            },
+            {
+                "block_addr": 4238439,
+                "constraints": [
+                    "<Bool|__eq__|reg|0xffffffff00000000|>    "
+                ],
+                "instructions": "mov|rdi|qword|ptr|reg|    |mov|esi|0x2e|    |mov|rbx|rax|    |call|0x4034a0|    "
+            },
+            {
+                "block_addr": 4238456,
+                "constraints": [
+                    "<Bool|__eq__|reg|0xe000000000000000|>    "
+                ],
+                "instructions": "lea|rdx|rip|+|0xcc22|    |test|rax|rax|    |cmove|rax|rdx|    |test|rbx|rbx|    |cmove|rbx|rdx|    |mov|rsi|rax|    |mov|rdi|rbx|    |call|0x405de0|    "
+            },
+            {
+                "block_addr": 4238488,
+                "constraints": [],
+                "instructions": "test|eax|eax|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4238512,
+                "constraints": [
+                    "<Bool|__ne__|ret|0x0|>    "
+                ],
+                "instructions": "pop|rbx|    |pop|rbp|    |pop|reg|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4238492,
+                "constraints": [
+                    "<Bool|__eq__|ret|0x0|>    "
+                ],
+                "instructions": "pop|rbx|    |mov|rsi|qword|ptr|reg|    |mov|rdi|qword|ptr|rbp|    |pop|rbp|    |pop|reg|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4218336,
+                "constraints": [],
+                "instructions": "push|rbp|    |push|rbx|    |mov|rbp|rsi|    |mov|rbx|rdi|    |sub|rsp|8|    |call|0x4032a0|    "
+            },
+            {
+                "block_addr": 4218353,
+                "constraints": [],
+                "instructions": "mov|dword|ptr|rax|0|    |add|rsp|8|    |mov|rsi|rbp|    |mov|rdi|rbx|    |pop|rbx|    |pop|rbp|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4208288,
+                "constraints": [
+                    "<Bool|__eq__|ret|0xffffffffffffffff|>    "
+                ],
+                "instructions": "jmp|qword|ptr|rip|+|0x21c82a|    "
+            },
+            {
+                "block_addr": 7340664,
+                "constraints": [],
+                "instructions": "add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    "
+            }
+        ]
+    },
+    "func_name": "xstrcoll_extension"
+}

@@ -1,0 +1,43 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4207072,
+                "src": 4206992
+            },
+            {
+                "dst": 4207075,
+                "src": 4207072
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4207075
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4206992,
+                "constraints": [],
+                "instructions": "push|rbp|    |push|rbx|    |sub|rsp|8|    |mov|rbp|qword|ptr|rip|+|0x209f6b|    |test|rbp|rbp|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4207072,
+                "constraints": [],
+                "instructions": "mov|rax|rdi|    |cmp|byte|ptr|rax|0|    |sete|al|    |add|rsp|8|    |pop|rbx|    |pop|rbp|    |ret|    "
+            },
+            {
+                "block_addr": 4207075,
+                "constraints": [],
+                "instructions": "cmp|byte|ptr|rax|0|    |sete|al|    |add|rsp|8|    |pop|rbx|    |pop|rbp|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    "<Bool|__eq__|reg|0x1|>    "
+                ],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "hex_digits"
+}

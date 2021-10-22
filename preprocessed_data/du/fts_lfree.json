@@ -1,0 +1,128 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4252144,
+                "src": 4252080
+            },
+            {
+                "dst": 4252085,
+                "src": 4252080
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4252144
+            },
+            {
+                "dst": 4252096,
+                "src": 4252085
+            },
+            {
+                "dst": 4252114,
+                "src": 4252096
+            },
+            {
+                "dst": 4252109,
+                "src": 4252096
+            },
+            {
+                "dst": 4252125,
+                "src": 4252114
+            },
+            {
+                "dst": 4252130,
+                "src": 4252125
+            },
+            {
+                "dst": 4252096,
+                "src": 4252125
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4252125
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4252130
+            },
+            {
+                "dst": 4252114,
+                "src": 4252109
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4252080,
+                "constraints": [],
+                "instructions": "test|rdi|rdi|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4252144,
+                "constraints": [
+                    "<Bool|__eq__|reg|0x0|>    "
+                ],
+                "instructions": "ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    "<Bool|__ne__|mem_0|0x0|>    "
+                ],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4252085,
+                "constraints": [
+                    "<Bool|__ne__|reg|0x0|>    "
+                ],
+                "instructions": "push|rbp|    |push|rbx|    |mov|rbx|rdi|    |sub|rsp|8|    |nop|    |mov|rdi|qword|ptr|rbx|+|0x18|    |mov|rbp|qword|ptr|rbx|+|0x10|    |test|rdi|rdi|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4252096,
+                "constraints": [
+                    "<Bool|__ne__|mem_0|0x0|>    "
+                ],
+                "instructions": "mov|rdi|qword|ptr|rbx|+|0x18|    |mov|rbp|qword|ptr|rbx|+|0x10|    |test|rdi|rdi|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4252114,
+                "constraints": [
+                    "<Bool|__eq__|__add__|mem_0|0x18|0x8000000000000018|>    |<Bool|__eq__|mem_19|0x0|>    ",
+                    "<Bool|__eq__|__add__|mem_0|0x18|0xfffffff000000018|>    |<Bool|__eq__|mem_8|0x0|>    ",
+                    "<Bool|__eq__|__add__|reg|0x18|0xffffffffffc00018|>    |<Bool|__eq__|mem_0|0x0|>    ",
+                    "<Bool|__eq__|__add__|mem_0|0x18|0xffffffffffffc018|>    |<Bool|__eq__|mem_12|0x0|>    ",
+                    "<Bool|__eq__|__add__|mem_0|0x18|0xffffffffffffffff|>    |<Bool|__eq__|Concat|mem_14|mem_13|0x0|>    ",
+                    "<Bool|__eq__|__add__|mem_0|0x18|0xfffffff000000018|>    |<Bool|__eq__|mem_4|0x0|>    ",
+                    "<Bool|__eq__|__add__|mem_0|0x18|0xfffffffffffffc28|>    |<Bool|__eq__|mem_8|0x0|>    "
+                ],
+                "instructions": "mov|rdi|rbx|    |mov|rbx|rbp|    |call|0x402a10|    "
+            },
+            {
+                "block_addr": 4252125,
+                "constraints": [],
+                "instructions": "test|rbp|rbp|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4252130,
+                "constraints": [
+                    "<Bool|__eq__|mem_0|0x0|>    "
+                ],
+                "instructions": "add|rsp|8|    |pop|rbx|    |pop|rbp|    |ret|    "
+            },
+            {
+                "block_addr": 4252109,
+                "constraints": [
+                    "<Bool|__eq__|__add__|mem_0|0x18|0x8000000000000018|>    |<Bool|__ne__|mem_19|0x0|>    ",
+                    "<Bool|__eq__|__add__|mem_0|0x18|0xfffffff000000018|>    |<Bool|__ne__|mem_8|0x0|>    ",
+                    "<Bool|__eq__|__add__|reg|0x18|0xffffffffffc00018|>    |<Bool|__ne__|mem_0|0x0|>    ",
+                    "<Bool|__eq__|__add__|mem_0|0x18|0xffffffffffffc018|>    |<Bool|__ne__|mem_12|0x0|>    ",
+                    "<Bool|__eq__|__add__|mem_0|0x18|0xffffffffffffffff|>    |<Bool|__ne__|Concat|mem_14|mem_13|0x0|>    ",
+                    "<Bool|__eq__|__add__|mem_0|0x18|0xfffffff000000018|>    |<Bool|__ne__|mem_4|0x0|>    ",
+                    "<Bool|__eq__|__add__|mem_0|0x18|0xfffffffffffffc28|>    |<Bool|__ne__|mem_8|0x0|>    "
+                ],
+                "instructions": "call|0x402650|    "
+            }
+        ]
+    },
+    "func_name": "fts_lfree"
+}

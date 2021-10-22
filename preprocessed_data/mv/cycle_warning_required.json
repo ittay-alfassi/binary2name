@@ -1,0 +1,67 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4263863,
+                "src": 4263840
+            },
+            {
+                "dst": 4263856,
+                "src": 4263840
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4263863
+            },
+            {
+                "dst": 4263872,
+                "src": 4263856
+            },
+            {
+                "dst": 4263863,
+                "src": 4263856
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4263872
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4263840,
+                "constraints": [],
+                "instructions": "mov|edx|dword|ptr|rdi|+|0x48|    |mov|eax|1|    |and|edx|0x11|    |cmp|edx|0x10|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4263863,
+                "constraints": [
+                    "<Bool|__ne__|Concat|0x0|mem_0|0|mem_0|0x11|>    ",
+                    "<Bool|__eq__|__add__|reg|0x48|0xffffffffff000058|>    |<Bool|__eq__|__and__|mem_0|17|16|>    "
+                ],
+                "instructions": "ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0x58|0xffffffffffe88000|>    "
+                ],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4263856,
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0x48|0xffffffffff000058|>    |<Bool|__ne__|__and__|mem_0|17|16|>    "
+                ],
+                "instructions": "xor|eax|eax|    |cmp|edx|0x11|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4263872,
+                "constraints": [
+                    "<Bool|__eq__|Concat|0x0|mem_0|0|mem_0|0x11|>    "
+                ],
+                "instructions": "cmp|qword|ptr|rsi|+|0x58|0|    |setne|al|    |ret|    "
+            }
+        ]
+    },
+    "func_name": "cycle_warning_required"
+}

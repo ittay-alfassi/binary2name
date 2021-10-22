@@ -1,0 +1,32 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4205506,
+                "src": 4205424
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4205506
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4205424,
+                "constraints": [],
+                "instructions": "mov|eax|edi|    |mov|ecx|0x64|    |push|rbx|    |cdq|    |mov|rbx|rsi|    |idiv|ecx|    |xor|ecx|ecx|    |lea|regd|rax|+|0x13|    |mov|esi|edx|    |sar|esi|0x1f|    |mov|eax|regd|    |xor|edx|esi|    |sar|eax|0x1f|    |xor|regd|eax|    |cmp|edi|0xfffff894|    |lea|rdi|rip|+|0x10462|    |setge|cl|    |sub|edx|esi|    |sub|regd|eax|    |add|rcx|rdi|    |mov|regd|edx|    |mov|rdi|rbx|    |or|rdx|0xffffffffffffffff|    |mov|esi|1|    |xor|eax|eax|    |call|0x402b50|    "
+            },
+            {
+                "block_addr": 4205506,
+                "constraints": [],
+                "instructions": "mov|rax|rbx|    |pop|rbx|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "tm_year_str"
+}

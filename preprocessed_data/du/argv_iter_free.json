@@ -1,0 +1,67 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4213699,
+                "src": 4213680
+            },
+            {
+                "dst": 4213690,
+                "src": 4213680
+            },
+            {
+                "dst": 4205072,
+                "src": 4213699
+            },
+            {
+                "dst": 7340032,
+                "src": 4205072
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 7340032
+            },
+            {
+                "dst": 4213699,
+                "src": 4213690
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4213680,
+                "constraints": [],
+                "instructions": "push|rbx|    |cmp|qword|ptr|rdi|0|    |mov|rbx|rdi|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4213699,
+                "constraints": [
+                    "<Bool|__eq__|reg|0xfffffffffffffc00|>    |<Bool|__eq__|mem_0|0x0|>    "
+                ],
+                "instructions": "mov|rdi|rbx|    |pop|rbx|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4205072,
+                "constraints": [],
+                "instructions": "jmp|qword|ptr|rip|+|0x2255b2|    "
+            },
+            {
+                "block_addr": 7340032,
+                "constraints": [],
+                "instructions": "add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4213690,
+                "constraints": [
+                    "<Bool|__eq__|reg|0xfffffffffffffc00|>    |<Bool|__ne__|mem_0|0x0|>    "
+                ],
+                "instructions": "mov|rdi|qword|ptr|rdi|+|0x10|    |call|0x402a10|    "
+            }
+        ]
+    },
+    "func_name": "argv_iter_free"
+}

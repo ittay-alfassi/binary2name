@@ -1,0 +1,49 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4264368,
+                "src": 4264336
+            },
+            {
+                "dst": 4264358,
+                "src": 4264336
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4264368
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4264358
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4264336,
+                "constraints": [],
+                "instructions": "mov|rdx|qword|ptr|rdi|    |mov|rax|qword|ptr|rsi|    |mov|rax|qword|ptr|rax|+|0x80|    |cmp|qword|ptr|rdx|+|0x80|rax|    |jb|target_0|    "
+            },
+            {
+                "block_addr": 4264368,
+                "constraints": [
+                    "<Bool|__eq__|reg|0xfffffff800000000|>    |<Bool|__eq__|reg|0xfffffffffffc0000|>    |<Bool|__eq__|__add__|mem_2|0x80|0xc000000000000000|>    |<Bool|__eq__|__add__|mem_0|0x80|0xffffffffff100080|>    |<Bool|__lt__|mem_4|mem_3|>    "
+                ],
+                "instructions": "mov|eax|0xffffffff|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4264358,
+                "constraints": [
+                    "<Bool|__eq__|reg|0xfffffff800000000|>    |<Bool|__eq__|reg|0xfffffffffffc0000|>    |<Bool|__eq__|__add__|mem_2|0x80|0xc000000000000000|>    |<Bool|__eq__|__add__|mem_0|0x80|0xffffffffff100080|>    |<Bool|__ge__|mem_4|mem_3|>    "
+                ],
+                "instructions": "seta|al|    |movzx|eax|al|    |ret|    "
+            }
+        ]
+    },
+    "func_name": "fts_compare_ino"
+}

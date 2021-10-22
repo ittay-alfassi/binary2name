@@ -1,0 +1,79 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4223500,
+                "src": 4223488
+            },
+            {
+                "dst": 4223509,
+                "src": 4223500
+            },
+            {
+                "dst": 4223518,
+                "src": 4223509
+            },
+            {
+                "dst": 4223527,
+                "src": 4223518
+            },
+            {
+                "dst": 4200656,
+                "src": 4223527
+            },
+            {
+                "dst": 7340112,
+                "src": 4200656
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 7340112
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4223488,
+                "constraints": [],
+                "instructions": "push|rbx|    |mov|rbx|rdi|    |mov|rdi|qword|ptr|rdi|    |call|0x4018d0|    "
+            },
+            {
+                "block_addr": 4223500,
+                "constraints": [
+                    "<Bool|__eq__|reg|0x1|>    "
+                ],
+                "instructions": "mov|rdi|qword|ptr|rbx|+|8|    |call|0x4018d0|    "
+            },
+            {
+                "block_addr": 4223509,
+                "constraints": [],
+                "instructions": "mov|rdi|qword|ptr|rbx|+|0x10|    |call|0x4018d0|    "
+            },
+            {
+                "block_addr": 4223518,
+                "constraints": [],
+                "instructions": "mov|rdi|qword|ptr|rbx|+|0x18|    |call|0x4018d0|    "
+            },
+            {
+                "block_addr": 4223527,
+                "constraints": [],
+                "instructions": "mov|rdi|rbx|    |pop|rbx|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4200656,
+                "constraints": [],
+                "instructions": "jmp|qword|ptr|rip|+|0x21751a|    "
+            },
+            {
+                "block_addr": 7340112,
+                "constraints": [],
+                "instructions": "add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "free_charset"
+}

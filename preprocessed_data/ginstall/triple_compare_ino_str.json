@@ -1,0 +1,74 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4246796,
+                "src": 4246784
+            },
+            {
+                "dst": 4246800,
+                "src": 4246784
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4246796
+            },
+            {
+                "dst": 4246796,
+                "src": 4246800
+            },
+            {
+                "dst": 4246810,
+                "src": 4246800
+            },
+            {
+                "dst": 4246825,
+                "src": 4246810
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4246825
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4246784,
+                "constraints": [],
+                "instructions": "xor|eax|eax|    |mov|rdx|qword|ptr|rsi|+|8|    |cmp|qword|ptr|rdi|+|8|rdx|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4246796,
+                "constraints": [
+                    "<Bool|__ne__|mem_1|mem_0|>    ",
+                    "<Bool|__eq__|__add__|reg|0x8|0xfffffffffffd7fc0|>    |<Bool|__eq__|__add__|reg|0x8|0xc000000000000000|>    |<Bool|__ne__|mem_2|mem_0|>    "
+                ],
+                "instructions": "ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4246800,
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0x8|0xfffffffffffd7fc0|>    |<Bool|__eq__|__add__|reg|0x8|0xc000000000000000|>    |<Bool|__eq__|mem_2|mem_0|>    "
+                ],
+                "instructions": "mov|rcx|qword|ptr|rsi|+|0x10|    |cmp|qword|ptr|rdi|+|0x10|rcx|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4246810,
+                "constraints": [
+                    "<Bool|__eq__|mem_1|mem_0|>    "
+                ],
+                "instructions": "sub|rsp|8|    |mov|rsi|qword|ptr|rsi|    |mov|rdi|qword|ptr|rdi|    |call|0x402cf0|    "
+            },
+            {
+                "block_addr": 4246825,
+                "constraints": [],
+                "instructions": "test|eax|eax|    |sete|al|    |add|rsp|8|    |ret|    "
+            }
+        ]
+    },
+    "func_name": "triple_compare_ino_str"
+}

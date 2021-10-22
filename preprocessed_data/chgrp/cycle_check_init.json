@@ -1,0 +1,25 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "loopSeerDum",
+                "src": 4229472
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4229472,
+                "constraints": [],
+                "instructions": "mov|qword|ptr|rdi|+|0x10|0|    |mov|dword|ptr|rdi|+|0x18|0x95f616|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0x10|0xffffffffffffffff|>    |<Bool|__eq__|__add__|reg|0x18|0x7|>    "
+                ],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "cycle_check_init"
+}

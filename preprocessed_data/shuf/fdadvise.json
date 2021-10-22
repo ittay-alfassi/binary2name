@@ -1,0 +1,41 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4201392,
+                "src": 4207104
+            },
+            {
+                "dst": 7340376,
+                "src": 4201392
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 7340376
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4207104,
+                "constraints": [],
+                "instructions": "jmp|target_0|    "
+            },
+            {
+                "block_addr": 4201392,
+                "constraints": [],
+                "instructions": "jmp|qword|ptr|rip|+|0x20b2fa|    "
+            },
+            {
+                "block_addr": 7340376,
+                "constraints": [],
+                "instructions": "add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "fdadvise"
+}

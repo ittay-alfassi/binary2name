@@ -1,0 +1,61 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4222972,
+                "src": 4222912
+            },
+            {
+                "dst": 4223009,
+                "src": 4222972
+            },
+            {
+                "dst": 4223014,
+                "src": 4223009
+            },
+            {
+                "dst": 4223030,
+                "src": 4223014
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4223030
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4222912,
+                "constraints": [],
+                "instructions": "push|reg|    |push|rbp|    |lea|reg|rip|+|0xe52f|    |push|rbx|    |mov|rbp|rsi|    |mov|reg|rdx|    |mov|edx|0xa|    |mov|rbx|rdi|    |sub|rsp|0x20|    |lea|rcx|rsp|+|0x10|    |lea|rsi|rsp|+|8|    |mov|rax|qword|ptr|fs:0x28|    |mov|qword|ptr|rsp|+|0x18|rax|    |xor|eax|eax|    |call|0x412720|    "
+            },
+            {
+                "block_addr": 4222972,
+                "constraints": [],
+                "instructions": "cmp|eax|4|    |ja|target_0|    "
+            },
+            {
+                "block_addr": 4223009,
+                "constraints": [
+                    "<Bool|__gt__|ret|0x4|>    "
+                ],
+                "instructions": "mov|rax|qword|ptr|rsp|+|8|    |mov|rbx|qword|ptr|rsp|+|0x18|    |xor|rbx|qword|ptr|fs:0x28|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4223014,
+                "constraints": [],
+                "instructions": "mov|rbx|qword|ptr|rsp|+|0x18|    |xor|rbx|qword|ptr|fs:0x28|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4223030,
+                "constraints": [],
+                "instructions": "add|rsp|0x20|    |pop|rbx|    |pop|rbp|    |pop|reg|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "parse_field_count"
+}

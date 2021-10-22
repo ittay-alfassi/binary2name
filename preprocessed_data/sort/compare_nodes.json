@@ -1,0 +1,49 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4221840,
+                "src": 4221824
+            },
+            {
+                "dst": 4221832,
+                "src": 4221824
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4221840
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4221832
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4221824,
+                "constraints": [],
+                "instructions": "mov|eax|dword|ptr|rsi|+|0x50|    |cmp|dword|ptr|rdi|+|0x50|eax|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4221840,
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0x50|0xfffffffffffff850|>    |<Bool|__eq__|__add__|reg|0x50|0xfffffffffffffffe|>    |<Bool|__eq__|Concat|mem_3|mem_2|mem_0|>    "
+                ],
+                "instructions": "mov|rdx|qword|ptr|rdi|+|0x30|    |mov|rax|qword|ptr|rsi|+|0x30|    |add|rdx|qword|ptr|rdi|+|0x28|    |add|rax|qword|ptr|rsi|+|0x28|    |cmp|rdx|rax|    |setb|al|    |movzx|eax|al|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4221832,
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0x50|0xfffffffffffff850|>    |<Bool|__eq__|__add__|reg|0x50|0xfffffffffffffffe|>    |<Bool|__ne__|Concat|mem_3|mem_2|mem_0|>    "
+                ],
+                "instructions": "setb|al|    |movzx|eax|al|    |ret|    "
+            }
+        ]
+    },
+    "func_name": "compare_nodes"
+}

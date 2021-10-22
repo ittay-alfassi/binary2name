@@ -1,0 +1,43 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4212990,
+                "src": 4212960
+            },
+            {
+                "dst": 4213041,
+                "src": 4212990
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4213041
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4212960,
+                "constraints": [],
+                "instructions": "push|reg|    |mov|reg|rdi|    |push|rbp|    |push|rbx|    |mov|dword|ptr|rdi|0xffffffff|    |mov|ebp|1|    |mov|rdi|qword|ptr|rip|+|0x20b8af|    |test|rdi|rdi|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4212990,
+                "constraints": [
+                    "<Bool|__eq__|reg|0xffffffffffffffff|>    "
+                ],
+                "instructions": "jmp|target_0|    "
+            },
+            {
+                "block_addr": 4213041,
+                "constraints": [],
+                "instructions": "mov|eax|ebp|    |pop|rbx|    |pop|rbp|    |pop|reg|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "read_char"
+}

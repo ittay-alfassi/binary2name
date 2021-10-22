@@ -1,0 +1,69 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4234637,
+                "src": 4234528
+            },
+            {
+                "dst": 4234538,
+                "src": 4234528
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4234637
+            },
+            {
+                "dst": 4234568,
+                "src": 4234538
+            },
+            {
+                "dst": 4234640,
+                "src": 4234568
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4234640
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4234528,
+                "constraints": [],
+                "instructions": "cmp|qword|ptr|rsi|0|    |mov|rax|qword|ptr|rsi|+|8|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4234637,
+                "constraints": [
+                    "<Bool|__eq__|reg|0xc000000000000000|>    |<Bool|__eq__|mem_0|0x0|>    "
+                ],
+                "instructions": "xor|eax|eax|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4234538,
+                "constraints": [
+                    "<Bool|__eq__|reg|0xc000000000000000|>    |<Bool|__ne__|mem_0|0x0|>    "
+                ],
+                "instructions": "lea|reg|rip|+|0x35cf|    |lea|reg|rip|+|0x3628|    |lea|reg|rip|+|0x35b1|    |xor|ecx|ecx|    |nop|dword|ptr|rax|    |cmp|dword|ptr|rax|0x16|    |ja|target_0|    "
+            },
+            {
+                "block_addr": 4234568,
+                "constraints": [],
+                "instructions": "cmp|dword|ptr|rax|0x16|    |ja|target_0|    "
+            },
+            {
+                "block_addr": 4234640,
+                "constraints": [
+                    "<Bool|__eq__|mem_0|0xfffffff800000000|>    |<Bool|__gt__|mem_1|0x16|>    "
+                ],
+                "instructions": "mov|eax|0xffffffff|    |ret|    "
+            }
+        ]
+    },
+    "func_name": "printf_fetchargs"
+}

@@ -1,0 +1,61 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4246416,
+                "src": 4215824
+            },
+            {
+                "dst": 4246425,
+                "src": 4246416
+            },
+            {
+                "dst": 4204064,
+                "src": 4246425
+            },
+            {
+                "dst": 7340416,
+                "src": 4204064
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 7340416
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4215824,
+                "constraints": [],
+                "instructions": "mov|edi|0x10|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4246416,
+                "constraints": [],
+                "instructions": "push|rbx|    |mov|rbx|rdi|    |call|0x40c9e0|    "
+            },
+            {
+                "block_addr": 4246425,
+                "constraints": [],
+                "instructions": "mov|rdx|rbx|    |xor|esi|esi|    |mov|rdi|rax|    |pop|rbx|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4204064,
+                "constraints": [],
+                "instructions": "jmp|qword|ptr|rip|+|0x2257aa|    "
+            },
+            {
+                "block_addr": 7340416,
+                "constraints": [],
+                "instructions": "add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    "<Bool|__eq__|__add__|ret|0xffffffffffffffff|>    "
+                ],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "new_exclude"
+}

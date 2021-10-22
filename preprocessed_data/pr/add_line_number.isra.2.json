@@ -1,0 +1,52 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4208614,
+                "src": 4208560
+            },
+            {
+                "dst": 4208643,
+                "src": 4208614
+            },
+            {
+                "dst": 4208656,
+                "src": 4208643
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4208656
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4208560,
+                "constraints": [],
+                "instructions": "push|reg|    |mov|regd|dword|ptr|rip|+|0x20d9f7|    |lea|rcx|rip|+|0x8711|    |push|rbp|    |mov|regd|dword|ptr|rip|+|0x20d848|    |mov|rbp|rdi|    |mov|rdi|qword|ptr|rip|+|0x20d9ce|    |push|rbx|    |mov|rdx|-1|    |xor|eax|eax|    |mov|esi|1|    |call|0x401fa0|    "
+            },
+            {
+                "block_addr": 4208614,
+                "constraints": [],
+                "instructions": "mov|edx|dword|ptr|rip|+|0x20d824|    |add|dword|ptr|rip|+|0x20d9bd|1|    |sub|eax|edx|    |movsxd|rbx|eax|    |add|rbx|qword|ptr|rip|+|0x20d9a1|    |test|edx|edx|    |jle|target_0|    "
+            },
+            {
+                "block_addr": 4208643,
+                "constraints": [],
+                "instructions": "lea|eax|rdx|-|1|    |lea|reg|rbx|+|rax|+|1|    |nop|dword|ptr|rax|+|rax|    |add|rbx|1|    |movsx|edi|byte|ptr|rbx|-|1|    |call|qword|ptr|rbp|    "
+            },
+            {
+                "block_addr": 4208656,
+                "constraints": [],
+                "instructions": "add|rbx|1|    |movsx|edi|byte|ptr|rbx|-|1|    |call|qword|ptr|rbp|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    "<Bool|__eq__|__add__|Concat|__add__|0xfffffffb|ret|__add__|0xfffffffb|ret|__add__|0xfffffffb|ret|__add__|0xfffffffb|ret|__add__|0xfffffffb|ret|__add__|0xfffffffb|ret|__add__|0xfffffffb|ret|__add__|0xfffffffb|ret|__add__|0xfffffffb|ret|__add__|0xfffffffb|ret|__add__|0xfffffffb|ret|__add__|0xfffffffb|ret|__add__|0xfffffffb|ret|__add__|0xfffffffb|ret|__add__|0xfffffffb|ret|__add__|0xfffffffb|ret|__add__|0xfffffffb|ret|__add__|0xfffffffb|ret|__add__|0xfffffffb|ret|__add__|0xfffffffb|ret|__add__|0xfffffffb|ret|__add__|0xfffffffb|ret|__add__|0xfffffffb|ret|__add__|0xfffffffb|ret|__add__|0xfffffffb|ret|__add__|0xfffffffb|ret|__add__|0xfffffffb|ret|__add__|0xfffffffb|ret|__add__|0xfffffffb|ret|__add__|0xfffffffb|ret|__add__|0xfffffffb|ret|__add__|0xfffffffb|ret|__add__|0xfffffffb|ret|0xfffffffffffffffb|>    |<Bool|__eq__|reg|0xfffffffffffffff8|>    "
+                ],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "add_line_number.isra.2"
+}

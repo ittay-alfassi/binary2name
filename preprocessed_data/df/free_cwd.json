@@ -1,0 +1,67 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4237215,
+                "src": 4237200
+            },
+            {
+                "dst": 4237210,
+                "src": 4237200
+            },
+            {
+                "dst": 4202608,
+                "src": 4237215
+            },
+            {
+                "dst": 7340104,
+                "src": 4202608
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 7340104
+            },
+            {
+                "dst": 4237215,
+                "src": 4237210
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4237200,
+                "constraints": [],
+                "instructions": "push|rbx|    |mov|rbx|rdi|    |mov|edi|dword|ptr|rdi|    |test|edi|edi|    |js|target_0|    "
+            },
+            {
+                "block_addr": 4237215,
+                "constraints": [
+                    "<Bool|__eq__|reg|0xffffffff80000000|>    |<Bool|__ne__|LShR|ZeroExt|32|mem_0|0x1f|0|>    "
+                ],
+                "instructions": "mov|rdi|qword|ptr|rbx|+|8|    |pop|rbx|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4202608,
+                "constraints": [],
+                "instructions": "jmp|qword|ptr|rip|+|0x211cba|    "
+            },
+            {
+                "block_addr": 7340104,
+                "constraints": [],
+                "instructions": "add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    |add|byte|ptr|rax|al|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4237210,
+                "constraints": [
+                    "<Bool|__eq__|reg|0xffffffff80000000|>    |<Bool|__eq__|LShR|ZeroExt|32|mem_0|0x1f|0|>    "
+                ],
+                "instructions": "call|0x4022d0|    "
+            }
+        ]
+    },
+    "func_name": "free_cwd"
+}

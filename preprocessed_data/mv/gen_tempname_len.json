@@ -1,0 +1,137 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4257200,
+                "src": 4257088
+            },
+            {
+                "dst": 4257101,
+                "src": 4257088
+            },
+            {
+                "dst": 4257217,
+                "src": 4257200
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4257217
+            },
+            {
+                "dst": 4257144,
+                "src": 4257101
+            },
+            {
+                "dst": 4257106,
+                "src": 4257101
+            },
+            {
+                "dst": 4257161,
+                "src": 4257144
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4257161
+            },
+            {
+                "dst": 4257168,
+                "src": 4257106
+            },
+            {
+                "dst": 4257110,
+                "src": 4257106
+            },
+            {
+                "dst": 4257185,
+                "src": 4257168
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4257185
+            },
+            {
+                "dst": 4257141,
+                "src": 4257110
+            },
+            {
+                "dst": 4257144,
+                "src": 4257141
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4257088,
+                "constraints": [],
+                "instructions": "sub|rsp|0x18|    |cmp|ecx|1|    |mov|dword|ptr|rsp|+|0xc|edx|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4257200,
+                "constraints": [
+                    "<Bool|__eq__|reg|0x1|>    "
+                ],
+                "instructions": "lea|rdx|rsp|+|0xc|    |lea|rcx|rip|-|0x22c|    |call|0x40f3c0|    "
+            },
+            {
+                "block_addr": 4257217,
+                "constraints": [],
+                "instructions": "add|rsp|0x18|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4257101,
+                "constraints": [
+                    "<Bool|__ne__|reg|0x1|>    "
+                ],
+                "instructions": "cmp|ecx|2|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4257144,
+                "constraints": [
+                    "<Bool|__eq__|reg|0x2|>    "
+                ],
+                "instructions": "lea|rdx|rsp|+|0xc|    |lea|rcx|rip|-|0x274|    |call|0x40f3c0|    "
+            },
+            {
+                "block_addr": 4257161,
+                "constraints": [],
+                "instructions": "add|rsp|0x18|    |ret|    "
+            },
+            {
+                "block_addr": 4257106,
+                "constraints": [
+                    "<Bool|__ne__|reg|0x2|>    "
+                ],
+                "instructions": "test|ecx|ecx|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4257168,
+                "constraints": [
+                    "<Bool|__eq__|reg|0x0|>    "
+                ],
+                "instructions": "lea|rdx|rsp|+|0xc|    |lea|rcx|rip|-|0x1fc|    |call|0x40f3c0|    "
+            },
+            {
+                "block_addr": 4257185,
+                "constraints": [],
+                "instructions": "add|rsp|0x18|    |ret|    "
+            },
+            {
+                "block_addr": 4257110,
+                "constraints": [
+                    "<Bool|__ne__|reg|0x0|>    "
+                ],
+                "instructions": "lea|rcx|rip|+|0x7a03|    |lea|rsi|rip|+|0x79c4|    |lea|rdi|rip|+|0x79cd|    |mov|edx|0x147|    |call|0x402820|    "
+            },
+            {
+                "block_addr": 4257141,
+                "constraints": [],
+                "instructions": "nop|dword|ptr|rax|    |lea|rdx|rsp|+|0xc|    |lea|rcx|rip|-|0x274|    |call|0x40f3c0|    "
+            }
+        ]
+    },
+    "func_name": "gen_tempname_len"
+}

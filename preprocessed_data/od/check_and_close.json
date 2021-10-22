@@ -1,0 +1,41 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4211941,
+                "src": 4211856
+            },
+            {
+                "dst": 4211988,
+                "src": 4211941
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4211988
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4211856,
+                "constraints": [],
+                "instructions": "push|rbp|    |push|rbx|    |mov|ebx|1|    |sub|rsp|8|    |mov|rax|qword|ptr|rip|+|0x20bd06|    |test|rax|rax|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4211941,
+                "constraints": [],
+                "instructions": "mov|rax|qword|ptr|rip|+|0x20bbbc|    |test|byte|ptr|rax|0x20|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4211988,
+                "constraints": [],
+                "instructions": "add|rsp|8|    |mov|eax|ebx|    |pop|rbx|    |pop|rbp|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "check_and_close"
+}

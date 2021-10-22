@@ -1,0 +1,50 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4209040,
+                "src": 4209248
+            },
+            {
+                "dst": 4209166,
+                "src": 4209040
+            },
+            {
+                "dst": 4209182,
+                "src": 4209166
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4209182
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4209248,
+                "constraints": [],
+                "instructions": "mov|edx|0x3a|    |jmp|target_0|    "
+            },
+            {
+                "block_addr": 4209040,
+                "constraints": [],
+                "instructions": "sub|rsp|0x48|    |mov|ecx|edx|    |mov|rax|qword|ptr|fs:0x28|    |mov|qword|ptr|rsp|+|0x38|rax|    |xor|eax|eax|    |mov|rax|qword|ptr|rip|+|0x203863|    |mov|reg|rsp|    |and|ecx|0x1f|    |movdqa|xmm|xmmword|ptr|rip|+|0x203825|    |mov|qword|ptr|rsp|+|0x30|rax|    |mov|eax|edx|    |movaps|xmmword|ptr|rsp|xmm|    |shr|al|5|    |movzx|eax|al|    |lea|reg|reg|+|rax*4|+|8|    |movdqa|xmm|xmmword|ptr|rip|+|0x203817|    |movaps|xmmword|ptr|rsp|+|0x10|xmm|    |movdqa|xmm|xmmword|ptr|rip|+|0x20381a|    |movaps|xmmword|ptr|rsp|+|0x20|xmm|    |mov|edx|dword|ptr|reg|    |mov|eax|edx|    |shr|eax|cl|    |not|eax|    |and|eax|1|    |shl|eax|cl|    |mov|rcx|reg|    |xor|eax|edx|    |mov|rdx|rsi|    |mov|rsi|rdi|    |mov|dword|ptr|reg|eax|    |xor|edi|edi|    |call|0x403300|    "
+            },
+            {
+                "block_addr": 4209166,
+                "constraints": [],
+                "instructions": "mov|rsi|qword|ptr|rsp|+|0x38|    |xor|rsi|qword|ptr|fs:0x28|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4209182,
+                "constraints": [],
+                "instructions": "add|rsp|0x48|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "quotearg_colon_mem"
+}

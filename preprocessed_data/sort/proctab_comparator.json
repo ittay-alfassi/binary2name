@@ -1,0 +1,25 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": "loopSeerDum",
+                "src": 4218480
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4218480,
+                "constraints": [],
+                "instructions": "mov|eax|dword|ptr|rsi|+|8|    |cmp|dword|ptr|rdi|+|8|eax|    |sete|al|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0x8|0xffffffffe0000008|>    |<Bool|__eq__|__add__|reg|0x8|0xffffff0000000008|>    "
+                ],
+                "instructions": "no_instructions"
+            }
+        ]
+    },
+    "func_name": "proctab_comparator"
+}

@@ -1,0 +1,61 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4222395,
+                "src": 4222352
+            },
+            {
+                "dst": 4222500,
+                "src": 4222395
+            },
+            {
+                "dst": 4222401,
+                "src": 4222395
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4222500
+            },
+            {
+                "dst": 4222500,
+                "src": 4222401
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4222352,
+                "constraints": [],
+                "instructions": "push|reg|    |push|reg|    |mov|reg|rsi|    |push|rbp|    |push|rbx|    |shl|reg|4|    |mov|rbp|rsi|    |mov|regd|edx|    |mov|rbx|rdi|    |sub|rsp|8|    |mov|rax|qword|ptr|rdi|    |mov|rsi|qword|ptr|rax|+|reg|    |mov|rdx|qword|ptr|rax|+|reg|+|8|    |call|0x406bc0|    "
+            },
+            {
+                "block_addr": 4222395,
+                "constraints": [
+                    "<Bool|__eq__|reg|0xffffffffffff0000|>    |<Bool|__eq__|__add__|mem_0|__lshift__|reg|0x4|0x0|>    "
+                ],
+                "instructions": "cmp|rax|-1|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4222500,
+                "constraints": [
+                    "<Bool|__eq__|__add__|__lshift__|ret|0x4|mem_0|0x8|0xfffffffffff00008|>    |<Bool|__eq__|__add__|__lshift__|ret|0x4|mem_0|0xa|0xfffffffffff0000a|>    |<Bool|__eq__|__add__|mem_5|__lshift__|ret|0x3|0xffffffffffffffff|>    ",
+                    "<Bool|__eq__|ret|0xffffffffffffffff|>    "
+                ],
+                "instructions": "add|rsp|8|    |pop|rbx|    |pop|rbp|    |pop|reg|    |pop|reg|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4222401,
+                "constraints": [
+                    "<Bool|__ne__|ret|0xffffffffffffffff|>    "
+                ],
+                "instructions": "mov|edi|regd|    |mov|reg|qword|ptr|rbx|    |mov|rsi|rax|    |and|di|0x3ff|    |shl|rsi|4|    |mov|ecx|edi|    |and|ecx|0x3ff|    |add|rsi|reg|    |shl|ecx|8|    |mov|edx|ecx|    |mov|ecx|dword|ptr|rsi|+|8|    |and|ecx|0xfffc00ff|    |or|ecx|edx|    |mov|dword|ptr|rsi|+|8|ecx|    |mov|edx|dword|ptr|reg|+|reg|+|8|    |and|ecx|0xfffc00ff|    |shr|edx|8|    |or|edx|edi|    |and|edx|0x3ff|    |shl|edx|8|    |or|edx|ecx|    |mov|ecx|edx|    |mov|dword|ptr|rsi|+|8|edx|    |shr|ecx|0x10|    |mov|edx|ecx|    |or|edx|4|    |mov|byte|ptr|rsi|+|0xa|dl|    |mov|rdx|qword|ptr|rbx|+|0x20|    |mov|qword|ptr|rdx|+|rax*8|rbp|    |add|rsp|8|    |pop|rbx|    |pop|rbp|    |pop|reg|    |pop|reg|    |ret|    "
+            }
+        ]
+    },
+    "func_name": "duplicate_node"
+}

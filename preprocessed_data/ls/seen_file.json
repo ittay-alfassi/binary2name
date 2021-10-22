@@ -1,0 +1,69 @@
+{
+    "GNN_DATA": {
+        "edges": [
+            {
+                "dst": 4247196,
+                "src": 4247136
+            },
+            {
+                "dst": 4247161,
+                "src": 4247136
+            },
+            {
+                "dst": 4247212,
+                "src": 4247196
+            },
+            {
+                "dst": "loopSeerDum",
+                "src": 4247212
+            },
+            {
+                "dst": 4247190,
+                "src": 4247161
+            },
+            {
+                "dst": 4247196,
+                "src": 4247190
+            }
+        ],
+        "nodes": [
+            {
+                "block_addr": 4247136,
+                "constraints": [],
+                "instructions": "sub|rsp|0x28|    |mov|rax|qword|ptr|fs:0x28|    |mov|qword|ptr|rsp|+|0x18|rax|    |xor|eax|eax|    |test|rdi|rdi|    |je|target_0|    "
+            },
+            {
+                "block_addr": 4247196,
+                "constraints": [
+                    "<Bool|__eq__|reg|0x0|>    "
+                ],
+                "instructions": "mov|rcx|qword|ptr|rsp|+|0x18|    |xor|rcx|qword|ptr|fs:0x28|    |jne|target_0|    "
+            },
+            {
+                "block_addr": 4247212,
+                "constraints": [],
+                "instructions": "add|rsp|0x28|    |ret|    "
+            },
+            {
+                "block_addr": "loopSeerDum",
+                "constraints": [],
+                "instructions": "no_instructions"
+            },
+            {
+                "block_addr": 4247161,
+                "constraints": [
+                    "<Bool|__ne__|reg|0x0|>    "
+                ],
+                "instructions": "mov|rax|qword|ptr|rdx|+|8|    |mov|qword|ptr|rsp|rsi|    |mov|rsi|rsp|    |mov|qword|ptr|rsp|+|8|rax|    |mov|rax|qword|ptr|rdx|    |mov|qword|ptr|rsp|+|0x10|rax|    |call|0x40dd40|    "
+            },
+            {
+                "block_addr": 4247190,
+                "constraints": [
+                    "<Bool|__eq__|__add__|reg|0x8|0xffffffffffffff08|>    "
+                ],
+                "instructions": "test|rax|rax|    |setne|al|    |mov|rcx|qword|ptr|rsp|+|0x18|    |xor|rcx|qword|ptr|fs:0x28|    |jne|target_0|    "
+            }
+        ]
+    },
+    "func_name": "seen_file"
+}
