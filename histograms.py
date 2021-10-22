@@ -43,18 +43,20 @@ def get_all_filenames(base_path: str):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--base_dir', type=str, required=True)
+    parser.add_argument('--hist_dir', type=str, required=True)
     args = parser.parse_args()
     filenames = get_all_filenames(args.base_dir)
     for filename in filenames:
+        if os.stat(filename).st_size == 0:
+            continue
         with open(filename) as f:
             file_dict = json.load(f)
             register_tokens(file_dict)
 
-    res_path = os.path.join(args.base_dir, 'res')
-    if not os.path.exists(res_path):
-        os.mkdir(res_path)
-    with open(os.path.join(args.base_dir, 'res/bbl_hist.json'), 'w') as f:
+    if not os.path.exists(args.hist_dir):
+        os.mkdir(args.hist_dir)
+    with open(os.path.join(args.hist_dir, 'bbl_hist.json'), 'w') as f:
         json.dump(BBL_HISTOGRAM, f, indent=4, sort_keys=True)
 
-    with open(os.path.join(args.base_dir, 'res/constraint_hist.json'), 'w') as f:
+    with open(os.path.join(args.hist_dir, 'constraint_hist.json'), 'w') as f:
         json.dump(CONSTRAINT_HISTOGRAM, f, indent=4, sort_keys=True)
