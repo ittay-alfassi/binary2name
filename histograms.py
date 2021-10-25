@@ -45,7 +45,7 @@ if __name__ == '__main__':
     parser.add_argument('--base_dir', type=str, required=True)
     parser.add_argument('--hist_dir', type=str, required=True)
     args = parser.parse_args()
-    filenames = get_all_filenames(args.base_dir)
+    filenames = get_all_filenames('preprocessed_data/' + args.base_dir)
     for filename in filenames:
         if os.stat(filename).st_size == 0:
             continue
@@ -55,8 +55,8 @@ if __name__ == '__main__':
 
     if not os.path.exists(args.hist_dir):
         os.mkdir(args.hist_dir)
-    with open(os.path.join(args.hist_dir, 'bbl_hist.json'), 'w') as f:
+    with open(os.path.join(args.hist_dir, args.base_dir + '/bbl_hist.json'), 'w') as f:
         json.dump(BBL_HISTOGRAM, f, indent=4, sort_keys=True)
 
-    with open(os.path.join(args.hist_dir, 'constraint_hist.json'), 'w') as f:
+    with open(os.path.join(args.hist_dir, args.base_dir + '/constraint_hist.json'), 'w') as f:
         json.dump(CONSTRAINT_HISTOGRAM, f, indent=4, sort_keys=True)
