@@ -18,7 +18,7 @@ def is_entry_junk(entry: str):
     return entry == 'no_instructions'
 
 
-def register_tokens(graph_json: dict):
+def register_tokens(graph_json: dict, file_name: str):
     # Add the node data
     nodes = graph_json['GNN_DATA']['nodes']
     for node in nodes:
@@ -27,6 +27,8 @@ def register_tokens(graph_json: dict):
         if 'constraints' in node:
             for constraint in node['constraints']:
                 add_to_hist(CONSTRAINT_HISTOGRAM, constraint)
+                if len(constraint) > 1000:
+                    print('look out, really big constraint in:', file_name)
 
 
 def get_all_filenames(base_path: str):
@@ -51,12 +53,21 @@ if __name__ == '__main__':
             continue
         with open(filename) as f:
             file_dict = json.load(f)
-            register_tokens(file_dict)
+            register_tokens(file_dict, filename)
 
-    if not os.path.exists(args.hist_dir):
-        os.mkdir(args.hist_dir)
-    with open(os.path.join(args.hist_dir, args.base_dir + '/bbl_hist.json'), 'w') as f:
+    real_hist_dir = 'preprocessed_histograms/' + args.hist_dir
+    if not os.path.exists(real_hist_dir):
+        os.mkdir(real_hist_dir)
+    with open(os.path.join(real_hist_dir, 'bbl_hist.json'), 'w') as f:
         json.dump(BBL_HISTOGRAM, f, indent=4, sort_keys=True)
 
-    with open(os.path.join(args.hist_dir, args.base_dir + '/constraint_hist.json'), 'w') as f:
+    with open(os.path.join(real_hist_dir, 'constraint_hist.json'), 'w') as f:
         json.dump(CONSTRAINT_HISTOGRAM, f, indent=4, sort_keys=True)
+'''  
+TODO: need to separate constraints. the way to parse it is <cons1> <cons2>...
+need to be careful of < and | switching places, for example |<BOOL...
+the right way is < |BOOL
+also remove spaces, its inconsistent
+lastly check why some constraints contain the token <...>
+its uninformative and harmful
+'''
