@@ -94,38 +94,54 @@ def gen_new_name(old_name):
 def varify_constraints(constraints, variable_map=None, counters=None, max_depth=8):
     """
     abstract away constants from the constraints
+    @param constraints is raw constraints from angr (eg. node.recent_constraints)
     """
     #counters = {'mem': itertools.count(), 'ret': itertools.count()} if counters is None else counters
     variable_map = {} if variable_map is None else variable_map  # Variable map contains a mapping between old and new variable names
-    new_constraints = []
+    new_constraints = []  # constraints after name changed and simplified
     variable_map['Extract'] = ""
 
-    m = None
+    m = None  # m used as counter / holder for number added to "mem" variables.
     for constraint in constraints:
-        if constraint.concrete:
+        if constraint.concrete:  # need to figure out what concrete means.
             continue
-        for variable in constraint.leaf_asts():
-            if variable.op in { 'BVS', 'BoolS', 'FPS' }:  # Generate new name
+        for variable in constraint.leaf_asts():  # returns iterator over the leafs of the AST
+            if variable.op in { 'BVS', 'BoolS', 'FPS' }:  # Generate new name if variable op needs it
                 new_name = gen_new_name(variable.args[0])
                 if re.match(r"mem", new_name):
                     if m is None :
                         m = int(new_name.split('_')[1])
                     else:
                         m = min(m,int(new_name.split('_')[1]))
-                variable_map[variable.cache_key] = variable._rename(new_name)
+                variable_map[variable.cache_key] = variable._rename(new_name)  # prepearing variable_map for name swapping in the line 117
+        '''
+            converting constraint to string after renaming all the necessary vars with the variable_map we build along the way.
+            look into constraint_to_str to understand further simplifying done in there too.
+            max depth is the maximum fold of the ast (consider enlarging)
+        '''
         new_constraints.append(constraint_to_str(constraint.replace_dict(variable_map), max_depth=max_depth))
-    final_constraints = []
-    if m is not None:
-        for constraint in new_constraints :  # Do something weird with memory renaming
-            split = constraint.split("|")
-            for i,s in enumerate(split):
+    
+
+    final_constraints = []  # initializing new list of even further simplified constraints.
+    if m is not None:  # meaning we found a variable inside a constraint that accessed memory
+        for constraint in new_constraints :  # iterate over already simplified constraints
+            split = constraint.split("|")  # split to tokens
+            for i,s in enumerate(split):  # enumerating tokens (WHY?)
                 if re.match(r"mem", s):
                     new_s = 'mem_%d' % (int(s.split('_')[1]) -m)
                     constraint = constraint.replace(s,new_s)
             final_constraints.append(constraint)
+    # basically we iterate over all the constraints including the phrase mem_%NUM% and normalize the number to start from 0.
     else:
         final_constraints = new_constraints
-    return variable_map, final_constraints
+    return variable_map, final_constraints  # return simplified constraints and variable map for further use.
+    '''
+    notes:
+    1. using variable_map correctly here is crucial. or else all the memory counters wouldn't be synchronized and we will get garbage insterted into the system
+    and worse then that, we can get two simplified names to the same variable!! (VERY BAD) 
+    2. need to understand if keeping all constraints raw is really the right thing or not.
+    3. if constructing the method from 0, need to think about how it will affect the calls to it (considering right use of variable_map in older calls)
+    '''
 
 
 
