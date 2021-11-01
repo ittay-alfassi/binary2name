@@ -114,7 +114,7 @@ def varify_constraints(constraints, variable_map=None, counters=None, max_depth=
                         m = int(new_name.split('_')[1])
                     else:
                         m = min(m,int(new_name.split('_')[1]))
-                variable_map[variable.cache_key] = variable._rename(new_name)  # preparing variable_map for name swapping in the line 117
+                variable_map[variable.cache_key] = variable._rename(new_name)  # preparing variable_map for name swapping in the line 123
         '''
             converting constraint to string after renaming all the necessary vars with the variable_map we build along the way.
             look into constraint_to_str to understand further simplifying done in there too.
@@ -192,7 +192,7 @@ def analyze_binary(analyzed_funcs, binary_name, dataset_dir, usable_functions): 
         analyzed_funcs.add(test_func.name)
         try:
             sm: angr.sim_manager.SimulationManager = analyze_func(proj, test_func, cfg)
-            sm_to_output(sm, output, test_func.name)
+            sm_to_graph(sm, output, test_func.name)
         except Exception as e:
             logging.error(str(e))
             logging.error(f"got an error while analyzing {test_func.name}")
@@ -226,16 +226,6 @@ def find_target_constants(line):
 
 
 def sm_to_output(sm: angr.sim_manager.SimulationManager, output_file, func_name):
-    # TESTING! calling our graph generation
-
-    sm_to_graph(sm, output_file, func_name)
-    ''' finding cool examples code:
-    if(len(res.vertices.keys()) > 10 and res.worth_looking_at(4)):
-        print(res)
-    '''
-    # TESTING! ending call
-    return
-
 
     counters = {'mem': itertools.count(), 'ret': itertools.count()}
     variable_map = {}
@@ -335,7 +325,7 @@ def sm_to_graph(sm: angr.sim_manager.SimulationManager, output_file, func_name):
     for path in all_paths:
         prev = root
         for i in range(1, len(path)):
-            variable_map, constraint_list = varify_constraints(path[i][1], variable_map)
+            variable_map, constraint_list = varify_constraints_raw(path[i][1], variable_map)
             if type(path[i][0]) == str:
                 dst = Vertex(path[i][0], "no_instructions", ["|".join(constraint_list)])
             else:
