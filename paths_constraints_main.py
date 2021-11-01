@@ -317,7 +317,6 @@ def sm_to_graph(sm: angr.sim_manager.SimulationManager, output_file, func_name):
 
     root = Vertex(initial_node[0], address_to_content(proj, initial_node[0]))
     sym_graph = SymGraph(root, func_name)
-    variable_map = {}
 
     # In each iteration, add a new constrainted vertex to the graph and connect it to the previous vertex.
     # In the SymGraph, vertex addition handles multiple constraint options and adds an OR relation.
@@ -325,7 +324,7 @@ def sm_to_graph(sm: angr.sim_manager.SimulationManager, output_file, func_name):
     for path in all_paths:
         prev = root
         for i in range(1, len(path)):
-            variable_map, constraint_list = varify_constraints_raw(path[i][1], variable_map)
+            constraint_list = varify_constraints_raw(path[i][1])
             if type(path[i][0]) == str:
                 dst = Vertex(path[i][0], "no_instructions", ["|".join(constraint_list)])
             else:
