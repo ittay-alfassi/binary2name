@@ -1,5 +1,5 @@
 import json
-from typing import Dict
+from typing import Dict, List
 import argparse
 import os
 
@@ -18,6 +18,10 @@ def is_entry_junk(entry: str):
     return entry == 'no_instructions'
 
 
+def filter_constraint(constraint: str) -> List[str]:
+    return list(map(lambda x: x.strip(), constraint.split('    |')))
+
+
 def register_tokens(graph_json: dict, file_name: str):
     # Add the node data
     nodes = graph_json['GNN_DATA']['nodes']
@@ -26,9 +30,11 @@ def register_tokens(graph_json: dict, file_name: str):
             add_to_hist(BBL_HISTOGRAM, node['instructions'])
         if 'constraints' in node:
             for constraint in node['constraints']:
-                add_to_hist(CONSTRAINT_HISTOGRAM, constraint)
-                if len(constraint) > 1000:
-                    print('look out, really big constraint in:', file_name)
+                filtered_cons = filter_constraint(constraint)
+                for con in filtered_cons:
+                    add_to_hist(CONSTRAINT_HISTOGRAM, con)
+                    if len(con) > 1000:
+                        print('look out, really big constraint in:', file_name)
 
 
 def get_all_filenames(base_path: str):
