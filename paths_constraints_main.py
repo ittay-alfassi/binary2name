@@ -11,6 +11,7 @@ import json
 import argparse
 import itertools
 from glob import glob
+from multiprocessing import Process
 
 bases_dict = dict()
 replacement_dict = dict()
@@ -105,7 +106,7 @@ def varify_constraints(constraints, variable_map=None, counters=None, max_depth=
     for constraint in constraints:
         if constraint.concrete:  # need to figure out what concrete means.
             continue
-        for variable in constraint.leaf_asts():  # returns iterator over the leafs of the AST
+        for variable in constraint.leaf_asts():  # returns iterator over the leaves of the AST
             if variable.op in { 'BVS', 'BoolS', 'FPS' }:  # Generate new name if variable op needs it
                 new_name = gen_new_name(variable.args[0])
                 if re.match(r"mem", new_name):
@@ -113,14 +114,13 @@ def varify_constraints(constraints, variable_map=None, counters=None, max_depth=
                         m = int(new_name.split('_')[1])
                     else:
                         m = min(m,int(new_name.split('_')[1]))
-                variable_map[variable.cache_key] = variable._rename(new_name)  # prepearing variable_map for name swapping in the line 117
+                variable_map[variable.cache_key] = variable._rename(new_name)  # preparing variable_map for name swapping in the line 117
         '''
             converting constraint to string after renaming all the necessary vars with the variable_map we build along the way.
             look into constraint_to_str to understand further simplifying done in there too.
             max depth is the maximum fold of the ast (consider enlarging)
         '''
         new_constraints.append(constraint_to_str(constraint.replace_dict(variable_map), max_depth=max_depth))
-    
 
     final_constraints = []  # initializing new list of even further simplified constraints.
     if m is not None:  # meaning we found a variable inside a constraint that accessed memory
@@ -144,35 +144,39 @@ def varify_constraints(constraints, variable_map=None, counters=None, max_depth=
     '''
 
 
-
 # Remove the Numbers from the function names + tokenize the function name.
 def tokenize_function_name(function_name):
     name = "".join([i for i in function_name if not i.isdigit()])
     return "|".join(name.split("_"))
 
 
-
-def generate_dataset(train_binaries, output_name, dataset_name): #keep
+def generate_dataset(train_binaries, output_name, dataset_name):  # keep
     
-    usable_functions_file = open("our_dataset/"+ dataset_name + "/usable_functions_names.txt", "r")
+    usable_functions_file = open("our_dataset/" + dataset_name + "/usable_functions_names.txt", "r")
     usable_functions = [name.strip() for name in usable_functions_file]
     output_dir = f"preprocessed_data/{output_name}"
     os.makedirs(output_dir, exist_ok=True)
     analyzed_funcs = get_analyzed_funcs(output_dir)
+    # create and run all processes
+    proc_list = []
     for binary in train_binaries:
-        analyzed_funcs = analyze_binary(analyzed_funcs, binary, output_dir, usable_functions)
+        new_proc = Process(target=analyze_binary, args=(analyzed_funcs, binary, output_dir, usable_functions))
+        proc_list.append(new_proc)
+        new_proc.start()
+
+    for proc in proc_list:
+        proc.join()
 
 
-def analyze_binary(analyzed_funcs, binary_name, dataset_dir, usable_functions): #keep
+def analyze_binary(analyzed_funcs, binary_name, dataset_dir, usable_functions):  # keep
     excluded = {'main', 'usage', 'exit'}.union(analyzed_funcs)
     proj = angr.Project(binary_name, auto_load_libs=False)
     cfg = proj.analyses.CFGFast()  # cfg is the ACTUAL control-flow graph
 
-    #REMOVE THIS
+    # REMOVE THIS
     # print(cfg.graph.nodes())
     # print(cfg.graph.edges())
-    #REMOVE THIS
-
+    # REMOVE THIS
 
     binary_name = os.path.basename(binary_name)
     binary_dir = os.path.join(dataset_dir, f"{binary_name}")
@@ -196,7 +200,6 @@ def analyze_binary(analyzed_funcs, binary_name, dataset_dir, usable_functions): 
     return analyzed_funcs
 
 
-
 def get_analyzed_funcs(dataset_path): #keep
     binaries = os.scandir(dataset_path)
     analyzed_funcs = set()
@@ -205,6 +208,7 @@ def get_analyzed_funcs(dataset_path): #keep
         analyzed_funcs.update(map(lambda x: x[:-len(".pkl")] if x.endswith(".pkl") else x, map(os.path.basename, funcs)))
 
     return analyzed_funcs
+
 
 def find_target_constants(line):
     targets_mapper = dict()
@@ -220,15 +224,16 @@ def find_target_constants(line):
                 line = line.replace(target, replacement)
     return line
 
-def sm_to_output(sm: angr.sim_manager.SimulationManager, output_file, func_name):
-    #TESTING! calling our graph generation
 
-    res = sm_to_graph(sm, output_file, func_name)
+def sm_to_output(sm: angr.sim_manager.SimulationManager, output_file, func_name):
+    # TESTING! calling our graph generation
+
+    sm_to_graph(sm, output_file, func_name)
     ''' finding cool examples code:
     if(len(res.vertices.keys()) > 10 and res.worth_looking_at(4)):
         print(res)
     '''
-    #TESTING! ending call
+    # TESTING! ending call
     return
 
 
@@ -281,10 +286,12 @@ def varify_constraints_raw(constraints) -> List[str]:
     
     return new_constraints
 
+
 def address_to_content_raw(proj: angr.project.Project, baddr: int):
     full_block = proj.factory.block(baddr)
     raw_instructions = block_to_ins(full_block)
     return raw_instructions
+
 
 def address_to_content(proj: angr.project.Project, baddr: int):
     raw_instructions = address_to_content_raw(proj, baddr)
@@ -295,31 +302,29 @@ def address_to_content(proj: angr.project.Project, baddr: int):
     return instructions
 
 
-
 def sm_to_graph(sm: angr.sim_manager.SimulationManager, output_file, func_name):
     proj = sm._project
     final_states_lists = filter(None, sm.stashes.values())
 
-    #TODO: make sure you want to treat the "deadended" and "spinning" states the same way
+    # TODO: make sure you want to treat the "deadended" and "spinning" states the same way
     final_states = [item for sublist in final_states_lists for item in sublist]
-    assert(final_states is not []) #assert that final states list is not empty else we dont have what to work with
+    assert(final_states is not []) # assert that final states list is not empty else we dont have what to work with
     # compose all routs backtracking from final to initial
     all_paths = []
     for state in final_states:
         current_node = state.history
         state_path = [("loopSeerDum", current_node.recent_constraints)]
-        while current_node.addr != None:
-            state_path.insert(0,(current_node.addr, (current_node.parent.recent_constraints if current_node.parent else [])))
+        while current_node.addr is not None:
+            state_path.insert(0, (current_node.addr, (current_node.parent.recent_constraints if current_node.parent else [])))
             current_node = current_node.parent
         all_paths.append(state_path)
 
     # find the root and assert it is equal for all
     initial_node = all_paths[0][0]
     for path in all_paths:
-        assert(path[0][0] == initial_node[0]) # WARNING: very redundent, only checking adress
-        assert(path[0][1] == []) # assert all root's contain no constraints as expected
+        assert(path[0][0] == initial_node[0])  # WARNING: very redundent, only checking adress
+        assert(path[0][1] == [])  # assert all root's contain no constraints as expected
 
-    
     root = Vertex(initial_node[0], address_to_content(proj, initial_node[0]))
     sym_graph = SymGraph(root, func_name)
     variable_map = {}
@@ -356,9 +361,9 @@ def main():
     parser.add_argument("--dataset", type=str, required=True)
     parser.add_argument("--output", type=str, required=True)
     args = parser.parse_args()
-    binaries = os.listdir("our_dataset/"+ args.dataset)
+    binaries = os.listdir("our_dataset/" + args.dataset)
     binaries.sort()
-    binaries = [f"our_dataset/" + args.dataset+ f"/{binary}" for binary in binaries]
+    binaries = [f"our_dataset/" + args.dataset + f"/{binary}" for binary in binaries]
     generate_dataset([binaries[args.binary_idx]], args.output, args.dataset)
 
 
