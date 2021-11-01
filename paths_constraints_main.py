@@ -1,5 +1,5 @@
 from sym_graph import *
-from typing import Dict, Any
+from typing import Dict, Any, List
 
 import angr
 import os
@@ -70,7 +70,7 @@ def remove_consecutive_pipes(s1):
 
 
 # TODO: CONSTANT OR CONSTRAINT?
-def constraint_to_str(con, replace_strs=[', ', ' ', '(', ')'], max_depth=8):
+def constraint_to_str(con, replace_strs=[', ', ' ', '(', ')'], max_depth=100):
     repr = con.shallow_repr(max_depth=max_depth, details=con.MID_REPR).replace('{UNINITIALIZED}', '')
     repr=re.sub("Extract\([0-9]+\, [0-9]+\,","",repr)
     for r_str in replace_strs:
@@ -91,14 +91,12 @@ def gen_new_name(old_name):
     return old_name
 
 
-# TODO: CONSTANT OR CONSTRAINT?
-# OH GOD.
 def varify_constraints(constraints, variable_map=None, counters=None, max_depth=8):
     """
     abstract away constants from the constraints
     """
     #counters = {'mem': itertools.count(), 'ret': itertools.count()} if counters is None else counters
-    variable_map = {} if variable_map is None else variable_map
+    variable_map = {} if variable_map is None else variable_map  # Variable map contains a mapping between old and new variable names
     new_constraints = []
     variable_map['Extract'] = ""
 
@@ -107,7 +105,7 @@ def varify_constraints(constraints, variable_map=None, counters=None, max_depth=
         if constraint.concrete:
             continue
         for variable in constraint.leaf_asts():
-            if variable.op in { 'BVS', 'BoolS', 'FPS' }:
+            if variable.op in { 'BVS', 'BoolS', 'FPS' }:  # Generate new name
                 new_name = gen_new_name(variable.args[0])
                 if re.match(r"mem", new_name):
                     if m is None :
@@ -118,7 +116,7 @@ def varify_constraints(constraints, variable_map=None, counters=None, max_depth=
         new_constraints.append(constraint_to_str(constraint.replace_dict(variable_map), max_depth=max_depth))
     final_constraints = []
     if m is not None:
-        for constraint in new_constraints :
+        for constraint in new_constraints :  # Do something weird with memory renaming
             split = constraint.split("|")
             for i,s in enumerate(split):
                 if re.match(r"mem", s):
@@ -131,7 +129,7 @@ def varify_constraints(constraints, variable_map=None, counters=None, max_depth=
 
 
 
-#remove the Numbers from the function names + tokenize the function name.
+# Remove the Numbers from the function names + tokenize the function name.
 def tokenize_function_name(function_name):
     name = "".join([i for i in function_name if not i.isdigit()])
     return "|".join(name.split("_"))
@@ -254,9 +252,26 @@ def sm_to_output(sm: angr.sim_manager.SimulationManager, output_file, func_name)
 
 #--------------------- ITTAY AND ITAMAR'S CODE---------------------#
 
-def address_to_content(proj: angr.project.Project, baddr: int):
+
+def varify_constraints_raw(constraints) -> List[str]:
+    """
+    Performs minimal parsing of the constraints into a string.
+    """
+    new_constraints = []
+    for constraint in constraints:
+        if constraint.concrete:
+            continue
+        new_constraints.append(constraint_to_str(constraint, replace_strs=[]))
+    
+    return new_constraints
+
+def address_to_content_raw(proj: angr.project.Project, baddr: int):
     full_block = proj.factory.block(baddr)
     raw_instructions = block_to_ins(full_block)
+    return raw_instructions
+
+def address_to_content(proj: angr.project.Project, baddr: int):
+    raw_instructions = address_to_content_raw(proj, baddr)
     instructions = re.sub("r[0-9]+", "reg", raw_instructions)
     instructions = re.sub("r[0-9]+", "reg", instructions)
     instructions = re.sub("xmm[0-9]+", "xmm", instructions)
@@ -303,7 +318,7 @@ def sm_to_graph(sm: angr.sim_manager.SimulationManager, output_file, func_name):
             if type(path[i][0]) == str:
                 dst = Vertex(path[i][0], "no_instructions", ["|".join(constraint_list)])
             else:
-                dst = Vertex(path[i][0], address_to_content(proj, path[i][0]), ["|".join(constraint_list)])
+                dst = Vertex(path[i][0], address_to_content_raw(proj, path[i][0]), ["|".join(constraint_list)])
             sym_graph.addVertex(dst)
             edge = Edge(prev.baddr, dst.baddr)
             sym_graph.addEdge(edge)
