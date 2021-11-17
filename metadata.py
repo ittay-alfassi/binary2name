@@ -1,3 +1,12 @@
+import re
+
+
+def calc_token_number(constraint: str) -> int:
+    dirty_tokens = re.split(',|\||\(|\)|<|>', constraint)
+    clean_tokens = list(filter(None, dirty_tokens))
+    return len(clean_tokens)
+
+
 def get_instruction_count(block_dict: dict, delim="    ") -> int:
     assert "instructions" in block_dict
     return len(list(filter(None, block_dict["instructions"].split(delim))))
@@ -27,7 +36,7 @@ def get_constraint_len(block_dict: dict, delim="   ") -> int:
     if isinstance(constraints[0], str):  # Support old version, in which every path is represented at as a string.
         constraints = [list(filter(None, con.split(delim))) for con in constraints]
 
-    lengths = [[len(con) for con in con_list] for con_list in constraints]
+    lengths = [[calc_token_number(con) for con in con_list] for con_list in constraints]
     lengths = [sum(length) for length in lengths]
     return sum(lengths)
 
