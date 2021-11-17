@@ -2,7 +2,7 @@ import json
 from typing import Dict, List
 import argparse
 import os
-from metadata import *
+from metadata import calc_constraint_stats
 
 BBL_HISTOGRAM = {}
 CONSTRAINT_HISTOGRAM = {}
@@ -27,7 +27,7 @@ def filter_constraint(constraint: str) -> List[str]:
     return list(map(lambda x: x.strip(), constraint.split('    |')))
 
 
-def register_tokens(graph_json: dict, file_name: str):
+def register_tokens(graph_json: dict):
     # Add the node data
     nodes = graph_json['GNN_DATA']['nodes']
     for node in nodes:
@@ -45,8 +45,8 @@ def get_all_filenames(base_path: str):
     dirs = map(lambda x: os.path.join(base_path, x), os.listdir(base_path))
     dirs = filter(os.path.isdir, dirs)
 
-    for d in dirs:
-        res += list(map(lambda x: os.path.join(d, x), os.listdir(d)))
+    for my_dir in dirs:
+        res += list(map(lambda x: os.path.join(my_dir, x), os.listdir(my_dir)))
 
     return res
 
@@ -71,36 +71,35 @@ def main():
     for filename in filenames:
         if os.stat(filename).st_size == 0:
             continue
-        with open(filename) as f:
-            file_dict = json.load(f)
-            register_tokens(file_dict, filename)
+        with open(filename) as file:
+            file_dict = json.load(file)
+            register_tokens(file_dict)
             calc_total_stats(file_dict['GNN_DATA'], filename)
 
     real_hist_dir = 'preprocessed_histograms/' + args.hist_dir
     if not os.path.exists(real_hist_dir):
         os.mkdir(real_hist_dir)
 
-    with open(os.path.join(real_hist_dir, 'bbl_hist.json'), 'w') as f:
-        json.dump(BBL_HISTOGRAM, f, indent=4, sort_keys=True)
+    with open(os.path.join(real_hist_dir, 'bbl_hist.json'), 'w') as file:
+        json.dump(BBL_HISTOGRAM, file, indent=4, sort_keys=True)
 
-    with open(os.path.join(real_hist_dir, 'constraint_hist.json'), 'w') as f:
-        json.dump(CONSTRAINT_HISTOGRAM, f, indent=4, sort_keys=True)
+    with open(os.path.join(real_hist_dir, 'constraint_hist.json'), 'w') as file:
+        json.dump(CONSTRAINT_HISTOGRAM, file, indent=4, sort_keys=True)
 
-    with open(os.path.join(real_hist_dir, 'dataset_hist.json'), 'w') as f:
+    with open(os.path.join(real_hist_dir, 'dataset_hist.json'), 'w') as file:
         data_dict = {'total_node_number': TOTAL_NODE_NUMBER, 'total_constraint_number': TOTAL_CONSTRAINT_NUM,
                      'total_constraint_len': TOTAL_CONSTRAINT_LEN, 'constraint_num_per_node': TOTAL_CONSTRAINT_NUM / TOTAL_NODE_NUMBER,
                      'constraint_len_per_node': TOTAL_CONSTRAINT_LEN / TOTAL_NODE_NUMBER}
-        json.dump(data_dict, f, indent=4, sort_keys=True)
+        json.dump(data_dict, file, indent=4, sort_keys=True)
 
-    with open(os.path.join(real_hist_dir, 'per_file_hist.json'), 'w') as f:
-        json.dump(TOTAL_STATS_HISTOGRAM, f, indent=4, sort_keys=True)
-'''  
-TODO: need to separate constraints. the way to parse it is <cons1> <cons2>...
-need to be careful of < and | switching places, for example |<BOOL...
-the right way is < |BOOL
-also remove spaces, its inconsistent
-lastly check why some constraints contain the token <...>
-its uninformative and harmful
+    with open(os.path.join(real_hist_dir, 'per_file_hist.json'), 'w') as file:
+        json.dump(TOTAL_STATS_HISTOGRAM, file, indent=4, sort_keys=True)
+
+'''
+TODO: instead of checking for length of string, need to check token amount
+need to calculate for node amount in file, and constrain amount per node:
+max min and deviation in terms of. When talking about constraints, 2 constraints per node
+how much % are there files that match that.
 '''
 
 if __name__ == '__main__':
