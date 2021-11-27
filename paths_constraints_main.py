@@ -167,6 +167,14 @@ def generate_dataset(train_binaries, output_name, dataset_name):  # keep
     for proc in proc_list:
         proc.join()
 
+def generate_dataset_serial(train_binaries, output_name, dataset_name):
+    usable_functions_file = open("our_dataset/" + dataset_name + "/usable_functions_names.txt", "r")
+    usable_functions = [name.strip() for name in usable_functions_file]
+    output_dir = f"preprocessed_data/{output_name}"
+    os.makedirs(output_dir, exist_ok=True)
+    analyzed_funcs = get_analyzed_funcs(output_dir)
+    for binary in train_binaries:
+        analyze_binary(analyzed_funcs, binary, output_dir, usable_functions)
 
 def analyze_binary(analyzed_funcs, binary_name, dataset_dir, usable_functions):  # keep
     excluded = {'main', 'usage', 'exit'}.union(analyzed_funcs)
@@ -352,7 +360,8 @@ def main():
     args = parser.parse_args()
     binaries = os.listdir("our_dataset/" + args.dataset)
     binaries.sort()
-    binaries = [f"our_dataset/" + args.dataset + f"/{binary}" for binary in binaries]
+    binaries = [f"our_dataset/{args.dataset}/{binary}" for binary in binaries]
+    # generate_dataset([binaries[args.binary_idx]], args.output, args.dataset)
     generate_dataset([binaries[args.binary_idx]], args.output, args.dataset)
 
 
