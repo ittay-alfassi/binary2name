@@ -1,9 +1,12 @@
 from sym_graph import *
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Callable, Set
 
-import angr
+
+from angr import Project
+from angr.exploration_techniques.loop_seer import LoopSeer
+from angr.block import Block
+from angr.sim_manager import SimulationManager
 import os
-import pickle
 import re
 import time
 import logging
@@ -11,7 +14,6 @@ import json
 import argparse
 import itertools
 from glob import glob
-from multiprocessing import Process
 
 bases_dict = dict()
 replacement_dict = dict()
@@ -36,7 +38,8 @@ def analyze_func(proj, bin_func, cfg):
         'CALLLESS': True, 'NO_SYMBOLIC_SYSCALL_RESOLUTION': True
     })
     sm = proj.factory.simulation_manager(call_state)  # Creates a simulation manager, ready to start from the specific function
-    sm.use_technique(angr.exploration_techniques.LoopSeer(cfg=cfg, bound=2))
+    sm.use_technique(LoopSeer(cfg=cfg, bound=2))
+    
     global start_time
     start_time = time.time()
     sm.run(until=time_limit_check)
@@ -53,7 +56,7 @@ def get_cfg_funcs(proj, binary, excluded):
                               proj.kb.functions.values()]))
 
 
-def block_to_ins(block: angr.block.Block):
+def block_to_ins(block: Block):
     result = []
     for ins in block.capstone.insns:
         op_str = ins.op_str
@@ -64,13 +67,11 @@ def block_to_ins(block: angr.block.Block):
     return "|".join(result)
 
 
-
 def remove_consecutive_pipes(s1):
     s1 = re.sub("(\|(\s)+\|)", "|", s1)
     return re.sub("(\|)+", "|", s1)
 
 
-# TODO: CONSTANT OR CONSTRAINT?
 def constraint_to_str(con, replace_strs=[', ', ' ', '(', ')'], max_depth=100):
     repr = con.shallow_repr(max_depth=max_depth, details=con.MID_REPR).replace('{UNINITIALIZED}', '')
     repr=re.sub("Extract\([0-9]+\, [0-9]+\,","",repr)
@@ -150,65 +151,69 @@ def tokenize_function_name(function_name):
     return "|".join(name.split("_"))
 
 
-def generate_dataset(train_binaries, output_name, dataset_name):  # keep
+
+def generate_dataset(train_binary: str, output_dir: str, dataset_name: str, no_usables_file: bool):
+    """
+    The main preprocessing fuction. Performs the analysis of each function serially.
+    In our implementation, paralellism is in binary-file granularity.
+
+        :param train_binary: the binary file to preprocess.
+        :type train_binaries: str
+        :param output_dir: the name of the output directory (will be put under preprocessed_data)
+        :type output_dir: str
+        :param dataset_name: the name of the binary dataset (will be searched under our_dataset)
+        :type dataset_name: str
+        :param no_usables_file: indicates there is no usable_functions_names.txt file, so all functions will be analyzed.
+        :type no_usables_file: bool
+    """
+    # Generate a "function usable" predicate
+    # If no usable_function_names file exists, accept all functions.
+    is_function_usable = (lambda _: True)
+    if not no_usables_file:
+        usable_functions_file = open("our_dataset/" + dataset_name + "/usable_functions_names.txt", "r")
+        usable_functions = [name.strip() for name in usable_functions_file]
+        is_function_usable = (lambda x: x in usable_functions)
     
-    usable_functions_file = open("our_dataset/" + dataset_name + "/usable_functions_names.txt", "r")
-    usable_functions = [name.strip() for name in usable_functions_file]
-    output_dir = f"preprocessed_data/{output_name}"
+    # Check which functions have already been analyzed
+    output_dir = f"preprocessed_data/{output_dir}"
     os.makedirs(output_dir, exist_ok=True)
     analyzed_funcs = get_analyzed_funcs(output_dir)
-    # create and run all processes
-    proc_list = []
-    for binary in train_binaries:
-        new_proc = Process(target=analyze_binary, args=(analyzed_funcs, binary, output_dir, usable_functions))
-        proc_list.append(new_proc)
-        new_proc.start()
 
-    for proc in proc_list:
-        proc.join()
+    analyze_binary(analyzed_funcs, train_binary, output_dir, is_function_usable)
 
-def generate_dataset_serial(train_binaries, output_name, dataset_name):
-    usable_functions_file = open("our_dataset/" + dataset_name + "/usable_functions_names.txt", "r")
-    usable_functions = [name.strip() for name in usable_functions_file]
-    output_dir = f"preprocessed_data/{output_name}"
-    os.makedirs(output_dir, exist_ok=True)
-    analyzed_funcs = get_analyzed_funcs(output_dir)
-    for binary in train_binaries:
-        analyze_binary(analyzed_funcs, binary, output_dir, usable_functions)
 
-def analyze_binary(analyzed_funcs, binary_name, dataset_dir, usable_functions):  # keep
+
+def analyze_binary(analyzed_funcs: Set[str], binary_name: str, output_dir: str, is_function_usable: Callable[[str], bool]):
     excluded = {'main', 'usage', 'exit'}.union(analyzed_funcs)
-    proj = angr.Project(binary_name, auto_load_libs=False)
+
+    proj = Project(binary_name, auto_load_libs=False) # Load angr project and calculate CFG
     cfg = proj.analyses.CFGFast()  # cfg is the ACTUAL control-flow graph
 
-    # REMOVE THIS
-    # print(cfg.graph.nodes())
-    # print(cfg.graph.edges())
-    # REMOVE THIS
+    binary_name = os.path.basename(binary_name) # Make the output directory for this binary
+    binary_output_dir = os.path.join(output_dir, f"{binary_name}")
+    os.makedirs(binary_output_dir, exist_ok=True)
 
-    binary_name = os.path.basename(binary_name)
-    binary_dir = os.path.join(dataset_dir, f"{binary_name}")
-    os.makedirs(binary_dir, exist_ok=True)
     funcs = get_cfg_funcs(proj, binary_name, excluded)
     print(f"{binary_name} have {len(funcs)} funcs")
     for test_func in funcs:
-        if (test_func.name in analyzed_funcs) or (tokenize_function_name(test_func.name) not in usable_functions):
+        if (test_func.name in analyzed_funcs) or not is_function_usable(tokenize_function_name(test_func.name)): # Skip unusable/computed functions
             print(f"skipping {tokenize_function_name(test_func.name)}")
             continue
         print(f"analyzing {binary_name}/{test_func.name}")
-        output = open(os.path.join(binary_dir, f"{test_func.name}.json"), "w")
+        
         analyzed_funcs.add(test_func.name)
         try:
-            sm: angr.sim_manager.SimulationManager = analyze_func(proj, test_func, cfg)
-            sm_to_graph(sm, output, test_func.name)
+            sm = analyze_func(proj, test_func, cfg) # Perform Carol's angr analysis
+            with open(os.path.join(binary_output_dir, f"{test_func.name}.json"), "w") as output:
+                sm_to_graph(sm, output, test_func.name) # calculate the constraint-full CFG
         except Exception as e:
             logging.error(str(e))
             logging.error(f"got an error while analyzing {test_func.name}")
-        output.close()
+        
     return analyzed_funcs
 
 
-def get_analyzed_funcs(dataset_path): #keep
+def get_analyzed_funcs(dataset_path: str) -> Set[str]:
     binaries = os.scandir(dataset_path)
     analyzed_funcs = set()
     for entry in binaries:
@@ -219,7 +224,7 @@ def get_analyzed_funcs(dataset_path): #keep
 
 
 def find_target_constants(line):
-    targets_mapper = dict()
+    targets_mapper = {}
     targets_counter = itertools.count()
     
     found_targets = set(re.findall(r"jmp\|0[xX][0-9a-fA-F]+|jnb\|0[xX][0-9a-fA-F]+|jnbe\|0[xX][0-9a-fA-F]+|jnc\|0[xX][0-9a-fA-F]+|jne\|0[xX][0-9a-fA-F]+|jng\|0[xX][0-9a-fA-F]+|jnge\|0[xX][0-9a-fA-F]+|jnl\|0[xX][0-9a-fA-F]+|jnle\|0[xX][0-9a-fA-F]+|jno\|0[xX][0-9a-fA-F]+|jnp\|0[xX][0-9a-fA-F]+|jns\|0[xX][0-9a-fA-F]+|jnz\|0[xX][0-9a-fA-F]+|jo\|0[xX][0-9a-fA-F]+|jp\|0[xX][0-9a-fA-F]+|jpe\|0[xX][0-9a-fA-F]+|jpo\|0[xX][0-9a-fA-F]+|js\|0[xX][0-9a-fA-F]+|jz\|0[xX][0-9a-fA-F]+|ja\|0[xX][0-9a-fA-F]+|jae\|0[xX][0-9a-fA-F]+|jb\|0[xX][0-9a-fA-F]+|jbe\|0[xX][0-9a-fA-F]+|jc\|0[xX][0-9a-fA-F]+|je\|0[xX][0-9a-fA-F]+|jz\|0[xX][0-9a-fA-F]+|jg\|0[xX][0-9a-fA-F]+|jge\|0[xX][0-9a-fA-F]+|jl\|0[xX][0-9a-fA-F]+|jle\|0[xX][0-9a-fA-F]+|jna\|0[xX][0-9a-fA-F]+|jnae\|0[xX][0-9a-fA-F]+|jnb\|0[xX][0-9a-fA-F]+|jnbe\|0[xX][0-9a-fA-F]+|jnc\|0[xX][0-9a-fA-F]+|jne\|0[xX][0-9a-fA-F]+|jng\|0[xX][0-9a-fA-F]+|jnge\|0[xX][0-9a-fA-F]+|jnl\|0[xX][0-9a-fA-F]+|jnle\|0[xX][0-9a-fA-F]+|jno\|0[xX][0-9a-fA-F]+|jnp\|0[xX][0-9a-fA-F]+|jns\|0[xX][0-9a-fA-F]+|jnz\|0[xX][0-9a-fA-F]+|jo\|0[xX][0-9a-fA-F]+|jp\|0[xX][0-9a-fA-F]+|jpe\|0[xX][0-9a-fA-F]+|jpo\|0[xX][0-9a-fA-F]+|js\|0[xX][0-9a-fA-F]+|jz\|0[xX][0-9a-fA-F]+ ", line))
@@ -231,42 +236,6 @@ def find_target_constants(line):
     for target, replacement in sorted(targets_mapper.items(), key=lambda x: len(x[0]), reverse=True):
                 line = line.replace(target, replacement)
     return line
-
-
-def sm_to_output(sm: angr.sim_manager.SimulationManager, output_file, func_name):
-
-    counters = {'mem': itertools.count(), 'ret': itertools.count()}
-    variable_map = {}
-    skipped_lines = 0
-    #constants_mapper = dict()
-    #constants_counter = itertools.count()
-    #pos_constants_mapper = dict()
-    #neg_constants_mapper = dict()
-    
-    proj = sm._project
-    for exec_paths in sm.stashes.values():
-        for exec_path in exec_paths:
-            blocks = [proj.factory.block(baddr) for baddr in exec_path.history.bbl_addrs]            
-            processsed_code = "|".join(list(filter(None, map(block_to_ins, blocks))))
-            variable_map, relified_constraints = varify_constraints(exec_path.solver.constraints, variable_map=variable_map, counters=counters)
-            relified_constraints = "|".join(relified_constraints)
-            line = f"{tokenize_function_name(func_name)} DUM,{processsed_code}" 
-            line = re.sub("r[0-9]+", "reg", line)
-            line = re.sub("xmm[0-9]+", "xmm", line)
-            line = find_target_constants(line)
-            line += f"|CONS|{relified_constraints},DUM\n"
-            
-            line = re.sub(r"0[xX][0-9a-fA-F]+", "|const|", line)
-            line = re.sub(r"\|[0-9]+\|", "|const|", line)     
-            
-            line = remove_consecutive_pipes(line)
-            if len(line) <= 3000:
-                output_file.write(line)
-            else:
-                skipped_lines += 1
-    print(f"skipped {skipped_lines} lines")
-
-
 
 
 #--------------------- ITTAY AND ITAMAR'S CODE---------------------#
@@ -285,13 +254,13 @@ def varify_constraints_raw(constraints) -> List[str]:
     return new_constraints
 
 
-def address_to_content_raw(proj: angr.project.Project, baddr: int):
+def address_to_content_raw(proj: Project, baddr: int):
     full_block = proj.factory.block(baddr)
     raw_instructions = block_to_ins(full_block)
     return raw_instructions
 
 
-def address_to_content(proj: angr.project.Project, baddr: int):
+def address_to_content(proj: Project, baddr: int):
     raw_instructions = address_to_content_raw(proj, baddr)
     instructions = re.sub("r[0-9]+", "reg", raw_instructions)
     instructions = re.sub("r[0-9]+", "reg", instructions)
@@ -300,7 +269,7 @@ def address_to_content(proj: angr.project.Project, baddr: int):
     return instructions
 
 
-def sm_to_graph(sm: angr.sim_manager.SimulationManager, output_file, func_name):
+def sm_to_graph(sm: SimulationManager, output_file, func_name):
     proj = sm._project
     final_states_lists = filter(None, sm.stashes.values())
 
@@ -344,7 +313,6 @@ def sm_to_graph(sm: angr.sim_manager.SimulationManager, output_file, func_name):
     
     our_json = sym_graph.__str__()
     our_json = our_json.replace("'", "\"").replace("loopSeerDum", "\"loopSeerDum\"")
-    # print(our_json)
     parsed = json.loads(our_json)
     to_write = json.dumps(parsed, indent=4, sort_keys=True)
     output_file.write(to_write)
@@ -357,13 +325,18 @@ def main():
     parser.add_argument("--binary_idx", type=int, required=True)
     parser.add_argument("--dataset", type=str, required=True)
     parser.add_argument("--output", type=str, required=True)
+    parser.add_argument("--no_usables_file", dest="no_usables_file", action="store_true")
     args = parser.parse_args()
+
     binaries = os.listdir("our_dataset/" + args.dataset)
     binaries.sort()
     binaries = [f"our_dataset/{args.dataset}/{binary}" for binary in binaries]
-    # generate_dataset([binaries[args.binary_idx]], args.output, args.dataset)
-    generate_dataset([binaries[args.binary_idx]], args.output, args.dataset)
+
+    generate_dataset(binaries[args.binary_idx], args.output, args.dataset, args.no_usables_file)
 
 
 if __name__ == '__main__':
     main()
+
+
+# python3 paths_constraints_main.py --dataset nero_ds/TRAIN --output nero_train_out --binary_idx 0 --no_usables_file > main_log.txt 2>&1 &
