@@ -1,0 +1,24 @@
+WARNING | 2021-12-02 01:40:08,606 | cle.backends.externs | Symbol was allocated without a known size; emulation may fail if it is used non-opaquely: opterr
+WARNING | 2021-12-02 01:40:08,610 | cle.loader | For more information about "Symbol was allocated without a known size", see https://docs.angr.io/extending-angr/environment#simdata
+ERROR   | 2021-12-02 01:43:49,047 | root     | b'out of memory'
+ERROR   | 2021-12-02 01:43:49,047 | root     | got an error while analyzing ar_scan
+ERROR   | 2021-12-02 01:44:24,021 | root     | b'out of memory'
+ERROR   | 2021-12-02 01:44:24,021 | root     | got an error while analyzing dep_hash_2
+ERROR   | 2021-12-02 01:44:25,661 | root     | b'out of memory'
+ERROR   | 2021-12-02 01:44:25,661 | root     | got an error while analyzing dep_hash_cmp
+ERROR   | 2021-12-02 01:46:52,859 | root     | b'out of memory'
+ERROR   | 2021-12-02 01:46:52,864 | root     | got an error while analyzing set_file_variables
+ERROR   | 2021-12-02 01:48:24,991 | root     | b'out of memory'
+ERROR   | 2021-12-02 01:48:24,994 | root     | got an error while analyzing execute_file_commands
+ERROR   | 2021-12-02 01:48:30,328 | root     | b'out of memory'
+ERROR   | 2021-12-02 01:48:30,345 | root     | got an error while analyzing delete_target
+ERROR   | 2021-12-02 01:50:32,048 | root     | b'out of memory'
+ERROR   | 2021-12-02 01:50:32,056 | root     | got an error while analyzing print_commands
+ERROR   | 2021-12-02 01:52:49,159 | root     | b'out of memory'
+ERROR   | 2021-12-02 01:52:49,169 | root     | got an error while analyzing find_directory
+ASSERTION VIOLATION
+File: ../src/ast/shared_occs.cpp
+Line: 119
+UNEXPECTED CODE WAS REACHED.
+Z3 4.8.13.0
+Please file an issue with this message and more detail about how you encountered it at https://github.com/Z3Prover/z3/issues/new

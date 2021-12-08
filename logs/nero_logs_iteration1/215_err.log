@@ -1,0 +1,82 @@
+ERROR   | 2021-12-01 22:50:44,454 | root     | 
+ERROR   | 2021-12-01 22:50:44,455 | root     | got an error while analyzing PaletteMake
+ERROR   | 2021-12-01 23:42:54,912 | root     | b'out of memory'
+ERROR   | 2021-12-01 23:42:54,914 | root     | got an error while analyzing pr_font
+ERROR   | 2021-12-01 23:43:03,771 | root     | b'out of memory'
+ERROR   | 2021-12-01 23:43:03,772 | root     | got an error while analyzing pr_width
+ERROR   | 2021-12-01 23:43:05,232 | root     | b'out of memory'
+ERROR   | 2021-12-01 23:43:05,232 | root     | got an error while analyzing pr_window
+Traceback (most recent call last):
+  File "paths_constraints_main.py", line 212, in analyze_binary
+  File "paths_constraints_main.py", line 41, in analyze_func
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/factory.py", line 153, in call_state
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/simos/simos.py", line 253, in state_call
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/simos/linux.py", line 184, in state_blank
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/storage/memory_mixins/paged_memory/stack_allocation_mixin.py", line 51, in allocate_stack_pages
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/storage/memory_mixins/paged_memory/paged_memory_mixin.py", line 83, in _initialize_default_page
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/storage/memory_mixins/paged_memory/paged_memory_mixin.py", line 89, in _initialize_page
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/storage/memory_mixins/paged_memory/pages/ultra_page.py", line 26, in __init__
+MemoryError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ittay.al/miniconda3/envs/tf1/lib/python3.7/logging/__init__.py", line 869, in format
+  File "/home/ittay.al/miniconda3/envs/tf1/lib/python3.7/logging/__init__.py", line 610, in format
+  File "/home/ittay.al/miniconda3/envs/tf1/lib/python3.7/logging/__init__.py", line 550, in formatTime
+MemoryError
+
+During handling of the above exception, another exception occurred:
+
+MemoryError
+
+During handling of the above exception, another exception occurred:
+
+MemoryError
+
+During handling of the above exception, another exception occurred:
+
+MemoryError
+
+During handling of the above exception, another exception occurred:
+
+MemoryError
+
+During handling of the above exception, another exception occurred:
+
+MemoryError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ittay.al/miniconda3/envs/tf1/lib/python3.7/logging/__init__.py", line 1524, in handle
+MemoryError
+
+During handling of the above exception, another exception occurred:
+
+MemoryError
+
+During handling of the above exception, another exception occurred:
+
+MemoryError
+
+During handling of the above exception, another exception occurred:
+
+MemoryError
+
+During handling of the above exception, another exception occurred:
+
+MemoryError
+
+During handling of the above exception, another exception occurred:
+
+MemoryError
+
+During handling of the above exception, another exception occurred:
+
+MemoryError
+
+During handling of the above exception, another exception occurred:
+
+MemoryError
+Killed

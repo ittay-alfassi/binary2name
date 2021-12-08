@@ -1,0 +1,71 @@
+Error #1:
+ERROR   | <date> | root     | list index out of range , ... got an error while analyzing <funcname>
+    No. of Occurences:  74 (?)
+    Origin Callstack:   unknown
+    Origin Process:     paths_constraints_main
+    Reason:             unknown
+    Possible Fix:       unknown
+
+
+Error #2:
+WARNING | <date> | cle.backends.externs | Symbol was allocated without a known size; emulation may fail if it is used non-opaquely: opterr
+    No. of Occurences:  8
+    Origin Callstack:   unknown
+    Origin Process:     paths_constraints_main
+    Reason:             unknown
+    Possible Fix:       unknown
+
+
+Error #3:
+Mutual recursion between _abstract_internal and <listcomp>, leads to "Fatal Python error: Cannot recover from stack overflow."
+    No. of Occurences:  4
+    Origin callstack:   infinite recursion /home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py, between _abstract_internal and <listcomp>
+    Origin Process:     paths_constraints_main
+    Reason:             infinite recursion (?)
+    Possiblke Fix:      Set a recursion limit, killing all freak processes
+
+
+Error #4:
+Explosion when doing "from angr import Project"
+    No. of Occurences:  3
+    Origin Callstack:   loading of angr
+    Origin Process:     paths_constraints_main
+    Reason:             angr eating too much memory
+    Possible Fix:       up the memory limit?
+
+
+Error #5:
+ERROR   | <date> | root     | b'out of memory'
+    No. of Occurences:  503
+    Origin Callstack:   unknown
+    Origin Process:     unknown
+    Reason:             angr taking up too much memory for the function
+    Possible Fix:       not a bug, a feature
+
+
+Error #6:
+General "MemoryError" Message
+    No. of Occurences:  38
+    Origin Callstack:   unknown
+    Origin Process:     unknown
+    Reason:             unknown
+    Possible Fix:       unknown
+
+
+Error #7:
+General "Killed" message
+    No. of Occurences:  68
+    Origin Callstack:   unknown
+    Origin Process:     unknown
+    Reason:             unknown
+    Possible Fix:       unknown
+
+
+Error #:
+
+    No. of Occurences:  unknown
+    Origin Callstack:   unknown
+    Origin Process:     unknown
+    Reason:             unknown
+    Possible Fix:       unknown
+

@@ -1,0 +1,33 @@
+Traceback (most recent call last):
+  File "paths_constraints_main.py", line 212, in analyze_binary
+  File "paths_constraints_main.py", line 48, in analyze_func
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/sim_manager.py", line 280, in run
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/sim_manager.py", line 365, in step
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/sim_manager.py", line 402, in step_state
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/misc/hookset.py", line 75, in __call__
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/exploration_techniques/loop_seer.py", line 98, in successors
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/misc/hookset.py", line 80, in __call__
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/sim_manager.py", line 441, in successors
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/factory.py", line 60, in successors
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/engines/vex/light/slicing.py", line 19, in process
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/engines/engine.py", line 127, in process
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/sim_state.py", line 623, in copy
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/sim_state.py", line 610, in _copy_plugins
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/state_plugins/plugin.py", line 65, in inner
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/storage/memory_mixins/underconstrained_mixin.py", line 17, in copy
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/storage/memory_mixins/size_resolution_mixin.py", line 72, in copy
+MemoryError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "paths_constraints_main.py", line 352, in <module>
+  File "paths_constraints_main.py", line 348, in main
+  File "paths_constraints_main.py", line 188, in generate_dataset
+  File "paths_constraints_main.py", line 216, in analyze_binary
+  File "/home/ittay.al/miniconda3/envs/tf1/lib/python3.7/logging/__init__.py", line 1959, in error
+  File "/home/ittay.al/miniconda3/envs/tf1/lib/python3.7/logging/__init__.py", line 1407, in error
+  File "/home/ittay.al/miniconda3/envs/tf1/lib/python3.7/logging/__init__.py", line 1513, in _log
+  File "/home/ittay.al/miniconda3/envs/tf1/lib/python3.7/logging/__init__.py", line 1483, in makeRecord
+  File "/home/ittay.al/miniconda3/envs/tf1/lib/python3.7/logging/__init__.py", line 323, in __init__
+MemoryError

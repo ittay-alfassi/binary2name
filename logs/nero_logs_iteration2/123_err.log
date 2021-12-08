@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "paths_constraints_main.py", line 5, in <module>
+    from angr import Project
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/__init__.py", line 22, in <module>
+    from .utils.formatting import setup_terminal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/utils/__init__.py", line 5, in <module>
+    from . import enums_conv
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/utils/enums_conv.py", line 6, in <module>
+    from ..protos.primitives_pb2 import Edge
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/protos/__init__.py", line 10, in <module>
+    from . import primitives_pb2
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/protos/primitives_pb2.py", line 5, in <module>
+    from google.protobuf import descriptor as _descriptor
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/google/protobuf/descriptor.py", line 45, in <module>
+    import binascii
+ImportError: /home/ittay.al/miniconda3/envs/tf1/lib/python3.7/lib-dynload/binascii.cpython-37m-x86_64-linux-gnu.so: failed to map segment from shared object

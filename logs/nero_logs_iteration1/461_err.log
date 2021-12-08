@@ -1,0 +1,112 @@
+WARNING | 2021-12-02 02:33:34,865 | cle.backends.externs | Symbol was allocated without a known size; emulation may fail if it is used non-opaquely: BC
+WARNING | 2021-12-02 02:33:34,866 | cle.backends.externs | Symbol was allocated without a known size; emulation may fail if it is used non-opaquely: PC
+WARNING | 2021-12-02 02:33:34,866 | cle.backends.externs | Symbol was allocated without a known size; emulation may fail if it is used non-opaquely: ospeed
+WARNING | 2021-12-02 02:33:34,869 | cle.loader | For more information about "Symbol was allocated without a known size", see https://docs.angr.io/extending-angr/environment#simdata
+ERROR   | 2021-12-02 04:29:42,371 | root     | argument 3: <class 'RecursionError'>: maximum recursion depth exceeded while calling a Python object
+ERROR   | 2021-12-02 04:29:42,371 | root     | got an error while analyzing replace_in_documentation
+Fatal Python error: Cannot recover from stack overflow.
+
+Current thread 0x00007ff53238c0c0 (most recent call first):
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/ast/base.py", line 307 in _arg_serialize
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/ast/base.py", line 316 in _arg_serialize
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/ast/base.py", line 316 in _arg_serialize
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/ast/base.py", line 316 in _arg_serialize
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/ast/base.py", line 335 in _ast_serialize
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/ast/base.py", line 266 in _calc_hash
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/ast/base.py", line 224 in __new__
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 515 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/claripy/backends/backend_z3.py", line 407 in _abstract_internal
+  ...
+timeout: the monitored command dumped core
+Aborted

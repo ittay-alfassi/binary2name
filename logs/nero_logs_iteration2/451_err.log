@@ -1,0 +1,85 @@
+WARNING | 2021-12-02 20:40:00,268 | cle.backends.externs | Symbol was allocated without a known size; emulation may fail if it is used non-opaquely: program_invocation_name
+WARNING | 2021-12-02 20:40:00,269 | cle.backends.externs | Symbol was allocated without a known size; emulation may fail if it is used non-opaquely: program_invocation_short_name
+WARNING | 2021-12-02 20:40:00,272 | cle.loader | For more information about "Symbol was allocated without a known size", see https://docs.angr.io/extending-angr/environment#simdata
+ERROR   | 2021-12-02 20:48:19,856 | root     | b'out of memory'
+ERROR   | 2021-12-02 20:48:19,857 | root     | got an error while analyzing recutl_parse_db_from_file
+ERROR   | 2021-12-02 20:48:28,375 | root     | b'out of memory'
+ERROR   | 2021-12-02 20:48:28,375 | root     | got an error while analyzing recutl_build_db
+ERROR   | 2021-12-02 20:48:32,203 | root     | 
+ERROR   | 2021-12-02 20:48:32,204 | root     | got an error while analyzing recutl_write_db_to_file
+--- Logging error ---
+Traceback (most recent call last):
+  File "paths_constraints_main.py", line 213, in analyze_binary
+  File "paths_constraints_main.py", line 49, in analyze_func
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/sim_manager.py", line 280, in run
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/sim_manager.py", line 365, in step
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/sim_manager.py", line 402, in step_state
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/misc/hookset.py", line 75, in __call__
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/exploration_techniques/loop_seer.py", line 98, in successors
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/misc/hookset.py", line 80, in __call__
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/sim_manager.py", line 441, in successors
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/factory.py", line 60, in successors
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/engines/vex/light/slicing.py", line 19, in process
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/engines/engine.py", line 149, in process
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/engines/failure.py", line 21, in process_successors
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/engines/syscall.py", line 18, in process_successors
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/engines/hook.py", line 54, in process_successors
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/engines/unicorn.py", line 169, in process_successors
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/engines/soot/engine.py", line 64, in process_successors
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/engines/vex/heavy/heavy.py", line 138, in process_successors
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/engines/vex/heavy/super_fastpath.py", line 19, in handle_vex_block
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/engines/vex/light/slicing.py", line 26, in handle_vex_block
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/engines/vex/heavy/actions.py", line 30, in handle_vex_block
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/engines/vex/heavy/inspect.py", line 45, in handle_vex_block
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/engines/vex/light/light.py", line 446, in handle_vex_block
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/engines/vex/light/slicing.py", line 30, in _handle_vex_stmt
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/engines/vex/heavy/inspect.py", line 40, in _handle_vex_stmt
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/engines/vex/light/resilience.py", line 36, in inner
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/engines/vex/heavy/heavy.py", line 204, in _handle_vex_stmt
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/engines/vex/light/light.py", line 51, in _handle_vex_stmt
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/engines/vex/light/light.py", line 188, in _handle_vex_stmt_WrTmp
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/engines/vex/light/light.py", line 184, in _analyze_vex_stmt_WrTmp_data
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/engines/vex/heavy/inspect.py", line 31, in _handle_vex_expr
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/engines/vex/light/light.py", line 55, in _handle_vex_expr
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/engines/vex/light/light.py", line 114, in _handle_vex_expr_Binop
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/engines/vex/light/light.py", line 120, in _handle_vex_expr_Op
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/engines/vex/light/light.py", line 120, in <listcomp>
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/engines/vex/heavy/inspect.py", line 31, in _handle_vex_expr
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/engines/vex/light/light.py", line 55, in _handle_vex_expr
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/engines/vex/light/light.py", line 127, in _handle_vex_expr_Const
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/engines/vex/heavy/actions.py", line 33, in _handle_vex_const
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/engines/vex/claripy/datalayer.py", line 57, in _handle_vex_const
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/angr/engines/vex/claripy/datalayer.py", line 21, in value
+  File "/home/ittay.al/venv/pproc/lib/python3.7/site-packages/pyvex/const.py", line 374, in get_type_size
+MemoryError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ittay.al/miniconda3/envs/tf1/lib/python3.7/logging/__init__.py", line 1025, in emit
+  File "/home/ittay.al/miniconda3/envs/tf1/lib/python3.7/logging/__init__.py", line 869, in format
+  File "/home/ittay.al/miniconda3/envs/tf1/lib/python3.7/logging/__init__.py", line 610, in format
+  File "/home/ittay.al/miniconda3/envs/tf1/lib/python3.7/logging/__init__.py", line 550, in formatTime
+MemoryError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "paths_constraints_main.py", line 355, in <module>
+  File "paths_constraints_main.py", line 351, in main
+  File "paths_constraints_main.py", line 189, in generate_dataset
+  File "paths_constraints_main.py", line 217, in analyze_binary
+  File "/home/ittay.al/miniconda3/envs/tf1/lib/python3.7/logging/__init__.py", line 1959, in error
+  File "/home/ittay.al/miniconda3/envs/tf1/lib/python3.7/logging/__init__.py", line 1407, in error
+  File "/home/ittay.al/miniconda3/envs/tf1/lib/python3.7/logging/__init__.py", line 1514, in _log
+  File "/home/ittay.al/miniconda3/envs/tf1/lib/python3.7/logging/__init__.py", line 1524, in handle
+  File "/home/ittay.al/miniconda3/envs/tf1/lib/python3.7/logging/__init__.py", line 1586, in callHandlers
+  File "/home/ittay.al/miniconda3/envs/tf1/lib/python3.7/logging/__init__.py", line 894, in handle
+  File "/home/ittay.al/miniconda3/envs/tf1/lib/python3.7/logging/__init__.py", line 1033, in emit
+  File "/home/ittay.al/miniconda3/envs/tf1/lib/python3.7/logging/__init__.py", line 947, in handleError
+  File "/home/ittay.al/miniconda3/envs/tf1/lib/python3.7/traceback.py", line 104, in print_exception
+  File "/home/ittay.al/miniconda3/envs/tf1/lib/python3.7/traceback.py", line 497, in __init__
+  File "/home/ittay.al/miniconda3/envs/tf1/lib/python3.7/traceback.py", line 508, in __init__
+  File "/home/ittay.al/miniconda3/envs/tf1/lib/python3.7/traceback.py", line 350, in extract
+  File "/home/ittay.al/miniconda3/envs/tf1/lib/python3.7/linecache.py", line 175, in lazycache
+MemoryError

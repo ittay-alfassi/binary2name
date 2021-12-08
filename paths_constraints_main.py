@@ -15,6 +15,10 @@ import argparse
 import itertools
 from glob import glob
 
+import logging
+import resource
+import sys
+
 bases_dict = dict()
 replacement_dict = dict()
 start_time = 0
@@ -177,7 +181,10 @@ def generate_dataset(train_binary: str, output_dir: str, dataset_name: str, no_u
     # Check which functions have already been analyzed
     output_dir = f"preprocessed_data/{output_dir}"
     os.makedirs(output_dir, exist_ok=True)
-    analyzed_funcs = get_analyzed_funcs(output_dir)
+
+    # Disabling this part of the algorithm, since it eats up memory and is not implemented well
+    # analyzed_funcs = get_analyzed_funcs(output_dir)
+    analyzed_funcs = set()
 
     analyze_binary(analyzed_funcs, train_binary, output_dir, is_function_usable)
 
@@ -325,8 +332,18 @@ def main():
     parser.add_argument("--binary_idx", type=int, required=True)
     parser.add_argument("--dataset", type=str, required=True)
     parser.add_argument("--output", type=str, required=True)
+    parser.add_argument("--mem_limit", type=int, required=True)
     parser.add_argument("--no_usables_file", dest="no_usables_file", action="store_true")
     args = parser.parse_args()
+
+    logging.getLogger('angr').setLevel('CRITICAL')  # Silence angr  
+    heap_resource = resource.RLIMIT_DATA  # Limit data capture
+    # soft_l, hard_l = resource.getrlimit(heap_resource)
+    resource.setrlimit(heap_resource, (args.mem_limit*2**30, (args.mem_limit+5)*2**30))
+    sys.setrecursionlimit(10**6)  # Limit stack
+
+    
+
 
     binaries = os.listdir("our_dataset/" + args.dataset)
     binaries.sort()
