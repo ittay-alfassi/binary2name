@@ -4,6 +4,17 @@ import json
 from typing import List, Dict
 from jsonpickle import encode
 import argparse
+import numpy as np
+
+
+def collect_to_file(file_list: List[str], filename: str) -> None:
+    collective_files = ''
+    for function_file in file_list:
+        with open(function_file, 'r') as file:
+            collective_files += file.read() + '\n'
+
+    with open(filename, 'w') as file:
+        file.write(collective_files)
 
 
 def separate_arguments(args):
@@ -113,12 +124,9 @@ class OutputConvertor:
         if os.path.isdir(dest):
             print('converted dir already exists, removing')
             shutil.rmtree(dest)
-        print('Started copying dataset for backup')
-        shutil.copytree(src, dest)
-        print('Finished backup, starting to scan files')
 
         print('Started copying dataset for backup')
-        # shutil.copytree(src, dest)
+        shutil.copytree(src, dest)
         print('Finished backup, starting to scan files')
 
         bin_folders = list(map(lambda x: os.path.join(dest, x) if x[-4:] != '.txt' else None, os.listdir(dest)))
@@ -194,16 +202,53 @@ class OutputConvertor:
             jp_obj = encode(converted_data)
             function_file.write(jp_obj)
 
+class OrganizeOutput:
+    def __init__(self, file_locations, train_percentage, test_percentage, validate_percentage):
+        self.train_percentage = train_percentage
+        self.validate_percentage = validate_percentage
+        self.test_percentage = test_percentage
+        self.file_locations = file_locations
+
+    def print_information(self):
+        if self.train_percentage + self.test_percentage + self.validate_percentage != 1:
+            print('CRITICAL! : all percentages don\'t add to 1')
+        if self.train_percentage < self.validate_percentage + self.test_percentage:
+            print('Warning! : not enough training')
+        # TODO: add more warning and errors if needed
+
+    def collect_files(self):
+        train_length = int(len(self.file_locations) * self.train_percentage)
+        test_length = int(len(self.file_locations) * self.test_percentage)
+        validate_length = len(self.file_locations) - train_length - test_length
+
+        training_files = self.file_locations[:train_length]
+        testing_files = self.file_locations[train_length:train_length + test_length]
+        validating_files = self.file_locations[train_length + test_length:]
+        collect_to_file(training_files, 'train.json')
+        collect_to_file(testing_files, 'test.json')
+        collect_to_file(validating_files, 'validate.json')
+
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--dataset_name", type=str, required=True, help='enter dataset directory name (the one that is in preprocessed_data')
+    parser.add_argument('--train', type=float, required=True, help='percent of functions in the train file')
+    parser.add_argument('--test', type=float, required=True, help='percent of functions in the test file')
+    parser.add_argument('--val', type=float, required=True, help='percent of functions in the validate file')
+    parser.add_argument('--only_collect', type=str, required=True)
     args = parser.parse_args()
 
     out_convertor = OutputConvertor()
     os.chdir('preprocessed_data')
     out_convertor.get_all_files(args.dataset_name)
-    out_convertor.convert_dataset()
+    if args.only_collect == 'false':
+        out_convertor.convert_dataset()
+
+    collector = OrganizeOutput(out_convertor.filenames, args.train, args.test, args.val)
+    collector.print_information()
+    buff = input('continue? [y\\n]')
+    if 'y' in buff or 'Y' in buff:
+        collector.collect_files()
 
 
 if __name__ == '__main__':
