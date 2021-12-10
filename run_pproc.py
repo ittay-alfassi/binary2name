@@ -112,3 +112,4 @@ if __name__ == "__main__":
     main()
 
 # python3 run_pproc.py --output_dir nero_test --dataset_dir nero_ds/TRAIN --log_dir nero_logs --cpu_no 30 --mem_limit 45 --no_usables_file &
+# srun -c 60 python3 run_pproc.py --output_dir coreutils_new --dataset_dir coreutils_ds --log_dir coreutils_logs --cpu_no 30 --mem_limit 45 --no_usables_file &

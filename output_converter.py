@@ -110,8 +110,15 @@ class OutputConvertor:
         """
         src = dataset_name
         dest = 'Converted_' + dataset_name
+        if os.path.isdir(dest):
+            print('converted dir already exists, removing')
+            shutil.rmtree(dest)
         print('Started copying dataset for backup')
         shutil.copytree(src, dest)
+        print('Finished backup, starting to scan files')
+
+        print('Started copying dataset for backup')
+        # shutil.copytree(src, dest)
         print('Finished backup, starting to scan files')
 
         bin_folders = list(map(lambda x: os.path.join(dest, x) if x[-4:] != '.txt' else None, os.listdir(dest)))
@@ -168,6 +175,10 @@ class OutputConvertor:
         return converted_nodes
 
     def __convert_json(self, filename: str):
+        if os.path.getsize(filename) == 0:
+            print(f'Warning! file {filename} is empty. Skipping.')
+            return
+        
         with open(filename, 'r') as function_file:
             initial_data = json.load(function_file)
 

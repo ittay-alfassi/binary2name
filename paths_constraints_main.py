@@ -6,6 +6,7 @@ from angr import Project
 from angr.exploration_techniques.loop_seer import LoopSeer
 from angr.block import Block
 from angr.sim_manager import SimulationManager
+from claripy import ast
 import os
 import re
 import time
@@ -76,13 +77,16 @@ def remove_consecutive_pipes(s1):
     return re.sub("(\|)+", "|", s1)
 
 
-def constraint_to_str(con, replace_strs=[', ', ' ', '(', ')'], max_depth=100):
-    repr = con.shallow_repr(max_depth=max_depth, details=con.MID_REPR).replace('{UNINITIALIZED}', '')
-    repr=re.sub("Extract\([0-9]+\, [0-9]+\,","",repr)
-    for r_str in replace_strs:
-        repr = repr.replace(r_str, '|')
+# def constraint_to_str(con, replace_strs=[', ', ' ', '(', ')'], max_depth=100):
+#     repr = con.shallow_repr(max_depth=max_depth, details=con.MID_REPR).replace('{UNINITIALIZED}', '')
+#     repr=re.sub("Extract\([0-9]+\, [0-9]+\,","",repr)
+#     for r_str in replace_strs:
+#         repr = repr.replace(r_str, '|')
 
-    return remove_consecutive_pipes(repr) + "    "
+#     return remove_consecutive_pipes(repr) + "    "
+
+def constraint_to_str(constraint: ast.Base, max_depth: int=100) -> str:
+    return constraint.shallow_repr(max_depth=max_depth, details=constraint.MID_REPR).replace('{UNINITIALIZED}', '')
 
 
 def gen_new_name(old_name):
@@ -202,7 +206,7 @@ def analyze_binary(analyzed_funcs: Set[str], binary_name: str, output_dir: str, 
 
     funcs = get_cfg_funcs(proj, binary_name, excluded)
     print(f"{binary_name} have {len(funcs)} funcs")
-    for test_func in funcs:
+    for test_func in funcs:        
         if (test_func.name in analyzed_funcs) or not is_function_usable(tokenize_function_name(test_func.name)): # Skip unusable/computed functions
             print(f"skipping {tokenize_function_name(test_func.name)}")
             continue
@@ -256,7 +260,7 @@ def varify_constraints_raw(constraints) -> List[str]:
     for constraint in constraints:
         if constraint.concrete:
             continue
-        new_constraints.append(constraint_to_str(constraint, replace_strs=[]))
+        new_constraints.append(constraint_to_str(constraint))
     
     return new_constraints
 
