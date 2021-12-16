@@ -1,14 +1,32 @@
 import os
 import shutil
 import json
-from typing import List, Dict
+from typing import List, Dict, Tuple
 from jsonpickle import encode
 import argparse
 from tqdm import tqdm
 import random
+import re
 
 CONSTRAINT_DELIM = '|'
 OUR_API_TYPE = 'A'  # Meaningless - simply here to notify this is not a NORMAL_PROC or INDIRECT_PROC in the Nero Preprocessing.
+
+
+def pretffy_constraint(constraint_list: List[str]) -> List[str]:
+    return constraint_list
+
+def style_json(filename: str) -> None:
+    with open(filename, 'r') as function_file:
+        data_dict = function_file.read()
+    
+    styled_dict = data_dict
+    graph_nodes = data_dict['GNN_DATA']['nodes']
+    pretffy_constraint.variable_dict = {}
+    for node in graph_nodes:
+        node['constraints'] = pretffy_constraint(node['constraints'])
+
+    with open(filename, 'w') as function_file:
+        function_file.write(styled_dict)
 
 def collect_to_file(file_list: List[str], filename: str) -> None:
     collective_files = ''
@@ -16,7 +34,7 @@ def collect_to_file(file_list: List[str], filename: str) -> None:
         with open(function_file, 'r') as file:
             collective_files += file.read() + '\n'
 
-    with open(filename, 'w') as file:
+    with open(os.path.join('../ready_data', filename), 'w') as file:
         file.write(collective_files)
 
 
@@ -54,7 +72,7 @@ def dissolve_function_call(str_call):
     return call_name, arguments
 
 
-def convert_argument(argument: str) -> tuple:  # TODO: support more argument types...
+def convert_argument(argument: str) -> tuple:
     if 'mem' in argument:
         argument_type = 'MEMORY'
     elif 'reg' in argument:
@@ -137,6 +155,7 @@ class OutputConvertor:
         print('Starting to convert json files')
         for filename in tqdm(self.filenames):
             print(f'converting {filename}')
+            style_json(filename)
             self.__convert_json(filename)
             print(f'{filename} converted')
         print('Done converting, data should be ready')
@@ -268,7 +287,6 @@ def main():
     collector.print_information_and_fix()
     buff = input('continue? [y/n]\n')
     if 'y' in buff or 'Y' in buff:
-        # os.chdir("../ready_data")
         collector.collect_files()
 
 
