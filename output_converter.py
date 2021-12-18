@@ -7,8 +7,9 @@ import argparse
 from tqdm import tqdm
 import random
 import re
-from itertools import combinations
+import multiprocessing
 
+TIMEOUT_PER_FILE = 3
 CONSTRAINT_DELIM = '|'
 OUR_API_TYPE = 'F'  # Meaningless - simply here to notify this is not a NORMAL_PROC or INDIRECT_PROC in the Nero Preprocessing.
 
@@ -16,28 +17,17 @@ MEM_DIFF_THRESH = 20
 RET_DIFF_THRESH = 20
 
 
-
-# def style_json(filename: str) -> None:
-#     with open(filename, 'r') as function_file:
-#         data_dict = json.load(function_file)
-
-#     styled_dict = data_dict
-#     graph_nodes = data_dict['GNN_DATA']['nodes']
-#     prettify_constraint.variable_dict = {}
-#     for node in graph_nodes:
-#         node['constraints'] = prettify_constraint(node['constraints'])
-
-#     with open(filename, 'w') as function_file:
-#         json.dump(styled_dict, function_file, indent=4)
-
 def is_num(val: str) -> bool:
     return val.startswith('0x') or re.match('[0-9]+', val) != None
+
 
 def is_mem(val: str) -> bool:
     return 'mem' in val
 
+
 def is_reg(val: str) -> bool:
     return 'reg' in val
+
 
 def is_retval(val: str) -> bool:
     return 'fake_ret_value' in val
@@ -90,12 +80,15 @@ def dissolve_function_call(str_call):
 def convert_argument(argument: str) -> tuple:
     if is_mem(argument):
         argument_type = 'MEMORY'
+        argument = 'mem'
     elif is_reg(argument):
         argument_type = 'REGISTER'
+        argument = 'reg'
     elif is_num(argument):
         argument_type = 'CONSTANT'
     elif is_retval(argument):
         argument_type = 'RET_VAL'
+        argument = 'fake_ret'
     elif argument.startswith(OUR_API_TYPE):
         argument_type = 'FUNCTION_CALL'
     else:
@@ -122,7 +115,7 @@ class ConstraintAst:
 
     def __export_ast_to_list(self) -> List:
         list_repr = []
-        if self.children == []:
+        if not self.children:
             return []
 
         for child in self.children:
@@ -265,11 +258,25 @@ class OutputConvertor:
 
     def convert_dataset(self):
         print('Starting to convert json files')
+        failed_files = []
+
         for filename in tqdm(self.filenames):
             print(f'converting {filename}')
-            self.__convert_json(filename)
-            print(f'{filename} converted')
+            p = multiprocessing.Process(target=self.__convert_json, args=(filename,))
+            p.start()
+            p.join(60 * TIMEOUT_PER_FILE)
+            if p.is_alive():
+                print('file {} passed the timeout, killing and erasing the file'.format(filename))
+                p.kill()
+                os.remove(filename)
+                failed_files.append(filename)
+                p.join()
+            else:
+                print(f'{filename} converted')
+
         print('Done converting, data should be ready')
+        for filename in failed_files:
+            self.filenames.remove(filename)
 
     def __convert_edges(self, edges: List) -> List:
         converted_edges = []
