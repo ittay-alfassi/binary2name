@@ -7,50 +7,40 @@ import argparse
 from tqdm import tqdm
 import random
 import re
+from itertools import combinations
 
 CONSTRAINT_DELIM = '|'
 OUR_API_TYPE = 'F'  # Meaningless - simply here to notify this is not a NORMAL_PROC or INDIRECT_PROC in the Nero Preprocessing.
 
-
-def prettify_constraint(block_constraints: List[str]) -> List[str]:
-    """
-    goals: take out garbage from the constraint like EXTRACT(X,X,X) and BOOL __X__
-    strip ' ' and '<' and '>'
-    reduce very big chunks of a constraints to single generalized constraint.
-
-    structure of block_constraints:
-    It is a list of strings.
-    Each string represents the constraints of a single path through the CFG.
-    The constraints of each single path are delimited with a '|' character.
-    """
-    converted_block_constraints = []
-    for path_constraints in block_constraints:
-        converted_path_constraints = []
-        for constraint in path_constraints.split('|'):
-            # Remove the <Bool ... > prefix and suffix of each constraint.
-            converted_constraint = constraint.replace('Bool', '').replace('<', '').replace('>', '').strip()
-            # Clean the representation of boolean ops: remove the '__' prefix and suffix.
-            converted_constraint = re.sub(r'__(?P<op>[a-zA-Z]+)__',
-                                          r'\g<op>',
-                                          converted_constraint)
-            converted_path_constraints.append(converted_constraint)
-        # Style back to the original format
-        converted_block_constraints.append('|'.join(converted_path_constraints))
-    return converted_block_constraints
+MEM_DIFF_THRESH = 20
+RET_DIFF_THRESH = 20
 
 
-def style_json(filename: str) -> None:
-    with open(filename, 'r') as function_file:
-        data_dict = json.load(function_file)
 
-    styled_dict = data_dict
-    graph_nodes = data_dict['GNN_DATA']['nodes']
-    prettify_constraint.variable_dict = {}
-    for node in graph_nodes:
-        node['constraints'] = prettify_constraint(node['constraints'])
+# def style_json(filename: str) -> None:
+#     with open(filename, 'r') as function_file:
+#         data_dict = json.load(function_file)
 
-    with open(filename, 'w') as function_file:
-        json.dump(styled_dict, function_file, indent=4)
+#     styled_dict = data_dict
+#     graph_nodes = data_dict['GNN_DATA']['nodes']
+#     prettify_constraint.variable_dict = {}
+#     for node in graph_nodes:
+#         node['constraints'] = prettify_constraint(node['constraints'])
+
+#     with open(filename, 'w') as function_file:
+#         json.dump(styled_dict, function_file, indent=4)
+
+def is_num(val: str) -> bool:
+    return val.startswith('0x') or re.match('[0-9]+', val) != None
+
+def is_mem(val: str) -> bool:
+    return 'mem' in val
+
+def is_reg(val: str) -> bool:
+    return 'reg' in val
+
+def is_retval(val: str) -> bool:
+    return 'fake_ret_value' in val
 
 
 def collect_to_file(file_list: List[str], filename: str) -> None:
@@ -98,12 +88,14 @@ def dissolve_function_call(str_call):
 
 
 def convert_argument(argument: str) -> tuple:
-    if 'mem' in argument:
+    if is_mem(argument):
         argument_type = 'MEMORY'
-    elif 'reg' in argument:
+    elif is_reg(argument):
         argument_type = 'REGISTER'
-    elif '0x' in argument:
+    elif is_num(argument):
         argument_type = 'CONSTANT'
+    elif is_retval(argument):
+        argument_type = 'RET_VAL'
     elif argument.startswith(OUR_API_TYPE):
         argument_type = 'FUNCTION_CALL'
     else:
@@ -112,7 +104,7 @@ def convert_argument(argument: str) -> tuple:
 
 
 class ConstraintAst:
-    def __init__(self, value='dummy_name', children=None):
+    def __init__(self, value='dummy_name', children: List['ConstraintAst']=[]):
         self.value = value
         self.children = children
 
@@ -130,7 +122,7 @@ class ConstraintAst:
 
     def __export_ast_to_list(self) -> List:
         list_repr = []
-        if self.children is None:
+        if self.children == []:
             return []
 
         for child in self.children:
@@ -157,6 +149,71 @@ class ConstraintAst:
         return constraints_as_calls
 
 
+def are_constraints_similar(first: ConstraintAst, second: ConstraintAst) -> bool:
+    if len(first.children) != len(second.children):
+        return False
+    
+    if first.children == [] and second.children == []:
+        if first.value == second.value:
+            return True
+
+        if is_num(first.value) and is_num(second.value):
+            return True
+
+        elif is_mem(first.value) and is_mem(second.value):
+            split_a = [int(x, 16) for x in first.value.split('_')[1:]]
+            split_b = [int(x, 16) for x in second.value.split('_')[1:]]
+            if split_a[0] != split_b[0]:
+                return False
+            if abs(split_a[1] - split_b[1]) > MEM_DIFF_THRESH:
+                return False
+            if abs(split_a[2] - split_b[2]) > MEM_DIFF_THRESH:
+                return False
+            return True
+        
+        elif is_retval(first.value) and is_retval(second.value):
+            ret_a = int(first.value.split('_')[-2], 16)
+            ret_b = int(second.value.split('_')[-2], 16)
+            if abs(ret_a - ret_b) > RET_DIFF_THRESH:
+                return False
+            return True
+        
+        else:
+            return False
+    
+    if first.value != second.value:
+        return False
+    for child_a, child_b in zip(first.children, second.children):
+        if not are_constraints_similar(child_a, child_b):
+            return False
+    
+    return True
+
+
+def are_constraints_contradicting(first: ConstraintAst, second: ConstraintAst) -> bool:
+    contradicting = [('eq', 'ne')]
+    if (first.value, second.value) in contradicting or (second.value, first.value) in contradicting:
+        return all([are_constraints_similar(child_a, child_b) for child_a, child_b in zip(first.children, second.children)])
+    return False
+
+
+def merge_constraints_similar(first: ConstraintAst, second: ConstraintAst) -> ConstraintAst:
+    assert len(first.children) == len(second.children)
+    value = first.value
+    if first.value != second.value:
+        if is_num(first.value) and is_num(second.value):
+            value = '0x?'
+        elif is_mem(first.value) and is_mem(second.value):
+            value = "mem_?"
+        elif is_retval(first.value) and is_retval(second.value):
+            value = "fake_ret_value_?_?"
+        else:
+            value = '?'
+        
+    children = [merge_constraints_similar(child_a, child_b) for child_a, child_b in zip(first.children, second.children)]
+    return ConstraintAst(value, children)
+
+
 def get_constraint_ast(constraint: str) -> ConstraintAst:
     constraint_ast = ConstraintAst(children=[])
     function_name, arguments = dissolve_function_call(constraint)
@@ -168,6 +225,7 @@ def get_constraint_ast(constraint: str) -> ConstraintAst:
         else:
             constraint_ast.children.append(ConstraintAst(value=arg))
     return constraint_ast
+
 
 
 class OutputConvertor:
@@ -205,13 +263,11 @@ class OutputConvertor:
                 self.filenames.remove(file)
         print('Finished scanning and adding all files\n', 'added {} files'.format(len(self.filenames)))
 
-    def convert_dataset(self, only_style: bool):
+    def convert_dataset(self):
         print('Starting to convert json files')
         for filename in tqdm(self.filenames):
             print(f'converting {filename}')
-            style_json(filename)
-            if not only_style:
-                self.__convert_json(filename)
+            self.__convert_json(filename)
             print(f'{filename} converted')
         print('Done converting, data should be ready')
 
@@ -222,12 +278,12 @@ class OutputConvertor:
             converted_edges.append(new_edge)
         return converted_edges
 
-    def __convert_constraints_to_reprs(self, block_constraints: List[str]) -> List:
+    def __process_constraints_to_asts(self, block_constraints: List[str]) -> List[ConstraintAst]:
         with open('conversion_config.json', 'r') as config_file:
             data = json.load(config_file)
             MAX_TOKENS_PER_CONSTRAINT = data['MAX_TOKENS_PER_CONSTRAINT']
 
-        nero_formatted_constraints = []
+        filtered_asts = []
         for path_constraints_string in block_constraints:
             constraints = path_constraints_string.split(CONSTRAINT_DELIM)
             for constraint in constraints:
@@ -235,19 +291,93 @@ class OutputConvertor:
                 constraint_ast = get_constraint_ast(constraint)
                 # filter all unwanted functions
                 constraint_ast.remove_filler_nodes(OUR_API_TYPE + 'Extract', 3)
-                # convert to nero format and save
-                nero_formatted_constraints += constraint_ast.convert_list_to_nero_format()
+                constraint_ast.remove_filler_nodes(OUR_API_TYPE + 'ZeroExt', 2)
+                constraint_ast.remove_filler_nodes(OUR_API_TYPE + 'invert', 1)
+                constraint_ast.remove_filler_nodes(OUR_API_TYPE + 'Concat', 1)  # Random choice - perhaps a different choice would be better.
 
-        return nero_formatted_constraints  # TODO: use the MAX_TOKENS parameter to cut the list according the the rules...
+                filtered_asts.append(constraint_ast)
+
+        return filtered_asts  # TODO: Use the MAX_TOKENS parameter to cut the list according the the rules...
+
+    def __prettify_constraints(self, block_constraints: List[str]) -> List[str]:
+        """
+        goals: take out garbage from the constraint like BOOL __X__
+        strip ' ' and '<' and '>'
+        structure of block_constraints:
+        It is a list of strings.
+        Each string represents the constraints of a single path through the CFG.
+        The constraints of each single path are delimited with a '|' character.
+        """
+        converted_block_constraints = []
+        for path_constraints in block_constraints:
+            converted_path_constraints = []
+            for constraint in path_constraints.split('|'):
+                # Remove the <Bool ... > prefix and suffix of each constraint.
+                converted_constraint = constraint.replace('Bool', '').replace('<', '').replace('>', '').strip()
+                # Clean the representation of boolean ops: remove the '__' prefix and suffix.
+                converted_constraint = re.sub(r'__(?P<op>[a-zA-Z]+)__',
+                                            r'\g<op>',
+                                            converted_constraint)
+                converted_path_constraints.append(converted_constraint)
+            # Style back to the original format
+            converted_block_constraints.append('|'.join(converted_path_constraints))
+        return converted_block_constraints
+
+    # This algorithm is rudimentary at best.
+    # Feel free to make it more efficient :)
+    def __deduplicate_constraints(self, constraint_asts: List[ConstraintAst]) -> List[ConstraintAst]:
+        i = 0
+        while i < len(constraint_asts):
+            duplicated = False
+            merged_ast = None
+            contradicting = False
+            j = i + 1
+            while j < len(constraint_asts) and not contradicting:
+                if are_constraints_similar(constraint_asts[i], constraint_asts[j]):
+                    if not duplicated:
+                        merged_ast = merge_constraints_similar(constraint_asts[i], constraint_asts[j])
+                        duplicated = True
+                    constraint_asts.pop(j)
+                elif are_constraints_contradicting(constraint_asts[i], constraint_asts[j]):
+                    constraint_asts.pop(j)
+                    constraint_asts.pop(i)
+                    contradicting = True
+                else:
+                    j += 1
+            if not contradicting:
+                if duplicated:  # Replace the original with the generalization
+                    constraint_asts[i] = merged_ast
+                i += 1
+        return constraint_asts
+
 
     def __convert_nodes(self, nodes: List) -> Dict:
+        with open('conversion_config.json', 'r') as config_file:
+                data = json.load(config_file)
+                MAX_TOKENS_PER_CONSTRAINT = data['MAX_TOKENS_PER_CONSTRAINT']
         converted_nodes = {}
         for node in nodes:
-            converted_constraint = self.__convert_constraints_to_reprs(node['constraints'])
-            if not converted_constraint:
+            if node['block_addr'] == 4224031:
+                print('HERE!')
+            # Remove "junk symbols"
+            node['constraints'] = self.__prettify_constraints(node['constraints'])
+
+            # Perform per-constraint styling on each node    
+            filtered_constraint_asts = self.__process_constraints_to_asts(node['constraints'])
+
+            # Perform node-wide deduplication
+            filtered_constraint_asts = self.__deduplicate_constraints(filtered_constraint_asts)
+            
+            # Convert to the nero format
+            converted_constraints = []        
+            for constraint_ast in filtered_constraint_asts:
+                converted_constraints += constraint_ast.convert_list_to_nero_format()
+
+
+            if not converted_constraints:
                 converted_nodes[node['block_addr']] = []
             else:
-                converted_nodes[node['block_addr']] = converted_constraint
+                converted_nodes[node['block_addr']] = converted_constraints
 
         return converted_nodes
 
@@ -269,13 +399,15 @@ class OutputConvertor:
             exe_name = exe_name_split[-1]
             package_name = exe_name_split[-2]
 
+        if function_name == 'set_process_security_ctx':
+            print('HERE!')
         converted_data = {'func_name': OUR_API_TYPE + function_name, 'GNN_data': {}, 'exe_name': exe_name,
                           'package': package_name}
         converted_data['GNN_data']['edges'] = self.__convert_edges(initial_data['GNN_DATA']['edges'])
         converted_data['GNN_data']['nodes'] = self.__convert_nodes(initial_data['GNN_DATA']['nodes'])
 
         with open(filename, 'w') as function_file:
-            jp_obj = encode(converted_data)
+            jp_obj = str(encode(converted_data))
             function_file.write(jp_obj)
 
 
@@ -335,7 +467,7 @@ def main():
     if not args.only_collect:
         out_convertor.backup_all_files(args.dataset_name)
         out_convertor.load_all_files(args.dataset_name)
-        out_convertor.convert_dataset(args.only_style)
+        out_convertor.convert_dataset()
     else:
         out_convertor.load_all_files(args.dataset_name)
 
