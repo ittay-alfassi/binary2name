@@ -233,3 +233,6 @@ if __name__ == '__main__':
 
     save_dictionaries(dataset_name=args.output_name, target_to_count=target_to_count,
                       api_to_count=api_to_count, arg_to_count=arg_to_count, num_training_examples=num_examples)
+
+
+# srun --pty -c 32 --gres=gpu:1 python3 preprocess.py -trd ptrain.json -ted test.json -vd validation.json -o data

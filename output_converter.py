@@ -462,9 +462,9 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--dataset_name', type=str, required=True,
                         help='enter dataset directory name (the one that is in preprocessed_data')
-    parser.add_argument('--train', type=int, required=True, help='percent of functions in the train file')
-    parser.add_argument('--test', type=int, required=True, help='percent of functions in the test file')
-    parser.add_argument('--val', type=int, required=True, help='percent of functions in the validate file')
+    parser.add_argument('--train', type=int, default=70, help='percent of functions in the train file')
+    parser.add_argument('--test', type=int, default=20, help='percent of functions in the test file')
+    parser.add_argument('--val', type=int, default=10, help='percent of functions in the validate file')
     parser.add_argument('--only_collect', dest='only_collect', action='store_true')
     parser.add_argument('--only_style', dest='only_style', action='store_true')
     args = parser.parse_args()
