@@ -455,7 +455,7 @@ class OrganizeOutput:
         validating_files = self.file_locations[train_length + test_length:]
         collect_to_file(training_files, 'train.json')
         collect_to_file(testing_files, 'test.json')
-        collect_to_file(validating_files, 'validate.json')
+        collect_to_file(validating_files, 'validation.json')
 
 
 def main():
