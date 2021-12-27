@@ -1,39 +1,39 @@
 # Binary2Name
-## Automatic detection for binary code functionality
+## Automatic Detection for Binary Code Functionality
 
-This project was devoloped by [Carol Hanna](https://github.com/carolhanna01) and [Abdallah Yassin](https://github.com/AbdallahYassin) as a part of the [Project in Computer Security](https://webcourse.cs.technion.ac.il/236349/Spring2020/) course at Technion. 
-Project Advisor: Dr. Gabi Nakibly. 
+This project was developed by [Ittay Alfassi](https://github.com/ittay-alfassi) and [Itamar Juwiler](https://github.com/itamar1208) as a part of the [Project in Computer Security](https://webcourse.cs.technion.ac.il/236349/Spring2021/) course at Technion - Israel Institute of Technology. 
+Project Advisors: Dr. Gabi Nakibly and Dr. Yaniv David. 
 
 ## Introduction:
 The main motivation for this project is to be a helpful tool for researchers of binary code.
-We started with binary datasets as input and used Angr, a symbolic analysis tool to get intermediate representation of the code. From there, came the most extensive step in the project which was to preprocess the intermediate code in preparation to be used as input to a neural network. We used a deep neural network adopted from [code2seq](https://github.com/tech-srl/code2seq), which is intended for the same goal but on source code as input instead of binaries.
+We started with binary datasets as input and used [angr](https://angr.io), a symbolic analysis tool to get an intermediate representation of the code.
+From there, came the most extensive step in the project which was to preprocess the intermediate code in preparation to be used as input to a neural network. We used a deep neural network adopted from [Nero](https://github.com/tech-srl/nero), which is intended for the same problem but used a different approach.
 
-We suggest reading our report about this project [here](https://docs.google.com/document/d/1Yae9Kd-zepH7cntqpsoU0b96FTeFHn8D8DEe5Tto_A8/edit?usp=sharing) before starting to run the code.
+We suggest reading our report about this project (final_report.pdf) before running the code.
 
 Getting started:
 =====================
-### Requirements:
-    -   python3
-    -   rouge package, version 0.3.2
-    -   TensorFlow, version 1.13 (pip install rouge==0.3.2)
+## Requirements:
+    -   Python 3.6 and up
+    -   all packages shown in requirements.txt 
 
-### Full preprocessing and training:
-#### Extarct our datasets: 
->   cd our_dataset/<desired dataset>
-    
->   tar -xzf <dataset_name>.tar.gz
-    
-#### Preprocessing:
-We have more than one model to preprocess the data (<model_name>_main.py files). First, change the run_exps.sh file to run the desired model (default is path with constraints).
->   run_exps.sh <pre-processed data name> <dataset name: coreutils_ds|dpdk_linux_ds|gnu_dataset>
+## Full preprocessing and training:
 
-#### code2seq training:
->   cd code2seq
+The bash script `run_whole_pipeline.sh` runs the project pipeline as a whole, and should achieve the results presented in the report.
 
->   ./train.sh <pre-processed data name>
-    
-### Get the best results quickly - TBD:
-We have uploaded our best models, with the preprocessed data. To run it automatically follow:
->   cd code2seq
+If you're running on the Lambda server, make sure to use srun!
 
->   continue_best_model.sh --dataset=<coreutils|coreutils_dpdk>
+### Extract our datasets: 
+The bash script `extract_data.sh` extracts all the zipped data that we used and generated.
+
+## Source code file description:
+  * `paths_constraints_main.py` is the python script that performs the basic symbolic execution. It reads its datasets from the `our_dataset` directory and saves its results to the `preprocessed_data` directory.
+
+  * `output_converter.py` is the file that applies constraint styling.  It reads its input from `preprocessed_data/<dir_name>`. The converted output will be saved under `ready_data/Converted_<dir_name>`.
+    The aggregated output will be saved under `ready_data/ready_<dir_name>`.
+
+  * `nero/preprocess.py` is the file that processes the files from `ready_data` and prepares them for execution by Nero. It reads its input from the any specified file, but usually uses `nero/procedure_representations/raw`.
+
+  * `nero/gnn.py` is the file that activates Nero's model. It reads its input from any specified file, but usually uses `nero/procedure_representations/preprocessed`.
+
+For more information on the Nero source code, reading the README of [Nero](https://github.com/tech-srl/nero) is recommended.
