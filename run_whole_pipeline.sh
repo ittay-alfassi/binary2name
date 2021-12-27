@@ -5,8 +5,8 @@ echo "Remember - If you're running on Lambda, usr srun!"
 echo "Also remember to have all your modules installed - angr and TensorFlow 1 included."
 
 # Extract data
-chmod +x unzip_data.sh
-./unzip_data.sh
+chmod +x extract_data.sh
+./extract_data.sh
 
 echo "Running symbolic analysis"
 python3 run_pproc.py --output_dir nero --dataset_dir nero_ds --log_dir nero_logs --cpu_no 30 --mem_limit 45 --no_usables_file
