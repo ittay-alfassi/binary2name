@@ -419,7 +419,8 @@ class OutputConvertor:
 
 
 class OrganizeOutput:
-    def __init__(self, file_locations, train_percentage, test_percentage, validate_percentage):
+    def __init__(self, dataset_name, file_locations, train_percentage, test_percentage, validate_percentage):
+        self.dataset_name = dataset_name
         self.train_percentage = train_percentage
         self.validate_percentage = validate_percentage
         self.test_percentage = test_percentage
@@ -453,9 +454,15 @@ class OrganizeOutput:
         training_files = self.file_locations[:train_length]
         testing_files = self.file_locations[train_length:train_length + test_length]
         validating_files = self.file_locations[train_length + test_length:]
-        collect_to_file(training_files, 'train.json')
-        collect_to_file(testing_files, 'test.json')
-        collect_to_file(validating_files, 'validation.json')
+
+        ready_dir = 'ready_' + self.dataset_name
+
+        if not os.path.exists(os.path.join('../ready_data', ready_dir)):
+            os.mkdir(os.path.join('../ready_data', ready_dir))
+        
+        collect_to_file(training_files, os.path.join(ready_dir, 'train.json'))
+        collect_to_file(testing_files, os.path.join(ready_dir, 'test.json'))
+        collect_to_file(validating_files, os.path.join(ready_dir, 'validation.json'))
 
 
 def main():
@@ -478,9 +485,9 @@ def main():
     else:
         out_convertor.load_all_files(args.dataset_name)
 
-    collector = OrganizeOutput(out_convertor.filenames, args.train, args.test, args.val)
+    collector = OrganizeOutput(args.dataset_name, out_convertor.filenames, args.train, args.test, args.val)
     collector.print_information_and_fix()
-    buff = input('continue? [y/n]\n')
+    buff = input('collect converted files into train/val/test? [y/n]\n')
     if 'y' in buff or 'Y' in buff:
         collector.collect_files()
 
